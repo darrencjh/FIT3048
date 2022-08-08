@@ -9,13 +9,30 @@ $this->disableAutoLayout();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <?= $this->Html->css('evo-calendar') ?>
+    <title>Booking with us - Shelbourne legal</title>
+    <?= $this->Html->css(['normalize.min', 'evo-calendar', 'bootstrap']) ?>
 
+    <style>
+
+        .bookingForm{
+            height: 1000px;
+        }
+    </style>
 </head>
 <body>
-<div id="calendar"></div>
-<button id="test">test</button>
+
+
+<div class="container">
+    <div id="calendar"></div>
+
+    <div class="bookingForm mt-5">
+        <h1 class="text-center">This is form section</h1>
+    </div>
+</div>
+
+
+
+
 
 <?= $this->Html->script('jquery-3.6.0.min') ?>
 <?= $this->Html->script('evo-calendar.min') ?>
@@ -118,6 +135,7 @@ $this->disableAutoLayout();
         $('.--weekend').css('pointer-events','none')
         $('.--weekend .day').css('color','#ccc')
     });
+
 
 </script>
 </body>
