@@ -27,7 +27,7 @@ input:focus, textarea:focus, button:focus {
 }
 .evo-calendar {
     position: relative;
-    background-color: #fbfbfb;
+    background-color: #01ab9d;
     color: #5a5a5a;
     width: 100%;
     -webkit-box-shadow: 0 10px 50px -20px #8773c1;
@@ -43,7 +43,7 @@ input:focus, textarea:focus, button:focus {
     width: 200px;
     height: 100%;
     float: left;
-    background-color: #8773c1;
+    background-color: #01ab9d;
     color: #fff;
     z-index: 1;
     -webkit-box-shadow: 5px 0 18px -3px #8773c1;
@@ -132,10 +132,10 @@ input:focus, textarea:focus, button:focus {
     font-size: 16px;
 }
 .calendar-sidebar > .month-list > .calendar-months > li:hover {
-    background-color: #a692e0;
+    background-color: #008B7FFF;
 }
 .calendar-sidebar > .month-list > .calendar-months > li.active-month {
-    background-color: #755eb5;
+    background-color: #067067FF;
 }
 
 .calendar-inner {
@@ -187,7 +187,7 @@ th[colspan="7"] {
     text-transform: uppercase;
     font-weight: 600;
     font-size: 30px;
-    color: #8773c1;
+    color: #01ab9d;
 }
 th[colspan="7"]::after {
     content: '';
@@ -318,12 +318,12 @@ tr.calendar-body .calendar-day .day[disabled] {
 }
 .event-list > .event-empty {
     padding: 15px 10px;
-    background-color: rgba(135,115,193,.15);
-    border: 1px solid #8773c1;
+    background-color: rgba(1,171,157,.15);
+    border: 1px solid #067067FF;
 }
 .event-list > .event-empty > p {
     margin: 0;
-    color: #755eb5;
+    color: #01ab9d;
 }
 .event-container {
     position: relative;
