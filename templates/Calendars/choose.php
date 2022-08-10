@@ -10,7 +10,7 @@ $this->disableAutoLayout();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking with us - Shelbourne legal</title>
-    <?= $this->Html->meta('icon', $this->Url->build('/img/Logo-name.png'),['fullBase'=>true]);?>
+    <?= $this->Html->meta('icon', $this->Url->build('/logo.png',['fullBase'=>true]));?>
     <?= $this->Html->meta('csrfToken',$this->request->getAttribute('csrfToken')); ?>
 
     <?= $this->Html->css(['normalize.min', 'evo-calendar', 'bootstrap','fontawesome-free/css/all.min']) ?>
@@ -55,45 +55,63 @@ $this->disableAutoLayout();
                 <h1 class="text-center" id="details">Enter Details</h1>
             </div>
 
+            <!--    Service-->
+            <div class="mb-3">
+                <label for="InputName" class="form-label fw-bold">Service</label>
+                <select class="form-select mb-3" aria-label="select a service">
+                    <option selected class="text-muted">Selected a service you want to book</option>
+                    <option value="1">Wills & Estate Planning Appointment</option>
+                    <option value="2">Probate and Estate Administration Appointment</option>
+                    <option value="3">Signing Appointment</option>
+                    <option value="4">Call back only</option>
+                </select>
+            </div>
+
             <!--    Name-->
             <div class="mb-3">
-                <label for="InputName" class="form-label">Name</label>
+                <label for="InputName" class="form-label fw-bold">Name *</label>
                 <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp">
             </div>
 
             <!--    email-->
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-labe fw-bold">Email *</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder = 'eg. example@email.com' pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'>
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
 
             <!--    location-->
-            <label for="InputLocation" class="form-label">Location</label>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="MSTeams">
-                <label class="form-check-label" for="MSTeams">
-                    Microsoft Teams
-                    <div id="emailHelp" class="form-text">Web conferencing details provided upon confirmation</div>
-                </label>
+            <div class="mb-3">
+                <label for="InputLocation" class="form-label fw-bold">Location *</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="MSTeams">
+                    <label class="form-check-label" for="MSTeams">
+                        <img src="//assets.calendly.com/packs/booking/media/ms-teams-e0858e32c5245a478456.svg" alt="" width="24px" height="24px">
+                        <span>Microsoft Teams</span>
+<!--                        <div id="emailHelp" class="form-text">Web conferencing details provided upon confirmation</div>-->
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Branch1">
+                    <label class="form-check-label" for="Branch1">
+                        <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" color="#e55cff" width="24px" height="24px" data-testid="physical"><title>Physical location</title><path d="M12 0C7.453 0 3.623 3.853 3.623 8.429c0 6.502 7.18 14.931 7.42 15.172.479.482 1.197.482 1.675.24l.24-.24c.239-.24 7.419-8.67 7.419-15.172C20.377 3.853 16.547 0 12 0zm0 11.56c-1.675 0-2.872-1.445-2.872-2.89S10.566 5.78 12 5.78c1.436 0 2.872 1.445 2.872 2.89S13.675 11.56 12 11.56z" fill="currentColor"></path></svg>
+                        <span>Suite 2, 1265 Nepean Highway, Cheltenham VIC 3192</span>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Branch2">
+                    <label class="form-check-label" for="Branch2">
+                        <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" color="#e55cff"  width="24px" height="24px" data-testid="physical"><title>Physical location</title><path d="M12 0C7.453 0 3.623 3.853 3.623 8.429c0 6.502 7.18 14.931 7.42 15.172.479.482 1.197.482 1.675.24l.24-.24c.239-.24 7.419-8.67 7.419-15.172C20.377 3.853 16.547 0 12 0zm0 11.56c-1.675 0-2.872-1.445-2.872-2.89S10.566 5.78 12 5.78c1.436 0 2.872 1.445 2.872 2.89S13.675 11.56 12 11.56z" fill="currentColor"></path></svg>
+                        <span>Suite 2, 681 Burke Road, Camberwell VIC 3124</span>
+                    </label>
+                </div>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="Branch1">
-                <label class="form-check-label" for="Branch1">
-                    Suite 2, 1265 Nepean Highway, Cheltenham VIC 3192
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="Branch2">
-                <label class="form-check-label" for="Branch2">
-                    Suite 2, 681 Burke Road, Camberwell VIC 3124
-                </label>
-            </div>
+
 
             <!--    phone number-->
             <div class="mb-3">
-                <label for="validationTooltip05">Phone Number</label>
-                <input type="text" class="form-control" id="validationTooltip05">
+                <label for="validationTooltip05" class="fw-bold">Phone Number *</label>
+                <input type="phone" class="form-control" id="validationTooltip05" placeholder="eg. 04xxxxxxxx" pattern='04[0-9]{8}'>
                 <div class="invalid-tooltip">
                     Please provide a valid zip.
                 </div>
@@ -101,7 +119,7 @@ $this->disableAutoLayout();
 
             <!--    Referral-->
             <div class="mb-3">
-                <label for="referralName" class="form-label">Referred by</label>
+                <label for="referralName" class="form-label fw-bold">Referred by</label>
                 <input type="text" class="form-control" id="referralName" aria-describedby="referralHelp">
             </div>
 
