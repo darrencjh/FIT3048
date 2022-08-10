@@ -21,6 +21,4 @@ class CalendarsController extends AppController
 
 
 
-
-
 }
