@@ -19,9 +19,10 @@ class BookingsFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => 'e4cebe41-9724-4e14-9403-76cc61a65977',
-                'date' => '2022-08-10',
+                'id' => '01299fc1-64f1-41c9-95a5-4062d35fe0e0',
+                'date' => '2022-08-11',
                 'booked_time' => 'Lorem ip',
+                'service' => 'Lorem ipsum dolor sit amet',
                 'name' => 'Lorem ipsum dolor sit amet',
                 'email' => 'Lorem ipsum dolor sit amet',
                 'location' => 'Lorem ipsum dolor sit amet',

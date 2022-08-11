@@ -137,4 +137,24 @@ class BookingsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+
+    public function choose()
+    {
+        $booking = $this->Bookings->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $booking = $this->Bookings->patchEntity($booking, $this->request->getData());
+            if ($this->Bookings->save($booking)) {
+                $this->Flash->success(__('The booking has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The booking could not be saved. Please, try again.'));
+        }
+        $this->set(compact('booking'));
+
+
+    }
+
+
 }
