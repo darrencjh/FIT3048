@@ -110,39 +110,40 @@ class ClientsController extends AppController
         if ($this->request->is("post")) {
             // Form submit handler
 
-
             $postData = $this->request->getData();
 
-            $recaptchaResponse = trim($postData['g-recaptcha-response']);
-
-            // form data
-
-            $secret = RECAPTCHAV2_SITEKEY;
-
-            $credential = array(
-                'secret' => $secret,
-                'response' => $recaptchaResponse
-            );
-
-            $verify = curl_init();
-            curl_setopt($verify, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
-            curl_setopt($verify, CURLOPT_POST, true);
-            curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($credential));
-            curl_setopt($verify, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($verify);
-
-            $status = json_decode($response, true);
-
-            if ($status['success']) {
-
+            if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
                 $this->Flash->success('Form has been successfully submitted');
             } else {
-
                 $this->Flash->success('Please check your inputs');
             }
         }
         $this->set("client", $client);
 
     }
+
+    private function __checkRecaptchaResponse($response){
+        // verifying the response is done through a request to this URL
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+        // The API request has three parameters (last one is optional)
+        $data = array('secret' => RECAPTCHAV2_SECRET,
+            'response' => $response,
+            'remoteip' => $_SERVER['REMOTE_ADDR']);
+
+        // use key 'http' even if you send the request to https://...
+        $options = array(
+            'http' => array(
+                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method'  => 'POST',
+                'content' => http_build_query($data),
+            ),
+        );
+
+        // We could also use curl to send the API request
+        $context  = stream_context_create($options);
+        $json_result = file_get_contents($url, false, $context);
+        $result = json_decode($json_result);
+        return $result->success;
+    }
+
 }
