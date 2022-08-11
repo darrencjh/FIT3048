@@ -16,6 +16,7 @@ $this->disableAutoLayout();
     <?= $this->Html->css(['normalize.min', 'evo-calendar', 'bootstrap','fontawesome-free/css/all.min']) ?>
 
 <!--#01ab9d-->
+
 </head>
 <body>
 
@@ -26,7 +27,7 @@ $this->disableAutoLayout();
 
 
     <!-- Company info and booking time   -->
-    <div class="row no-gutters">
+    <div class="row no-gutters mb-5">
         <div class="col-4">
             <div class="mt-5 pt-3">
                 <div class="text-center">
@@ -38,11 +39,11 @@ $this->disableAutoLayout();
                         <i class="fas fa-clock"></i>
                         <span>&nbsp; 1 hr</span>
                     </div>
-                    <div class="mt-2">
+                    <div class="mt-4">
                         <i class="fas fa-calendar"></i>
                         <span>&nbsp; <span class="selectedTime"></span></span>
                     </div>
-                    <div class="mt-2">
+                    <div class="mt-4">
                         <i class="fas fa-location-arrow"></i>
                         <span>&nbsp; Sydney, Melbourne Time</span>
                     </div>
@@ -55,33 +56,38 @@ $this->disableAutoLayout();
                 <h1 class="text-center" id="details">Enter Details</h1>
             </div>
 
+
             <!--    Service-->
-            <div class="mb-3">
-                <label for="InputName" class="form-label fw-bold">Service</label>
-                <select class="form-select mb-3" aria-label="select a service">
+            <div class="mb-4">
+                <label for="InputName" class="form-label fw-bold">Service *</label>
+                <select class="form-select is-invalid" aria-label="select a service" required>
                     <option selected class="text-muted">Selected a service you want to book</option>
-                    <option value="1">Wills & Estate Planning Appointment</option>
-                    <option value="2">Probate and Estate Administration Appointment</option>
-                    <option value="3">Signing Appointment</option>
-                    <option value="4">Call back only</option>
+                    <option value="Wills & Estate Planning Appointment">1-Wills & Estate Planning Appointment</option>
+                    <option value="Probate and Estate Administration Appointment">2-Probate and Estate Administration Appointment</option>
+                    <option value="Signing Appointment">3-Signing Appointment</option>
+                    <option value="Call back only">4-Call back only</option>
                 </select>
+                <div class="invalid-feedback">Please select a service</div>
             </div>
 
             <!--    Name-->
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="InputName" class="form-label fw-bold">Name *</label>
-                <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp">
+                <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp" required>
             </div>
 
             <!--    email-->
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="exampleInputEmail1" class="form-labe fw-bold">Email *</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder = 'eg. example@email.com' pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'>
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <input type="email" class="form-control is-invalid" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder = 'eg. example@email.com' required pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'>
+<!--                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                    Please provide a valid city.
+                </div>
             </div>
 
             <!--    location-->
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="InputLocation" class="form-label fw-bold">Location *</label>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="MSTeams">
@@ -109,23 +115,22 @@ $this->disableAutoLayout();
 
 
             <!--    phone number-->
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="validationTooltip05" class="fw-bold">Phone Number *</label>
-                <input type="phone" class="form-control" id="validationTooltip05" placeholder="eg. 04xxxxxxxx" pattern='04[0-9]{8}'>
+                <input type="phone" class="form-control" id="validationTooltip05" placeholder="eg. 04xxxxxxxx" pattern='04[0-9]{8}' required>
                 <div class="invalid-tooltip">
                     Please provide a valid zip.
                 </div>
             </div>
 
             <!--    Referral-->
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="referralName" class="form-label fw-bold">Referred by</label>
                 <input type="text" class="form-control" id="referralName" aria-describedby="referralHelp">
             </div>
 
-            <!--    button-->
-            <button type="button" class="btn btn-primary"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+            <!--    button to submit-->
+            <button type="button" class="btn btn-primary rounded-pill fw-bold py-3 mt-4">
                 Schedule Event
             </button>
         </div>
