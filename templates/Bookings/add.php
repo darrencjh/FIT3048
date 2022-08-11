@@ -19,6 +19,7 @@
                 <?php
                     echo $this->Form->control('date');
                     echo $this->Form->control('booked_time');
+                    echo $this->Form->control('service');
                     echo $this->Form->control('name');
                     echo $this->Form->control('email');
                     echo $this->Form->control('location');

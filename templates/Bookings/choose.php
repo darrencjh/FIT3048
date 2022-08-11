@@ -1,6 +1,9 @@
 <?php
 $this->disableAutoLayout();
-
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\Booking $booking
+ */
 ?>
 
 <!DOCTYPE html>
@@ -57,11 +60,20 @@ $this->disableAutoLayout();
             </div>
 
 
+            <?= $this->Form->create($booking) ?>
+            <?php
+            echo $this->Form->control('date',['label' => false,'class'=>'d-none']);
+            echo $this->Form->control('booked_time',['label' => false,'class'=>'d-none']);
+
+            ?>
+
+
+
             <!--    Service-->
             <div class="mb-4">
-                <label for="InputName" class="form-label fw-bold">Service *</label>
-                <select class="form-select is-invalid" aria-label="select a service" required>
-                    <option selected class="text-muted">Selected a service you want to book</option>
+                <label for="InputService" class="form-label fw-bold">Service *</label>
+                <select class="form-select" aria-label="select a service" id="InputService" name="service" required>
+                    <option selected class="text-muted" value="0">Selected a service you want to book</option>
                     <option value="Wills & Estate Planning Appointment">1-Wills & Estate Planning Appointment</option>
                     <option value="Probate and Estate Administration Appointment">2-Probate and Estate Administration Appointment</option>
                     <option value="Signing Appointment">3-Signing Appointment</option>
@@ -73,24 +85,27 @@ $this->disableAutoLayout();
             <!--    Name-->
             <div class="mb-4">
                 <label for="InputName" class="form-label fw-bold">Name *</label>
-                <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp" required>
+                <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp" name="name" required>
+                <div class="invalid-feedback">Please give your name</div>
             </div>
 
             <!--    email-->
             <div class="mb-4">
-                <label for="exampleInputEmail1" class="form-labe fw-bold">Email *</label>
-                <input type="email" class="form-control is-invalid" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder = 'eg. example@email.com' required pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'>
-<!--                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
-                <div id="validationServer03Feedback" class="invalid-feedback">
-                    Please provide a valid city.
+                <label for="InputEmail1" class="form-labe fw-bold">Email *</label>
+                <input type="email" class="form-control" id="InputEmail" name="email" aria-describedby="emailHelp" placeholder = 'eg. example@email.com' required pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'>
+                <div id="emptyEmailMsg" class="invalid-feedback">
+                    Please provide an email.
+                </div>
+                <div id="validEmailMsg" class="d-none">
+                    Please provide a valid email.
                 </div>
             </div>
 
             <!--    location-->
-            <div class="mb-4">
+            <div class="mb-4" id="allLocations">
                 <label for="InputLocation" class="form-label fw-bold">Location *</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="MSTeams">
+                    <input class="form-check-input" type="radio" name="location" id="MSTeams" value="Microsoft Teams">
                     <label class="form-check-label" for="MSTeams">
                         <img src="//assets.calendly.com/packs/booking/media/ms-teams-e0858e32c5245a478456.svg" alt="" width="24px" height="24px">
                         <span>Microsoft Teams</span>
@@ -98,18 +113,20 @@ $this->disableAutoLayout();
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Branch1">
+                    <input class="form-check-input" type="radio" name="location" id="Branch1" value="Suite 2, 1265 Nepean Highway, Cheltenham VIC 3192">
                     <label class="form-check-label" for="Branch1">
                         <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" color="#e55cff" width="24px" height="24px" data-testid="physical"><title>Physical location</title><path d="M12 0C7.453 0 3.623 3.853 3.623 8.429c0 6.502 7.18 14.931 7.42 15.172.479.482 1.197.482 1.675.24l.24-.24c.239-.24 7.419-8.67 7.419-15.172C20.377 3.853 16.547 0 12 0zm0 11.56c-1.675 0-2.872-1.445-2.872-2.89S10.566 5.78 12 5.78c1.436 0 2.872 1.445 2.872 2.89S13.675 11.56 12 11.56z" fill="currentColor"></path></svg>
                         <span>Suite 2, 1265 Nepean Highway, Cheltenham VIC 3192</span>
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Branch2">
+                    <input class="form-check-input" type="radio" name="location" id="Branch2" value="Suite 2, 681 Burke Road, Camberwell VIC 3124">
                     <label class="form-check-label" for="Branch2">
                         <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" color="#e55cff"  width="24px" height="24px" data-testid="physical"><title>Physical location</title><path d="M12 0C7.453 0 3.623 3.853 3.623 8.429c0 6.502 7.18 14.931 7.42 15.172.479.482 1.197.482 1.675.24l.24-.24c.239-.24 7.419-8.67 7.419-15.172C20.377 3.853 16.547 0 12 0zm0 11.56c-1.675 0-2.872-1.445-2.872-2.89S10.566 5.78 12 5.78c1.436 0 2.872 1.445 2.872 2.89S13.675 11.56 12 11.56z" fill="currentColor"></path></svg>
                         <span>Suite 2, 681 Burke Road, Camberwell VIC 3124</span>
                     </label>
+                    <div class="invalid-feedback">Please select a place you want to meet</div>
+
                 </div>
             </div>
 
@@ -117,22 +134,24 @@ $this->disableAutoLayout();
             <!--    phone number-->
             <div class="mb-4">
                 <label for="validationTooltip05" class="fw-bold">Phone Number *</label>
-                <input type="phone" class="form-control" id="validationTooltip05" placeholder="eg. 04xxxxxxxx" pattern='04[0-9]{8}' required>
-                <div class="invalid-tooltip">
-                    Please provide a valid zip.
+                <input type="phone" class="form-control" id="InputPhone" name="phone" placeholder="eg. 04xxxxxxxx" maxlength="10" pattern='04[0-9]{8}' required>
+                <div id="emptyPhoneMsg" class="invalid-feedback">
+                    Please provide your phone number.
+                </div>
+                <div id="validPhoneMsg" class="d-none">
+                    Please provide a valid phone number.
                 </div>
             </div>
 
             <!--    Referral-->
             <div class="mb-4">
                 <label for="referralName" class="form-label fw-bold">Referred by</label>
-                <input type="text" class="form-control" id="referralName" aria-describedby="referralHelp">
+                <input type="text" class="form-control" id="referralName" aria-describedby="referralHelp" name="referred_by">
             </div>
 
             <!--    button to submit-->
-            <button type="button" class="btn btn-primary rounded-pill fw-bold py-3 mt-4">
-                Schedule Event
-            </button>
+            <?= $this->Form->button(__('Schedule Event'),['class'=>'btn btn-primary rounded-pill fw-bold py-3 mt-4','id'=>'scheduleEvent']) ?>
+            <?= $this->Form->end() ?>
         </div>
 
     </div>
@@ -199,10 +218,6 @@ $this->disableAutoLayout();
                 console.log(selectedDate)
                 let selectedDateWithFormat = allMonths[selectedDate.getMonth()] + '/' + selectedDate.getDate() + '/' + selectedDate.getFullYear()
 
-                // let monthFormat=selectedDate.getMonth()+1
-                // if(monthFormat<10){
-                //     monthFormat="0"+monthFormat
-                // }
                 let selectedDateWithDbFormat=selectedDate.getFullYear()+'-'+newDateArray[0]+'-'+selectedDate.getDate()//2022-08-15
                 let weekday = selectedDate.getDay()
                 let eventsList = []
@@ -350,15 +365,27 @@ $this->disableAutoLayout();
                     },
                     dataType: "json",
                     success: function (result) {
-                        console.log(result);
-                        eventsList.forEach(function(item){
-                            result.forEach(function(bookedTime){
-                                if(item.name==bookedTime){
-                                    eventsList.splice(eventsList.indexOf(item),1)
+                        //console.log(result);
+
+                        let finalEventsList=[]
+                        for(var i=0;i<eventsList.length;i++){
+                            let findBooked=false
+                            for(let j=0;j<result.length;j++){
+                                if(eventsList[i].name==result[j]){
+                                    findBooked=true
+                                    break
+                                    //eventsList.splice(eventsList.indexOf(eventsList[i]),1)
                                 }
-                            })
-                        })
-                        $('#calendar').evoCalendar('addCalendarEvent', eventsList);
+
+                            }
+                            if(!findBooked){
+                                finalEventsList.push(eventsList[i])
+                            }
+
+                        }
+
+
+                        $('#calendar').evoCalendar('addCalendarEvent', finalEventsList);
 
                     }
                 })
@@ -411,8 +438,74 @@ $this->disableAutoLayout();
 
             $('.selectedTime').text(selectedTime)
 
-
+            let selectedDateWithDbFormat=selectedDate.getFullYear()+'-'+newDateArray[0]+'-'+selectedDate.getDate()//2022-08-15
+            $('[name="date"]').val(selectedDateWithDbFormat)
+            $('[name="booked_time"]').val(activeEvent.name)
         });
+
+        //when user click,remove error message
+        $("#InputService").click(function(){
+            if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+        })
+        $("#InputName").click(function(){
+            if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+        })
+        $("#InputEmail").click(function(){
+            if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+        })
+        $('[name="location"]').click(function(){
+            if($(this).hasClass('is-invalid')){
+                $("#MSTeams").removeClass("is-invalid")
+                $("#Branch1").removeClass("is-invalid")
+                $("#Branch2").removeClass("is-invalid")
+            }
+        })
+        $("#InputPhone").click(function(){
+            if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+        })
+
+
+        //form validations
+        $("#scheduleEvent").click(function(){
+            let service=InputService.value
+            let name=InputName.value
+            let email=InputEmail.value
+            let selectedlocation=""
+            $('[name="location"]').each(function(index,domEle){
+                if(domEle.checked){
+                    selectedlocation=domEle.value
+                }
+            })
+            let phone=InputPhone.value
+            if(service==0) $("#InputService").addClass("is-invalid")
+            if(name=="") $("#InputName").addClass("is-invalid")
+            //validate email
+            if(email==""){
+                $("#InputEmail").addClass("is-invalid")
+            }else if(email.indexOf('@')==-1){
+                $("#InputEmail").addClass("is-invalid")
+                $("#emptyEmailMsg").addClass("d-none")
+                $("#validEmailMsg").removeClass("d-none").addClass("invalid-feedback")
+            }
+            if(selectedlocation==""){
+                $("#MSTeams").addClass("is-invalid")
+                $("#Branch1").addClass("is-invalid")
+                $("#Branch2").addClass("is-invalid")
+            }
+            //validate phone number
+            if(phone==""){
+                $("#InputPhone").addClass("is-invalid")
+            }else if(phone.length!=10){
+                $("#InputPhone").addClass("is-invalid")
+                $("#emptyPhoneMsg").addClass("d-none")
+                $("#validPhoneMsg").removeClass("d-none").addClass("invalid-feedback")
+            }
+
+
+
+
+
+        })
 
 
 

@@ -281,7 +281,7 @@
     }
 </style>
 
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
 <div id="content">
@@ -289,7 +289,6 @@
     <div class="form-title">
         Wills & Estates Intake Form
     </div>
-    <?= $this->Flash->render() ?>
     <?= $this->Form->create($client, ["method" => "post"]) ?>
         <div class="ff-el-group">
             <h2>1. Basic Information</h2>
@@ -525,7 +524,10 @@
             </div>
         </div>
         <div class="last">
-            <div class="g-recaptcha" data-sitekey="<?= RECAPTCHAV2_SITEKEY ?>"></div>
+            <div class="g-recaptcha"
+                 data-sitekey="<?= RECAPTCHAV2_SITEKEY ?>">
+            </div>
+            <?php echo $this->Html->script('https://www.google.com/recaptcha/api.js"'); ?>
             <button type="submit" name="submit" class="ff-float-right ff-btn ff-btn-next ff-btn-secondary">Submit</button>
         </div>
     <?= $this->Form->end() ?>

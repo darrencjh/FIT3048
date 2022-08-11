@@ -62,6 +62,12 @@ class BookingsTable extends Table
             ->notEmptyString('booked_time');
 
         $validator
+            ->scalar('service')
+            ->maxLength('service', 64)
+            ->requirePresence('service', 'create')
+            ->notEmptyString('service');
+
+        $validator
             ->scalar('name')
             ->maxLength('name', 128)
             ->requirePresence('name', 'create')
