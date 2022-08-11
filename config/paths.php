@@ -92,3 +92,6 @@ define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'vendor' . DS . 'cakephp' . DS . 'c
  */
 define('CORE_PATH', CAKE_CORE_INCLUDE_PATH . DS);
 define('CAKE', CORE_PATH . 'src' . DS);
+
+define('RECAPTCHAV2_SITEKEY', '6LdPZVQhAAAAAHwm-YLY5D3vswypIsms2Gs4_bge');
+define('RECAPTCHAV2_SECRET', '6LdPZVQhAAAAAGR1pEvv8xHNzG2WjZzVIFC27B1n');
