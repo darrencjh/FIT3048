@@ -296,101 +296,131 @@
             <h4>1.1 Your Details</h4>
         </div>
         <div class="ff-cell">
-            <div class="column-1 ff-t-cell">
-                <div class="ff-el-group">
-                    <div class="label required">
-                        <label>Name in full </label>
+                    <div class="column-1 ff-t-cell">
+                        <div class="ff-el-group">
+                            <div class="label required">
+                                <label>Given Name </label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="full_name" class="input-control" placeholder="Ben " maxlength="20">
+                            </div>
+                        </div>
                     </div>
-                    <div class="input">
-                        <input type="text" name="full_name" class="form-control" placeholder="Name in full ">
+                    <div class="column-2 ff-t-cell">
+                        <div class="ff-el-group">
+                            <div class="label required">
+                                <label>Last Name</label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="other_names" class="input-control" placeholder="Simons  " maxlength="20">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-2 ff-t-cell">
+                        <div class="ff-el-group">
+                            <div class="label">
+                                <label>Preferred Name</label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="other_names" class="input-control" placeholder="Preferred name "  maxlength="20">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="ff-cell">
+                <div class="column-1 ff-t-cell">
+                    <div class="ff-el-group">
+                        <div class="label required">
+                            <label>Date of Birth </label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="date_birth" class="input-control" placeholder="01/01/1990 ">
+                        </div>
+                    </div>
+                </div>
+                <div class="column-2 ff-t-cell">
+                    <div class="ff-el-group">
+                        <div class="label required">
+                            <label>Occupation</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="occupation" class="input-control" placeholder="Doctor ">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="column-2 ff-t-cell">
-                <div class="ff-el-group">
-                    <div class="label">
-                        <label>Previous or other names</label>
+            <div class="ff-cell">
+                <div class="column-1 ff-t-cell">
+                    <div class="ff-el-group">
+                        <div class="label required">
+                            <label>Unit/House No.</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="address" class="input-control" placeholder="10 ">
+                        </div>
                     </div>
-                    <div class="input">
-                        <input type="text" name="other_names" class="form-control" placeholder="Previous or other names ">
+                </div>
+                <div class="column-2 ff-t-cell">
+                    <div class="ff-el-group">
+                        <div class="label required">
+                            <label>Street Address</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="postal_address" class="input-control" placeholder="Monash St" >
+                        </div>
+                    </div>
+                </div>
+                <div class="column-2 ff-t-cell">
+                    <div class="ff-el-group">
+                        <div class="label required">
+                            <label>State</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="postal_address" class="input-control" placeholder="State" >
+                        </div>
+                    </div>
+                </div>
+                <div class="column-2 ff-t-cell">
+                    <div class="ff-el-group">
+                        <div class="label required">
+                            <label>Post Code</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="postal_address" class="input-control" placeholder="3000">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="ff-cell">
-            <div class="column-1 ff-t-cell">
-                <div class="ff-el-group">
-                    <div class="label required">
-                        <label>Date of Birth </label>
+            <div class="ff-cell">
+                <div class="column-1 ff-t-cell">
+                    <div class="ff-el-group">
+                        <div class="label required">
+                            <label>Email</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="email" class="input-control" placeholder="monash@gmail.com ">
+                        </div>
                     </div>
-                    <div class="input">
-                        <input type="text" name="date_birth" class="form-control" placeholder="Date of Birth ">
+                </div>
+                <div class="column-2 ff-t-cell">
+                    <div class="ff-el-group">
+                        <div class="label required">
+                            <label>Phone number</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="phone" class="input-control" placeholder="0411222333">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="column-2 ff-t-cell">
-                <div class="ff-el-group">
-                    <div class="label required">
-                        <label>Occupation</label>
-                    </div>
-                    <div class="input">
-                        <input type="text" name="occupation" class="form-control" placeholder="Occupation ">
-                    </div>
+            <div class="ff-el-group">
+                <div class="label">
+                    <label>Referred by?</label>
+                </div>
+                <div class="input">
+                    <input type="text" name="referred_by" class="input-control" placeholder="Referred by?">
                 </div>
             </div>
-        </div>
-        <div class="ff-cell">
-            <div class="column-1 ff-t-cell">
-                <div class="ff-el-group">
-                    <div class="label required">
-                        <label>Address</label>
-                    </div>
-                    <div class="input">
-                        <input type="text" name="address" class="form-control" placeholder="Address ">
-                    </div>
-                </div>
-            </div>
-            <div class="column-2 ff-t-cell">
-                <div class="ff-el-group">
-                    <div class="label required">
-                        <label>Postal address</label>
-                    </div>
-                    <div class="input">
-                        <input type="text" name="postal_address" class="form-control" placeholder="Postal address">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ff-cell">
-            <div class="column-1 ff-t-cell">
-                <div class="ff-el-group">
-                    <div class="label required">
-                        <label>Email</label>
-                    </div>
-                    <div class="input">
-                        <input type="text" name="email" class="form-control" placeholder="Email ">
-                    </div>
-                </div>
-            </div>
-            <div class="column-2 ff-t-cell">
-                <div class="ff-el-group">
-                    <div class="label required">
-                        <label>Phone number</label>
-                    </div>
-                    <div class="input">
-                        <input type="text" name="phone" class="form-control" placeholder="Phone number">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ff-el-group">
-            <div class="label">
-                <label>Referred by?</label>
-            </div>
-            <div class="input">
-                <input type="text" name="referred_by" class="for-control" placeholder="Referred by?">
-            </div>
-        </div>
         <div class="ff-el-group">
             <h4>1.2 Existing Will &amp; Attorneys</h4>
             <p><span style="font-weight: 400;">Do you have an existing… &nbsp; </span></p>
