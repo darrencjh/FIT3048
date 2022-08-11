@@ -14,6 +14,7 @@
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('date') ?></th>
                     <th><?= $this->Paginator->sort('booked_time') ?></th>
+                    <th><?= $this->Paginator->sort('service') ?></th>
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
                     <th><?= $this->Paginator->sort('location') ?></th>
@@ -28,6 +29,7 @@
                     <td><?= h($booking->id) ?></td>
                     <td><?= h($booking->date) ?></td>
                     <td><?= h($booking->booked_time) ?></td>
+                    <td><?= h($booking->service) ?></td>
                     <td><?= h($booking->name) ?></td>
                     <td><?= h($booking->email) ?></td>
                     <td><?= h($booking->location) ?></td>

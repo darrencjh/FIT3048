@@ -27,6 +27,10 @@
                     <td><?= h($booking->booked_time) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Service') ?></th>
+                    <td><?= h($booking->service) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Name') ?></th>
                     <td><?= h($booking->name) ?></td>
                 </tr>
