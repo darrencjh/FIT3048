@@ -88,4 +88,9 @@ return static function (RouteBuilder $routes) {
      * });
      * ```
      */
+
+    $routes->connect(
+        '/captcha',
+        ['controller' => 'Site', 'action' => 'gCaptcha']
+    );
 };

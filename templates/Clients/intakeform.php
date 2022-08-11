@@ -1,3 +1,10 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\Client $client
+ */
+?>
+
 <style>
     body,
     html {
@@ -273,216 +280,225 @@
         display: inline-block;
     }
 </style>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+
 <div id="content">
+
     <div class="form-title">
         Wills & Estates Intake Form
     </div>
-    <div class="ff-el-group">
-        <h2>1. Basic Information</h2>
-        <h4>1.1 Your Details</h4>
-    </div>
-    <div class="ff-cell">
-        <div class="column-1 ff-t-cell">
-            <div class="ff-el-group">
-                <div class="label required">
-                    <label>Name in full </label>
-                </div>
-                <div class="input">
-                    <input type="text" name="full_name" class="input-control" placeholder="Name in full ">
-                </div>
-            </div>
+    <?= $this->Flash->render() ?>
+    <?= $this->Form->create($client, ["method" => "post"]) ?>
+        <div class="ff-el-group">
+            <h2>1. Basic Information</h2>
+            <h4>1.1 Your Details</h4>
         </div>
-        <div class="column-2 ff-t-cell">
-            <div class="ff-el-group">
-                <div class="label">
-                    <label>Previous or other names</label>
-                </div>
-                <div class="input">
-                    <input type="text" name="other_names" class="input-control" placeholder="Previous or other names ">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="ff-cell">
-        <div class="column-1 ff-t-cell">
-            <div class="ff-el-group">
-                <div class="label required">
-                    <label>Date of Birth </label>
-                </div>
-                <div class="input">
-                    <input type="text" name="date_birth" class="input-control" placeholder="Date of Birth ">
-                </div>
-            </div>
-        </div>
-        <div class="column-2 ff-t-cell">
-            <div class="ff-el-group">
-                <div class="label required">
-                    <label>Occupation</label>
-                </div>
-                <div class="input">
-                    <input type="text" name="occupation" class="input-control" placeholder="Occupation ">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="ff-cell">
-        <div class="column-1 ff-t-cell">
-            <div class="ff-el-group">
-                <div class="label required">
-                    <label>Address</label>
-                </div>
-                <div class="input">
-                    <input type="text" name="address" class="input-control" placeholder="Address ">
-                </div>
-            </div>
-        </div>
-        <div class="column-2 ff-t-cell">
-            <div class="ff-el-group">
-                <div class="label required">
-                    <label>Postal address</label>
-                </div>
-                <div class="input">
-                    <input type="text" name="postal_address" class="input-control" placeholder="Postal address">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="ff-cell">
-        <div class="column-1 ff-t-cell">
-            <div class="ff-el-group">
-                <div class="label required">
-                    <label>Email</label>
-                </div>
-                <div class="input">
-                    <input type="text" name="email" class="input-control" placeholder="Email ">
-                </div>
-            </div>
-        </div>
-        <div class="column-2 ff-t-cell">
-            <div class="ff-el-group">
-                <div class="label required">
-                    <label>Phone number</label>
-                </div>
-                <div class="input">
-                    <input type="text" name="phone" class="input-control" placeholder="Phone number">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="ff-el-group">
-        <div class="label">
-            <label>Referred by?</label>
-        </div>
-        <div class="input">
-            <input type="text" name="referred_by" class="input-control" placeholder="Referred by?">
-        </div>
-    </div>
-    <div class="ff-el-group">
-        <h4>1.2 Existing Will &amp; Attorneys</h4>
-        <p><span style="font-weight: 400;">Do you have an existing… &nbsp; </span></p>
-    </div>
-    <div class="ff-cell">
-        <div class="column-1 ff-t-cell">
-            <div class="ff-el-group">
-                <div class="label">
-                    <label>Will</label>
-                </div>
-                <div class="input" style="font-size: 0;">
-                    <div class="ff-el-form-check">
-                        <label class="ff-el-form-check-label">
-                            <input type="radio" name="is_will" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
-                            <span>Yes</span>
-                        </label>
+        <div class="ff-cell">
+            <div class="column-1 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label required">
+                        <label>Name in full </label>
                     </div>
-                    <div class="ff-el-form-check">
-                        <label class="ff-el-form-check-label">
-                            <input type="radio" name="is_will" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                            <span>No</span>
-                        </label>
+                    <div class="input">
+                        <input type="text" name="full_name" class="form-control" placeholder="Name in full ">
+                    </div>
+                </div>
+            </div>
+            <div class="column-2 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label">
+                        <label>Previous or other names</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="other_names" class="form-control" placeholder="Previous or other names ">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="column-2 ff-t-cell" style="display:none">
-            <div class="ff-el-group">
-                <div class="label">
-                    <label>Last Reviewed…</label>
-                </div>
-                <div class="input">
-                    <input type="text" name="will_text" class="input-control" placeholder="  Last Reviewed…">
+        <div class="ff-cell">
+            <div class="column-1 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label required">
+                        <label>Date of Birth </label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="date_birth" class="form-control" placeholder="Date of Birth ">
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="ff-cell">
-        <div class="column-1 ff-t-cell">
-            <div class="ff-el-group">
-                <div class="label">
-                    <label>Powers of Attorney</label>
-                </div>
-                <div class="input" style="font-size: 0;">
-                    <div class="ff-el-form-check">
-                        <label class="ff-el-form-check-label">
-                            <input type="radio" name="is_powers" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
-                            <span>Yes</span>
-                        </label>
+            <div class="column-2 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label required">
+                        <label>Occupation</label>
                     </div>
-                    <div class="ff-el-form-check">
-                        <label class="ff-el-form-check-label">
-                            <input type="radio" name="is_powers" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                            <span>No</span>
-                        </label>
+                    <div class="input">
+                        <input type="text" name="occupation" class="form-control" placeholder="Occupation ">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="column-2 ff-t-cell" style="display:none">
-            <div class="ff-el-group">
-                <div class="label">
-                    <label>Last Reviewed…</label>
-                </div>
-                <div class="input">
-                    <input type="text" name="powers_text" class="input-control" placeholder="  Last Reviewed…">
+        <div class="ff-cell">
+            <div class="column-1 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label required">
+                        <label>Address</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="address" class="form-control" placeholder="Address ">
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="ff-cell">
-        <div class="column-1 ff-t-cell">
-            <div class="ff-el-group">
-                <div class="label">
-                    <label>Binding Death Benefit Nominations</label>
-                </div>
-                <div class="input" style="font-size: 0;">
-                    <div class="ff-el-form-check">
-                        <label class="ff-el-form-check-label">
-                            <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
-                            <span>Yes</span>
-                        </label>
+            <div class="column-2 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label required">
+                        <label>Postal address</label>
                     </div>
-                    <div class="ff-el-form-check">
-                        <label class="ff-el-form-check-label">
-                            <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                            <span>No</span>
-                        </label>
+                    <div class="input">
+                        <input type="text" name="postal_address" class="form-control" placeholder="Postal address">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="column-2 ff-t-cell" style="display:none">
-            <div class="ff-el-group">
-                <div class="label">
-                    <label>Last Reviewed…</label>
+        <div class="ff-cell">
+            <div class="column-1 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label required">
+                        <label>Email</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="email" class="form-control" placeholder="Email ">
+                    </div>
                 </div>
-                <div class="input">
-                    <input type="text" name="binding_text" class="input-control" placeholder="  Last Reviewed…">
+            </div>
+            <div class="column-2 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label required">
+                        <label>Phone number</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="phone" class="form-control" placeholder="Phone number">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="last">
-        <button type="button" class="ff-float-right ff-btn ff-btn-next ff-btn-secondary" onclick="submit()">Next</button>
-    </div>
+        <div class="ff-el-group">
+            <div class="label">
+                <label>Referred by?</label>
+            </div>
+            <div class="input">
+                <input type="text" name="referred_by" class="for-control" placeholder="Referred by?">
+            </div>
+        </div>
+        <div class="ff-el-group">
+            <h4>1.2 Existing Will &amp; Attorneys</h4>
+            <p><span style="font-weight: 400;">Do you have an existing… &nbsp; </span></p>
+        </div>
+        <div class="ff-cell">
+            <div class="column-1 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label">
+                        <label>Will</label>
+                    </div>
+                    <div class="input" style="font-size: 0;">
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_will" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <span>Yes</span>
+                            </label>
+                        </div>
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_will" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-2 ff-t-cell" style="display:none">
+                <div class="ff-el-group">
+                    <div class="label">
+                        <label>Last Reviewed…</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="will_text" class="input-control" placeholder="  Last Reviewed…">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ff-cell">
+            <div class="column-1 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label">
+                        <label>Powers of Attorney</label>
+                    </div>
+                    <div class="input" style="font-size: 0;">
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_powers" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <span>Yes</span>
+                            </label>
+                        </div>
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_powers" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-2 ff-t-cell" style="display:none">
+                <div class="ff-el-group">
+                    <div class="label">
+                        <label>Last Reviewed…</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="powers_text" class="input-control" placeholder="  Last Reviewed…">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ff-cell">
+            <div class="column-1 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label">
+                        <label>Binding Death Benefit Nominations</label>
+                    </div>
+                    <div class="input" style="font-size: 0;">
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <span>Yes</span>
+                            </label>
+                        </div>
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-2 ff-t-cell" style="display:none">
+                <div class="ff-el-group">
+                    <div class="label">
+                        <label>Last Reviewed…</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="binding_text" class="input-control" placeholder="  Last Reviewed…">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="last">
+            <div class="g-recaptcha" data-sitekey="<?= RECAPTCHAV2_SITEKEY ?>"></div>
+            <button type="submit" name="submit" class="ff-float-right ff-btn ff-btn-next ff-btn-secondary">Submit</button>
+        </div>
+    <?= $this->Form->end() ?>
 </div>
 <script type="text/javascript">
     $(document).on("blur", ".ff-el-group input", function() {

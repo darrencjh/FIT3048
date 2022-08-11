@@ -102,4 +102,47 @@ class ClientsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+
+    public function intakeform()
+    {
+        $client = $this->Clients->newEmptyEntity();
+        if ($this->request->is("post")) {
+            // Form submit handler
+
+
+            $postData = $this->request->getData();
+
+            $recaptchaResponse = trim($postData['g-recaptcha-response']);
+
+            // form data
+
+            $secret = RECAPTCHAV2_SITEKEY;
+
+            $credential = array(
+                'secret' => $secret,
+                'response' => $recaptchaResponse
+            );
+
+            $verify = curl_init();
+            curl_setopt($verify, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+            curl_setopt($verify, CURLOPT_POST, true);
+            curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($credential));
+            curl_setopt($verify, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($verify);
+
+            $status = json_decode($response, true);
+
+            if ($status['success']) {
+
+                $this->Flash->success('Form has been successfully submitted');
+            } else {
+
+                $this->Flash->success('Please check your inputs');
+            }
+        }
+        $this->set("client", $client);
+
+    }
 }
