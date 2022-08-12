@@ -375,7 +375,11 @@
                             <label>State</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="postal_address" class="input-control" placeholder="State" >
+                            <select name="postal_address" class="input-control">
+							    <option>please select</option>
+								<option>Califonia</option>
+								<option>Washington</option>
+							</select>
                         </div>
                     </div>
                 </div>
@@ -417,7 +421,14 @@
                     <label>Referred by?</label>
                 </div>
                 <div class="input">
-                    <input type="text" name="referred_by" class="input-control" placeholder="Referred by?">
+                    <select name="referred_by" class="input-control">
+					    <option>please select</option>
+						<option>Tom</option>
+						<option>Mary</option>
+						<option>Linda</option>
+						<option>Lucy</option>
+						<option>Apple</option>
+					</select>
                 </div>
             </div>
         <div class="ff-el-group">
