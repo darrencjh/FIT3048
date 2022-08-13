@@ -98,7 +98,7 @@ endforeach;
             HEADER, FOOTER, MAIN
         ------------------------------------- */
         .main {
-            background: #01ab9d;
+            background: #ffffff;
             border-radius: 3px;
             width: 100%;
         }
@@ -380,6 +380,9 @@ endforeach;
         .text-center{
             text-align: center;
         }
+        h2{
+            margin-top: 24px;
+        }
 
     </style>
 </head>
@@ -402,15 +405,17 @@ endforeach;
                                         <div class="text-center">
                                             <?= $this->Html->image('legal_logo.jpg', ['alt' => 'Shelbourne legal','class' => '']); ?>
                                         </div>
-                                        <p>Hi, Thank you for making a booking </p>
+                                        <h2>Hi, Thank you for making a booking,here are booking info needed to confirm with you </h2>
                                         <p><b>Service:</b> <?= h($service) ?></p>
                                         <p><b>Meeting Date:</b> <?= h($date) ?></p>
-                                        <p><b>Meeting Time:</b><?= h($booked_time) ?></p>
-                                        <p><b>Meeting Location:</b><?= h($location) ?></p>
+                                        <p><b>Meeting Time:</b> <?= h($booked_time) ?></p>
+                                        <p><b>Meeting Location:</b> <?= h($location) ?></p>
                                         <p><b>Full name:</b> <?= h($name) ?></p>
                                         <p><b>Email address:</b> <?= $this->Html->link(h($email), 'mailto:' . h($email)) ?></p>
                                         <p><b>Phone number:</b> <?= h($phone) ?></p>
 
+                                        <h2>What's Next Step? </h2>
+                                        <p><b>Please fill in the Intake form: </b><a href="<?=  $this->Url->build(['controller'=>'Clients','action'=>'intakeform'], ['fullBase' => true]) ?>" target="_blank">Click here</a></p>
                                     </td>
                                 </tr>
                             </table>
