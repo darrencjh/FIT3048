@@ -375,18 +375,20 @@
                         <div class="label required">
                             <label>State</label>
                         </div>
-                        <div class="input">
-                            <select name="postal_address" class="input-control">
-							    <option>please select</option>
-								<option>New South Wales</option>
-								<option>Queensland</option>
-                                <option>South Australia</option>
-                                <option>Victoria</option>
-                                <option>Western Australia</option>
-                                <option>Tasmania</option>
-							</select>
-                        </div>
                     </div>
+                        <div class="btn-group">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                State
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                                <li><a class="dropdown-item" href="#">New South Wales</a></li>
+                                <li><a class="dropdown-item" href="#">Queensland</a></li>
+                                <li><a class="dropdown-item" href="#">South Australia</a></li>
+                                <li><a class="dropdown-item" href="#">Victoria</a></li>
+                                <li><a class="dropdown-item" href="#">Western Australia</a></li>
+                                <li><a class="dropdown-item" href="#">Tasmania</a></li>
+                            </ul>
+                        </div>
                 </div>
                 <div class="column-2 ff-t-cell">
                     <div class="ff-el-group">
@@ -426,21 +428,16 @@
                 <div class="label">
                     <label>Referred by?</label>
                 </div>
-                <div class="dropdown">
-<!--                    <select name="referred_by" class="input-control">-->
-<!--					    <option>please select</option>-->
-<!--						<option>Tom</option>-->
-<!--						<option>Mary</option>-->
-<!--						<option>Linda</option>-->
-<!--						<option>Lucy</option>-->
-<!--						<option>Apple</option>-->
-<!--					</select>-->
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <button class="dropdown-item" type="button">Tom</button>
-                        <button class="dropdown-item" type="button">Mary</button>
-                        <button class="dropdown-item" type="button">Linda</button>
-                        <button class="dropdown-item" type="button">Lucy</button>
-                    </div>
+                <div class="btn-group">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                        Choose: (optional)
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                        <li><a class="dropdown-item" href="#">Tom</a></li>
+                        <li><a class="dropdown-item" href="#">Mary</a></li>
+                        <li><a class="dropdown-item" href="#">Linda</a></li>
+                        <li><a class="dropdown-item" href="#">Lucy</a></li>
+                    </ul>
                 </div>
             </div>
         <div class="ff-el-group">
