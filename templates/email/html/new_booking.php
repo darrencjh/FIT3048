@@ -405,7 +405,8 @@ endforeach;
                                         <div class="text-center">
                                             <?= $this->Html->image('legal_logo.jpg', ['alt' => 'Shelbourne legal','class' => '']); ?>
                                         </div>
-                                        <h2>Hi, Thank you for making a booking,here are booking info needed to confirm with you </h2>
+                                        <p>Hi, Leonie </p>
+                                        <p>You have a new Booking,below is the booking information</p>
                                         <p><b>Service:</b> <?= h($service) ?></p>
                                         <p><b>Meeting Date:</b> <?= h($date) ?></p>
                                         <p><b>Meeting Time:</b> <?= h($booked_time) ?></p>
@@ -414,8 +415,7 @@ endforeach;
                                         <p><b>Email address:</b> <?= $this->Html->link(h($email), 'mailto:' . h($email)) ?></p>
                                         <p><b>Phone number:</b> <?= h($phone) ?></p>
 
-                                        <h2>What's Next Step? </h2>
-                                        <p><b>Please fill in the Intake form: </b><a href="<?=  $this->Url->build(['controller'=>'Clients','action'=>'intakeform'], ['fullBase' => true]) ?>" target="_blank">Click here</a></p>
+
                                     </td>
                                 </tr>
                             </table>

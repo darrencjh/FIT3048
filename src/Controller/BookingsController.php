@@ -155,11 +155,11 @@ class BookingsController extends AppController
                 $mailer
                     ->setEmailFormat('html')
                     ->setTo($booking->email)
-                    ->setFrom("wliu0025@u22s1043.monash-ie.me")
+                    ->setFrom("leonie@u22s1043.monash-ie.me")
                     ->setSubject('Confirmation of your booking' . " <" . h($booking->email) . ">")
                     ->viewBuilder()
                     ->disableAutoLayout()
-                    ->setTemplate('booking');
+                    ->setTemplate('bookingConfirmation');
 
                 // Send data to the email template
                 $mailer->setViewVars([
@@ -176,29 +176,30 @@ class BookingsController extends AppController
 
 
                 // 2.Send email to Leonie
-//                $mailer = new Mailer('default');
-//                // Setup email parameters
-//                $mailer
-//                    ->setEmailFormat('html')
-//                    ->setTo($booking->email)
-//                    ->setFrom("wliu0025@u22s1043.monash-ie.me")
-//                    ->setSubject('You have new booking' . " <" . h("Leonie@shelbournelegal.com.au") . ">")
-//                    ->viewBuilder()
-//                    ->disableAutoLayout()
-//                    ->setTemplate('booking');
-//
-//                // Send data to the email template
-//                $mailer->setViewVars([
-//                    'date' => $booking->date,
-//                    'booked_time' => $booking->booked_time,
-//                    'service'=>$booking->service,
-//                    'email' => $booking->email,
-//                    'name' => $booking->name,
-//                    'location' => $booking->location,
-//                    'phone' => $booking->phone
-//                ]);
-//                //Send email
-//                $email_result = $mailer->deliver();
+                $mailer = new Mailer('default');
+                // Setup email parameters
+                $mailer
+                    ->setEmailFormat('html')
+                    // When deploy to client's real hosting server,change this to Leonie's real Email address
+                    ->setTo("wliu0025@student.monash.edu")
+                    ->setFrom("leonie@u22s1043.monash-ie.me")
+                    ->setSubject('New booking' . " <" . h("Leonie@shelbournelegal.com.au") . ">")
+                    ->viewBuilder()
+                    ->disableAutoLayout()
+                    ->setTemplate('newBooking');
+
+                // Send data to the email template
+                $mailer->setViewVars([
+                    'date' => $booking->date,
+                    'booked_time' => $booking->booked_time,
+                    'service'=>$booking->service,
+                    'email' => $booking->email,
+                    'name' => $booking->name,
+                    'location' => $booking->location,
+                    'phone' => $booking->phone
+                ]);
+                //Send email
+                $email_result = $mailer->deliver();
 
 
 
