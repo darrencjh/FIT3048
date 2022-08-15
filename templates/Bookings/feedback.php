@@ -1,6 +1,5 @@
 <?php
 $this->assign('title', 'Booking Feedback');
-$this->Html->script('bootstrap.bundle.min',['block' => true])
 
 ?>
 <style>
@@ -21,6 +20,7 @@ $this->Html->script('bootstrap.bundle.min',['block' => true])
         margin: 0 auto !important;
         padding-top: 15px;
         padding-bottom: 10px;
+        font-weight: 600;
     }
     .container-fluid{
         padding: 15px 20px 10px 20px;
@@ -47,8 +47,51 @@ $this->Html->script('bootstrap.bundle.min',['block' => true])
         background-size: cover;
         transition: background .3s,border .3s,border-radius .3s,box-shadow .3s;
         padding: 200px 60px 150px;
-        height: 114px !important;
+        height: 464px !important;
     }
+
+
+
+    /*@media (min-width: 544px){*/
+    /*    .feedback-title {*/
+    /*        width: 50%;*/
+    /*    }*/
+    /*}*/
+    /*@media (min-width: 768px){*/
+    /*    .feedback-title {*/
+    /*        width: 27.44%;*/
+    /*    }*/
+    /*}*/
+    .feedback-title-container{
+        display: flex;
+        max-width: 1250px;
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+        margin-bottom: 40px;
+    }
+
+    .feedback-title{
+        color: #fff;
+        font-size: 45px;
+        line-height: 1.4em;
+        padding: 10px 20px;
+        background-color: rgba(23,188,185,.8);
+
+
+    }
+    .feedback-title>div{
+        font-size: 45px;
+        font-weight: 200;
+        line-height: 1.2em;
+    }
+
+    .feedback-title>div::selection{
+        background-color: #17bcb9;
+        color: #000;
+    }
+
+
 
 </style>
 
@@ -98,8 +141,21 @@ $this->Html->script('bootstrap.bundle.min',['block' => true])
 </nav>
 
 
-<div class="bg-image mt-2"></div>
+<div class="bg-image mt-2">
+    <div class="feedback-title-container">
+        <div class="feedback-title">
+            <div>Your Booking Feedback </div>
+
+        </div>
+    </div>
+
+</div>
 
 <div class="container-xl">
-    asxsaxs
+    <div class="h4 my-5">Your booking is successfully submitted! Thank you for making a booking with us. </div>
+    <div class="h4 my-5">Boooking information is sent to your email. Please confirm. If need changes,please contact us</div>
+    <div class="h4 my-5">Next Step: Please fill in the intake form  before your booking time.</div>
+    <div class="text-center">
+        <a class="btn btn-outline-shelbourne rounded-pill" target="_blank" href="<?=  $this->Url->build(['controller'=>'Clients','action'=>'intakeform'], ['fullBase' => true]) ?>">Fill in Intake Form</a>
+    </div>
 </div>

@@ -1,0 +1,61 @@
+/* Customize Styles for shelbourne website  */
+.btn-primary {
+    color: #fff;
+    background-color: #01ab9d;
+    border-color: #01ab9d;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #01ab9d;
+    border-color: #01ab9d;
+}
+.btn-check:focus + .btn-primary, .btn-primary:focus {
+    color: #fff;
+    background-color: #01ab9d;
+    border-color: #01ab9d;
+    box-shadow: 0 0 0 0.25rem rgba(23,188,185,0.5);
+}
+.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #01ab9d;
+    border-color: #01ab9d;
+}
+.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.25rem rgba(23,188,185,0.5);
+}
+.btn-primary:disabled, .btn-primary.disabled {
+    color: #fff;
+    background-color: #01ab9d;
+    border-color: #01ab9d;
+}
+
+
+.btn-outline-shelbourne {
+    color: #01ab9d;
+    height: 44px;
+    line-height: 33px;
+    border: 2px solid #01ab9d;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.btn-outline-shelbourne:hover {
+    color: #fff;
+    background-color: #01ab9d;
+    border-color: #01ab9d;
+}
+.btn-check:focus + .btn-outline-shelbourne, .btn-outline-shelbourne:focus {
+    box-shadow: 0 0 0 0.25rem rgba(23,188,185,0.5);
+}
+.btn-check:checked + .btn-outline-shelbourne, .btn-check:active + .btn-outline-shelbourne, .btn-outline-shelbourne:active, .btn-outline-shelbourne.active, .btn-outline-shelbourne.dropdown-toggle.show {
+    color: #fff;
+    background-color: #01ab9d;
+    border-color: #01ab9d;
+}
+.btn-check:checked + .btn-outline-shelbourne:focus, .btn-check:active + .btn-outline-shelbourne:focus, .btn-outline-shelbourne:active:focus, .btn-outline-shelbourne.active:focus, .btn-outline-shelbourne.dropdown-toggle.show:focus {
+    box-shadow: 0 0 0 0.25rem rgba(23,188,185,0.5);
+}
+.btn-outline-shelbourne:disabled, .btn-outline-shelbourne.disabled {
+    color: #01ab9d;
+    background-color: transparent;
+}

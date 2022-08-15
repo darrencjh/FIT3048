@@ -9,6 +9,8 @@ $this->assign('title', 'Booking with us');
 <div class="container">
 
     <div id="calendar"></div>
+    <div id="noDateTimeInfo" class="d-none text-danger my-4">Please select a date and time</div>
+
 
     <!-- Company info and booking time   -->
     <div class="row no-gutters mb-5">
@@ -131,7 +133,7 @@ $this->assign('title', 'Booking with us');
             </div>
 
             <!--    button to submit-->
-            <?= $this->Form->button(__('Schedule Event'),['class'=>'btn btn-primary rounded-pill fw-bold py-3 mt-4','id'=>'scheduleEvent']) ?>
+            <?= $this->Form->button(__('Schedule Event'),['class'=>'btn btn-primary rounded-pill fw-bold px-4 py-3 mt-4','id'=>'scheduleEvent']) ?>
             <?= $this->Form->end() ?>
         </div>
 
@@ -403,6 +405,8 @@ $this->assign('title', 'Booking with us');
             $('#calendar').on('selectEvent', function (event, activeEvent) {
                 // navigate to form section
                 document.getElementById('details').scrollIntoView(true)
+                $("#noDateTimeInfo").addClass("d-none")
+
                 console.log($('#calendar').evoCalendar('getActiveDate')) // get the selected date:08/08/2022
                 console.log(activeEvent)//{id: 0.6927114948990831, name: '1:00pm', date: '08/11/2022', type: 'event', color: '#63d867'}
 
@@ -445,6 +449,7 @@ $this->assign('title', 'Booking with us');
 
             //form validations
             $("#scheduleEvent").click(function(){
+                let dateTime=$(".selectedTime").text()
                 let service=InputService.value
                 let name=InputName.value
                 let email=InputEmail.value
@@ -455,6 +460,12 @@ $this->assign('title', 'Booking with us');
                     }
                 })
                 let phone=InputPhone.value
+                //start validation
+                if(dateTime==""){
+                    // navigate to calendar
+                    document.getElementById('calendar').scrollIntoView(true)
+                    $("#noDateTimeInfo").removeClass("d-none")
+                }
                 if(service==0) $("#InputService").addClass("is-invalid")
                 if(name=="") $("#InputName").addClass("is-invalid")
                 //validate email

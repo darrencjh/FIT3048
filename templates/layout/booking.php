@@ -30,7 +30,7 @@ $titleDescription = '- Shelbourne legal';
     <?= $this->Html->meta('csrfToken',$this->request->getAttribute('csrfToken')); ?>
 
     <!--#01ab9d-->
-    <?= $this->Html->css(['normalize.min', 'evo-calendar', 'bootstrap','fontawesome-free/css/all.min']) ?>
+    <?= $this->Html->css(['normalize.min', 'evo-calendar', 'bootstrap','fontawesome-free/css/all.min','shelbourne']) ?>
 
     <?= $this->Html->script('jquery-3.6.0.min') ?>
 
@@ -39,6 +39,7 @@ $titleDescription = '- Shelbourne legal';
     <?= $this->Flash->render() ?>
     <?= $this->fetch('content') ?>
 
+    <?= $this->Html->script('bootstrap.bundle.min') ?>
     <?= $this->fetch('script') ?>
 
 </body>
