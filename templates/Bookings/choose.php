@@ -444,15 +444,16 @@ $this->disableAutoLayout();
         });
 
         //when user click,remove error message
-        $("#InputService").click(function(){
+        $("#InputService").change(function(){
             if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
         })
-        $("#InputName").click(function(){
+        $("#InputName").mousedown(function(){
             if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
         })
-        $("#InputEmail").click(function(){
+        $("#InputEmail").mousedown(function(){
             if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
         })
+        //drop down
         $('[name="location"]').click(function(){
             if($(this).hasClass('is-invalid')){
                 $("#MSTeams").removeClass("is-invalid")
@@ -460,7 +461,7 @@ $this->disableAutoLayout();
                 $("#Branch2").removeClass("is-invalid")
             }
         })
-        $("#InputPhone").click(function(){
+        $("#InputPhone").mousedown(function(){
             if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
         })
 
@@ -501,7 +502,11 @@ $this->disableAutoLayout();
                 $("#validPhoneMsg").removeClass("d-none").addClass("invalid-feedback")
             }
 
-
+            if(service && name && email && email.indexOf('@')!=-1 && selectedlocation && phone && phone.length==10){
+                return true
+            }else{
+                return false
+            }
 
 
 
