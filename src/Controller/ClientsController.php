@@ -106,6 +106,10 @@ class ClientsController extends AppController
 
     public function intakeform()
     {
+        // Set the intakeform layout.
+        $this->viewBuilder()->setLayout('intakeform');
+
+
         $client = $this->Clients->newEmptyEntity();
         if ($this->request->is("post")) {
             // Form submit handler
