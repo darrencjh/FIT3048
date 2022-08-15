@@ -1,53 +1,46 @@
-# CakePHP Application Skeleton
+# Team43 - CakePHP App
 
-![Build Status](https://github.com/cakephp/app/actions/workflows/ci.yml/badge.svg?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
-[![PHPStan](https://img.shields.io/badge/PHPStan-level%207-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
+Cakephp applications version with [CakePHP](https://cakephp.org) 4.x.
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 4.x.
+Windows:  Always open **xampp** when you start your computer
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+- Apache
+- Mysql
 
 ## Installation
 
 1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
 
-If Composer is installed globally, run
+2. Windows: In the xampp/htdocs folder,open terminal and Run `git clone https://git-prd.infotech.monash.edu/UGIE/ugie-2022/team43/team43-app_fit3048.git`
 
-```bash
-composer create-project --prefer-dist cakephp/app
-```
+   (You may need give username/email and password. It is your gitlab username and password)
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
+## Fist time Configuration
 
-```bash
-composer create-project --prefer-dist cakephp/app myapp
-```
+1. run `composer update` and `composer install` to download any necessary dependancies
 
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
+2. open `database_schema_data/schema.sql` and copy everything in this sql file into your local phpAdmin sql,click `go` button at the bottom right
+3.  Edit the environment specific `config/app_local.php` and setup the 
+   `Database` and any other configuration relevant for your application.
+   Other environment agnostic settings can be changed in `config/app.php`.
+4. In your browser,type url `localhost/team43-app_fit3048` to test
 
-```bash
-bin/cake server -p 8765
-```
 
-Then visit `http://localhost:8765` to see the welcome page.
 
-## Update
+## Update your local project
 
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
+Each time you want to get latest codes,run `git pull`
 
-## Configuration
+Then run `composer update` and `composer install` to download any necessary dependancies
 
-Read and edit the environment specific `config/app_local.php` and setup the 
-`'Datasources'` and any other configuration relevant for your application.
-Other environment agnostic settings can be changed in `config/app.php`.
 
-## Layout
 
-The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+## *Upload your codes into gitlab
+
+1. Always keep in mind that running `git pull`before uploading your codes
+2. run `git add .`
+3. run `git commit -m "Your description of your finished codes"`
+4. run `git push`,done
+
+
+
