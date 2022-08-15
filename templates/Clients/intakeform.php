@@ -301,7 +301,7 @@
                                 <label>Given Name </label>
                             </div>
                             <div class="input">
-                                <input type="text" name="full_name" class="input-control" placeholder="Ben " maxlength="20">
+                                <input type="text" name="full_name" class="input-control" placeholder="Ben " maxlength="20" required>
                             </div>
                         </div>
                     </div>
@@ -311,7 +311,7 @@
                                 <label>Last Name</label>
                             </div>
                             <div class="input">
-                                <input type="text" name="other_names" class="input-control" placeholder="Simons  " maxlength="20">
+                                <input type="text" name="other_names" class="input-control" placeholder="Simons  " maxlength="20" required>
                             </div>
                         </div>
                     </div>
@@ -333,7 +333,7 @@
                             <label>Date of Birth </label>
                         </div>
                         <div class="input">
-                            <input type="text" name="date_birth" class="input-control" placeholder="01/01/1990 ">
+                            <input type="text" name="date_birth" class="input-control" placeholder="01/01/1990 " required>
                         </div>
                     </div>
                 </div>

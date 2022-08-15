@@ -113,9 +113,15 @@ class ClientsController extends AppController
             $postData = $this->request->getData();
 
             if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
-                $this->Flash->success('Form has been successfully submitted');
+                if ($this->Clients->save($client)) {
+                    $this->Flash->success('Form has been successfully submitted');
+                    //navigate to new page
+                }
+                else{
+                    $this->Flash->error(__('The client could not be saved. Please, try again.'));
+                }
             } else {
-                $this->Flash->success('Please check your inputs');
+                $this->Flash->error('Please check your inputs');
             }
         }
         $this->set("client", $client);
