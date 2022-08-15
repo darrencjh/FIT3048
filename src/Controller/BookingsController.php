@@ -142,6 +142,9 @@ class BookingsController extends AppController
 
     public function choose()
     {
+        // Set the booking layout.
+        $this->viewBuilder()->setLayout('booking');
+
         $booking = $this->Bookings->newEmptyEntity();
         if ($this->request->is('post')) {
             $booking = $this->Bookings->patchEntity($booking, $this->request->getData());
@@ -204,7 +207,7 @@ class BookingsController extends AppController
 
 
                 if ($email_result) {
-                    $this->Flash->success(__('The enquiry has been saved and sent via email.'));
+                    $this->Flash->success(__('Thank you for making a booking and confirm booking information in your email.'));
                 } else {
                     $this->Flash->error(__('Email failed to send. Please check the query in the system later. '));
                 }
@@ -216,6 +219,14 @@ class BookingsController extends AppController
 
 
     }
+
+
+    public function feedback(){
+        // Set the booking layout.
+        $this->viewBuilder()->setLayout('booking');
+
+    }
+
 
 
 }
