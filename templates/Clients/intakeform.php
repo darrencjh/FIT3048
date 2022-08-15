@@ -3,6 +3,8 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Client $client
  */
+$this->Html->css(['normalize.min', 'bootstrap.css']);
+$this->Html->script('bootstrap.bundle.min', array('block' => true));
 ?>
 
 <style>
@@ -343,7 +345,7 @@
                             <label>Occupation</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="occupation" class="input-control" placeholder="Doctor ">
+                            <input type="text" name="occupation" class="input-control" placeholder="Doctor " required>
                         </div>
                     </div>
                 </div>
@@ -355,7 +357,7 @@
                             <label>Unit/House No.</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="address" class="input-control" placeholder="10 ">
+                            <input type="text" name="address" class="input-control" placeholder="10 " required>
                         </div>
                     </div>
                 </div>
@@ -365,7 +367,7 @@
                             <label>Street Address</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="postal_address" class="input-control" placeholder="Monash St" >
+                            <input type="text" name="postal_address" class="input-control" placeholder="Monash St" required>
                         </div>
                     </div>
                 </div>
@@ -377,8 +379,12 @@
                         <div class="input">
                             <select name="postal_address" class="input-control">
 							    <option>please select</option>
-								<option>Califonia</option>
-								<option>Washington</option>
+								<option>New South Wales</option>
+								<option>Queensland</option>
+                                <option>South Australia</option>
+                                <option>Victoria</option>
+                                <option>Western Australia</option>
+                                <option>Tasmania</option>
 							</select>
                         </div>
                     </div>
@@ -389,7 +395,7 @@
                             <label>Post Code</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="postal_address" class="input-control" placeholder="3000">
+                            <input type="text" name="postal_address" class="input-control" placeholder="3000" required>
                         </div>
                     </div>
                 </div>
@@ -401,7 +407,7 @@
                             <label>Email</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="email" class="input-control" placeholder="monash@gmail.com ">
+                            <input type="text" name="email" class="input-control" placeholder="monash@gmail.com " required>
                         </div>
                     </div>
                 </div>
@@ -411,7 +417,7 @@
                             <label>Phone number</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="phone" class="input-control" placeholder="0411222333">
+                            <input type="text" name="phone" class="input-control" placeholder="0411222333" required>
                         </div>
                     </div>
                 </div>
@@ -420,15 +426,21 @@
                 <div class="label">
                     <label>Referred by?</label>
                 </div>
-                <div class="input">
-                    <select name="referred_by" class="input-control">
-					    <option>please select</option>
-						<option>Tom</option>
-						<option>Mary</option>
-						<option>Linda</option>
-						<option>Lucy</option>
-						<option>Apple</option>
-					</select>
+                <div class="dropdown">
+<!--                    <select name="referred_by" class="input-control">-->
+<!--					    <option>please select</option>-->
+<!--						<option>Tom</option>-->
+<!--						<option>Mary</option>-->
+<!--						<option>Linda</option>-->
+<!--						<option>Lucy</option>-->
+<!--						<option>Apple</option>-->
+<!--					</select>-->
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button class="dropdown-item" type="button">Tom</button>
+                        <button class="dropdown-item" type="button">Mary</button>
+                        <button class="dropdown-item" type="button">Linda</button>
+                        <button class="dropdown-item" type="button">Lucy</button>
+                    </div>
                 </div>
             </div>
         <div class="ff-el-group">
