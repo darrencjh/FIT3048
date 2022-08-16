@@ -4,6 +4,7 @@
  * @var \App\Model\Entity\Client $client
  */
 ?>
+
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <div class="container">
@@ -268,6 +269,123 @@
                 </div>
             </div>
         </div>
+		
+        <!-- add 1.3 div  -->
+        <div class="ff-el-group">
+            <h4>1.3 Health Concerns</h4>
+        </div>
+        <div class="ff-cell">
+            <div class="column-1 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label">
+                        <label>Do you have any brain-related disorders; memory loss or confusion; or take any medication that could impact on cognitive function?</label>
+                    </div>
+                    <div class="input" style="font-size: 0;">
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <span>Yes</span>
+                            </label>
+                        </div>
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>		
+
+		<!-- add family div  -->
+        <div class="ff-el-group">
+            <h2>Your Family</h2>
+        </div>
+        <div class="ff-cell">
+            <div class="column-1 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label">
+                        <label>What is your relationship status</label>
+                    </div>
+                    <div class="input" style="font-size: 0;">
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <span>Married</span>
+                            </label>
+                        </div>
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <span>De-facto</span>
+                            </label>
+                        </div>
+						<div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <span>Separated or Devoiced</span>
+                            </label>
+                        </div>
+						<div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <span>never married or divorced</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<!-- add Children div  -->
+        <div class="ff-el-group">
+            <h2>Do you have children</h2>
+        </div>
+        <div class="ff-cell">
+            <div class="column-1 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label">
+                        <label>From your current relationship?</label>
+                    </div>
+                    <div class="input" style="font-size: 0;">
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <span>Yes</span>
+                            </label>
+                        </div>
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+				<div class="ff-el-group">
+                    <div class="label">
+                        <label>From your previous relationship?</label>
+                    </div>
+                    <div class="input" style="font-size: 0;">
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <span>Yes</span>
+                            </label>
+                        </div>
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>		
+				
+		
         <div class="last">
             <div class="g-recaptcha"
                  data-sitekey="<?= RECAPTCHAV2_SITEKEY ?>">
