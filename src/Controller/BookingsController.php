@@ -211,7 +211,7 @@ class BookingsController extends AppController
                 } else {
                     $this->Flash->error(__('Email failed to send. Please check the query in the system later. '));
                 }
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'feedback']);
             }
             $this->Flash->error(__('The booking could not be saved. Please, try again.'));
         }
@@ -220,11 +220,47 @@ class BookingsController extends AppController
 
     }
 
-
+    public function test(){
+        $pageTitle="This is Test page";
+        $this->set(compact('pageTitle'));
+    }
     public function feedback(){
-        // Set the booking layout.
-        $this->viewBuilder()->setLayout('booking');
 
+        if ($this->request->is("post")) {
+            // Form submit handler
+            if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
+                $this->Flash->success('You have passed the recaptcha validation');
+            } else {
+                $this->Flash->error('Please check your inputs');
+            }
+        }
+        $pageTitle="Your Booking Feedback";
+        $this->set(compact('pageTitle'));
+
+    }
+
+    private function __checkRecaptchaResponse($response){
+        // verifying the response is done through a request to this URL
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+        // The API request has three parameters (last one is optional)
+        $data = array('secret' => RECAPTCHAV2_SECRET,
+            'response' => $response,
+            'remoteip' => $_SERVER['REMOTE_ADDR']);
+
+        // use key 'http' even if you send the request to https://...
+        $options = array(
+            'http' => array(
+                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method'  => 'POST',
+                'content' => http_build_query($data),
+            ),
+        );
+
+        // We could also use curl to send the API request
+        $context  = stream_context_create($options);
+        $json_result = file_get_contents($url, false, $context);
+        $result = json_decode($json_result);
+        return $result->success;
     }
 
 

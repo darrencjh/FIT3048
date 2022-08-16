@@ -1,0 +1,217 @@
+*{
+    font-family: 'Poppins',sans-serif;
+}
+
+/*  Header navbar section   */
+header {
+    background-color: white;
+}
+
+@media (min-width: 576px) {
+    .navbar {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        max-width: 1290px;
+    }
+}
+
+
+.navbar {
+    margin: 0 auto !important;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.nav-content {
+    padding: 15px 20px 10px 20px;
+}
+
+.navbar-nav > .nav-item {
+    padding: 0px 11.2px;
+}
+
+.navbar-nav .show > .nav-link,
+.navbar-nav .nav-link.active {
+    color: #17bcb9 !important;
+}
+
+#navbarNavDropdown {
+    flex-direction: row-reverse;
+}
+
+#navbarNavDropdown .nav-link:hover {
+    color: #17bcb9 !important;
+}
+
+.dropdown-menu{
+    border-top: 2px  solid  #17bcb9;
+    border-radius: 0;
+}
+
+.dropdown-menu a{
+    border-radius: 0 !important;
+    transition: all 0.5s !important;
+}
+.dropdown-menu li:hover a{
+    color: #17bcb9 !important;
+}
+
+
+
+
+/* Background image section */
+.bg-image {
+    background-image: url("https://shelbournelegal.com.au/wp-content/uploads/2020/06/contact-banner-1.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background .3s, border .3s, border-radius .3s, box-shadow .3s;
+    padding: 200px 60px 150px;
+    height: 464px !important;
+    margin-top: 92px !important;
+}
+
+
+.feedback-title-container {
+    display: flex;
+    max-width: 1250px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.feedback-title {
+    color: #fff;
+    font-size: 45px;
+    line-height: 1.4em;
+    padding: 10px 20px;
+    background-color: rgba(23, 188, 185, .8);
+
+}
+
+.feedback-title > div {
+    font-size: 45px;
+    line-height: 1.2em;
+    font-family: "Segoe UI";
+}
+
+.feedback-title > div::selection {
+    background-color: #17bcb9;
+    color: #000;
+}
+
+/* Footer */
+footer {
+    /*height: 500px;*/
+    background-color: #3e3e3e;
+    transition: background .3s, border .3s, border-radius .3s, box-shadow .3s;
+    padding: 60px 100px !important;
+    color: white;
+}
+
+footer > div {
+    max-width: 1250px;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+.footer-content {
+    width: 100%;
+}
+.footer-content>div>div>*{
+    margin-bottom: 20px;
+}
+ul>li>a{
+    text-decoration: none;
+    color: white;
+}
+.contact-info{
+    padding-left: 18px;
+}
+.contact-info:hover{
+    color: #17bcb9;
+}
+.footer-content svg{
+    fill: #fff;
+    width: 23px;
+}
+.fb_in_link a{
+    margin-right: 12px;
+    font-size: 36px;
+    color: #17bcb9 !important;
+    text-decoration:none !important;
+}
+
+.fb_in_link a:hover{
+    color: #14a4a0 !important;
+}
+h2::selection {
+    background-color: #17bcb9;
+    color: #000;
+}
+/*  Right side Form   */
+.contact_form input,.contact_form textarea{
+    width: 100%;
+    height: auto;
+    color: #fff !important;
+    line-height: 1.4;
+    font-size: 15px;
+    font-weight: 600;
+    min-height: 40px;
+    padding: 0.75em;
+    background-color: #4e4e4e;
+    border-color: #17bcb9;
+    border-width: 0 0 2px;
+    border-radius: 0;
+
+    /*margin-bottom: 12px;*/
+}
+.contact_form input:focus,.contact_form textarea:focus{
+    outline:0;
+
+}
+
+
+::-webkit-input-placeholder{
+    color: #999999;
+}
+:-moz-placeholder{
+    color: #999999;
+}
+::-moz-placeholder{
+    color: #999999;
+}
+:-ms-input-placeholder{
+    color: #999999;
+}
+@media (min-width: 576px) {
+    .w-sm-100{
+        width: 100%;
+    }
+    .phone_margin_left{
+        margin-left: 0px;
+    }
+    #sendContactForm{
+        width: 100%;
+    }
+}
+@media (min-width: 992px) {
+    .w-lg-50{
+        width: 50%;
+    }
+    .phone_margin_left{
+        margin-left: 10px;
+    }
+    #sendContactForm{
+        width: 250px;
+    }
+}
+
+

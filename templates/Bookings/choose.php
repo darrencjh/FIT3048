@@ -129,11 +129,11 @@ $this->assign('title', 'Booking with us');
             <!--    Referral-->
             <div class="mb-4">
                 <label for="referralName" class="form-label fw-bold">Referred by</label>
-                <input type="text" class="form-control" id="referralName" aria-describedby="referralHelp" name="referred_by">
+                <input type="text" class="form-control" id="referralName" aria-describedby="referralHelp" name="referred_by" maxlength="64">
             </div>
 
             <!--    button to submit-->
-            <?= $this->Form->button(__('Schedule Event'),['class'=>'btn btn-primary rounded-pill fw-bold px-4 py-3 mt-4','id'=>'scheduleEvent']) ?>
+            <?= $this->Form->button(__('Schedule Event'),['class'=>'btn btn-shelbourne rounded-pill fw-bold px-4 py-3 mt-4','id'=>'scheduleEvent']) ?>
             <?= $this->Form->end() ?>
         </div>
 

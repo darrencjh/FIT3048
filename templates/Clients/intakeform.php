@@ -4,8 +4,9 @@
  * @var \App\Model\Entity\Client $client
  */
 ?>
-
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<div class="container">
 
 <div id="content">
 
@@ -341,3 +342,4 @@
         }
     }
 </script>
+</div>

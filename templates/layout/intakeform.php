@@ -26,9 +26,10 @@ $intakeformDescription = 'Intake Form -  Shelbourne legal';
     </title>
     <?= $this->Html->meta('icon', $this->Url->build('/logo.png', ['fullBase' => true])); ?>
 
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+          rel="stylesheet">
 
-    <?= $this->Html->css(['normalize.min', 'bootstrap','fontawesome-free/css/all.min','intakeform']) ?>
+    <?= $this->Html->css(['normalize.min', 'bootstrap','fontawesome-free/css/all.min','shelbourne','intakeform']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
