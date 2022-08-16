@@ -98,18 +98,16 @@
                             <label>State</label>
                         </div>
                     </div>
-                        <div class="btn-group">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                                State
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                                <li><a class="dropdown-item" href="#">New South Wales</a></li>
-                                <li><a class="dropdown-item" href="#">Queensland</a></li>
-                                <li><a class="dropdown-item" href="#">South Australia</a></li>
-                                <li><a class="dropdown-item" href="#">Victoria</a></li>
-                                <li><a class="dropdown-item" href="#">Western Australia</a></li>
-                                <li><a class="dropdown-item" href="#">Tasmania</a></li>
-                            </ul>
+                        <div class=input">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Choose:</option>
+                                <option value="New South Wales">New South Wales</option>
+                                <option value="Queensland">Queensland</option>
+                                <option value="South Australia">South Australia</option>
+                                <option value="Victoria">Victoria</option>
+                                <option value="Western Australia">Western Australia</option>
+                                <option value="Tasmania">Tasmania</option>
+                            </select>
                         </div>
                 </div>
                 <div class="column-2 ff-t-cell">
@@ -151,26 +149,27 @@
                     <label>Referred by?</label>
                 </div>
                 <div class="btn-group">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                        Choose: (optional)
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                        <li><a class="dropdown-item" href="#">Tom</a></li>
-                        <li><a class="dropdown-item" href="#">Mary</a></li>
-                        <li><a class="dropdown-item" href="#">Linda</a></li>
-                        <li><a class="dropdown-item" href="#">Lucy</a></li>
-                    </ul>
+                    <select class="form-select">
+                        <option selected>Choose: (optional)</option>
+                        <option value="Tom">Tom</option>
+                        <option value="Mary">Mary</option>
+                        <option value="Linda">Linda</option>
+                        <option value="Lucy">Lucy</option>
+                    </select>
                 </div>
             </div>
         <div class="ff-el-group">
             <h4>1.2 Existing Will &amp; Attorneys</h4>
-            <p><span style="font-weight: 400;">Do you have an existing… &nbsp; </span></p>
+            <p>
+                <span style="font-weight: 400;">Do you have an existing… &nbsp; </span>
+            </p>
         </div>
         <div class="ff-cell">
             <div class="column-1 ff-t-cell">
                 <div class="ff-el-group">
                     <div class="label">
                         <label>Will</label>
+                        <i class="fa-solid fa-circle-question"></i>
                     </div>
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
