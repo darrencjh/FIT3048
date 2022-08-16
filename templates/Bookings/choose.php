@@ -8,13 +8,13 @@ $this->assign('title', 'Booking with us');
 ?>
 <div class="container">
 
-    <div id="calendar"></div>
+    <div id="calendar" class="mt-5"></div>
     <div id="noDateTimeInfo" class="d-none text-danger my-4">Please select a date and time</div>
 
 
     <!-- Company info and booking time   -->
     <div class="row no-gutters mb-5">
-        <div class="col-4">
+        <div class="col-sm-12 col-lg-4">
             <div class="mt-5 pt-3">
                 <div class="text-center">
                     <?= $this->Html->image('legal_logo.jpg', ['alt' => 'Shelbourne legal','class' => '']); ?>
@@ -37,7 +37,7 @@ $this->assign('title', 'Booking with us');
 
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-sm-12 col-lg-8">
             <div class="bookingForm mt-5">
                 <h1 class="text-center" id="details">Enter Details</h1>
             </div>
