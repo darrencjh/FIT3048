@@ -1,4 +1,9 @@
 /* Customize Styles for shelbourne website  */
+.text-shelbourne{
+    color: #17bcb9;
+}
+
+
 .btn-primary {
     color: #fff;
     background-color: #01ab9d;
