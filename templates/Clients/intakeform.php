@@ -26,7 +26,7 @@
                                 <label>Given Name </label>
                             </div>
                             <div class="input">
-                                <input type="text" name="full_name" class="input-control" placeholder="Ben " maxlength="20" required>
+                                <input type="text" name="full_name" class="input-control" maxlength="20" required />
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                                 <label>Last Name</label>
                             </div>
                             <div class="input">
-                                <input type="text" name="other_names" class="input-control" placeholder="Simons  " maxlength="20" required>
+                                <input type="text" name="other_names" class="input-control" maxlength="20" required />
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                                 <label>Preferred Name</label>
                             </div>
                             <div class="input">
-                                <input type="text" name="other_names" class="input-control" placeholder="Preferred name "  maxlength="20">
+                                <input type="text" name="other_names" class="input-control"  maxlength="20">
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                             <label>Date of Birth </label>
                         </div>
                         <div class="input">
-                            <input type="text" name="date_birth" class="input-control" placeholder="01/01/1990 " required>
+                            <input type="text" name="date_birth" class="input-control" placeholder="DD/MM/YYYY" required />
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                             <label>Occupation</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="occupation" class="input-control" placeholder="Doctor " required>
+                            <input type="text" name="occupation" class="input-control" required />
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                             <label>Unit/House No.</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="address" class="input-control" placeholder="10 " required>
+                            <input type="text" name="address" class="input-control" required />
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                             <label>Street Address</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="postal_address" class="input-control" placeholder="Monash St" required>
+                            <input type="text" name="postal_address" class="input-control" required />
                         </div>
                     </div>
                 </div>
@@ -99,9 +99,7 @@
                         <div class="label required">
                             <label>State</label>
                         </div>
-                    </div>
-                        <div class=input">
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" required>
                                 <option selected>Choose:</option>
                                 <option value="New South Wales">New South Wales</option>
                                 <option value="Queensland">Queensland</option>
@@ -118,7 +116,7 @@
                             <label>Post Code</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="postal_address" class="input-control" placeholder="3000" required>
+                            <input type="text" name="postal_address" class="input-control" required />
                         </div>
                     </div>
                 </div>
@@ -130,7 +128,7 @@
                             <label>Email</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="email" class="input-control" placeholder="monash@gmail.com " required>
+                            <input type="text" name="email" class="input-control" placeholder="example@email.com" required />
                         </div>
                     </div>
                 </div>
@@ -140,7 +138,7 @@
                             <label>Phone number</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="phone" class="input-control" placeholder="0411222333" required>
+                            <input type="text" name="phone" class="input-control" required />
                         </div>
                     </div>
                 </div>
@@ -149,8 +147,6 @@
             <div class="ff-el-group">
                 <div class="label">
                     <label>Referred by?</label>
-                </div>
-                <div class="btn-group">
                     <select class="form-select">
                         <option selected>Choose: (optional)</option>
                         <option value="Tom">Tom</option>
@@ -209,6 +205,11 @@
                 <div class="ff-el-group">
                     <div class="label">
                         <label>Powers of Attorney</label>
+                        <a class="d-inline-block" data-bs-toggle="tooltip" data-bs-original-title="Refers to a legal authorization that gives a designated person the power to act for someone else. As such, a POA gives the agent or attorney the authority to act on behalf of the principal." data-bs-placement="right">
+                            <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="15px" width="15px">
+                                <path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
+                            </svg>
+                        </a>
                     </div>
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
@@ -242,6 +243,11 @@
                 <div class="ff-el-group">
                     <div class="label">
                         <label>Binding Death Benefit Nominations</label>
+                        <a class="d-inline-block" data-bs-toggle="tooltip" data-bs-original-title="This is a written direction from a member to their superannuation trustee setting out how they wish some or all of their superannuation death benefits to be distributed. The nomination is generally valid for a maximum of three years and lapses if it is not renewed." data-bs-placement="right">
+                            <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="15px" width="15px">
+                                <path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
+                            </svg>
+                        </a>
                     </div>
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
