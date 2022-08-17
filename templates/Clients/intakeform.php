@@ -24,9 +24,12 @@
                             <div class="label required">
                                 <label>Given Name </label>
                             </div>
-                            <div class="input">
-                                <input type="text" name="full_name" class="input-control" maxlength="20" required />
+                            <div class="">
+                                <input type="text" name="full_name" id="inputGivenName"  class="form-control" maxlength="20" required />
+                                <div class="invalid-feedback">Please give your given name</div>
+
                             </div>
+
                         </div>
                     </div>
                     <div class="column-2 ff-t-cell">
@@ -399,7 +402,7 @@
             <?php echo $this->Html->script('https://www.google.com/recaptcha/api.js"'); ?>
 <!--            <button type="submit" name="submit" class="ff-float-right ff-btn ff-btn-next ff-btn-secondary">Submit</button>-->
             <div class="float-none text-center mt-3 float-md-end mt-md-0">
-                <button type="submit" name="submit" class="btn btn-shelbourne rounded-pill fw-bold w-100">Submit</button>
+                <button type="submit" name="submit" id="submitIntakeform" class="btn btn-shelbourne rounded-pill fw-bold w-100">Submit</button>
             </div>
         </div>
     <?= $this->Form->end() ?>
@@ -471,4 +474,14 @@
             //});
         }
     }
+
+
+    $("#submitIntakeform").click(function(){
+        let givenName=inputGivenName.value
+        if(givenName=="") $("#inputGivenName").addClass("is-invalid")
+
+    })
+
+
+
 </script>
