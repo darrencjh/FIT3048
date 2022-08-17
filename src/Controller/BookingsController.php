@@ -149,7 +149,7 @@ class BookingsController extends AppController
         if ($this->request->is('post')) {
             $booking = $this->Bookings->patchEntity($booking, $this->request->getData());
             if ($this->Bookings->save($booking)) {
-                $this->Flash->success(__('The booking has been saved.'));
+                //$this->Flash->success(__('The booking has been saved.'));
 
 
                 // 1.Send email to client who made a booking
@@ -207,7 +207,7 @@ class BookingsController extends AppController
 
 
                 if ($email_result) {
-                    $this->Flash->success(__('Thank you for making a booking and confirm booking information in your email.'));
+                    //$this->Flash->success(__('Thank you for making a booking and confirm booking information in your email.'));
                 } else {
                     $this->Flash->error(__('Email failed to send. Please check the query in the system later. '));
                 }

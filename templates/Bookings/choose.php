@@ -506,5 +506,11 @@ $this->assign('title', 'Booking with us');
 
 
     </script>
+    <script type="text/javascript">
+        //disable back button because client already make a booking
+        // function disableBack() { window.history.forward(); }
+        // setTimeout("disableBack()", 0);
+        // window.onunload = function () { null };
+    </script>
 </div>
 
