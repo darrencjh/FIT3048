@@ -146,12 +146,34 @@ $this->assign('title', 'Booking with us');
     <script>
         $(function () {
             $("#calendar").evoCalendar({
-                'sidebarToggler': false,
+                'sidebarToggler': true,
                 'firstDayOfWeek': 1,
                 'eventListToggler': false,
                 calendarEvents: []
 
             });
+            //set the eventList icon when initialize and click
+            // if(!$(".calendar").hasClass('event-hide')){
+            //     $("#eventListToggler>button>span").removeClass('chevron-arrow-right').addClass('chevron-arrow-left')
+            // }
+            // $("#eventListToggler>button").click(function(){
+            //     if($("#eventListToggler>button>span").hasClass("chevron-arrow-right")){
+            //         // $(".calendar-events").removeClass("d-none")
+            //         $("#eventListToggler>button>span").removeClass('chevron-arrow-right').addClass('chevron-arrow-left')
+            //     }else{
+            //         // $(".calendar-events").addClass("d-none")
+            //         $("#eventListToggler>button>span").removeClass('chevron-arrow-left').addClass('chevron-arrow-right')
+            //
+            //     }
+            // })
+            window.onresize=function(){
+                var winW=$(window).width();
+                if(winW>768){
+                    $("#calendar").removeClass("sidebar-hide event-hide")
+                }
+            }
+
+
 
             //Weekend is unavailable
             $('.--weekend').css('pointer-events', 'none')
@@ -189,6 +211,9 @@ $this->assign('title', 'Booking with us');
             //console.log($('.calendar-day').length)//31
             //visitor click a date to see which time is available
             $('#calendar').on('selectDate', function (event, newDate, oldDate) {
+                //open events list
+                $("#calendar").removeClass("event-hide")
+
                 //get current events for this date
                 let active_events = $('#calendar').evoCalendar('getActiveEvents');
                 if (active_events.length == 0) {
