@@ -254,7 +254,7 @@ endforeach;
             background-color: #01ab9d;
         }
 
-        .btn-btn-shelbourne a {
+        .btn-shelbourne a {
             background-color: #01ab9d;
             border-color: #01ab9d;
             color: #ffffff;

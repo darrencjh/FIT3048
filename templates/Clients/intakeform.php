@@ -398,7 +398,9 @@
             </div>
             <?php echo $this->Html->script('https://www.google.com/recaptcha/api.js"'); ?>
 <!--            <button type="submit" name="submit" class="ff-float-right ff-btn ff-btn-next ff-btn-secondary">Submit</button>-->
-            <button type="submit" name="submit" class="float-end btn btn-shelbourne rounded-pill fw-bold">Submit</button>
+            <div class="float-none text-center mt-3 float-md-end mt-md-0">
+                <button type="submit" name="submit" class="btn btn-shelbourne rounded-pill fw-bold w-100">Submit</button>
+            </div>
         </div>
     <?= $this->Form->end() ?>
 </div>
@@ -456,17 +458,17 @@
                 formData[keys] = value;
             });
 
-            $.ajax({
-                url:"/register",
-                data:formData,
-                type:"POST",
-                beforeSend: function(xhr){
-                    xhr.setRequestHeader('X-CSRF-Token', <?=json_encode($this->request->getCookie('csrfToken'));?>);
-                },
-                success:function(res){
-                    alert(res);
-                }
-            });
+            //$.ajax({
+            //    url:"/register",
+            //    data:formData,
+            //    type:"POST",
+            //    beforeSend: function(xhr){
+            //        xhr.setRequestHeader('X-CSRF-Token', <?//=json_encode($this->request->getCookie('csrfToken'));?>//);
+            //    },
+            //    success:function(res){
+            //        alert(res);
+            //    }
+            //});
         }
     }
 </script>

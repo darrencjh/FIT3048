@@ -254,7 +254,7 @@ endforeach;
             background-color: #01ab9d;
         }
 
-        .btn-btn-shelbourne a {
+        .btn-shelbourne a {
             background-color: #01ab9d;
             border-color: #01ab9d;
             color: #ffffff;
@@ -447,7 +447,7 @@ endforeach;
                                 <tr>
                                     <td>
                                         <div class="text-center">
-                                            <?= $this->Html->image('legal_logo.jpg', ['alt' => 'Shelbourne legal','class' => '']); ?>
+                                            <?= $this->Html->image('https://d3v0px0pttie1i.cloudfront.net/uploads/user/logo/6737024/445e6b00.jpg', ['alt' => 'Shelbourne legal','class' => '']); ?>
                                         </div>
                                         <p>Hi,<?= h($name) ?></p>
                                         <p>Thank you for making a booking,here are booking info needed to confirm with you </p>
