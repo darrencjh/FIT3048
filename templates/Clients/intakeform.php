@@ -7,7 +7,6 @@
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-<div class="container">
 
 <div id="content">
 
@@ -398,7 +397,8 @@
                  data-sitekey="<?= RECAPTCHAV2_SITEKEY ?>">
             </div>
             <?php echo $this->Html->script('https://www.google.com/recaptcha/api.js"'); ?>
-            <button type="submit" name="submit" class="ff-float-right ff-btn ff-btn-next ff-btn-secondary">Submit</button>
+<!--            <button type="submit" name="submit" class="ff-float-right ff-btn ff-btn-next ff-btn-secondary">Submit</button>-->
+            <button type="submit" name="submit" class="float-end btn btn-shelbourne rounded-pill fw-bold">Submit</button>
         </div>
     <?= $this->Form->end() ?>
 </div>
@@ -470,4 +470,3 @@
         }
     }
 </script>
-</div>
