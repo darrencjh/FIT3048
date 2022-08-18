@@ -117,24 +117,26 @@ class ClientsController extends AppController
             $postData = $this->request->getData();
 
             if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
-                $first_name = $this->request->getQuery('givenName');
-                $last_name = $this->request->getQuery('lastName');
-                $given_name = $this->request->getQuery('other_names');
+                //$first_name = $this->request->getQuery('givenName');
+                //$last_name = $this->request->getQuery('lastName');
+                //$given_name = $this->request->getQuery('other_names');
 
-                $client->full_name = $first_name . $last_name;
-                $client->other_names = $given_name;
-                if ($this->Clients->save($client)) {
-                    $this->Flash->success('Form has been successfully submitted');
+                //$client->full_name = $first_name . $last_name;
+                //$client->other_names = $given_name;
+                //if ($this->Clients->save($client)) {
+                    //$this->Flash->success('Form has been successfully submitted');
                     //navigate to new page
-                }
-                else{
-                    $this->Flash->error(__('The client could not be saved. Please, try again.'));
-                }
+                //}
+                //else{
+                    //$this->Flash->error(__('The client could not be saved. Please, try again.'));
+                //}
+                $this->Flash->success('Robot verification passed,you are not a robot');
             } else {
-                $this->Flash->error('Please check your inputs');
+                $this->Flash->error('Robot verification failed,you are a robot');
             }
         }
         $this->set("client", $client);
+
 
     }
 

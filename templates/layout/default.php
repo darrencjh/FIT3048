@@ -100,8 +100,9 @@ $titleDescription = ' - Shelbourne legal';
 
 
     <article>
-        <?= $this->Flash->render() ?>
+
         <?= $this->fetch('content') ?>
+
     </article>
 
 
@@ -254,7 +255,7 @@ $titleDescription = ' - Shelbourne legal';
     </script>
 
     <!-- using recapture api -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!--    <script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
 
     <!--   second level navi bar  -->
     <script>

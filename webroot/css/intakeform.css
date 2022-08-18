@@ -17,6 +17,7 @@ html {
     font-weight: 300;
     line-height: 1.4em;
     font-size: 28px;
+    color: #3e3e3e;
 }
 
 .ff-el-group {
@@ -273,9 +274,15 @@ input[type=password]:focus {
 }
 
 .main{
-    background-color: #ededed;
-    padding-top: 150px;
-    padding-bottom: 50px;
+    background-color: #ededed !important;
+    padding-top: 150px !important;
+    padding-bottom: 50px !important;
 
 }
 
+.error{
+    color: red;
+}
+.success{
+    color: #01ab9d;
+}
