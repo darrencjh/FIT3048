@@ -26,7 +26,7 @@
                             </div>
                             <div class="">
                                 <input type="text" name="full_name" id="inputGivenName"  class="form-control" maxlength="20" required />
-                                <div class="invalid-feedback">Please give your given name</div>
+                                <div class="invalid-feedback">Please provide your given name</div>
 
                             </div>
 
@@ -37,8 +37,9 @@
                             <div class="label required">
                                 <label>Last Name</label>
                             </div>
-                            <div class="input">
-                                <input type="text" name="other_names" class="input-control" maxlength="20" required />
+                            <div class="">
+                                <input id="inputLastName" type="text" name="lastName" class="form-control" maxlength="20" required />
+                                <div class="invalid-feedback">Please provide your last name</div>
                             </div>
                         </div>
                     </div>
@@ -47,8 +48,8 @@
                             <div class="label">
                                 <label>Preferred Name</label>
                             </div>
-                            <div class="input">
-                                <input type="text" name="other_names" class="input-control"  maxlength="20">
+                            <div class="">
+                                <input type="text" name="other_names" class="form-control"  maxlength="20">
                             </div>
                         </div>
                     </div>
@@ -60,7 +61,8 @@
                             <label>Date of Birth </label>
                         </div>
                         <div class="input">
-                            <input type="text" name="date_birth" class="input-control" placeholder="DD/MM/YYYY" required />
+                            <input type="text" id="inputDOB" name="date_birth" class="form-control" placeholder="DD/MM/YYYY" required />
+                            <div class="invalid-feedback">Please provide your date of birth</div>
                         </div>
                     </div>
                 </div>
@@ -70,7 +72,8 @@
                             <label>Occupation</label>
                         </div>
                         <div class="input">
-                            <input type="text" name="occupation" class="input-control" required />
+                            <input type="text" id="inputOccupation" name="occupation" class="form-control" required />
+                            <div class="invalid-feedback">Please provide your occupation</div>
                         </div>
                     </div>
                 </div>
@@ -81,8 +84,9 @@
                         <div class="label required">
                             <label>Unit/House No.</label>
                         </div>
-                        <div class="input">
-                            <input type="text" name="address" class="input-control" required />
+                        <div class="">
+                            <input id="inputHouseNumber" type="text" name="address" class="input-control" required />
+                            <div class="invalid-feedback">Please provide your unit/house number</div>
                         </div>
                     </div>
                 </div>
@@ -91,8 +95,9 @@
                         <div class="label required">
                             <label>Street Address</label>
                         </div>
-                        <div class="input">
-                            <input type="text" name="postal_address" class="input-control" required />
+                        <div class="">
+                            <input id="inputAddress" type="text" name="postal_address" class="input-control" required />
+                            <div class="invalid-feedback">Please provide your street address</div>
                         </div>
                     </div>
                 </div>
@@ -101,7 +106,7 @@
                         <div class="label required">
                             <label>State</label>
                         </div>
-                            <select class="form-select" required>
+                            <select class="form-select" id="inputState" name="state" required>
                                 <option selected>Choose:</option>
                                 <option value="New South Wales">New South Wales</option>
                                 <option value="Queensland">Queensland</option>
@@ -110,6 +115,7 @@
                                 <option value="Western Australia">Western Australia</option>
                                 <option value="Tasmania">Tasmania</option>
                             </select>
+                            <div class="invalid-feedback">Please provide your state</div>
                         </div>
                 </div>
                 <div class="column-2 ff-t-cell">
@@ -117,8 +123,9 @@
                         <div class="label required">
                             <label>Post Code</label>
                         </div>
-                        <div class="input">
-                            <input type="text" name="postal_address" class="input-control" required />
+                        <div class="">
+                            <input type="text" name="postCode" id="inputPostCode" class="input-control" required />
+                            <div class="invalid-feedback">Please provide your post code</div>
                         </div>
                     </div>
                 </div>
@@ -129,8 +136,9 @@
                         <div class="label required">
                             <label>Email</label>
                         </div>
-                        <div class="input">
-                            <input type="text" name="email" class="input-control" placeholder="example@email.com" required />
+                        <div class="">
+                            <input type="text" id="inputEmail" name="email" class="input-control" placeholder="example@email.com" required />
+                            <div class="invalid-feedback">Please provide your email</div>
                         </div>
                     </div>
                 </div>
@@ -139,8 +147,9 @@
                         <div class="label required">
                             <label>Phone number</label>
                         </div>
-                        <div class="input">
-                            <input type="text" name="phone" class="input-control" required />
+                        <div class="">
+                            <input id="inputPhoneNumber" type="text" name="phone" class="input-control" required />
+                            <div class="invalid-feedback">Please provide your phone number</div>
                         </div>
                     </div>
                 </div>
@@ -333,13 +342,13 @@
 						<div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
                                 <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                                <span>Separated or Devoiced</span>
+                                <span>Separated or Divorced</span>
                             </label>
                         </div>
 						<div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
                                 <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                                <span>never married or divorced</span>
+                                <span>Never Married or Divorced</span>
                             </label>
                         </div>
                     </div>
@@ -478,7 +487,25 @@
 
     $("#submitIntakeform").click(function(){
         let givenName=inputGivenName.value
+        let lastName=inputLastName.value
+        let DOB = inputDOB.value
+        let occupation = inputOccupation.value
+        let houseNumber = inputHouseNumber.value
+        let address = inputAddress.value
+        let state = inputState.value
+        let postCode = inputPostCode.value
+        let email = inputEmail.value
+        let phoneNumber = inputPhoneNumber.value
         if(givenName=="") $("#inputGivenName").addClass("is-invalid")
+        if(lastName=="") $("#inputLastName").addClass("is-invalid")
+        if(DOB=="") $("#inputDOB").addClass("is-invalid")
+        if(occupation=="") $("#inputOccupation").addClass("is-invalid")
+        if(houseNumber=="") $("#inputHouseNumber").addClass("is-invalid")
+        if(address=="") $("#inputAddress").addClass("is-invalid")
+        if(state=="") $("#inputState").addClass("is-invalid")
+        if(postCode=="") $("#inputPostCode").addClass("is-invalid")
+        if(email=="") $("#inputEmail").addClass("is-invalid")
+        if(phoneNumber=="") $("#inputPhoneNumber").addClass("is-invalid")
 
     })
 
