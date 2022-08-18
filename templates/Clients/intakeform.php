@@ -464,7 +464,6 @@
                 </div>
             </div>
         </div>
-        </div>
 
         <div class="last">
             <div class="g-recaptcha"
