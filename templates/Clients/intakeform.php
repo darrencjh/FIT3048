@@ -13,7 +13,7 @@
     <div class="form-title">
         Wills & Estates Intake Form
     </div>
-    <?= $this->Form->create($client, ["method" => "post"]) ?>
+<!--    --><?//= $this->Form->create($client, ["method" => "post"]) ?>
         <div class="ff-el-group">
             <h2>1. Basic Information</h2>
             <h4>1.1 Your Details</h4>
@@ -676,9 +676,10 @@
 <!--            <button type="submit" name="submit" class="ff-float-right ff-btn ff-btn-next ff-btn-secondary">Submit</button>-->
             <div class="float-none text-center mt-3 float-md-end mt-md-0">
                 <button type="submit" name="submit" id="submitIntakeform" class="btn btn-shelbourne rounded-pill fw-bold w-100">Submit</button>
+
             </div>
         </div>
-    <?= $this->Form->end() ?>
+<!--    --><?//= $this->Form->end() ?>
 </div>
 
 
@@ -706,47 +707,47 @@
         $(this).find("input").prop("checked",true);
     });
 
-    function submit() {
-        var is_check = true;
-        $(".ff-el-group>.input").each(function() {
-            var is_required = $(this).prev().hasClass("required");
-
-            if (($(this).find("input[type='text']").val() == null || $(this).find("input[type='text']").val() == "") && is_required) {
-                var is_error = $(this).parent().hasClass("ff-el-is-error");
-                if (!is_error) {
-                    $(this).parent().addClass("ff-el-is-error");
-                    $(this).append('<div class="error text-danger">This field is required</div>');
-                }
-                is_check = false;
-            }
-        });
-        if (is_check) {
-            var formData = {};
-            $(".ff-el-group input").each(function() {
-                var keys = $(this).attr("name");
-                var type = $(this).attr("type");
-                if(type == "radio"){
-                    var value = $("input[name='"+keys+"']:checked").val();
-                }else{
-                    var value = $(this).val();
-                }
-                value = typeof(value) == "undefined" ? 0 : value;
-                formData[keys] = value;
-            });
-
-            //$.ajax({
-            //    url:"/register",
-            //    data:formData,
-            //    type:"POST",
-            //    beforeSend: function(xhr){
-            //        xhr.setRequestHeader('X-CSRF-Token', <?//=json_encode($this->request->getCookie('csrfToken'));?>//);
-            //    },
-            //    success:function(res){
-            //        alert(res);
-            //    }
-            //});
-        }
-    }
+    //function submit() {
+    //    var is_check = true;
+    //    $(".ff-el-group>.input").each(function() {
+    //        var is_required = $(this).prev().hasClass("required");
+    //
+    //        if (($(this).find("input[type='text']").val() == null || $(this).find("input[type='text']").val() == "") && is_required) {
+    //            var is_error = $(this).parent().hasClass("ff-el-is-error");
+    //            if (!is_error) {
+    //                $(this).parent().addClass("ff-el-is-error");
+    //                $(this).append('<div class="error text-danger">This field is required</div>');
+    //            }
+    //            is_check = false;
+    //        }
+    //    });
+    //    if (is_check) {
+    //        var formData = {};
+    //        $(".ff-el-group input").each(function() {
+    //            var keys = $(this).attr("name");
+    //            var type = $(this).attr("type");
+    //            if(type == "radio"){
+    //                var value = $("input[name='"+keys+"']:checked").val();
+    //            }else{
+    //                var value = $(this).val();
+    //            }
+    //            value = typeof(value) == "undefined" ? 0 : value;
+    //            formData[keys] = value;
+    //        });
+    //
+    //        //$.ajax({
+    //        //    url:"/register",
+    //        //    data:formData,
+    //        //    type:"POST",
+    //        //    beforeSend: function(xhr){
+    //        //        xhr.setRequestHeader('X-CSRF-Token', <?////=json_encode($this->request->getCookie('csrfToken'));?>////);
+    //        //    },
+    //        //    success:function(res){
+    //        //        alert(res);
+    //        //    }
+    //        //});
+    //    }
+    //}
 
 
     $("#submitIntakeform").click(function(){
