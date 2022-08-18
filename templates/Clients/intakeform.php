@@ -607,7 +607,7 @@
 <!--            </div>-->
 <!--        </div>-->
 <!---->
-<!--	    <!-- add Loans and debts div  -->-->
+	    <!-- add Loans and debts div  -->
 <!--        <div class="ff-el-group">-->
 <!--            <h4>Loans and debts</h4>-->
 <!--        </div>-->
@@ -617,7 +617,7 @@
 <!--		<div class="ff-el-group ff-el-form-left  ff_list_buttons"><div class="ff-el-input--label asterisk-right  label"><label>Is there a loan agreement?</label> </div><div class="ff-el-input--content"><div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label" for="input_radio_12_3f734e96b7d0a8c8988a86372d918073"><input type="radio" name="input_radio_12" data-name="input_radio_12" class="ff-el-form-check-input ff-el-form-check-radio" value="yes" id="input_radio_12_3f734e96b7d0a8c8988a86372d918073"> <span>Yes</span></label></div><div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label" for="input_radio_12_4836f19b5cfa63f47adaf07a20cb7940"><input type="radio" name="input_radio_12" data-name="input_radio_12" class="ff-el-form-check-input ff-el-form-check-radio" value="no" id="input_radio_12_4836f19b5cfa63f47adaf07a20cb7940"> <span>No</span></label></div></div></div>-->
 <!--		<div class="ff-el-group ff-el-form-left  ff_list_buttons"><div class="ff-el-input--label asterisk-right label"><label>Repayment to estate?</label> </div><div class="ff-el-input--content"><div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label" for="input_radio_13_a6362cf826d65c90d875af5ac7b28b34"><input type="radio" name="input_radio_13" data-name="input_radio_13" class="ff-el-form-check-input ff-el-form-check-radio" value="To be repaid" id="input_radio_13_a6362cf826d65c90d875af5ac7b28b34"> <span>To be repaid</span></label></div><div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label" for="input_radio_13_27e7d76c9835a53eb3787ac6e2917b51"><input type="radio" name="input_radio_13" data-name="input_radio_13" class="ff-el-form-check-input ff-el-form-check-radio" value="To be forgiven" id="input_radio_13_27e7d76c9835a53eb3787ac6e2917b51"> <span>To be forgiven</span></label></div></div></div>-->
 <!---->
-<!--	    <!-- add Insurance div  -->-->
+	    <!-- add Insurance div  -->
 <!--        <div class="ff-el-group">-->
 <!--            <h4>Insurance</h4>-->
 <!---->
@@ -660,7 +660,7 @@
 <!--            </div>-->
 <!--        </div>-->
 <!---->
-<!--	    <!-- add Businesses div  -->-->
+	    <!-- add Businesses div  -->
 <!--        <div class="ff-el-group">-->
 <!--            <h4>Businesses</h4>-->
 <!--        </div>-->
@@ -679,7 +679,7 @@
 
             </div>
         </div>
-<!--    --><?//= $this->Form->end() ?>
+<!--    <?//= $this->Form->end() ?> --->
 </div>
 
 
