@@ -385,6 +385,67 @@
             </div>
         </div>		
 				
+		<!-- add household div  -->
+        <div class="ff-el-group">
+            <h2>1.6 Household members</h2>
+			<p>
+                <span style="font-weight: 400;">Other than those listed above… &nbsp; </span>
+            </p>
+        </div>
+        <div class="ff-cell">
+            <div class="column-1 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label">
+                        <label>Does anyone else live with you?</label>
+                    </div>
+                    <div class="input" style="font-size: 0;">
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <span>Yes</span>
+                            </label>
+                        </div>
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>	
+
+		<!-- add Other dependents div  -->
+        <div class="ff-el-group">
+            <h2>1.7 Other dependents</h2>
+			<p>
+                <span style="font-weight: 400;">Other than those listed above… &nbsp; </span>
+            </p>			
+        </div>
+        <div class="ff-cell">
+            <div class="column-1 ff-t-cell">
+                <div class="ff-el-group">
+                    <div class="label">
+                        <label>Is there anyone else financially dependent on you?</label>
+                    </div>
+                    <div class="input" style="font-size: 0;">
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <span>Yes</span>
+                            </label>
+                        </div>
+                        <div class="ff-el-form-check">
+                            <label class="ff-el-form-check-label">
+                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>			
 		
         <div class="last">
             <div class="g-recaptcha"
