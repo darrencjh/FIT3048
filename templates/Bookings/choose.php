@@ -133,7 +133,9 @@ $this->assign('title', 'Booking with us');
             </div>
 
             <!--    button to submit-->
-            <?= $this->Form->button(__('Schedule Event'),['class'=>'btn btn-shelbourne rounded-pill fw-bold px-4 py-3 mt-4','id'=>'scheduleEvent']) ?>
+            <div class="row g-0">
+                <?= $this->Form->button(__('Schedule Event'),['class'=>'btn btn-shelbourne rounded-pill fw-bold px-4 py-3 mt-4 col-12 col-lg-4','id'=>'scheduleEvent']) ?>
+            </div>
             <?= $this->Form->end() ?>
         </div>
 
@@ -424,7 +426,6 @@ $this->assign('title', 'Booking with us');
 
 
 
-
             // select an Event
             //It will navigate to Enter Details. Meanwhile,display the selected date time,1 hour here
             $('#calendar').on('selectEvent', function (event, activeEvent) {
@@ -449,6 +450,9 @@ $this->assign('title', 'Booking with us');
                 $('[name="booked_time"]').val(activeEvent.name)
             });
 
+
+
+            //!!!!!For validation part!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             //when user click,remove error message
             $("#InputService").change(function(){
                 if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
@@ -509,7 +513,7 @@ $this->assign('title', 'Booking with us');
                 //validate phone number
                 if(phone==""){
                     $("#InputPhone").addClass("is-invalid")
-                }else if(phone.length!=10){
+                }else if(phone.length!=10 || phone.substring(0, 2)!='04'){
                     $("#InputPhone").addClass("is-invalid")
                     $("#emptyPhoneMsg").addClass("d-none")
                     $("#validPhoneMsg").removeClass("d-none").addClass("invalid-feedback")
