@@ -126,7 +126,7 @@ endforeach;
         .footer a {
             color: #999999;
             font-size: 12px;
-            text-align: center;
+            text-align: left;
         }
 
         /* -------------------------------------
@@ -169,7 +169,7 @@ endforeach;
         }
 
         a {
-            color: #3498db;
+            color: #01ab9d;
             text-decoration: underline;
         }
 
@@ -195,29 +195,68 @@ endforeach;
             text-align: center;
         }
 
-        .btn a {
-            background-color: #ffffff;
-            border: solid 1px #3498db;
+        h2{
+            margin-bottom: 20px;
+        }
+
+        .text-shelbourne{
+            color: #01ab9d;
+        }
+
+        .btn{
+            width: 40%;
+            background-color: #01ab9d;
+            border: solid 1px #01ab9d;
             border-radius: 5px;
             box-sizing: border-box;
-            color: #3498db;
+            color: #fff;
             cursor: pointer;
-            display: inline-block;
             font-size: 14px;
             font-weight: bold;
-            margin: 0;
+            display: inline-block;
+            margin-top: 10px;
+            margin-bottom: 20px;
             padding: 12px 25px;
             text-decoration: none;
-            text-transform: capitalize;
+            text-transform: capitalize !important;
+        }
+        .btn-shelbourne {
+            color: #fff;
+            background-color: #01ab9d;
+            border-color: #01ab9d;
+        }
+        .btn-shelbourne:hover {
+            color: #01ab9d;
+            background-color: #fff;
+            border-color: #01ab9d;
+        }
+        .btn-check:focus + .btn-shelbourne, .btn-shelbourne:focus {
+            color: #fff;
+            background-color: #01ab9d;
+            border-color: #01ab9d;
+            box-shadow: 0 0 0 0.25rem rgba(23,188,185,0.5);
+        }
+        .btn-check:checked + .btn-shelbourne, .btn-check:active + .btn-shelbourne, .btn-shelbourne:active, .btn-shelbourne.active, .show > .btn-shelbourne.dropdown-toggle {
+            color: #fff;
+            background-color: #01ab9d;
+            border-color: #01ab9d;
+        }
+        .btn-check:checked + .btn-shelbourne:focus, .btn-check:active + .btn-shelbourne:focus, .btn-shelbourne:active:focus, .btn-shelbourne.active:focus, .show > .btn-shelbourne.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.25rem rgba(23,188,185,0.5);
+        }
+        .btn-shelbourne:disabled, .btn-shelbourne.disabled {
+            color: #fff;
+            background-color: #01ab9d;
+            border-color: #01ab9d;
         }
 
-        .btn-primary table td {
-            background-color: #3498db;
+        .btn-shelbourne table td {
+            background-color: #01ab9d;
         }
 
-        .btn-primary a {
-            background-color: #3498db;
-            border-color: #3498db;
+        .btn-shelbourne a {
+            background-color: #01ab9d;
+            border-color: #01ab9d;
             color: #ffffff;
         }
 
@@ -384,6 +423,11 @@ endforeach;
             margin-top: 24px;
         }
 
+        .emailformat{
+            color: #ccc;
+            margin-top: 10px;
+        }
+
     </style>
 </head>
 <body class="">
@@ -415,7 +459,34 @@ endforeach;
                                         <p><b>Email address:</b> <?= $this->Html->link(h($email), 'mailto:' . h($email)) ?></p>
                                         <p><b>Phone number:</b> <?= h($phone) ?></p>
 
-
+                                        <div class="emailformat">
+                                            Kind regards,
+                                            <br>
+                                            <br>
+                                            <br>
+                                            Leonie Dubbelman │ Solicitor
+                                            <br>                                            <br>
+                                            <br>
+                                            <span class="text-shelbourne">S H E L B O U R N E</span> l e g a l
+                                            <br>                                            <br>
+                                            <br>
+                                            P. 1300 743 526
+                                            <br>
+                                            M. 0401 044 017
+                                            <br>
+                                            W. <a href="https://shelbournelegal.com.au/" target="_blank">shelbournelegal.com.au</a>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            Suite 1, 1265 Nepean Highway, Cheltenham VIC 3192
+                                            <br>
+                                            PO Box 173, Southland Centre VIC 3192
+                                            <br><br>
+                                            Suite 2, 681 Burke Road, Camberwell VIC 3124
+                                            <br>
+                                            <!--                                            change url later when deployed to client's real server-->
+                                            Booking With Us:<a href="http://review.u22s1043.monash-ie.me/" target="_blank">Booking</a>
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
@@ -430,11 +501,11 @@ endforeach;
                 <div class="footer">
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                         <tr>
-                            <td class="content-block">
-                                <span class="apple-link">Copyright <?= date("Y") ?> SHELBOURNE LEGAL. All rights reserved. </span>
-                                <br> Don't like these emails? <a href="#">Unsubscribe</a>.
+                            <td>
+                                <span>This email and any attachment is confidential and for the use of the intended recipient(s) only. It may also be the subject of legal professional privilege. If you are not the intended recipient, any use, interference with, disclosure or copying of this material is unauthorised and prohibited. </span>
                             </td>
                         </tr>
+
                     </table>
                 </div>
                 <!-- END FOOTER -->

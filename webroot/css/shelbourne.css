@@ -1,6 +1,6 @@
 /* Customize Styles for shelbourne website  */
 .text-shelbourne{
-    color: #17bcb9;
+    color: #01ab9d;
 }
 
 
@@ -10,8 +10,8 @@
     border-color: #01ab9d;
 }
 .btn-shelbourne:hover {
-    color: #fff;
-    background-color: #01ab9d;
+    color: #01ab9d;
+    background-color: #fff;
     border-color: #01ab9d;
 }
 .btn-check:focus + .btn-shelbourne, .btn-shelbourne:focus {
@@ -38,7 +38,7 @@
 .btn-outline-shelbourne {
     color: #01ab9d;
     height: 44px;
-    line-height: 33px;
+    line-height: 30px;
     border: 2px solid #01ab9d;
     font-size: 16px;
     font-weight: 500;
