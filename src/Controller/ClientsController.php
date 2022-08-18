@@ -117,6 +117,12 @@ class ClientsController extends AppController
             $postData = $this->request->getData();
 
             if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
+                $first_name = $this->request->getQuery('givenName');
+                $last_name = $this->request->getQuery('lastName');
+                $given_name = $this->request->getQuery('other_names');
+
+                $client->full_name = $first_name . $last_name;
+                $client->other_names = $given_name;
                 if ($this->Clients->save($client)) {
                     $this->Flash->success('Form has been successfully submitted');
                     //navigate to new page

@@ -5,13 +5,8 @@
  */
 ?>
 
-
-
-
-
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-<div class="container">
 
 <div id="content">
 
@@ -29,16 +24,12 @@
                             <div class="label required">
                                 <label>Given Name </label>
                             </div>
-<<<<<<< HEAD
-                            <div class="input">
-                                <input type="text" name="full_name" class="input-control" placeholder="Ben " maxlength="20" required>
-=======
                             <div class="">
-                                <input type="text" name="full_name" id="inputGivenName"  class="form-control" maxlength="20" required />
+                                <input type="text" name="givenName" id="inputGivenName"  class="form-control" maxlength="20" required />
                                 <div class="invalid-feedback">Please provide your given name</div>
 
->>>>>>> 0de11ad51558726ae794f95994a847c40b55d3e3
                             </div>
+
                         </div>
                     </div>
                     <div class="column-2 ff-t-cell">
@@ -46,14 +37,9 @@
                             <div class="label required">
                                 <label>Last Name</label>
                             </div>
-<<<<<<< HEAD
-                            <div class="input">
-                                <input type="text" name="other_names" class="input-control" placeholder="Simons  " maxlength="20" required>
-=======
                             <div class="">
                                 <input id="inputLastName" type="text" name="lastName" class="form-control" maxlength="20" required />
                                 <div class="invalid-feedback">Please provide your last name</div>
->>>>>>> 0de11ad51558726ae794f95994a847c40b55d3e3
                             </div>
                         </div>
                     </div>
@@ -62,13 +48,8 @@
                             <div class="label">
                                 <label>Preferred Name</label>
                             </div>
-<<<<<<< HEAD
-                            <div class="input">
-                                <input type="text" name="other_names" class="input-control" placeholder="Preferred name "  maxlength="20">
-=======
                             <div class="">
-                                <input type="text" name="other_names" class="form-control"  maxlength="20">
->>>>>>> 0de11ad51558726ae794f95994a847c40b55d3e3
+                                <input type="text" name="preferred_name" class="form-control"  maxlength="20">
                             </div>
                         </div>
                     </div>
@@ -80,12 +61,8 @@
                             <label>Date of Birth </label>
                         </div>
                         <div class="input">
-<<<<<<< HEAD
-                            <input type="text" name="date_birth" class="input-control" placeholder="01/01/1990 " required>
-=======
                             <input type="text" id="inputDOB" name="date_birth" class="form-control" placeholder="DD/MM/YYYY" required />
                             <div class="invalid-feedback">Please provide your date of birth</div>
->>>>>>> 0de11ad51558726ae794f95994a847c40b55d3e3
                         </div>
                     </div>
                 </div>
@@ -95,12 +72,8 @@
                             <label>Occupation</label>
                         </div>
                         <div class="input">
-<<<<<<< HEAD
-                            <input type="text" name="occupation" class="input-control" placeholder="Doctor " required>
-=======
                             <input type="text" id="inputOccupation" name="occupation" class="form-control" required />
                             <div class="invalid-feedback">Please provide your occupation</div>
->>>>>>> 0de11ad51558726ae794f95994a847c40b55d3e3
                         </div>
                     </div>
                 </div>
@@ -111,14 +84,9 @@
                         <div class="label required">
                             <label>Unit/House No.</label>
                         </div>
-<<<<<<< HEAD
-                        <div class="input">
-                            <input type="text" name="address" class="input-control" placeholder="10 " required>
-=======
                         <div class="">
                             <input id="inputHouseNumber" type="text" name="address" class="input-control" required />
                             <div class="invalid-feedback">Please provide your unit/house number</div>
->>>>>>> 0de11ad51558726ae794f95994a847c40b55d3e3
                         </div>
                     </div>
                 </div>
@@ -127,14 +95,9 @@
                         <div class="label required">
                             <label>Street Address</label>
                         </div>
-<<<<<<< HEAD
-                        <div class="input">
-                            <input type="text" name="postal_address" class="input-control" placeholder="Monash St" required>
-=======
                         <div class="">
                             <input id="inputAddress" type="text" name="postal_address" class="input-control" required />
                             <div class="invalid-feedback">Please provide your street address</div>
->>>>>>> 0de11ad51558726ae794f95994a847c40b55d3e3
                         </div>
                     </div>
                 </div>
@@ -143,13 +106,7 @@
                         <div class="label required">
                             <label>State</label>
                         </div>
-<<<<<<< HEAD
-                    </div>
-                        <div class=input">
-                            <select class="form-select" aria-label="Default select example">
-=======
                             <select class="form-select" id="inputState" name="state" required>
->>>>>>> 0de11ad51558726ae794f95994a847c40b55d3e3
                                 <option selected>Choose:</option>
                                 <option value="New South Wales">New South Wales</option>
                                 <option value="Queensland">Queensland</option>
@@ -166,14 +123,9 @@
                         <div class="label required">
                             <label>Post Code</label>
                         </div>
-<<<<<<< HEAD
-                        <div class="input">
-                            <input type="text" name="postal_address" class="input-control" placeholder="3000" required>
-=======
                         <div class="">
                             <input type="text" name="postCode" id="inputPostCode" class="input-control" required />
                             <div class="invalid-feedback">Please provide your post code</div>
->>>>>>> 0de11ad51558726ae794f95994a847c40b55d3e3
                         </div>
                     </div>
                 </div>
@@ -184,14 +136,9 @@
                         <div class="label required">
                             <label>Email</label>
                         </div>
-<<<<<<< HEAD
-                        <div class="input">
-                            <input type="text" name="email" class="input-control" placeholder="monash@gmail.com " required>
-=======
                         <div class="">
                             <input type="text" id="inputEmail" name="email" class="input-control" placeholder="example@email.com" required />
                             <div class="invalid-feedback">Please provide your email</div>
->>>>>>> 0de11ad51558726ae794f95994a847c40b55d3e3
                         </div>
                     </div>
                 </div>
@@ -200,14 +147,9 @@
                         <div class="label required">
                             <label>Phone number</label>
                         </div>
-<<<<<<< HEAD
-                        <div class="input">
-                            <input type="text" name="phone" class="input-control" placeholder="0411222333" required>
-=======
                         <div class="">
                             <input id="inputPhoneNumber" type="text" name="phone" class="input-control" required />
                             <div class="invalid-feedback">Please provide your phone number</div>
->>>>>>> 0de11ad51558726ae794f95994a847c40b55d3e3
                         </div>
                     </div>
                 </div>
@@ -216,9 +158,7 @@
             <div class="ff-el-group">
                 <div class="label">
                     <label>Referred by?</label>
-                </div>
-                <div class="btn-group">
-                    <select class="form-select">
+                    <select class="form-select" id="referral">
                         <option selected>Choose: (optional)</option>
                         <option value="Tom">Tom</option>
                         <option value="Mary">Mary</option>
@@ -238,10 +178,11 @@
                 <div class="ff-el-group">
                     <div class="label">
                         <label>Will</label>
-<!--                        <i class="fa-solid fa-circle-question"</i>-->
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="15px" width="15px">
-                            <path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
-                        </svg>
+                        <a class="d-inline-block" data-bs-toggle="tooltip" data-bs-original-title="A will is a legal document that spells out your wishes regarding the care of your children, as well as the distribution of your assets after your death." data-bs-placement="right">
+                            <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="15px" width="15px">
+                                <path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
+                            </svg>
+                        </a>
                     </div>
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
@@ -275,6 +216,11 @@
                 <div class="ff-el-group">
                     <div class="label">
                         <label>Powers of Attorney</label>
+                        <a class="d-inline-block" data-bs-toggle="tooltip" data-bs-original-title="Refers to a legal authorization that gives a designated person the power to act for someone else. As such, a POA gives the agent or attorney the authority to act on behalf of the principal." data-bs-placement="right">
+                            <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="15px" width="15px">
+                                <path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
+                            </svg>
+                        </a>
                     </div>
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
@@ -308,6 +254,11 @@
                 <div class="ff-el-group">
                     <div class="label">
                         <label>Binding Death Benefit Nominations</label>
+                        <a class="d-inline-block" data-bs-toggle="tooltip" data-bs-original-title="This is a written direction from a member to their superannuation trustee setting out how they wish some or all of their superannuation death benefits to be distributed. The nomination is generally valid for a maximum of three years and lapses if it is not renewed." data-bs-placement="right">
+                            <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="15px" width="15px">
+                                <path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
+                            </svg>
+                        </a>
                     </div>
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
@@ -350,13 +301,13 @@
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <input type="radio" name="is_health" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
                                 <span>Yes</span>
                             </label>
                         </div>
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="is_health" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>No</span>
                             </label>
                         </div>
@@ -378,25 +329,25 @@
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <input type="radio" name="is_relationship" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
                                 <span>Married</span>
                             </label>
                         </div>
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="is_relationship" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>De-facto</span>
                             </label>
                         </div>
 						<div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="is_relationship" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>Separated or Divorced</span>
                             </label>
                         </div>
 						<div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="is_relationship" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>Never Married or Divorced</span>
                             </label>
                         </div>
@@ -418,13 +369,13 @@
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <input type="radio" name="current_children" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
                                 <span>Yes</span>
                             </label>
                         </div>
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="current_children" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>No</span>
                             </label>
                         </div>
@@ -437,13 +388,13 @@
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <input type="radio" name="previous_children" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
                                 <span>Yes</span>
                             </label>
                         </div>
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="previous_children" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>No</span>
                             </label>
                         </div>
@@ -468,13 +419,13 @@
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <input type="radio" name="is_living" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
                                 <span>Yes</span>
                             </label>
                         </div>
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="is_living" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>No</span>
                             </label>
                         </div>
@@ -499,13 +450,13 @@
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <input type="radio" name="is_dependent" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
                                 <span>Yes</span>
                             </label>
                         </div>
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="is_dependent" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>No</span>
                             </label>
                         </div>
@@ -722,7 +673,10 @@
                  data-sitekey="<?= RECAPTCHAV2_SITEKEY ?>">
             </div>
             <?php echo $this->Html->script('https://www.google.com/recaptcha/api.js"'); ?>
-            <button type="submit" name="submit" class="ff-float-right ff-btn ff-btn-next ff-btn-secondary">Submit</button>
+<!--            <button type="submit" name="submit" class="ff-float-right ff-btn ff-btn-next ff-btn-secondary">Submit</button>-->
+            <div class="float-none text-center mt-3 float-md-end mt-md-0">
+                <button type="submit" name="submit" id="submitIntakeform" class="btn btn-shelbourne rounded-pill fw-bold w-100">Submit</button>
+            </div>
         </div>
     <?= $this->Form->end() ?>
 </div>
@@ -780,21 +734,19 @@
                 formData[keys] = value;
             });
 
-            $.ajax({
-                url:"/register",
-                data:formData,
-                type:"POST",
-                beforeSend: function(xhr){
-                    xhr.setRequestHeader('X-CSRF-Token', <?=json_encode($this->request->getCookie('csrfToken'));?>);
-                },
-                success:function(res){
-                    alert(res);
-                }
-            });
+            //$.ajax({
+            //    url:"/register",
+            //    data:formData,
+            //    type:"POST",
+            //    beforeSend: function(xhr){
+            //        xhr.setRequestHeader('X-CSRF-Token', <?//=json_encode($this->request->getCookie('csrfToken'));?>//);
+            //    },
+            //    success:function(res){
+            //        alert(res);
+            //    }
+            //});
         }
     }
-<<<<<<< HEAD
-=======
 
 
     $("#submitIntakeform").click(function(){
@@ -823,6 +775,4 @@
 
 
 
->>>>>>> 0de11ad51558726ae794f95994a847c40b55d3e3
 </script>
-</div>
