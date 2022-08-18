@@ -107,7 +107,7 @@ class ClientsController extends AppController
     public function intakeform()
     {
         // Set the intakeform layout.
-        $this->viewBuilder()->setLayout('intakeform');
+//        $this->viewBuilder()->setLayout('intakeform');
 
 
         $client = $this->Clients->newEmptyEntity();

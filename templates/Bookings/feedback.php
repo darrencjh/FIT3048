@@ -2,7 +2,13 @@
 $this->assign('title', 'Booking Feedback');
 
 ?>
-
+<div class="bg-image">
+    <div class="feedback-title-container">
+        <div class="feedback-title">
+            <div class="fw-lighter"><?= $pageTitle ?></div>
+        </div>
+    </div>
+</div>
 
 <div class="container-xl mb-5">
     <div class="h4 my-5">Your booking is successfully submitted! Thank you for making a booking with us.</div>

@@ -3,12 +3,16 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Client $client
  */
+$this->assign('title', 'Intake Form');
+$this->Html->css('intakeform', ['block' => true]);
 ?>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
-<div id="content">
+<main class="main">
+    <div class="container">
+        <div id="content">
 
     <div class="form-title">
         Wills & Estates Intake Form
@@ -477,7 +481,8 @@
         </div>
     <?= $this->Form->end() ?>
 </div>
-
+    </div>
+</main>
 
 <script type="text/javascript">
     $(document).on("blur", ".ff-el-group input", function() {

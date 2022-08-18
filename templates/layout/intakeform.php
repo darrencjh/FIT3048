@@ -25,6 +25,7 @@ $intakeformDescription = 'Intake Form -  Shelbourne legal';
         <?= $intakeformDescription ?>:
     </title>
     <?= $this->Html->meta('icon', $this->Url->build('/logo.png', ['fullBase' => true])); ?>
+    <?= $this->Html->meta('csrfToken',$this->request->getAttribute('csrfToken')); ?>
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap"
           rel="stylesheet">

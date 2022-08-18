@@ -190,7 +190,12 @@ $this->assign('title', 'Booking with us');
 
             let displayedYear = $('.calendar-year p').text()
             if (displayedYear == currentYear) {
-                $('.calendar-year button').remove()
+                // remove last-year and next-year button
+                //$('.calendar-year button').remove()
+                //if this is current year,disable last-year button and make it grey
+                $(".calendar-year>button").first().prop("disabled",true).children().css('color', '#ccc');
+
+                //disable previous months
                 $(`.calendar-months>li:lt(${currentMonthValue})`)
                     .css('pointer-events', 'none')
                     .css('color', '#ccc');
