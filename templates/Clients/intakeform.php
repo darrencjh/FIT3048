@@ -25,7 +25,7 @@
                                 <label>Given Name </label>
                             </div>
                             <div class="">
-                                <input type="text" name="full_name" id="inputGivenName"  class="form-control" maxlength="20" required />
+                                <input type="text" name="givenName" id="inputGivenName"  class="form-control" maxlength="20" required />
                                 <div class="invalid-feedback">Please provide your given name</div>
 
                             </div>
@@ -49,7 +49,7 @@
                                 <label>Preferred Name</label>
                             </div>
                             <div class="">
-                                <input type="text" name="other_names" class="form-control"  maxlength="20">
+                                <input type="text" name="preferred_name" class="form-control"  maxlength="20">
                             </div>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                             <label>Unit/House No.</label>
                         </div>
                         <div class="">
-                            <input id="inputHouseNumber" type="text" name="address" class="input-control" required />
+                            <input id="inputHouseNumber" type="text" name="house_number" class="input-control" required />
                             <div class="invalid-feedback">Please provide your unit/house number</div>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
             <div class="ff-el-group">
                 <div class="label">
                     <label>Referred by?</label>
-                    <select class="form-select">
+                    <select class="form-select" id="referral">
                         <option selected>Choose: (optional)</option>
                         <option value="Tom">Tom</option>
                         <option value="Mary">Mary</option>
@@ -301,13 +301,13 @@
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <input type="radio" name="is_health" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
                                 <span>Yes</span>
                             </label>
                         </div>
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="is_health" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>No</span>
                             </label>
                         </div>
@@ -329,25 +329,25 @@
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <input type="radio" name="is_relationship" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
                                 <span>Married</span>
                             </label>
                         </div>
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="is_relationship" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>De-facto</span>
                             </label>
                         </div>
 						<div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="is_relationship" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>Separated or Divorced</span>
                             </label>
                         </div>
 						<div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="is_relationship" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>Never Married or Divorced</span>
                             </label>
                         </div>
@@ -369,13 +369,13 @@
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <input type="radio" name="current_children" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
                                 <span>Yes</span>
                             </label>
                         </div>
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="current_children" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>No</span>
                             </label>
                         </div>
@@ -388,13 +388,13 @@
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <input type="radio" name="previous_children" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
                                 <span>Yes</span>
                             </label>
                         </div>
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="previous_children" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>No</span>
                             </label>
                         </div>
@@ -419,13 +419,13 @@
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <input type="radio" name="is_living" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
                                 <span>Yes</span>
                             </label>
                         </div>
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="is_living" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>No</span>
                             </label>
                         </div>
@@ -450,13 +450,13 @@
                     <div class="input" style="font-size: 0;">
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
+                                <input type="radio" name="is_dependent" class="ff-el-form-check-input ff-el-form-check-radio" value="1">
                                 <span>Yes</span>
                             </label>
                         </div>
                         <div class="ff-el-form-check">
                             <label class="ff-el-form-check-label">
-                                <input type="radio" name="is_binding" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
+                                <input type="radio" name="is_dependent" class="ff-el-form-check-input ff-el-form-check-radio" value="0">
                                 <span>No</span>
                             </label>
                         </div>
