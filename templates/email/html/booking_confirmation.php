@@ -221,12 +221,12 @@ endforeach;
             text-transform: capitalize !important;
         }
         .btn-shelbourne {
-            color: #fff;
+            color: #fff !important;
             background-color: #01ab9d;
             border-color: #01ab9d;
         }
         .btn-shelbourne:hover {
-            color: #01ab9d;
+            color: #01ab9d !important;
             background-color: #fff;
             border-color: #01ab9d;
         }
@@ -447,7 +447,7 @@ endforeach;
                                 <tr>
                                     <td>
                                         <div class="text-center">
-                                            <?= $this->Html->image('https://d3v0px0pttie1i.cloudfront.net/uploads/user/logo/6737024/445e6b00.jpg', ['alt' => 'Shelbourne legal','class' => '']); ?>
+                                            <img src="https://d3v0px0pttie1i.cloudfront.net/uploads/user/logo/6737024/445e6b00.jpg" alt="Shelbourne legal">
                                         </div>
                                         <p>Hi,<?= h($name) ?></p>
                                         <p>Thank you for making a booking,here are booking info needed to confirm with you </p>
@@ -462,7 +462,7 @@ endforeach;
                                         <h2>What's Next Step? </h2>
                                         <p><b>Please fill in the Intake form(if filled before,please ignore this step): </b></p>
                                         <div class="align-center">
-                                            <a class="btn btn-shelbourne" style="color: white;" href="<?=  $this->Url->build(['controller'=>'Clients','action'=>'intakeform'], ['fullBase' => true]) ?>" target="_blank">Fill in Intake Form</a>
+                                            <a class="btn btn-shelbourne" href="<?=  $this->Url->build(['controller'=>'Clients','action'=>'intakeform'], ['fullBase' => true]) ?>" target="_blank">Fill in Intake Form</a>
                                         </div>
 
                                         <div class="emailformat">
