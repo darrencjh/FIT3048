@@ -1,35 +1,19 @@
 <?php
 //$this->disableAutoLayout();
 $this->assign('title', 'Booking with us');
+$this->Html->css(['evo-calendar','booking'], ['block' => true]);
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Booking $booking
  */
 ?>
-<style>
-    /*  previous months   */
-    .disablePreviousMonths{
-        pointer-events: none !important;
-        color: #ccc !important;
-    }
-    /* The days before tomorrow */
-    .disableDayBeforeTomorrow{
-        pointer-events: none !important;
-        color: #ccc !important;
-    }
-    /* Weekends */
-    .disableWeekend{
-        pointer-events: none !important;
-    }
-    .disableWeekendColor{
-        color:#ccc !important;
-    }
-</style>
+<main class="main">
 
 
 <div class="container">
 
-    <div id="calendar" class="mt-5"></div>
+    <div id="calendar"></div>
     <div id="noDateTimeInfo" class="d-none text-danger my-4">Please select a date and time</div>
 
 
@@ -668,3 +652,4 @@ $this->assign('title', 'Booking with us');
     </script>
 </div>
 
+</main>

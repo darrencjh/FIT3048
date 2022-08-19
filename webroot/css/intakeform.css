@@ -286,3 +286,39 @@ input[type=password]:focus {
 .success{
     color: #01ab9d;
 }
+
+/*  Right side Form   */
+.contact_form input,.contact_form textarea{
+    width: 100% !important;
+    height: auto !important;
+    color: #fff !important;
+    line-height: 1.4 !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    min-height: 40px !important;
+    padding: 0.75em !important;
+    background-color: #4e4e4e !important;
+    border-color: #17bcb9 !important;
+    border-width: 0 0 2px !important;
+    border-radius: 0 !important;
+
+    /*margin-bottom: 12px;*/
+}
+.contact_form input:focus,.contact_form textarea:focus{
+    outline:0 !important;
+
+}
+
+
+::-webkit-input-placeholder{
+    color: #999999 !important;
+}
+:-moz-placeholder{
+    color: #999999 !important;
+}
+::-moz-placeholder{
+    color: #999999 !important;
+}
+:-ms-input-placeholder{
+    color: #999999 !important;
+}

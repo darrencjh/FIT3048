@@ -143,7 +143,7 @@ class BookingsController extends AppController
     public function choose()
     {
         // Set the booking layout.
-        $this->viewBuilder()->setLayout('booking');
+//        $this->viewBuilder()->setLayout('booking');
 
         $booking = $this->Bookings->newEmptyEntity();
         if ($this->request->is('post')) {
@@ -225,16 +225,6 @@ class BookingsController extends AppController
         $this->set(compact('pageTitle'));
     }
     public function feedback(){
-
-        if ($this->request->is("post")) {
-            //$postData = $this->request->getData();
-            // Form submit handler
-//            if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
-//                $this->Flash->success('You have passed the recaptcha validation');
-//            } else {
-//                $this->Flash->error('Please check your inputs');
-//            }
-        }
         $pageTitle="Your Booking Feedback";
         $this->set(compact('pageTitle'));
 

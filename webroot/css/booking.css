@@ -1,0 +1,24 @@
+/*  previous months   */
+.disablePreviousMonths{
+    pointer-events: none !important;
+    color: #ccc !important;
+}
+/* The days before tomorrow */
+.disableDayBeforeTomorrow{
+    pointer-events: none !important;
+    color: #ccc !important;
+}
+/* Weekends */
+.disableWeekend{
+    pointer-events: none !important;
+}
+.disableWeekendColor{
+    color:#ccc !important;
+}
+
+.main{
+    /*background-color: #ededed !important;*/
+    padding-top: 150px !important;
+    padding-bottom: 50px !important;
+
+}

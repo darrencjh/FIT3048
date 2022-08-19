@@ -6,6 +6,7 @@
 $this->assign('title', 'Intake Form');
 $this->Html->css('intakeform', ['block' => true]);
 ?>
+
 <script type="text/javascript">
     var widgetId1;
     var onloadCallback = function () {
@@ -14,7 +15,6 @@ $this->Html->css('intakeform', ['block' => true]);
         });
 
     };
-
 </script>
 
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>

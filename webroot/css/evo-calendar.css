@@ -650,13 +650,13 @@ button.icon-button > span.chevron-arrow-right {
         max-width: calc(100% - 150px);
     }
     .calendar-events {
-        width: 250px;
+        width: 260px;
         padding: 70px 10px 60px 10px;
     }
 }
 
 /* sm */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 784px) { /* must match the bootstrap width */
     .calendar-sidebar {
         width: 180px;
     }
