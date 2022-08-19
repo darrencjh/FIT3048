@@ -9,20 +9,20 @@ $this->assign('title', 'Booking with us');
 <style>
     /*  previous months   */
     .disablePreviousMonths{
-        pointer-events: none;
-        color: #ccc;
+        pointer-events: none !important;
+        color: #ccc !important;
     }
     /* The days before tomorrow */
     .disableDayBeforeTomorrow{
-        pointer-events: none;
-        color: #ccc;
+        pointer-events: none !important;
+        color: #ccc !important;
     }
     /* Weekends */
     .disableWeekend{
-        pointer-events: none;
+        pointer-events: none !important;
     }
     .disableWeekendColor{
-        color:#ccc;
+        color:#ccc !important;
     }
 </style>
 
@@ -193,8 +193,7 @@ $this->assign('title', 'Booking with us');
                 let currentMonthValue = tDate.getMonth()
                 let currentYear = tDate.getFullYear()
                 if(activeYear==currentYear){
-                    //remove previous year button
-                    // $(".calendar-year>button").first().remove();
+                    //disable previous year button
                     $(".calendar-year>button").first().prop("disabled",true);
 
 
@@ -202,35 +201,47 @@ $this->assign('title', 'Booking with us');
                     $(`.calendar-months>li:lt(${currentMonthValue})`)
                         .addClass("disablePreviousMonths")
 
-                    //the day before tomorrow is unavailable
-                    let todayDate = tDate.getDate()
-                    $(`.calendar-day .day:lt(${todayDate})`)
-                        .addClass("disableDayBeforeTomorrow")
+
+                    // current month
+                    $('#calendar').evoCalendar('selectMonth', currentMonthValue);
+                    setTimeout(function () {
+                        //the day before tomorrow is unavailable
+                        let todayDate = tDate.getDate()
+                        $(`.calendar-day .day:lt(${todayDate})`)
+                            .addClass("disableDayBeforeTomorrow")
 
 
-                    //Weekend is unavailable
-                    $('.--weekend').addClass("disableWeekend")
-                    $('.--weekend .day').addClass("disableWeekendColor")
+                        //Weekend is unavailable
+                        $('.--weekend').addClass("disableWeekend")
+                        $('.--weekend .day').addClass("disableWeekendColor")
 
 
-                    //add green indicators for week days
-                    $(`.calendar-day:gt(${todayDate - 1}) .day`).append($('<span class="event-indicator"><div class="type-bullet"><div class="type-event" style="background-color:#63d867"></div></div></span>'))
-                    $(`.--weekend .day .event-indicator`).remove()
+                        //add green indicators for week days
+                        $(`.calendar-day:gt(${todayDate - 1}) .day`).append($('<span class="event-indicator"><div class="type-bullet"><div class="type-event" style="background-color:#63d867"></div></div></span>'))
+                        $(`.--weekend .day .event-indicator`).remove()
 
-
-                    $('#calendar').evoCalendar('selectMonth', currentMonthValue); // current month
+                    }, 1000);
 
 
                 }else{//if the year is not current year
+
                     console.log("It is not current year")
-                    //Append previous year button
-                    // if(!$(".calendar-year button span").first().hasClass("chevron-arrow-left")){
-                    //     let $lastYearButton=$(`<button class="icon-button" role="button" data-year-val="prev" title="Previous year"><span class="chevron-arrow-left"></span></button>`)
-                    //     $(".calendar-year").prepend($lastYearButton)
-                    // }
+
+
+                    setTimeout(function () {
+                        let calendarYear=$(".calendar-year p").text()
+                        console.log(calendarYear)
+                        console.log(currentYear)//2022
+                        // let calendarYear=$(".calendar-year p").text()
+                        if(calendarYear!=currentYear){
+                            $(`.calendar-day .day`).append($('<span class="event-indicator"><div class="type-bullet"><div class="type-event" style="background-color:#63d867"></div></div></span>'))
+                            $(`.--weekend .day .event-indicator`).remove()
+                        }
+                    }, 1000);
+
+
+                    //enable previous button
                     $(".calendar-year>button").first().prop("disabled",false);
-
-
 
                     //enable previous months
                     $(".calendar-months>li")
@@ -255,11 +266,9 @@ $this->assign('title', 'Booking with us');
                 $('.--weekend').removeClass("disableWeekend")
                 $('.--weekend .day').removeClass("disableWeekendColor")
 
-                //add green indicators for week days
+                //add green indicators for week days. Problem:Year change,first page no indicator.
                 $(`.calendar-day .day`).append($('<span class="event-indicator"><div class="type-bullet"><div class="type-event" style="background-color:#63d867"></div></div></span>'))
                 $(`.--weekend .day .event-indicator`).remove()
-
-
 
             }
 
@@ -508,7 +517,7 @@ $this->assign('title', 'Booking with us');
                 let calendarYear=$(".calendar-year p").text()
                 let currentYear = new Date().getFullYear()
                 if(firstTimeWhenChangeYear){
-                    firstTimeWhenChangeYear=false
+                    firstTimeWhenChangeYear=false //need change to true in select year
                     //add green indicator
                     console.log("First Time:add green indicator for each day")
                     $(`.calendar-day .day`).append($('<span class="event-indicator"><div class="type-bullet"><div class="type-event" style="background-color:#63d867"></div></div></span>'))
