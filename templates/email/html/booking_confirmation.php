@@ -254,7 +254,7 @@ endforeach;
             background-color: #01ab9d;
         }
 
-        .btn-shelbourne a {
+        a.btn-shelbourne  {
             background-color: #01ab9d;
             border-color: #01ab9d;
             color: #ffffff;
@@ -462,7 +462,7 @@ endforeach;
                                         <h2>What's Next Step? </h2>
                                         <p><b>Please fill in the Intake form(if filled before,please ignore this step): </b></p>
                                         <div class="align-center">
-                                            <a class="btn btn-shelbourne" href="<?=  $this->Url->build(['controller'=>'Clients','action'=>'intakeform'], ['fullBase' => true]) ?>" target="_blank">Fill in Intake Form</a>
+                                            <a class="btn btn-shelbourne" style="color: white;" href="<?=  $this->Url->build(['controller'=>'Clients','action'=>'intakeform'], ['fullBase' => true]) ?>" target="_blank">Fill in Intake Form</a>
                                         </div>
 
                                         <div class="emailformat">
