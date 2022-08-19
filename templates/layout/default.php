@@ -45,7 +45,7 @@ $titleDescription = ' - Shelbourne legal';
 
         <div class="container-fluid nav-content">
             <!--   logo       -->
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="https://shelbournelegal.com.au/">
                 <img width="300" height="27"
                      src="https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web-300x27.png"
                      class="custom-logo" alt="Shelbourne Legal"
