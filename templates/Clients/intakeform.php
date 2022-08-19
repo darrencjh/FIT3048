@@ -798,52 +798,39 @@ $this->Html->css('intakeform', ['block' => true]);
     //    }
     //}
 
-    //disable the submission button if not tick
-    // if(!$("#recaptcha-anchor").hasClass("recaptcha-checkbox-checked")){
-    //     $("#submitIntakeform").prop("disabled", true)
-    // }
+
+    $("#submitIntakeform").click(function () {
+       let givenName = inputGivenName.value
+       let lastName = inputLastName.value
+       let DOB = inputDOB.value
+       let occupation = inputOccupation.value
+       let houseNumber = inputHouseNumber.value
+       let address = inputAddress.value
+       let state = inputState.value
+       let postCode = inputPostCode.value
+       let email = inputEmail.value
+       let phoneNumber = inputPhoneNumber.value
+       if (givenName == "") $("#inputGivenName").addClass("is-invalid")
+       if (lastName == "") $("#inputLastName").addClass("is-invalid")
+       if (DOB == "") $("#inputDOB").addClass("is-invalid")
+       if (occupation == "") $("#inputOccupation").addClass("is-invalid")
+       if (houseNumber == "") $("#inputHouseNumber").addClass("is-invalid")
+       if (address == "") $("#inputAddress").addClass("is-invalid")
+       if (state == "") $("#inputState").addClass("is-invalid")
+       if (postCode == "") $("#inputPostCode").addClass("is-invalid")
+       if (email == "") $("#inputEmail").addClass("is-invalid")
+       if (phoneNumber == "") $("#inputPhoneNumber").addClass("is-invalid")
+
+        if(!givenName || !lastName || !DOB || !occupation || !houseNumber || !address || !state || !postCode || !email || !phoneNumber){
+            document.getElementById('content').scrollIntoView(true)
+
+            return false
+        }else{
+            return true
+        }
 
 
-    //$("#submitIntakeform").click(function () {
-    //    let givenName = inputGivenName.value
-    //    let lastName = inputLastName.value
-    //    let DOB = inputDOB.value
-    //    let occupation = inputOccupation.value
-    //    let houseNumber = inputHouseNumber.value
-    //    let address = inputAddress.value
-    //    let state = inputState.value
-    //    let postCode = inputPostCode.value
-    //    let email = inputEmail.value
-    //    let phoneNumber = inputPhoneNumber.value
-    //    if (givenName == "") $("#inputGivenName").addClass("is-invalid")
-    //    if (lastName == "") $("#inputLastName").addClass("is-invalid")
-    //    if (DOB == "") $("#inputDOB").addClass("is-invalid")
-    //    if (occupation == "") $("#inputOccupation").addClass("is-invalid")
-    //    if (houseNumber == "") $("#inputHouseNumber").addClass("is-invalid")
-    //    if (address == "") $("#inputAddress").addClass("is-invalid")
-    //    if (state == "") $("#inputState").addClass("is-invalid")
-    //    if (postCode == "") $("#inputPostCode").addClass("is-invalid")
-    //    if (email == "") $("#inputEmail").addClass("is-invalid")
-    //    if (phoneNumber == "") $("#inputPhoneNumber").addClass("is-invalid")
-    //
-    //
-    //    $.ajax({
-    //        url: "https://www.google.com/recaptcha/api/siteverify",
-    //        data: {'secret': "<?//=RECAPTCHAV2_SECRET?>//", 'response': grecaptcha.getResponse()},
-    //        type: "POST",
-    //        headers: {
-    //            //'X-CSRF-Token': $('meta[name="csrfToken"]').attr('content'),
-    //            // 'Access-Control-Allow-Origin': '*',
-    //            // 'Access-Control-Allow-Methods': 'POST'
-    //        },
-    //        dataType: "json",
-    //        success: function (res) {
-    //            alert(res);
-    //        }
-    //    });
-    //    return false
-    //
-    //})
+    })
 
 
 </script>
