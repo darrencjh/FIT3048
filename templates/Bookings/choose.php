@@ -15,10 +15,11 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
 
     <div id="calendar"></div>
     <div id="noDateTimeInfo" class="d-none text-danger my-4">Please select a date and time</div>
+    <div id="naviToForm"></div>
 
 
     <!-- Company info and booking time   -->
-    <div class="row no-gutters mb-5">
+    <div class="row no-gutters my-5">
         <div class="col-sm-12 col-lg-4">
             <div class="mt-5 pt-3">
                 <div class="text-center">
@@ -71,19 +72,16 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
             <!--    Name-->
             <div class="mb-4">
                 <label for="InputName" class="form-label fw-bold">Name *</label>
-                <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp" name="name" required>
-                <div class="invalid-feedback">Please give your name</div>
+                <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp" name="name" required pattern="[a-zA-Z ]+$" maxlength="128">
+                <div class="invalid-feedback" id="nameError">Please give your name</div>
             </div>
 
             <!--    email-->
             <div class="mb-4">
                 <label for="InputEmail1" class="form-labe fw-bold">Email *</label>
-                <input type="email" class="form-control" id="InputEmail" name="email" aria-describedby="emailHelp" placeholder = 'eg. example@email.com' required pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'>
-                <div id="emptyEmailMsg" class="invalid-feedback">
-                    Please provide an email.
-                </div>
-                <div id="validEmailMsg" class="d-none">
-                    Please provide a valid email.
+                <input type="email" class="form-control" id="InputEmail" name="email" aria-describedby="emailHelp" placeholder = 'eg. example@email.com' required pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$' maxlength="64">
+                <div id="emailError" class="invalid-feedback">
+                    Please provide an email
                 </div>
             </div>
 
@@ -120,19 +118,17 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
             <!--    phone number-->
             <div class="mb-4">
                 <label for="validationTooltip05" class="fw-bold">Phone Number *</label>
-                <input type="phone" class="form-control" id="InputPhone" name="phone" placeholder="eg. 04xxxxxxxx" maxlength="10" pattern='04[0-9]{8}' required>
-                <div id="emptyPhoneMsg" class="invalid-feedback">
+                <input type="number" class="form-control" id="InputPhone" name="phone" placeholder="eg. 04xxxxxxxx" maxlength="10" pattern='04[0-9]{8}' required>
+                <div id="phoneError" class="invalid-feedback">
                     Please provide your phone number.
-                </div>
-                <div id="validPhoneMsg" class="d-none">
-                    Please provide a valid phone number.
                 </div>
             </div>
 
             <!--    Referral-->
             <div class="mb-4">
                 <label for="referralName" class="form-label fw-bold">Referred by</label>
-                <input type="text" class="form-control" id="referralName" aria-describedby="referralHelp" name="referred_by" maxlength="64">
+                <input type="text" class="form-control" id="referralName" aria-describedby="referralHelp" name="referred_by"  pattern="[a-zA-Z ]+$" maxlength="128">
+                <div class="invalid-feedback" id="referralNameError">Referral name can only contain letters</div>
             </div>
 
             <!--    button to submit-->
@@ -140,6 +136,8 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
                 <?= $this->Form->button(__('Schedule Event'),['class'=>'btn btn-shelbourne rounded-pill fw-bold px-4 py-3 mt-4 col-12 col-lg-4','id'=>'scheduleEvent']) ?>
             </div>
             <?= $this->Form->end() ?>
+
+
         </div>
 
     </div>
@@ -537,9 +535,6 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
             // select an Event
             //It will navigate to Enter Details. Meanwhile,display the selected date time,1 hour here
             $('#calendar').on('selectEvent', function (event, activeEvent) {
-                // navigate to form section
-                document.getElementById('details').scrollIntoView(true)
-                $("#noDateTimeInfo").addClass("d-none")
 
                 console.log($('#calendar').evoCalendar('getActiveDate')) // get the selected date:08/08/2022
                 console.log(activeEvent)//{id: 0.6927114948990831, name: '1:00pm', date: '08/11/2022', type: 'event', color: '#63d867'}
@@ -556,95 +551,180 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
                 let selectedDateWithDbFormat=selectedDate.getFullYear()+'-'+newDateArray[0]+'-'+selectedDate.getDate()//2022-08-15
                 $('[name="date"]').val(selectedDateWithDbFormat)
                 $('[name="booked_time"]').val(activeEvent.name)
+
+                // navigate to form section
+                document.getElementById('naviToForm').scrollIntoView(true)
+                $("#noDateTimeInfo").addClass("d-none")
             });
-
-
-
-            //!!!!!For validation part!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //when user click,remove error message
-            $("#InputService").change(function(){
-                if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
-            })
-            $("#InputName").mousedown(function(){
-                if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
-            })
-            $("#InputEmail").mousedown(function(){
-                if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
-            })
-            //drop down
-            $('[name="location"]').click(function(){
-                if($(this).hasClass('is-invalid')){
-                    $("#MSTeams").removeClass("is-invalid")
-                    $("#Branch1").removeClass("is-invalid")
-                    $("#Branch2").removeClass("is-invalid")
-                }
-            })
-            $("#InputPhone").mousedown(function(){
-                if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
-            })
-
-
-            //form validations
-            $("#scheduleEvent").click(function(){
-                let dateTime=$(".selectedTime").text()
-                let service=InputService.value
-                let name=InputName.value
-                let email=InputEmail.value
-                let selectedlocation=""
-                $('[name="location"]').each(function(index,domEle){
-                    if(domEle.checked){
-                        selectedlocation=domEle.value
-                    }
-                })
-                let phone=InputPhone.value
-                //start validation
-                if(dateTime==""){
-                    // navigate to calendar
-                    document.getElementById('calendar').scrollIntoView(true)
-                    $("#noDateTimeInfo").removeClass("d-none")
-                }
-                if(service==0) $("#InputService").addClass("is-invalid")
-                if(name=="") $("#InputName").addClass("is-invalid")
-                //validate email
-                if(email==""){
-                    $("#InputEmail").addClass("is-invalid")
-                }else if(email.indexOf('@')==-1){
-                    $("#InputEmail").addClass("is-invalid")
-                    $("#emptyEmailMsg").addClass("d-none")
-                    $("#validEmailMsg").removeClass("d-none").addClass("invalid-feedback")
-                }
-                if(selectedlocation==""){
-                    $("#MSTeams").addClass("is-invalid")
-                    $("#Branch1").addClass("is-invalid")
-                    $("#Branch2").addClass("is-invalid")
-                }
-                //validate phone number
-                if(phone==""){
-                    $("#InputPhone").addClass("is-invalid")
-                }else if(phone.length!=10 || phone.substring(0, 2)!='04'){
-                    $("#InputPhone").addClass("is-invalid")
-                    $("#emptyPhoneMsg").addClass("d-none")
-                    $("#validPhoneMsg").removeClass("d-none").addClass("invalid-feedback")
-                }
-
-                if(service && name && email && email.indexOf('@')!=-1 && selectedlocation && phone && phone.length==10){
-                    return true
-                }else{
-                    return false
-                }
-
-
-
-            })
-
-
 
         });
 
 
     </script>
 
+<!--  form bootstrap validations   -->
+    <script>
 
+        // Verification for each fields
+        // can be reused!!!!!
+        let verifyService=(service)=>{
+            if(service==0) $("#InputService").addClass('is-invalid')
+        }
+        let verifyName=(name)=>{
+            if(name==""){
+                $("#nameError").text("Please give your name")
+                $("#InputName").addClass("is-invalid")
+            } else if(!/^[a-zA-Z ]+$/.test(name)){
+                $("#nameError").text("Name can only contain letters")
+                $("#InputName").addClass("is-invalid")
+            }
+        }
+        let verifyEmail=(email)=>{
+            if(email==""){
+                $("#emailError").text("Please provide an email")
+                $("#InputEmail").addClass("is-invalid")
+            }else if(!/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)){
+                $("#emailError").text("Please provide a correct email format")
+                $("#InputEmail").addClass("is-invalid")
+            }
+        }
+        let verifyLocation=(selectedlocation)=>{
+            if(selectedlocation==""){
+                $("#MSTeams").addClass("is-invalid")
+                $("#Branch1").addClass("is-invalid")
+                $("#Branch2").addClass("is-invalid")
+            }
+        }
+
+        let verifyPhone=(phone)=>{
+            if(phone==""){
+                $("#phoneError").text("Please provide your phone number.")
+                $("#InputPhone").addClass("is-invalid")
+            }else if(!/04[0-9]{8}/.test(phone)){
+                $("#phoneError").text("Please provide a valid phone number(start with 04).")
+                $("#InputPhone").addClass("is-invalid")
+            }else if(phone.length!=10){
+                $("#phoneError").text("Please check your phone number. It should be 10 digits")
+                $("#InputPhone").addClass("is-invalid")
+            }
+        }
+
+        let verifyReferral=(referral)=>{
+            if(referral!="" && !/^[a-zA-Z ]+$/.test(referral)){
+                $("#referralName").addClass("is-invalid")
+            }
+        }
+
+
+
+        //First verification:when user leave a form field,check
+        $("#InputService").blur(function(){
+            verifyService(this.value)
+        })
+        $("#InputName").blur(function(){
+            verifyName(this.value)
+        })
+        $("#InputEmail").blur(function(){
+            verifyEmail(this.value)
+        })
+        $("#InputEmail").blur(function(){
+            verifyEmail(this.value)
+        })
+        $("#InputPhone").blur(function(){
+            verifyPhone(this.value)
+        })
+        $("#referralName").blur(function(){
+            verifyReferral(this.value)
+        })
+
+
+        //when user click,remove error message
+        $("#InputService").click(function(){
+            if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+        })
+        $("#InputName").mousedown(function(){
+            if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+        })
+        $("#InputEmail").mousedown(function(){
+            if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+        })
+        //Radio
+        $('[name="location"]').click(function(){
+            if($(this).hasClass('is-invalid')){
+                $("#MSTeams").removeClass("is-invalid")
+                $("#Branch1").removeClass("is-invalid")
+                $("#Branch2").removeClass("is-invalid")
+            }
+        })
+        $("#InputPhone").mousedown(function(){
+            if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+        })
+        $("#referralName").mousedown(function(){
+            if($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+        })
+
+
+        //Second verification: when click the submit button,verify the form
+        $("#scheduleEvent").click(function(){
+            //1.get value for each fields
+            let dateTime=$(".selectedTime").text()
+            let service=InputService.value
+            let name=InputName.value
+            let email=InputEmail.value
+            let selectedlocation=""
+            $('[name=location]').each(function(index,domEle){
+                if(domEle.checked){
+                    selectedlocation=domEle.value
+                }
+            })
+            let phone=InputPhone.value
+            let referral=referralName.value
+
+
+            //2.start validation
+            if(dateTime==""){
+                // navigate to calendar
+                document.getElementById('calendar').scrollIntoView(true)
+                $("#noDateTimeInfo").removeClass("d-none")
+            }
+            //options
+            verifyService(service)
+
+            //name
+            verifyName(name)
+
+            //validate email
+            verifyEmail(email)
+
+            //location
+            verifyLocation(selectedlocation)
+
+            //validate phone number
+            verifyPhone(phone)
+
+            //verify refer name
+            verifyReferral(referral)
+
+
+
+            if(service && name && email && email.indexOf('@')!=-1 && selectedlocation && phone && phone.length==10){
+                return true
+            }else{
+                // navigate to form section
+                document.getElementById('naviToForm').scrollIntoView(true)
+                return false
+            }
+
+
+        })
+    </script>
+
+<!--  js verify  -->
+    <script>
+        $(function () {
+
+        });
+    </script>
 
 </div>
 
