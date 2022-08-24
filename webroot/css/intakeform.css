@@ -316,3 +316,10 @@ input[type=password]:focus {
 :-ms-input-placeholder{
     color: #999999 !important;
 }
+
+
+
+/*  Customize codes based on bootstrap  */
+.progress{
+    height: 1.3rem;
+}
