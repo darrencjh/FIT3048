@@ -49,7 +49,7 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
             </div>
 
 
-            <?= $this->Form->create($booking) ?>
+            <?= $this->Form->create($booking,['class'=>'needs-validation']) ?>
             <?php
             echo $this->Form->control('date',['label' => false,'class'=>'d-none']);
             echo $this->Form->control('booked_time',['label' => false,'class'=>'d-none']);
@@ -568,51 +568,70 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
         // Verification for each fields
         // can be reused!!!!!
         let verifyService=(service)=>{
-            if(service==0) $("#InputService").addClass('is-invalid')
+            if(service==0){
+                $("#InputService").addClass('is-invalid')
+                return false
+            }
+            return true
         }
         let verifyName=(name)=>{
             if(name==""){
                 $("#nameError").text("Please give your name")
                 $("#InputName").addClass("is-invalid")
+                return false
             } else if(!/^[a-zA-Z ]+$/.test(name)){
                 $("#nameError").text("Name can only contain letters")
                 $("#InputName").addClass("is-invalid")
+                return false
             }
+            return true
         }
         let verifyEmail=(email)=>{
             if(email==""){
                 $("#emailError").text("Please provide an email")
                 $("#InputEmail").addClass("is-invalid")
+                return false
             }else if(!/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)){
                 $("#emailError").text("Please provide a correct email format")
                 $("#InputEmail").addClass("is-invalid")
+                return false
             }
+            return true
         }
         let verifyLocation=(selectedlocation)=>{
             if(selectedlocation==""){
                 $("#MSTeams").addClass("is-invalid")
                 $("#Branch1").addClass("is-invalid")
                 $("#Branch2").addClass("is-invalid")
+                return false
             }
+            return true
         }
 
         let verifyPhone=(phone)=>{
             if(phone==""){
                 $("#phoneError").text("Please provide your phone number.")
                 $("#InputPhone").addClass("is-invalid")
+                return false
             }else if(!/04[0-9]{8}/.test(phone)){
                 $("#phoneError").text("Please provide a valid phone number(start with 04).")
                 $("#InputPhone").addClass("is-invalid")
+                return false
             }else if(phone.length!=10){
                 $("#phoneError").text("Please check your phone number. It should be 10 digits")
                 $("#InputPhone").addClass("is-invalid")
+                return false
             }
+            return true
+
         }
 
         let verifyReferral=(referral)=>{
             if(referral!="" && !/^[a-zA-Z ]+$/.test(referral)){
                 $("#referralName").addClass("is-invalid")
+                return false
             }
+            return true
         }
 
 
@@ -682,38 +701,35 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
 
 
             //2.start validation
+            let serviceResult=verifyService(service)
+            let nameResult=verifyName(name)
+            let emailResult=verifyEmail(email)
+            let locationResult=verifyLocation(selectedlocation)
+            let phoneResult=verifyPhone(phone)
+            let referralResult=verifyReferral(referral)
+
+
             if(dateTime==""){
                 // navigate to calendar
-                document.getElementById('calendar').scrollIntoView(true)
+                // document.getElementById('calendar').scrollIntoView(true)
+                window.scrollTo(0, 0);
                 $("#noDateTimeInfo").removeClass("d-none")
+                return false
+
             }
-            //options
-            verifyService(service)
-
-            //name
-            verifyName(name)
-
-            //validate email
-            verifyEmail(email)
-
-            //location
-            verifyLocation(selectedlocation)
-
-            //validate phone number
-            verifyPhone(phone)
-
-            //verify refer name
-            verifyReferral(referral)
 
 
-
-            if(service && name && email && email.indexOf('@')!=-1 && selectedlocation && phone && phone.length==10){
+            if(serviceResult && nameResult && emailResult && locationResult && phoneResult && referralResult){
+                //if all fields passed the verification,return true
                 return true
             }else{
+                //only if one failed,cannot submitted
                 // navigate to form section
                 document.getElementById('naviToForm').scrollIntoView(true)
                 return false
             }
+
+
 
 
         })
@@ -721,9 +737,17 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
 
 <!--  js verify  -->
     <script>
-        $(function () {
-
-        });
+        // $(function () {
+        //
+        //     form.addEventListener('submit', function (event) {
+        //         if (!form.checkValidity()) {
+        //             event.preventDefault()
+        //             event.stopPropagation()
+        //         }
+        //
+        //         form.classList.add('was-validated')
+        //     }, false)
+        // });
     </script>
 
 </div>
