@@ -22,7 +22,7 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
         <div class="col-sm-12 col-lg-4">
             <div class="mt-5 pt-3">
                 <div class="text-center">
-                    <?= $this->Html->image('legal_logo.jpg', ['alt' => 'Shelbourne legal','class' => '']); ?>
+                    <?= $this->Html->image('legal_logo_trans.png', ['alt' => 'Shelbourne legal','class' => '']); ?>
                 </div>
                 <div class="text-center mt-3 h3 fw-bold">Leonie Dubbelman</div>
                 <div class="text-muted">
@@ -54,8 +54,6 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
             echo $this->Form->control('booked_time',['label' => false,'class'=>'d-none']);
 
             ?>
-
-
 
             <!--    Service-->
             <div class="mb-4">
@@ -150,6 +148,7 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
 
     <?= $this->Html->script('evo-calendar.min') ?>
 
+<!--  Customize the calendar interactions   -->
     <script>
         $(function () {
             $("#calendar").evoCalendar({
@@ -644,12 +643,9 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
 
 
     </script>
-    <script type="text/javascript">
-        //disable back button because client already make a booking
-        // function disableBack() { window.history.forward(); }
-        // setTimeout("disableBack()", 0);
-        // window.onunload = function () { null };
-    </script>
+
+
+
 </div>
 
 </main>

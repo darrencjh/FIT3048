@@ -13,9 +13,6 @@ $this->assign('title', 'Test page');
 
     .main{
         background-color: #ededed !important;
-        padding-top: 150px !important;
-        padding-bottom: 50px !important;
-
     }
 </style>
 

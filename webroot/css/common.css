@@ -214,4 +214,13 @@ h2::selection {
     }
 }
 
+.main{
+    background-color: #f9f9f9;
+    padding-top: 150px !important;
+    padding-bottom: 50px !important;
+}
 
+
+.fixed-top{
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%);
+}

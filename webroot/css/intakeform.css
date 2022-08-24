@@ -273,12 +273,6 @@ input[type=password]:focus {
     display: inline-block;
 }
 
-.main{
-    background-color: #ededed !important;
-    padding-top: 150px !important;
-    padding-bottom: 50px !important;
-
-}
 
 .error{
     color: red;
