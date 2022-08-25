@@ -17,8 +17,8 @@ $this->Html->script('intakeform', ['block' => true]);
                 Wills & Estates Intake Form
             </div>
 
-<!-- Page 1           -->
-            <div id="page1"  class="collapse show">
+            <!-- Page 1           -->
+            <div id="page1" class="collapse show">
 
                 <div class="text-muted mt-3">Step 1 of 4 - Step 1</div>
                 <div class="progress my-2">
@@ -39,7 +39,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 <label>Given Name </label>
                             </div>
                             <div class="">
-                                <input type="text" name="givenName" id="inputGivenName" class="form-control" maxlength="20"
+                                <input type="text" name="givenName" id="inputGivenName" class="form-control"
+                                       maxlength="20"
                                        required/>
                                 <div class="invalid-feedback">Please provide your given name</div>
 
@@ -53,7 +54,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 <label>Last Name</label>
                             </div>
                             <div class="">
-                                <input id="inputLastName" type="text" name="lastName" class="form-control" maxlength="20"
+                                <input id="inputLastName" type="text" name="lastName" class="form-control"
+                                       maxlength="20"
                                        required/>
                                 <div class="invalid-feedback">Please provide your last name</div>
                             </div>
@@ -89,7 +91,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 <label>Occupation</label>
                             </div>
                             <div class="">
-                                <input type="text" id="inputOccupation" name="occupation" class="form-control" required/>
+                                <input type="text" id="inputOccupation" name="occupation" class="form-control"
+                                       required/>
                                 <div class="invalid-feedback">Please provide your occupation</div>
                             </div>
                         </div>
@@ -113,7 +116,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 <label>Street Address</label>
                             </div>
                             <div class="">
-                                <input id="inputAddress" type="text" name="postal_address" class="input-control" required/>
+                                <input id="inputAddress" type="text" name="postal_address" class="input-control"
+                                       required/>
                                 <div class="invalid-feedback">Please provide your street address</div>
                             </div>
                         </div>
@@ -192,23 +196,49 @@ $this->Html->script('intakeform', ['block' => true]);
                 </div>
             </div>
 
-<!-- Page 2           -->
+
+            <!-- Page 2           -->
             <div id="page2" class="collapse">
+                <!--    Progress bar         -->
                 <div class="text-muted mt-3">Step 2 of 4 - Step 2</div>
                 <div class="progress my-2">
-                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 50%;"
+                         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%
+                    </div>
                 </div>
 
+                <!--   1.2 Existing documents -->
+
                 <div class="ff-el-group">
-                    <h4>1.2 Existing Will &amp; Attorneys</h4>
+                    <h4>1.2 Existing Documents</h4>
                     <p>
-                        <span style="font-weight: 400;">Do you have an existing… &nbsp; </span>
+                        <span class="text-muted">Do you have any existing… &nbsp; </span>
                     </p>
                 </div>
 
-                <!--             1.2 Existing documents -->
-                <div class="ff-cell">
-                    <div class="column-1 ff-t-cell">
+                <!--                Identification  -->
+                <div class="row g-0 mb-4">
+                    <div class="col-12 col-md-5">
+                        <div class="ff-el-group">
+                            <div class="label required">
+                                <label>Identification</label>
+                            </div>
+                            <select class="form-select" id="inputProofId" name="proof_id" required>
+                                <option selected class="text-muted">Choose your id type</option>
+                                <option value="password">Password</option>
+                                <option value="driver licence">Driver's Licence</option>
+                                <option value="medical card">Medical Card</option>
+                                <option value="Age card">Age Card</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--                Will -->
+                <div class="text-muted mb-4">
+                    <div class="">
                         <div class="ff-el-group">
                             <div class="label">
                                 <label>Will</label>
@@ -222,37 +252,60 @@ $this->Html->script('intakeform', ['block' => true]);
                                     </svg>
                                 </a>
                             </div>
-                            <div class="input" style="font-size: 0;">
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="is_will"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="1">
-                                        <span>Yes</span>
+                            <!--   Yes/No selection    -->
+                            <div class="yesNo d-flex">
+                                <div class="yesArea">
+                                    <label class="yesLabel">
+                                        <input type="radio" name="has_will"
+                                               class="" value="1">
+                                        <span class="yes">Yes</span>
                                     </label>
                                 </div>
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="is_will"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                                        <span>No</span>
+                                <div class="noArea">
+                                    <label class="noLabel">
+                                        <input type="radio" name="has_will"
+                                               class="" value="0">
+                                        <span class="no">No</span>
                                     </label>
                                 </div>
                             </div>
+
+
+                            <!--                            <div class="input" style="font-size: 0;">-->
+                            <!--                                <div class="ff-el-form-check">-->
+                            <!--                                    <label class="ff-el-form-check-label">-->
+                            <!--                                        <input type="radio" name="has_will"-->
+                            <!--                                               class="ff-el-form-check-input ff-el-form-check-radio" value="1">-->
+                            <!--                                        <span>Yes</span>-->
+                            <!--                                    </label>-->
+                            <!--                                </div>-->
+                            <!--                                <div class="ff-el-form-check">-->
+                            <!--                                    <label class="ff-el-form-check-label">-->
+                            <!--                                        <input type="radio" name="has_will"-->
+                            <!--                                               class="ff-el-form-check-input ff-el-form-check-radio" value="0">-->
+                            <!--                                        <span>No</span>-->
+                            <!--                                    </label>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
                         </div>
                     </div>
-                    <div class="column-2 ff-t-cell" style="display:none">
-                        <div class="ff-el-group">
-                            <div class="label">
-                                <label>Last Reviewed…</label>
-                            </div>
-                            <div class="input">
-                                <input type="text" name="will_text" class="input-control" placeholder="  Last Reviewed…">
-                            </div>
-                        </div>
-                    </div>
+                    <!--                    <div class="column-2 ff-t-cell" style="display:none">-->
+                    <!--                        <div class="ff-el-group">-->
+                    <!--                            <div class="label">-->
+                    <!--                                <label>Last Reviewed…</label>-->
+                    <!--                            </div>-->
+                    <!--                            <div class="input">-->
+                    <!--                                <input type="text" name="will_text" class="input-control"-->
+                    <!--                                       placeholder="  Last Reviewed…">-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                 </div>
-                <div class="ff-cell">
-                    <div class="column-1 ff-t-cell">
+
+
+                <!--                Powers of Attorney -->
+                <div class="text-muted mb-4">
+                    <div>
                         <div class="ff-el-group">
                             <div class="label">
                                 <label>Powers of Attorney</label>
@@ -266,37 +319,29 @@ $this->Html->script('intakeform', ['block' => true]);
                                     </svg>
                                 </a>
                             </div>
-                            <div class="input" style="font-size: 0;">
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="is_powers"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="1">
-                                        <span>Yes</span>
+                            <!--   Yes/No selection    -->
+                            <div class="yesNo d-flex">
+                                <div class="yesArea">
+                                    <label class="yesLabel">
+                                        <input type="radio" name="has_power"
+                                               class="" value="1">
+                                        <span class="yes">Yes</span>
                                     </label>
                                 </div>
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="is_powers"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                                        <span>No</span>
+                                <div class="noArea">
+                                    <label class="noLabel">
+                                        <input type="radio" name="has_power"
+                                               class="" value="0">
+                                        <span class="no">No</span>
                                     </label>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column-2 ff-t-cell" style="display:none">
-                        <div class="ff-el-group">
-                            <div class="label">
-                                <label>Last Reviewed…</label>
-                            </div>
-                            <div class="input">
-                                <input type="text" name="powers_text" class="input-control" placeholder="  Last Reviewed…">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="ff-cell">
-                    <div class="column-1 ff-t-cell">
+                <!--                Binding Death Benefit Nominations-->
+                <div class="text-muted mb-4">
+                    <div>
                         <div class="ff-el-group">
                             <div class="label">
                                 <label>Binding Death Benefit Nominations</label>
@@ -310,35 +355,145 @@ $this->Html->script('intakeform', ['block' => true]);
                                     </svg>
                                 </a>
                             </div>
-                            <div class="input" style="font-size: 0;">
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="is_binding"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="1">
-                                        <span>Yes</span>
+                            <!--   Yes/No selection    -->
+                            <div class="yesNo d-flex">
+                                <div class="yesArea">
+                                    <label class="yesLabel">
+                                        <input type="radio" name="has_will"
+                                               class="" value="1">
+                                        <span class="yes">Yes</span>
                                     </label>
                                 </div>
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="is_binding"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                                        <span>No</span>
+                                <div class="noArea">
+                                    <label class="noLabel">
+                                        <input type="radio" name="has_binding"
+                                               class="" value="0">
+                                        <span class="no">No</span>
                                     </label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="column-2 ff-t-cell" style="display:none">
+
+                </div>
+
+                <!--                has decision maker-->
+                <div class="text-muted mb-4">
+                    <div>
                         <div class="ff-el-group">
                             <div class="label">
-                                <label>Last Reviewed…</label>
+                                <label>Existing Medical Treatment Decision Maker</label>
+                                <a class="d-inline-block" data-bs-toggle="tooltip"
+                                   data-bs-original-title="A Medical Treatment Decision Maker provides for a time when you are unable to make medical decisions for yourself. "
+                                   data-bs-placement="right">
+                                    <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                         height="15px" width="15px">
+                                        <path
+                                            d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
+                                    </svg>
+                                </a>
                             </div>
-                            <div class="input">
-                                <input type="text" name="binding_text" class="input-control" placeholder="  Last Reviewed…">
+                            <!--   Yes/No selection    -->
+                            <div class="yesNo d-flex">
+                                <div class="yesArea">
+                                    <label class="yesLabel">
+                                        <input type="radio" name="has_decision_maker"
+                                               class="" value="1">
+                                        <span class="yes">Yes</span>
+                                    </label>
+                                </div>
+                                <div class="noArea">
+                                    <label class="noLabel">
+                                        <input type="radio" name="has_decision_maker"
+                                               class="" value="0">
+                                        <span class="no">No</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
+
+                <!--                has_superannu_deed-->
+                <div class="text-muted mb-4">
+                    <div>
+                        <div class="ff-el-group">
+                            <div class="label">
+                                <label>Copy of Self Managed Superannuation Trust Deed</label>
+                                <a class="d-inline-block" data-bs-toggle="tooltip"
+                                   data-bs-original-title="A Self Managed Superannuation trust deed is a legal document that sets out the rules for establishing and operating your self managed super fund. Together with the super laws they form the funds 'governing rules' and detail the powers, duties and responsibilities of the fund's trustees, they also detail the rights of the members."
+                                   data-bs-placement="right">
+                                    <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                         height="15px" width="15px">
+                                        <path
+                                            d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <!--   Yes/No selection    -->
+                            <div class="yesNo d-flex">
+                                <div class="yesArea">
+                                    <label class="yesLabel">
+                                        <input type="radio" name="has_superannu_deed"
+                                               class="" value="1">
+                                        <span class="yes">Yes</span>
+                                    </label>
+                                </div>
+                                <div class="noArea">
+                                    <label class="noLabel">
+                                        <input type="radio" name="has_superannu_deed"
+                                               class="" value="0">
+                                        <span class="no">No</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!--                has_family_deed-->
+                <div class="text-muted mb-4">
+                    <div>
+                        <div class="ff-el-group">
+                            <div class="label">
+                                <label>Copy of Family Trust Deed</label>
+                                <a class="d-inline-block" data-bs-toggle="tooltip"
+                                   data-bs-original-title="A family trust Deed is an agreement where a person or a company agrees to hold assets for others' benefit, usually their family members. It is often set up by families to own assets."
+                                   data-bs-placement="right">
+                                    <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                         height="15px" width="15px">
+                                        <path
+                                            d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <!--   Yes/No selection    -->
+                            <div class="yesNo d-flex">
+                                <div class="yesArea">
+                                    <label class="yesLabel">
+                                        <input type="radio" name="has_family_deed"
+                                               class="" value="1">
+                                        <span class="yes">Yes</span>
+                                    </label>
+                                </div>
+                                <div class="noArea">
+                                    <label class="noLabel">
+                                        <input type="radio" name="has_family_deed"
+                                               class="" value="0">
+                                        <span class="no">No</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-info">Please bring/email your existing docs before your first appointment.</div>
+                <div class="text-muted mb-4">Our Email:admin@shelbournelegal.com.au</div>
 
                 <!--             1.3 Health    -->
                 <div class="ff-el-group">
@@ -540,18 +695,23 @@ $this->Html->script('intakeform', ['block' => true]);
                     <a class="btn btn-shelbourne mt-3 rounded-pill px-4 py-2 float-end" id="page2Next">Next</a>
                 </div>
             </div>
-<!-- Page 3           -->
+
+
+            <!-- Page 3           -->
             <div id="page3" class="collapse">
                 <div class="text-muted mt-3">Step 3 of 4 - Step 3</div>
                 <div class="progress my-2">
-                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 75%;"
+                         aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%
+                    </div>
                 </div>
 
                 <!--          2  -->
                 <div class="ff-el-group">
                     <h2>2. Assets & Liabilities</h2>
                 </div>
-                <div data-type="repeater_field" data-name="repeater_field_3" class="ff-el-group ff-el-repeater js-repeater"
+                <div data-type="repeater_field" data-name="repeater_field_3"
+                     class="ff-el-group ff-el-repeater js-repeater"
                      data-root_name="repeater_field_3">
                     <div class="ff-el-input--label asterisk-right"><label for="">Real estate</label></div>
                     <div class="ff-el-input--content">
@@ -584,7 +744,8 @@ $this->Html->script('intakeform', ['block' => true]);
                             <tr>
                                 <td data-label="Address of the property: ">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_3[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_3[0][]"
                                                                                  id="ff_1_repeater_field_3_0"
                                                                                  data-repeater_index="0"
                                                                                  data-type="repeater_item"
@@ -595,7 +756,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </td>
                                 <td data-label="Registered owner(s):">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_3[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_3[0][]"
                                                                                  id="ff_1_repeater_field_3_1"
                                                                                  data-repeater_index="1"
                                                                                  data-type="repeater_item"
@@ -625,7 +787,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </td>
                                 <td data-label="Location of title:">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_3[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_3[0][]"
                                                                                  id="ff_1_repeater_field_3_3"
                                                                                  data-repeater_index="3"
                                                                                  data-type="repeater_item"
@@ -653,7 +816,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </td>
                                 <td data-label="Property value:">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" placeholder="Property value:"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 placeholder="Property value:"
                                                                                  name="repeater_field_3[0][]"
                                                                                  id="ff_1_repeater_field_3_5"
                                                                                  data-repeater_index="5"
@@ -673,7 +837,8 @@ $this->Html->script('intakeform', ['block' => true]);
                         </table>
                     </div>
                 </div>
-                <div data-type="repeater_field" data-name="repeater_field_5" class="ff-el-group ff-el-repeater js-repeater"
+                <div data-type="repeater_field" data-name="repeater_field_5"
+                     class="ff-el-group ff-el-repeater js-repeater"
                      data-root_name="repeater_field_5">
                     <div class="ff-el-input--label asterisk-right"><label for="">Bank Accounts</label></div>
                     <div class="ff-el-input--content">
@@ -700,7 +865,8 @@ $this->Html->script('intakeform', ['block' => true]);
                             <tr>
                                 <td data-label=" Bank or Financial Institution: ">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_5[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_5[0][]"
                                                                                  id="ff_1_repeater_field_5_0"
                                                                                  data-repeater_index="0"
                                                                                  data-type="repeater_item"
@@ -711,7 +877,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </td>
                                 <td data-label="Account holder(s):">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_5[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_5[0][]"
                                                                                  id="ff_1_repeater_field_5_1"
                                                                                  data-repeater_index="1"
                                                                                  data-type="repeater_item"
@@ -722,7 +889,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </td>
                                 <td data-label="Account type:">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_5[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_5[0][]"
                                                                                  id="ff_1_repeater_field_5_2"
                                                                                  data-repeater_index="2"
                                                                                  data-type="repeater_item"
@@ -733,7 +901,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </td>
                                 <td data-label="Approximate value:">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_5[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_5[0][]"
                                                                                  id="ff_1_repeater_field_5_3"
                                                                                  data-repeater_index="3"
                                                                                  data-type="repeater_item"
@@ -753,7 +922,8 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
 
-                <div data-type="repeater_field" data-name="repeater_field_6" class="ff-el-group ff-el-repeater js-repeater"
+                <div data-type="repeater_field" data-name="repeater_field_6"
+                     class="ff-el-group ff-el-repeater js-repeater"
                      data-root_name="repeater_field_6">
                     <div class="ff-el-input--label asterisk-right"><label for="">Motor vehicles</label></div>
                     <div class="ff-el-input--content">
@@ -777,7 +947,8 @@ $this->Html->script('intakeform', ['block' => true]);
                             <tr>
                                 <td data-label="Make">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_6[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_6[0][]"
                                                                                  id="ff_1_repeater_field_6_0"
                                                                                  data-repeater_index="0"
                                                                                  data-type="repeater_item"
@@ -788,7 +959,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </td>
                                 <td data-label="Model">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_6[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_6[0][]"
                                                                                  id="ff_1_repeater_field_6_1"
                                                                                  data-repeater_index="1"
                                                                                  data-type="repeater_item"
@@ -799,7 +971,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </td>
                                 <td data-label="Year">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_6[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_6[0][]"
                                                                                  id="ff_1_repeater_field_6_2"
                                                                                  data-repeater_index="2"
                                                                                  data-type="repeater_item"
@@ -818,7 +991,8 @@ $this->Html->script('intakeform', ['block' => true]);
                         </table>
                     </div>
                 </div>
-                <div data-type="repeater_field" data-name="repeater_field_7" class="ff-el-group ff-el-repeater js-repeater"
+                <div data-type="repeater_field" data-name="repeater_field_7"
+                     class="ff-el-group ff-el-repeater js-repeater"
                      data-root_name="repeater_field_7">
                     <div class="ff-el-input--label asterisk-right"><label for="">Investments </label></div>
                     <div class="ff-el-input--content">
@@ -842,7 +1016,8 @@ $this->Html->script('intakeform', ['block' => true]);
                             <tr>
                                 <td data-label="Type of investment: ">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_7[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_7[0][]"
                                                                                  id="ff_1_repeater_field_7_0"
                                                                                  data-repeater_index="0"
                                                                                  data-type="repeater_item"
@@ -853,7 +1028,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </td>
                                 <td data-label="Held with:">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_7[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_7[0][]"
                                                                                  id="ff_1_repeater_field_7_1"
                                                                                  data-repeater_index="1"
                                                                                  data-type="repeater_item"
@@ -864,7 +1040,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </td>
                                 <td data-label="Approximate value:">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_7[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_7[0][]"
                                                                                  id="ff_1_repeater_field_7_2"
                                                                                  data-repeater_index="2"
                                                                                  data-type="repeater_item"
@@ -889,7 +1066,8 @@ $this->Html->script('intakeform', ['block' => true]);
                     <h4>Loans and debts</h4>
                 </div>
                 <div class="ff-el-group">
-                    <div class="ff-el-input--label asterisk-right label"><label for="ff_1_description_1">Details of money
+                    <div class="ff-el-input--label asterisk-right label"><label for="ff_1_description_1">Details of
+                            money
                             you owe:</label></div>
                     <div class="ff-el-input--content"><textarea name="description_1" id="ff_1_description_1"
                                                                 class="ff-el-form-control" rows="3" cols="2"
@@ -911,14 +1089,16 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
                 <div class="ff-el-group">
-                    <div class="ff-el-input--label asterisk-right label"><label for="ff_1_description_2">Details of money
+                    <div class="ff-el-input--label asterisk-right label"><label for="ff_1_description_2">Details of
+                            money
                             owed to you:</label></div>
                     <div class="ff-el-input--content"><textarea name="description_2" id="ff_1_description_2"
                                                                 class="ff-el-form-control" rows="3" cols="2"
                                                                 data-name="description_2"></textarea></div>
                 </div>
                 <div class="ff-el-group ff-el-form-left  ff_list_buttons">
-                    <div class="ff-el-input--label asterisk-right  label"><label>Is there a loan agreement?</label></div>
+                    <div class="ff-el-input--label asterisk-right  label"><label>Is there a loan agreement?</label>
+                    </div>
                     <div class="ff-el-input--content">
                         <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
                                                                                for="input_radio_12_3f734e96b7d0a8c8988a86372d918073"><input
@@ -939,7 +1119,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                                                                for="input_radio_13_a6362cf826d65c90d875af5ac7b28b34"><input
                                     type="radio" name="input_radio_13" data-name="input_radio_13"
                                     class="ff-el-form-check-input ff-el-form-check-radio" value="To be repaid"
-                                    id="input_radio_13_a6362cf826d65c90d875af5ac7b28b34"> <span>To be repaid</span></label>
+                                    id="input_radio_13_a6362cf826d65c90d875af5ac7b28b34">
+                                <span>To be repaid</span></label>
                         </div>
                         <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
                                                                                for="input_radio_13_27e7d76c9835a53eb3787ac6e2917b51"><input
@@ -958,19 +1139,22 @@ $this->Html->script('intakeform', ['block' => true]);
                 <div data-name="ff_cn_id_12" class="ff-t-container ff-column-container ff_columns_total_2  ">
                     <div class="ff-t-cell ff-t-column-1">
                         <div class="ff-el-group  ff_list_buttons">
-                            <div class="ff-el-input--label asterisk-right label"><label>House and Contents:</label></div>
+                            <div class="ff-el-input--label asterisk-right label"><label>House and Contents:</label>
+                            </div>
                             <div class="ff-el-input--content">
                                 <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
                                                                                        for="input_radio_14_a60d602f31d5494100fe8f14302398a4"><input
                                             type="radio" name="input_radio_14" data-name="input_radio_14"
                                             class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                            id="input_radio_14_a60d602f31d5494100fe8f14302398a4"> <span>Yes</span></label>
+                                            id="input_radio_14_a60d602f31d5494100fe8f14302398a4">
+                                        <span>Yes</span></label>
                                 </div>
                                 <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
                                                                                        for="input_radio_14_bbeabdc084584ec1b0a1be4c1885dc67"><input
                                             type="radio" name="input_radio_14" data-name="input_radio_14"
                                             class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                            id="input_radio_14_bbeabdc084584ec1b0a1be4c1885dc67"> <span>No</span></label>
+                                            id="input_radio_14_bbeabdc084584ec1b0a1be4c1885dc67">
+                                        <span>No</span></label>
                                 </div>
                             </div>
                         </div>
@@ -980,7 +1164,8 @@ $this->Html->script('intakeform', ['block' => true]);
                             <div class="ff-el-input--label asterisk-right label"><label
                                     for="ff_1_input_text_17">Company</label></div>
                             <div class="ff-el-input--content"><input type="text" name="input_text_17"
-                                                                     class="ff-el-form-control" data-name="input_text_17"
+                                                                     class="ff-el-form-control"
+                                                                     data-name="input_text_17"
                                                                      id="ff_1_input_text_17"></div>
                         </div>
                     </div>
@@ -994,23 +1179,27 @@ $this->Html->script('intakeform', ['block' => true]);
                                                                                        for="input_radio_15_50118c60793610c400d483077813e8ac"><input
                                             type="radio" name="input_radio_15" data-name="input_radio_15"
                                             class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                            id="input_radio_15_50118c60793610c400d483077813e8ac"> <span>Yes</span></label>
+                                            id="input_radio_15_50118c60793610c400d483077813e8ac">
+                                        <span>Yes</span></label>
                                 </div>
                                 <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
                                                                                        for="input_radio_15_659c65b84476f8da0de01141dbab2287"><input
                                             type="radio" name="input_radio_15" data-name="input_radio_15"
                                             class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                            id="input_radio_15_659c65b84476f8da0de01141dbab2287"> <span>No</span></label>
+                                            id="input_radio_15_659c65b84476f8da0de01141dbab2287">
+                                        <span>No</span></label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="ff-t-cell ff-t-column-2">
                         <div class="ff-el-group has-conditions ff_excluded" style="">
-                            <div class="ff-el-input--label asterisk-right"><label for="ff_1_input_text_18">Company</label>
+                            <div class="ff-el-input--label asterisk-right"><label
+                                    for="ff_1_input_text_18">Company</label>
                             </div>
                             <div class="ff-el-input--content"><input type="text" name="input_text_18"
-                                                                     class="ff-el-form-control" data-name="input_text_18"
+                                                                     class="ff-el-form-control"
+                                                                     data-name="input_text_18"
                                                                      id="ff_1_input_text_18"></div>
                         </div>
                     </div>
@@ -1024,28 +1213,33 @@ $this->Html->script('intakeform', ['block' => true]);
                                                                                        for="input_radio_17_228215417ba55e26dc7c20a17f56531a"><input
                                             type="radio" name="input_radio_17" data-name="input_radio_17"
                                             class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                            id="input_radio_17_228215417ba55e26dc7c20a17f56531a"> <span>Yes</span></label>
+                                            id="input_radio_17_228215417ba55e26dc7c20a17f56531a">
+                                        <span>Yes</span></label>
                                 </div>
                                 <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
                                                                                        for="input_radio_17_fc4fb385c654d7b85ce00419c52ae637"><input
                                             type="radio" name="input_radio_17" data-name="input_radio_17"
                                             class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                            id="input_radio_17_fc4fb385c654d7b85ce00419c52ae637"> <span>No</span></label>
+                                            id="input_radio_17_fc4fb385c654d7b85ce00419c52ae637">
+                                        <span>No</span></label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="ff-t-cell ff-t-column-2">
                         <div class="ff-el-group has-conditions ff_excluded" style="">
-                            <div class="ff-el-input--label asterisk-right"><label for="ff_1_input_text_20">Company</label>
+                            <div class="ff-el-input--label asterisk-right"><label
+                                    for="ff_1_input_text_20">Company</label>
                             </div>
                             <div class="ff-el-input--content"><input type="text" name="input_text_20"
-                                                                     class="ff-el-form-control" data-name="input_text_20"
+                                                                     class="ff-el-form-control"
+                                                                     data-name="input_text_20"
                                                                      id="ff_1_input_text_20"></div>
                         </div>
                     </div>
                 </div>
-                <div data-type="repeater_field" data-name="repeater_field_8" class="ff-el-group ff-el-repeater js-repeater"
+                <div data-type="repeater_field" data-name="repeater_field_8"
+                     class="ff-el-group ff-el-repeater js-repeater"
                      data-root_name="repeater_field_8">
                     <div class="ff-el-input--label asterisk-right label"><label for="">Superannuation</label></div>
                     <div class="ff-el-input--content">
@@ -1072,7 +1266,8 @@ $this->Html->script('intakeform', ['block' => true]);
                             <tr>
                                 <td data-label="Fund">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_8[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_8[0][]"
                                                                                  id="ff_1_repeater_field_8_0"
                                                                                  data-repeater_index="0"
                                                                                  data-type="repeater_item"
@@ -1083,7 +1278,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </td>
                                 <td data-label="Value">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_8[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_8[0][]"
                                                                                  id="ff_1_repeater_field_8_1"
                                                                                  data-repeater_index="1"
                                                                                  data-type="repeater_item"
@@ -1094,7 +1290,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </td>
                                 <td data-label="Current Nomination">
                                     <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text" name="repeater_field_8[0][]"
+                                        <div class="ff-el-input--content"><input type="text"
+                                                                                 name="repeater_field_8[0][]"
                                                                                  id="ff_1_repeater_field_8_2"
                                                                                  data-repeater_index="2"
                                                                                  data-type="repeater_item"
@@ -1193,17 +1390,21 @@ $this->Html->script('intakeform', ['block' => true]);
             </div>
 
 
-<!--    Page 4        -->
-            <div id="page4"  class="collapse">
+            <!--  Page 4        -->
+            <div id="page4" class="collapse">
                 <div class="text-muted mt-3">Step 4 of 4 - Step 4</div>
                 <div class="progress my-2">
-                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 100%;"
+                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%
+                    </div>
                 </div>
                 <?= $this->Form->create($client, ["method" => "post"]) ?>
                 <div class="last">
                     <div id="form_recaptcha" class="g-recaptcha"
                          data-sitekey="<?= RECAPTCHAV2_SITEKEY ?>">
                     </div>
+                    <?= $this->Flash->render() ?>
+
 
                     <div class="clearfix">
                         <a class="btn btn-outline-secondary mt-3 float-start" id="page4Prev">Previous</a>
@@ -1220,9 +1421,6 @@ $this->Html->script('intakeform', ['block' => true]);
 
             </div>
 
-
-
-            <?= $this->Flash->render() ?>
 
         </div>
     </div>
@@ -1242,40 +1440,3 @@ $this->Html->script('intakeform', ['block' => true]);
 
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 
-
-<script type="text/javascript">
-    $("#submitIntakeform").click(function () {
-        let givenName = inputGivenName.value
-        let lastName = inputLastName.value
-        let DOB = inputDOB.value
-        let occupation = inputOccupation.value
-        let houseNumber = inputHouseNumber.value
-        let address = inputAddress.value
-        let state = inputState.value
-        let postCode = inputPostCode.value
-        let email = inputEmail.value
-        let phoneNumber = inputPhoneNumber.value
-        if (givenName == "") $("#inputGivenName").addClass("is-invalid")
-        if (lastName == "") $("#inputLastName").addClass("is-invalid")
-        if (DOB == "") $("#inputDOB").addClass("is-invalid")
-        if (occupation == "") $("#inputOccupation").addClass("is-invalid")
-        if (houseNumber == "") $("#inputHouseNumber").addClass("is-invalid")
-        if (address == "") $("#inputAddress").addClass("is-invalid")
-        if (state == "") $("#inputState").addClass("is-invalid")
-        if (postCode == "") $("#inputPostCode").addClass("is-invalid")
-        if (email == "") $("#inputEmail").addClass("is-invalid")
-        if (phoneNumber == "") $("#inputPhoneNumber").addClass("is-invalid")
-
-        if (!givenName || !lastName || !DOB || !occupation || !houseNumber || !address || !state || !postCode || !email || !phoneNumber) {
-            document.getElementById('content').scrollIntoView(true)
-
-            return false
-        } else {
-            return true
-        }
-
-
-    })
-
-
-</script>

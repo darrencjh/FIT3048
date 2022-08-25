@@ -1,7 +1,19 @@
+//add blur events here
+
+
+
+
+//In page 1,when you click "Next". Verify the basic information form first,then display next page
 $("#page1Next").click(function(){
+
+
+    //if pass verify,return true
     $("#page1").removeClass('show')
     $("#page2").addClass('show')
     window.scrollTo(0, 0);
+
+    //if not pass,return false and scroll to top
+
 })
 
 $("#page2Prev").click(function(){
@@ -30,4 +42,45 @@ $("#page4Prev").click(function(){
     $("#page4").removeClass('show')
     $("#page3").addClass('show')
     window.scrollTo(0, 0);
+})
+
+//Page 4: click submit button,the basic info should move to page1Next click event
+$("#submitIntakeform").click(function () {
+    let givenName = inputGivenName.value
+    let lastName = inputLastName.value
+    let DOB = inputDOB.value
+    let occupation = inputOccupation.value
+    let houseNumber = inputHouseNumber.value
+    let address = inputAddress.value
+    let state = inputState.value
+    let postCode = inputPostCode.value
+    let email = inputEmail.value
+    let phoneNumber = inputPhoneNumber.value
+    if (givenName == "") $("#inputGivenName").addClass("is-invalid")
+    if (lastName == "") $("#inputLastName").addClass("is-invalid")
+    if (DOB == "") $("#inputDOB").addClass("is-invalid")
+    if (occupation == "") $("#inputOccupation").addClass("is-invalid")
+    if (houseNumber == "") $("#inputHouseNumber").addClass("is-invalid")
+    if (address == "") $("#inputAddress").addClass("is-invalid")
+    if (state == "") $("#inputState").addClass("is-invalid")
+    if (postCode == "") $("#inputPostCode").addClass("is-invalid")
+    if (email == "") $("#inputEmail").addClass("is-invalid")
+    if (phoneNumber == "") $("#inputPhoneNumber").addClass("is-invalid")
+
+    if (!givenName || !lastName || !DOB || !occupation || !houseNumber || !address || !state || !postCode || !email || !phoneNumber) {
+        document.getElementById('content').scrollIntoView(true)
+
+        return false
+    } else {
+        return true
+    }
+
+
+})
+
+
+// Yes/No button
+$(".yesNo input[type=radio]").change(function (){
+    $(this).parent().parent().addClass("yesNoSelected")
+        .siblings().removeClass("yesNoSelected")
 })
