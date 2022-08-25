@@ -198,9 +198,9 @@ $this->Html->script('intakeform', ['block' => true]);
 
 
             <!-- Page 2           -->
-            <div id="page2" class="collapse">
+            <div id="page2" class="collapse text-grey">
                 <!--    Progress bar         -->
-                <div class="text-muted mt-3">Step 2 of 4 - Step 2</div>
+                <div class="mt-3">Step 2 of 4 - Step 2</div>
                 <div class="progress my-2">
                     <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 50%;"
                          aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%
@@ -221,7 +221,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     <div class="col-12 col-md-5">
                         <div class="ff-el-group">
                             <div class="label required">
-                                <label>Identification</label>
+                                <label>Proof of Identification</label>
                             </div>
                             <select class="form-select" id="inputProofId" name="proof_id" required>
                                 <option selected class="text-muted">Choose your id type</option>
@@ -237,7 +237,7 @@ $this->Html->script('intakeform', ['block' => true]);
 
 
                 <!--                Will -->
-                <div class="text-muted mb-4">
+                <div class="mb-4">
                     <div class="">
                         <div class="ff-el-group">
                             <div class="label">
@@ -253,22 +253,11 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </a>
                             </div>
                             <!--   Yes/No selection    -->
-                            <div class="yesNo d-flex">
-                                <div class="yesArea">
-                                    <label class="yesLabel">
-                                        <input type="radio" name="has_will"
-                                               class="" value="1">
-                                        <span class="yes">Yes</span>
-                                    </label>
-                                </div>
-                                <div class="noArea">
-                                    <label class="noLabel">
-                                        <input type="radio" name="has_will"
-                                               class="" value="0">
-                                        <span class="no">No</span>
-                                    </label>
-                                </div>
-                            </div>
+                            <?=
+                            $this->element('yesnoRadio', [
+                                'inputName' => 'has_will',
+                            ]);
+                            ?>
 
 
                             <!--                            <div class="input" style="font-size: 0;">-->
@@ -302,9 +291,8 @@ $this->Html->script('intakeform', ['block' => true]);
                     <!--                    </div>-->
                 </div>
 
-
                 <!--                Powers of Attorney -->
-                <div class="text-muted mb-4">
+                <div class="mb-4">
                     <div>
                         <div class="ff-el-group">
                             <div class="label">
@@ -320,27 +308,17 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </a>
                             </div>
                             <!--   Yes/No selection    -->
-                            <div class="yesNo d-flex">
-                                <div class="yesArea">
-                                    <label class="yesLabel">
-                                        <input type="radio" name="has_power"
-                                               class="" value="1">
-                                        <span class="yes">Yes</span>
-                                    </label>
-                                </div>
-                                <div class="noArea">
-                                    <label class="noLabel">
-                                        <input type="radio" name="has_power"
-                                               class="" value="0">
-                                        <span class="no">No</span>
-                                    </label>
-                                </div>
-                            </div>
+                            <?=
+                            $this->element('yesnoRadio', [
+                                'inputName' => 'has_power',
+                            ]);
+                            ?>
                         </div>
                     </div>
                 </div>
+
                 <!--                Binding Death Benefit Nominations-->
-                <div class="text-muted mb-4">
+                <div class="mb-4">
                     <div>
                         <div class="ff-el-group">
                             <div class="label">
@@ -356,29 +334,18 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </a>
                             </div>
                             <!--   Yes/No selection    -->
-                            <div class="yesNo d-flex">
-                                <div class="yesArea">
-                                    <label class="yesLabel">
-                                        <input type="radio" name="has_will"
-                                               class="" value="1">
-                                        <span class="yes">Yes</span>
-                                    </label>
-                                </div>
-                                <div class="noArea">
-                                    <label class="noLabel">
-                                        <input type="radio" name="has_binding"
-                                               class="" value="0">
-                                        <span class="no">No</span>
-                                    </label>
-                                </div>
-                            </div>
+                            <?=
+                            $this->element('yesnoRadio', [
+                                'inputName' => 'has_binding',
+                            ]);
+                            ?>
                         </div>
                     </div>
 
                 </div>
 
                 <!--                has decision maker-->
-                <div class="text-muted mb-4">
+                <div class="mb-4">
                     <div>
                         <div class="ff-el-group">
                             <div class="label">
@@ -394,29 +361,18 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </a>
                             </div>
                             <!--   Yes/No selection    -->
-                            <div class="yesNo d-flex">
-                                <div class="yesArea">
-                                    <label class="yesLabel">
-                                        <input type="radio" name="has_decision_maker"
-                                               class="" value="1">
-                                        <span class="yes">Yes</span>
-                                    </label>
-                                </div>
-                                <div class="noArea">
-                                    <label class="noLabel">
-                                        <input type="radio" name="has_decision_maker"
-                                               class="" value="0">
-                                        <span class="no">No</span>
-                                    </label>
-                                </div>
-                            </div>
+                            <?=
+                            $this->element('yesnoRadio', [
+                                'inputName' => 'has_decision_maker',
+                            ]);
+                            ?>
                         </div>
                     </div>
 
                 </div>
 
                 <!--                has_superannu_deed-->
-                <div class="text-muted mb-4">
+                <div class="mb-4">
                     <div>
                         <div class="ff-el-group">
                             <div class="label">
@@ -432,22 +388,11 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </a>
                             </div>
                             <!--   Yes/No selection    -->
-                            <div class="yesNo d-flex">
-                                <div class="yesArea">
-                                    <label class="yesLabel">
-                                        <input type="radio" name="has_superannu_deed"
-                                               class="" value="1">
-                                        <span class="yes">Yes</span>
-                                    </label>
-                                </div>
-                                <div class="noArea">
-                                    <label class="noLabel">
-                                        <input type="radio" name="has_superannu_deed"
-                                               class="" value="0">
-                                        <span class="no">No</span>
-                                    </label>
-                                </div>
-                            </div>
+                            <?=
+                            $this->element('yesnoRadio', [
+                                'inputName' => 'has_superannu_deed',
+                            ]);
+                            ?>
                         </div>
                     </div>
 
@@ -455,7 +400,7 @@ $this->Html->script('intakeform', ['block' => true]);
 
 
                 <!--                has_family_deed-->
-                <div class="text-muted mb-4">
+                <div class="mb-4">
                     <div>
                         <div class="ff-el-group">
                             <div class="label">
@@ -471,22 +416,11 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </a>
                             </div>
                             <!--   Yes/No selection    -->
-                            <div class="yesNo d-flex">
-                                <div class="yesArea">
-                                    <label class="yesLabel">
-                                        <input type="radio" name="has_family_deed"
-                                               class="" value="1">
-                                        <span class="yes">Yes</span>
-                                    </label>
-                                </div>
-                                <div class="noArea">
-                                    <label class="noLabel">
-                                        <input type="radio" name="has_family_deed"
-                                               class="" value="0">
-                                        <span class="no">No</span>
-                                    </label>
-                                </div>
-                            </div>
+                            <?=
+                            $this->element('yesnoRadio', [
+                                'inputName' => 'has_family_deed',
+                            ]);
+                            ?>
                         </div>
                     </div>
 
@@ -499,29 +433,29 @@ $this->Html->script('intakeform', ['block' => true]);
                 <div class="ff-el-group">
                     <h4>1.3 Health Concerns</h4>
                 </div>
-                <div class="ff-cell">
-                    <div class="column-1 ff-t-cell">
+                <div class="row g-0 mb-4">
+                    <div class="col-12 col-md-6 pe-md-2">
                         <div class="ff-el-group">
                             <div class="label">
                                 <label>Do you have any brain-related disorders; memory loss or confusion; or take any
                                     medication that could impact on cognitive function?</label>
                             </div>
-                            <div class="input" style="font-size: 0;">
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="is_health"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="1">
-                                        <span>Yes</span>
-                                    </label>
-                                </div>
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="is_health"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                                        <span>No</span>
-                                    </label>
-                                </div>
-                            </div>
+                            <!--   Yes/No selection    -->
+                            <?=
+                            $this->element('yesnoRadio', [
+                                'inputName' => 'is_health',
+                            ]);
+                            ?>
+                        </div>
+                    </div>
+
+
+                    <!-- description:display when click "Yes"  -->
+                    <div class="col-12 col-md-6 ps-md-2 collapse" id="health_desc">
+                        <div class="fw-bold">Please describe</div>
+                        <div>
+                            <textarea name="health_desc" id="health_textarea" class="my-textarea" rows="3" cols="2"
+                                      data-name="description" style="height: 92px; "></textarea>
                         </div>
                     </div>
                 </div>
@@ -530,50 +464,63 @@ $this->Html->script('intakeform', ['block' => true]);
                 <div class="ff-el-group">
                     <h2>Your Family</h2>
                 </div>
-
-
-                <!--            1.5 Family -->
-                <div class="ff-cell">
-                    <div class="column-1 ff-t-cell">
+                <div class="mb-4">
+                    <div>
                         <div class="ff-el-group">
                             <div class="label">
                                 <label>What is your relationship status</label>
                             </div>
-                            <div class="input" style="font-size: 0;">
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="is_relationship"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="1">
-                                        <span>Married</span>
+
+                            <!--    4 choices      -->
+                            <div class="relationStatus d-flex">
+                                <div class="statusArea">
+                                    <label class="statusLabel">
+                                        <input type="radio" name="relationship_status"
+                                               class="" value="married">
+                                        <span class="oneStatus" id="firstStatus">Married</span>
                                     </label>
                                 </div>
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="is_relationship"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                                        <span>De-facto</span>
+                                <div class="statusArea">
+                                    <label class="statusLabel">
+                                        <input type="radio" name="relationship_status"
+                                               class="" value="de-facto">
+                                        <span class="oneStatus">De-facto</span>
                                     </label>
                                 </div>
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="is_relationship"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                                        <span>Separated or Divorced</span>
+                                <div class="statusArea">
+                                    <label class="statusLabel">
+                                        <input type="radio" name="relationship_status"
+                                               class="" value="separated or divorced">
+                                        <span class="oneStatus">Separated or Divorced</span>
                                     </label>
                                 </div>
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="is_relationship"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                                        <span>Never Married or Divorced</span>
+                                <div class="statusArea">
+                                    <label class="statusLabel">
+                                        <input type="radio" name="relationship_status"
+                                               class="" value="never married or divorced">
+                                        <span class="oneStatus" id="lastStatus">never married or Divorced</span>
                                     </label>
                                 </div>
                             </div>
+
+                            <!--                            Married-->
+                            <div class="collapse relationFields" id="marriedField">
+
+                            </div>
+                            <!--                            de-facto-->
+                            <div class="collapse relationFields" id="deFactoField">I am de</div>
+
+                            <!--                            Separated or Divorced-->
+                            <div class="collapse relationFields" id="sepField">I am divorced</div>
+
+                            <!--                            never married or Divorced-->
+                            <div class="collapse relationFields" id="neverField">I am never</div>
+
                         </div>
                     </div>
                 </div>
 
-                <!--             Children  -->
+                <!--           1.5  Children  -->
                 <div class="ff-el-group">
                     <h2>Do you have children</h2>
                 </div>

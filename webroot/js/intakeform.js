@@ -80,7 +80,30 @@ $("#submitIntakeform").click(function () {
 
 
 // Yes/No button
-$(".yesNo input[type=radio]").change(function (){
+$(".yesNo :radio").change(function (){
     $(this).parent().parent().addClass("yesNoSelected")
         .siblings().removeClass("yesNoSelected")
 })
+//health description display when 'Yes',disappear when 'no',default is disappear
+$(":radio[name=is_health]").change(function(){
+    if($(this).val()==1) $("#health_desc").addClass("show")
+    else $("#health_desc").removeClass("show")
+})
+//relationship button
+$(".relationStatus :radio").change(function (){
+    $(this).parent().parent().addClass("statusSelected")
+        .siblings().removeClass("statusSelected")
+
+    $(".relationFields").removeClass("show")
+    let value=$(this).val()
+    if(value=="married"){
+        $("#marriedField").addClass("show")
+    }else if(value=="de-facto"){
+        $("#deFactoField").addClass("show")
+    }else if(value=="separated or divorced"){
+        $("#sepField").addClass("show")
+    }else if(value=="never married or divorced"){
+        $("#neverField").addClass("show")
+    }
+})
+
