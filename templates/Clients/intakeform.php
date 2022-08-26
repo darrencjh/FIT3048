@@ -620,7 +620,6 @@ $this->Html->script('intakeform', ['block' => true]);
 
                         </div>
 
-
                         <!--     1.5 Your Grandchildren               -->
                         <div id="yourGrandChildren">
                             <div class="label">
@@ -636,13 +635,7 @@ $this->Html->script('intakeform', ['block' => true]);
 
                         </div>
 
-
-
                     </div>
-
-
-
-
 
 
                 </div>
@@ -1415,13 +1408,19 @@ $this->Html->script('intakeform', ['block' => true]);
 
 
             <!--  Page 4        -->
-			
+
             <div id="page4" class="collapse">
-			
-			
-                <div class="ff-el-group" data-name="custom_html-7816594526301c876c25822.33748729"><h2>3. Executor/Trustee</h2> <h4><span style="font-weight: 400;">Who do you want your executor(s) to be?</span></h4></div>        
+                <div class="text-muted mt-3">Step 4 of 4 - Step 4</div>
+                <div class="progress my-2">
+                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 100%;"
+                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%
+                    </div>
+                </div>
+
+
+                <div class="ff-el-group" data-name="custom_html-7816594526301c876c25822.33748729"><h2>3. Executor/Trustee</h2> <h4><span style="font-weight: 400;">Who do you want your executor(s) to be?</span></h4></div>
 	    		<div data-type="repeater_field" data-name="repeater_field_14" class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_14">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">Executors</label></div>            
+                    <div class="ff-el-input--label asterisk-right label"><label for="">Executors</label></div>
 			        <div class="ff-el-input--content">
                         <table data-max_repeat="" data-root_name="repeater_field_14" class="ff_repeater_table ff_flexible_table">
                             <thead>
@@ -1446,7 +1445,7 @@ $this->Html->script('intakeform', ['block' => true]);
                        </table>
                    </div>
                 </div>
-                <div class="ff-el-group" data-name="custom_html-4593379706301c876c262b9.49987386"><h4><span style="font-weight: 400;">Who do you want your alternative executor(s) to be?</span></h4></div>        
+                <div class="ff-el-group" data-name="custom_html-4593379706301c876c262b9.49987386"><h4><span style="font-weight: 400;">Who do you want your alternative executor(s) to be?</span></h4></div>
 	    		<div data-type="repeater_field" data-name="repeater_field_15" class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_15">
                     <div class="ff-el-input--label asterisk-right label"><label for="">Alternative Executors</label></div>            <div class="ff-el-input--content">
                         <table data-max_repeat="" data-root_name="repeater_field_15" class="ff_repeater_table ff_flexible_table">
@@ -1473,12 +1472,12 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
                 <div class="ff-el-group" data-name="custom_html-16611452446301c876c26f97.63407421"><h2>4. Guardian of Minor Children</h2></div><div class="ff-el-group  ff_list_buttons"><div class="ff-el-input--label asterisk-right label"><label>Do you wish to appoint a guardian of minor children?</label> </div><div class="ff-el-input--content"><div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label" for="input_radio_21_2dbae6093a77dec3b517930a58c3c36a"><input type="radio" name="input_radio_21" data-name="input_radio_21" class="ff-el-form-check-input ff-el-form-check-radio" value="yes" id="input_radio_21_2dbae6093a77dec3b517930a58c3c36a"> <span>Yes</span></label></div><div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label" for="input_radio_21_d717bfe811857c38bcaeab34d203b690"><input type="radio" name="input_radio_21" data-name="input_radio_21" class="ff-el-form-check-input ff-el-form-check-radio" value="no" id="input_radio_21_d717bfe811857c38bcaeab34d203b690"> <span>No</span></label></div></div></div><div data-name="ff_cn_id_16" class="ff-t-container ff-column-container ff_columns_total_3  "><div class="ff-t-cell ff-t-column-1"><div class="ff-el-group has-conditions ff_excluded" style=""><div class="ff-el-input--label asterisk-right label"><label for="ff_1_input_text_27">Full Name of Surviving Parent </label> </div><div class="ff-el-input--content"><input type="text" name="input_text_27" class="ff-el-form-control" data-name="input_text_27" id="ff_1_input_text_27"></div></div></div><div class="ff-t-cell ff-t-column-2"><div class="ff-el-group has-conditions ff_excluded" style=""><div class="ff-el-input--label asterisk-right label"><label for="ff_1_input_text_28">Guardian’s Full Name</label> </div><div class="ff-el-input--content"><input type="text" name="input_text_28" class="ff-el-form-control" data-name="input_text_28" id="ff_1_input_text_28"></div></div></div><div class="ff-t-cell ff-t-column-3"><div class="ff-el-group has-conditions ff_excluded" style=""><div class="ff-el-input--label asterisk-right label"><label for="ff_1_input_text_29">Guardian’s Relationship to You</label> </div><div class="ff-el-input--content"><input type="text" name="input_text_29" class="ff-el-form-control" data-name="input_text_29" id="ff_1_input_text_29"></div></div></div></div>
-				
+
 				<div class="ff-el-group" data-name="custom_html-18812652486301c876c27e73.96395513"><h2>5. Specific Bequests</h2></div><div class="ff-el-group  ff_list_buttons">
 				<div class="ff-el-input--label asterisk-right label"><label>Do you wish to leave any specific items of property to a particular person?</label> </div>
-				<div class="ff-el-input--content"><div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label" for="input_radio_22_b1b082225418a1971b72dd9d47b8c894"><input type="radio" name="input_radio_22" data-name="input_radio_22" class="ff-el-form-check-input ff-el-form-check-radio" value="yes" id="input_radio_22_b1b082225418a1971b72dd9d47b8c894"> <span>Yes</span></label></div><div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label" for="input_radio_22_54bdc91736b145199aac4df6a00868b0"><input type="radio" name="input_radio_22" data-name="input_radio_22" class="ff-el-form-check-input ff-el-form-check-radio" value="no" id="input_radio_22_54bdc91736b145199aac4df6a00868b0"> <span>No</span></label></div></div></div>        
+				<div class="ff-el-input--content"><div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label" for="input_radio_22_b1b082225418a1971b72dd9d47b8c894"><input type="radio" name="input_radio_22" data-name="input_radio_22" class="ff-el-form-check-input ff-el-form-check-radio" value="yes" id="input_radio_22_b1b082225418a1971b72dd9d47b8c894"> <span>Yes</span></label></div><div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label" for="input_radio_22_54bdc91736b145199aac4df6a00868b0"><input type="radio" name="input_radio_22" data-name="input_radio_22" class="ff-el-form-check-input ff-el-form-check-radio" value="no" id="input_radio_22_54bdc91736b145199aac4df6a00868b0"> <span>No</span></label></div></div></div>
 	    		<div data-type="repeater_field" data-name="repeater_field_9" class="ff-el-group ff-el-repeater js-repeater has-conditions ff_excluded" data-root_name="repeater_field_9" style="">
-                    <div class="ff-el-input--label asterisk-right"><label for="">If yes</label></div>            
+                    <div class="ff-el-input--label asterisk-right"><label for="">If yes</label></div>
 			    	<div class="ff-el-input--content">
                         <table data-max_repeat="" data-root_name="repeater_field_9" class="ff_repeater_table ff_flexible_table">
                         <thead>
@@ -1500,9 +1499,9 @@ $this->Html->script('intakeform', ['block' => true]);
                         </table>
                     </div>
                 </div>
-                <div class="ff-el-group" data-name="custom_html-4936556166301c876c28982.11353455"><h2>6. Beneficiaries of the Residue</h2></div>        
+                <div class="ff-el-group" data-name="custom_html-4936556166301c876c28982.11353455"><h2>6. Beneficiaries of the Residue</h2></div>
 	    		<div data-type="repeater_field" data-name="repeater_field_10" class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_10">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">Who do you wish to leave the balance of your estate to?</label></div>            
+                    <div class="ff-el-input--label asterisk-right label"><label for="">Who do you wish to leave the balance of your estate to?</label></div>
 			    	<div class="ff-el-input--content">
                         <table data-max_repeat="" data-root_name="repeater_field_10" class="ff_repeater_table ff_flexible_table">
                         <thead>
@@ -1525,7 +1524,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
                 <div data-type="repeater_field" data-name="repeater_field_11" class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_11">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">If something happens to the above beneficiary (ies), who do you wish to leave the balance of your estate to?</label></div>            
+                    <div class="ff-el-input--label asterisk-right label"><label for="">If something happens to the above beneficiary (ies), who do you wish to leave the balance of your estate to?</label></div>
 	    		    <div class="ff-el-input--content">
                         <table data-max_repeat="" data-root_name="repeater_field_11" class="ff_repeater_table ff_flexible_table">
                         <thead>
@@ -1548,7 +1547,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
                 <div data-type="repeater_field" data-name="repeater_field_12" class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_12">
-                    <div class="ff-el-input--label asterisk-right label"><label for=""> Is there anyone who you feel a responsibility to provide for not mentioned in your Will? If Yes – Please list</label></div>            
+                    <div class="ff-el-input--label asterisk-right label"><label for=""> Is there anyone who you feel a responsibility to provide for not mentioned in your Will? If Yes – Please list</label></div>
 		    	    <div class="ff-el-input--content">
                         <table data-max_repeat="" data-root_name="repeater_field_12" class="ff_repeater_table ff_flexible_table">
                         <thead>
@@ -1571,7 +1570,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
                 <div data-type="repeater_field" data-name="repeater_field_13" class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_13">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">Are there any special provisions or instructions you wish to cover in your Will? If Yes – Please list</label></div>            
+                    <div class="ff-el-input--label asterisk-right label"><label for="">Are there any special provisions or instructions you wish to cover in your Will? If Yes – Please list</label></div>
 			        <div class="ff-el-input--content">
                         <table data-max_repeat="" data-root_name="repeater_field_13" class="ff_repeater_table ff_flexible_table">
                         <thead>
@@ -1594,7 +1593,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
                 <div class="ff-el-group" data-name="custom_html-5549076006301c876c2a312.52366436"><h2>7. Enduring Powers of Attorney and Medical Decision Makers</h2></div>
-	    	    <div class="ff-el-group" data-name="custom_html-10189469866301c876c2a4f8.25561992"><p>An enduring power of attorney is a legal document that lets you appoint someone to make decisions about personal or financial matters. This person is called an attorney. The power endures - or continues - if and when you are unable to make decisions.</p></div>        
+	    	    <div class="ff-el-group" data-name="custom_html-10189469866301c876c2a4f8.25561992"><p>An enduring power of attorney is a legal document that lets you appoint someone to make decisions about personal or financial matters. This person is called an attorney. The power endures - or continues - if and when you are unable to make decisions.</p></div>
 		    	<div data-type="repeater_field" data-name="repeater_field_16" class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_16">
                     <div class="ff-el-input--label asterisk-right label"><label for="">Who do you want your attorney(s) to be?</label></div>            <div class="ff-el-input--content">
                         <table data-max_repeat="" data-root_name="repeater_field_16" class="ff_repeater_table ff_flexible_table">
@@ -1618,7 +1617,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
                 <div data-type="repeater_field" data-name="repeater_field_17" class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_17">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">If naming more than one attorney, how would you like them to make decisions? </label></div>            
+                    <div class="ff-el-input--label asterisk-right label"><label for="">If naming more than one attorney, how would you like them to make decisions? </label></div>
 			        <div class="ff-el-input--content">
                         <table data-max_repeat="" data-root_name="repeater_field_17" class="ff_repeater_table ff_flexible_table">
                         <thead>
@@ -1638,7 +1637,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
                 <div data-type="repeater_field" data-name="repeater_field_18" class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_18">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">Who do you want your alternative attorney(s) to be?</label></div>            
+                    <div class="ff-el-input--label asterisk-right label"><label for="">Who do you want your alternative attorney(s) to be?</label></div>
     			    <div class="ff-el-input--content">
                         <table data-max_repeat="" data-root_name="repeater_field_18" class="ff_repeater_table ff_flexible_table">
                         <thead>
@@ -1660,9 +1659,9 @@ $this->Html->script('intakeform', ['block' => true]);
                         </table>
                     </div>
                 </div>
-                <div class="ff-el-group" data-name="custom_html-3672373316301c876c2b799.96314825"><p><strong>MEDICAL DECISION MAKER </strong></p></div>        
+                <div class="ff-el-group" data-name="custom_html-3672373316301c876c2b799.96314825"><p><strong>MEDICAL DECISION MAKER </strong></p></div>
 		    	<div data-type="repeater_field" data-name="repeater_field_19" class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_19">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">A person to make medical decisions if you cannot give consent. Your medical decision maker is the first person on the list  who is reasonably available, and willing and able to make the decision</label></div>            
+                    <div class="ff-el-input--label asterisk-right label"><label for="">A person to make medical decisions if you cannot give consent. Your medical decision maker is the first person on the list  who is reasonably available, and willing and able to make the decision</label></div>
 			        <div class="ff-el-input--content">
                         <table data-max_repeat="" data-root_name="repeater_field_19" class="ff_repeater_table ff_flexible_table">
                         <thead>
@@ -1695,15 +1694,10 @@ $this->Html->script('intakeform', ['block' => true]);
 	    	    <div class="ff-el-group label" data-name="custom_html-15082431026301c876c2c917.70705464"><h4 style="font-weight: 400;">Privacy Policy</h4>
 				<div class="ff-el-input--label asterisk-right label"><label for="">At Shelbourne Legal, we take privacy and security of your personal information very seriously. &nbsp;Shelbourne Legal will only use your personal information for the purpose for which you have provided it. We will not disclose your personal information to third parties, unless you have consented to such disclosure or in other circumstances where such disclosure is required or permitted by law.</label></div>
 				<div class="ff-el-input--label asterisk-right label"><label for="">We endeavour to keep all personal information safe by taking all reasonable precautions to protect personal information from misuse, loss, unauthorised access, modification or disclosure.</label></div>
-                </div>        			
-						
-			
-                <div class="text-muted mt-3">Step 4 of 4 - Step 4</div>
-                <div class="progress my-2">
-                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 100%;"
-                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%
-                    </div>
                 </div>
+
+
+
                 <?= $this->Form->create($client, ["method" => "post"]) ?>
                 <div class="last">
                     <div id="form_recaptcha" class="g-recaptcha"

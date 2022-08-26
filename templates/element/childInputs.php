@@ -35,12 +35,18 @@
     </div>
 
     <div class="col-12 col-lg-2">
-        <a class="btn addChild">
-            <span class="fas fa-plus"></span>
-        </a>
-        <a class="btn deleteChild">
-            <span class="fas fa-minus"></span>
-        </a>
+        <div class="row g-0">
+            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                <a class="btn addChild">
+                    <span class="fas fa-plus-circle"></span>
+                </a>
+            </div>
+            <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
+                <a class="btn deleteChild">
+                    <span class="fas fa-minus-circle"></span>
+                </a>
+            </div>
+        </div>
 
     </div>
 

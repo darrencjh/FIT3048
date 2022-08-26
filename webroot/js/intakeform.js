@@ -115,7 +115,38 @@ $(":radio[name=has_child_prev]").change(function(){
     else $("#hasChildren").removeClass("show")
 })
 
-$(".addChild").click(function(){
-    var $oneChildInputs=$(".childInputs:first").clone()
-    $("#yourChildren").append($oneChildInputs)
+// $(".addChild").click(function(){
+//     var $oneChildInputs=$(".childInputs:first").clone()
+//     $("#yourChildren").append($oneChildInputs)
+// })
+// $(".deleteChild").click(function(){
+//     $(this).parent().parent().parent().parent().remove()
+// })
+$("#yourChildren").click(function(e){
+    if($(e.target).parent().hasClass('addChild')){
+        $("#yourChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").addClass('show')
+        let $oneChildInputs=$("#yourChildren>.childInputs:first").clone()
+        $("#yourChildren").append($oneChildInputs)
+
+    }else if($(e.target).parent().hasClass('deleteChild')){
+        $(e.target).parent().parent().parent().parent().parent().remove()
+        if($(this).children().length==2){
+            //hide the minus button,when only one child
+            $("#yourChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").removeClass('show')
+        }
+    }
+})
+$("#yourGrandChildren").click(function(e){
+    if($(e.target).parent().hasClass('addChild')){
+        $("#yourGrandChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").addClass('show')
+        let $oneChildInputs=$("#yourGrandChildren>.childInputs:first").clone()
+        $("#yourGrandChildren").append($oneChildInputs)
+
+    }else if($(e.target).parent().hasClass('deleteChild')){
+        $(e.target).parent().parent().parent().parent().parent().remove()
+        if($(this).children().length==2){
+            //hide the minus button,when only one grandchild
+            $("#yourGrandChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").removeClass('show')
+        }
+    }
 })
