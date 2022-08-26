@@ -102,8 +102,20 @@ $(".relationStatus :radio").change(function (){
         $("#deFactoField").addClass("show")
     }else if(value=="separated or divorced"){
         $("#sepField").addClass("show")
-    }else if(value=="never married or divorced"){
-        $("#neverField").addClass("show")
     }
 })
 
+//Children fields. display when 'Yes',disappear when 'no',default is disappear
+$(":radio[name=has_child_current]").change(function(){
+    if($(this).val()==1) $("#hasChildren").addClass("show")
+    else $("#hasChildren").removeClass("show")
+})
+$(":radio[name=has_child_prev]").change(function(){
+    if($(this).val()==1) $("#hasChildren").addClass("show")
+    else $("#hasChildren").removeClass("show")
+})
+
+$(".addChild").click(function(){
+    var $oneChildInputs=$(".childInputs:first").clone()
+    $("#yourChildren").append($oneChildInputs)
+})

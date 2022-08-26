@@ -223,12 +223,12 @@ $this->Html->script('intakeform', ['block' => true]);
                             <div class="label required">
                                 <label>Proof of Identification</label>
                             </div>
-                            <select class="form-select" id="inputProofId" name="proof_id" required>
+                            <select class="form-select text-grey" id="inputProofId" name="proof_id" required>
                                 <option selected class="text-muted">Choose your id type</option>
-                                <option value="password">Password</option>
-                                <option value="driver licence">Driver's Licence</option>
-                                <option value="medical card">Medical Card</option>
-                                <option value="Age card">Age Card</option>
+                                <option value="password" class="text-dark">Password</option>
+                                <option value="driver licence" class="text-dark">Driver's Licence</option>
+                                <option value="medical card" class="text-dark">Medical Card</option>
+                                <option value="Age card" class="text-dark">Age Card</option>
                             </select>
 
                         </div>
@@ -401,29 +401,26 @@ $this->Html->script('intakeform', ['block' => true]);
 
                 <!--                has_family_deed-->
                 <div class="mb-4">
-                    <div>
-                        <div class="ff-el-group">
-                            <div class="label">
-                                <label>Copy of Family Trust Deed</label>
-                                <a class="d-inline-block" data-bs-toggle="tooltip"
-                                   data-bs-original-title="A family trust Deed is an agreement where a person or a company agrees to hold assets for others' benefit, usually their family members. It is often set up by families to own assets."
-                                   data-bs-placement="right">
-                                    <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                                         height="15px" width="15px">
-                                        <path
-                                            d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
-                                    </svg>
-                                </a>
-                            </div>
-                            <!--   Yes/No selection    -->
-                            <?=
-                            $this->element('yesnoRadio', [
-                                'inputName' => 'has_family_deed',
-                            ]);
-                            ?>
+                    <div class="ff-el-group">
+                        <div class="label">
+                            <label>Copy of Family Trust Deed</label>
+                            <a class="d-inline-block" data-bs-toggle="tooltip"
+                               data-bs-original-title="A family trust Deed is an agreement where a person or a company agrees to hold assets for others' benefit, usually their family members. It is often set up by families to own assets."
+                               data-bs-placement="right">
+                                <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                     height="15px" width="15px">
+                                    <path
+                                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
+                                </svg>
+                            </a>
                         </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'has_family_deed',
+                        ]);
+                        ?>
                     </div>
-
                 </div>
 
                 <div class="text-info">Please bring/email your existing docs before your first appointment.</div>
@@ -460,116 +457,196 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
 
-                <!--             1.4 add family div  -->
+                <!--             family div  -->
                 <div class="ff-el-group">
                     <h2>Your Family</h2>
                 </div>
                 <div class="mb-4">
-                    <div>
-                        <div class="ff-el-group">
-                            <div class="label">
-                                <label>What is your relationship status</label>
+                    <div class="ff-el-group">
+                        <!--    4 choices group      -->
+                        <div class="label">
+                            <label>What is your relationship status</label>
+                        </div>
+                        <div class="relationStatus d-flex mb-3">
+                            <div class="statusArea">
+                                <label class="statusLabel">
+                                    <input type="radio" name="relationship_status"
+                                           class="" value="married">
+                                    <span class="oneStatus" id="firstStatus">Married</span>
+                                </label>
+                            </div>
+                            <div class="statusArea">
+                                <label class="statusLabel">
+                                    <input type="radio" name="relationship_status"
+                                           class="" value="de-facto">
+                                    <span class="oneStatus">De-facto</span>
+                                </label>
+                            </div>
+                            <div class="statusArea">
+                                <label class="statusLabel">
+                                    <input type="radio" name="relationship_status"
+                                           class="" value="separated or divorced">
+                                    <span class="oneStatus">Separated or Divorced</span>
+                                </label>
+                            </div>
+                            <div class="statusArea">
+                                <label class="statusLabel">
+                                    <input type="radio" name="relationship_status"
+                                           class="" value="never married or divorced">
+                                    <span class="oneStatus" id="lastStatus">never married or Divorced</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!--    Married fields-->
+                        <div class="row g-0 relationFields collapse" id="marriedField">
+                            <div class="mb-3 col-12 col-md-6 pe-md-3">
+                                <div class="label">
+                                    <label for="married_fullName">Partner’s full name</label>
+                                </div>
+                                <input type="text" name="married_fullName" class="form-control" id="married_fullName"
+                                       placeholder="Partner's full name">
                             </div>
 
-                            <!--    4 choices      -->
-                            <div class="relationStatus d-flex">
-                                <div class="statusArea">
-                                    <label class="statusLabel">
-                                        <input type="radio" name="relationship_status"
-                                               class="" value="married">
-                                        <span class="oneStatus" id="firstStatus">Married</span>
-                                    </label>
+                            <div class="mb-3 col-12 col-md-6 ps-md-3">
+                                <div class="label">
+                                    <label for="married_dob">Partner’s DOB</label>
                                 </div>
-                                <div class="statusArea">
-                                    <label class="statusLabel">
-                                        <input type="radio" name="relationship_status"
-                                               class="" value="de-facto">
-                                        <span class="oneStatus">De-facto</span>
-                                    </label>
-                                </div>
-                                <div class="statusArea">
-                                    <label class="statusLabel">
-                                        <input type="radio" name="relationship_status"
-                                               class="" value="separated or divorced">
-                                        <span class="oneStatus">Separated or Divorced</span>
-                                    </label>
-                                </div>
-                                <div class="statusArea">
-                                    <label class="statusLabel">
-                                        <input type="radio" name="relationship_status"
-                                               class="" value="never married or divorced">
-                                        <span class="oneStatus" id="lastStatus">never married or Divorced</span>
-                                    </label>
-                                </div>
+                                <input type="date" name="married_dob" class="form-control" id="married_dob"
+                                       placeholder="dd/mm/yyyy">
                             </div>
 
-                            <!--                            Married-->
-                            <div class="collapse relationFields" id="marriedField">
-
+                            <div class="col-12 col-md-6 pe-md-3">
+                                <div class="label">
+                                    <label for="married_phone">Partner’s Mobile Number</label>
+                                </div>
+                                <input type="text" name="married_phone" class="form-control" id="married_phone"
+                                       placeholder="Mobile Number">
                             </div>
-                            <!--                            de-facto-->
-                            <div class="collapse relationFields" id="deFactoField">I am de</div>
-
-                            <!--                            Separated or Divorced-->
-                            <div class="collapse relationFields" id="sepField">I am divorced</div>
-
-                            <!--                            never married or Divorced-->
-                            <div class="collapse relationFields" id="neverField">I am never</div>
 
                         </div>
+                        <!--   de-facto fields-->
+                        <div class="row g-0 relationFields collapse" id="deFactoField">
+                            <div class="mb-3 col-12 col-md-6 pe-md-3">
+                                <div class="label">
+                                    <label for="defacto_fullName">Partner’s full name</label>
+                                </div>
+                                <input type="text" name="defacto_fullName" class="form-control" id="defacto_fullName"
+                                       placeholder="Partner's full name">
+                            </div>
+
+                            <div class="mb-3 col-12 col-md-6 ps-md-3">
+                                <div class="label">
+                                    <label for="defacto_living">When did you start living together</label>
+                                </div>
+                                <input type="text" name="defacto_living" class="form-control" id="defacto_living"
+                                       placeholder="When did you start living together">
+                            </div>
+
+                            <div class="col-12">
+                                <div class="label">
+                                    <label>Are you contemplating marriage</label>
+                                </div>
+                                <!--   Yes/No selection    -->
+                                <?=
+                                $this->element('yesnoRadio', [
+                                    'inputName' => 'defacto_mariage',
+                                ]);
+                                ?>
+                            </div>
+                        </div>
+
+                        <!--                            Separated or Divorced-->
+                        <div class="collapse relationFields" id="sepField">
+                            <div class="label">
+                                <label>Has a property settlement occurred?</label>
+                            </div>
+                            <!--   Yes/No selection    -->
+                            <?=
+                            $this->element('yesnoRadio', [
+                                'inputName' => 'sepdiv_property_settlement',
+                            ]);
+                            ?>
+                        </div>
+
+
                     </div>
                 </div>
 
-                <!--           1.5  Children  -->
+                <!--           Children  -->
                 <div class="ff-el-group">
-                    <h2>Do you have children</h2>
+                    <h4>Do you have children</h4>
                 </div>
-                <div class="ff-cell">
-                    <div class="column-1 ff-t-cell">
-                        <div class="ff-el-group">
-                            <div class="label">
-                                <label>From your current relationship?</label>
-                            </div>
-                            <div class="input" style="font-size: 0;">
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="current_children"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="1">
-                                        <span>Yes</span>
-                                    </label>
-                                </div>
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="current_children"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                                        <span>No</span>
-                                    </label>
-                                </div>
-                            </div>
+                <div class="mb-4 row g-0">
+                    <!--     2 buttons groups    -->
+                    <!--   current child-->
+                    <div class="ff-el-group col-12 col-md-6">
+                        <div class="label">
+                            <label>From your current relationship?</label>
                         </div>
-                        <div class="ff-el-group">
-                            <div class="label">
-                                <label>From your previous relationship?</label>
-                            </div>
-                            <div class="input" style="font-size: 0;">
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="previous_children"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="1">
-                                        <span>Yes</span>
-                                    </label>
-                                </div>
-                                <div class="ff-el-form-check">
-                                    <label class="ff-el-form-check-label">
-                                        <input type="radio" name="previous_children"
-                                               class="ff-el-form-check-input ff-el-form-check-radio" value="0">
-                                        <span>No</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'has_child_current',
+                        ]);
+                        ?>
                     </div>
+                    <!--   previous child-->
+                    <div class="ff-el-group col-12 col-md-6">
+                        <div class="label">
+                            <label>From your previous relationship?</label>
+                        </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'has_child_prev',
+                        ]);
+                        ?>
+                    </div>
+
+                    <!--  child fields  -->
+                    <div id="hasChildren" class="mt-3 collapse">
+                        <!--     1.4 Your Children               -->
+                        <div id="yourChildren" class="mb-4">
+                            <div class="label">
+                                <label>1.4 Your Children (including step and adopted children)</label>
+                            </div>
+                            <!--   child inputs    -->
+                            <?=
+                            $this->element('childInputs',[
+                                'relation'=>'child'
+                            ]);
+                            ?>
+
+                        </div>
+
+
+                        <!--     1.5 Your Grandchildren               -->
+                        <div id="yourGrandChildren">
+                            <div class="label">
+                                <label>1.5 Your Grandchildren (including step, adopted grandchildren)</label>
+                            </div>
+                            <!--   child inputs    -->
+                            <?=
+                            $this->element('childInputs',[
+                                'relation'=>'grandchild'
+                            ]);
+                            ?>
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+
                 </div>
+
 
                 <!--          1.6 add household div  -->
                 <div class="ff-el-group">

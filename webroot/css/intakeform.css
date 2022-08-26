@@ -30,66 +30,42 @@
     margin: 0;
 }
 
-/*@media (min-width: 768px) {*/
-/*    .ff-cell {*/
-/*        display: table;*/
-/*        width: 100%;*/
-/*        table-layout: fixed;*/
-/*        vertical-align: top;*/
-/*    }*/
-
-/*    .ff-t-cell:first-of-type {*/
-/*        padding-left: 0;*/
-/*    }*/
-
-/*    .ff-t-cell:last-of-type {*/
-/*        padding-right: 0;*/
-/*    }*/
-
-/*    .ff-t-cell {*/
-/*        display: table-cell;*/
-/*        padding: 0 15px;*/
-/*        vertical-align: inherit;*/
-/*        width: 100%;*/
-/*    }*/
-/*}*/
-
-.ff-el-group .label {
+/* Input fields */
+.label {
     display: inline-block;
     margin-bottom: 5px;
     position: relative;
 }
 
-.ff-el-group .label label {
+.label label {
     font-weight: 600;
     font-size: 15px;
-}
-
-.ff-el-group .label label {
     color: #757575;
-}
-
-.ff-el-group .label label {
     margin-bottom: 0;
     display: inline-block;
     font-weight: 600;
-    line-height: inherit;
+}
+.label label::selection {
+    background-color: #17bcb9;
+    color: #000;
 }
 
-.ff-el-group .label.required label:after {
+
+/* required inputs  */
+.label.required label:after {
     content: " *";
     color: #f56c6c;
     margin-left: 3px;
 }
 
-.ff-el-group .input input {
+/*  Delete later */
+.input input {
     background: #fff;
     color: #424344;
     border-radius: 5px;
     border: 1px solid #757575;
     padding: 10px;
 }
-
 .input-control {
     display: block;
     width: 100%;
@@ -105,28 +81,29 @@
     margin-bottom: 0;
 }
 
+
+/* Core codes for input fields  */
 input[type=text],
+input[type=date],
 select,
 textarea {
-    color: #666;
-    padding: .75em;
+    color: #424344;
+    padding: 10px;
     height: auto;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #eaeaea;
-    border-radius: 2px;
-    background: #fafafa;
+    border: 1px solid #757575;
+    border-radius: 5px;
+    background: #fff;
     box-shadow: none;
     box-sizing: border-box;
     transition: all .2s linear;
+    font-size: 16px;
 }
 
 
-
-.ff-el-group input[type=text]:focus,
-input[type=password]:focus {
-    border-color: #80bdff;
-    outline: 0;
+input:focus,select:focus {
+    border-color: #17BCB9 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
 }
 
 .ff-el-group.ff-el-is-error .input-control {
@@ -142,7 +119,7 @@ input[type=password]:focus {
 
 
 
-.ff-el-form-check:not(.ff-el-image-holder) {
+.ff-el-form-check{
     width: auto!important;
     float: none!important;
     display: -moz-inline-stack;
@@ -150,7 +127,7 @@ input[type=password]:focus {
     position: relative;
     margin: 0 0 10px;
 }
-.ff-el-form-check:not(.ff-el-image-holder) label {
+.ff-el-form-check label {
     margin: 0;
 }
 .ff-el-form-check label.ff-el-form-check-label {
@@ -160,27 +137,25 @@ input[type=password]:focus {
 .ff-el-form-check-label {
     color: #424344;
 }
-.ff-el-form-check:not(.ff-el-image-holder) input {
+.ff-el-form-check input {
     opacity: 0;
     outline: none;
     position: absolute;
     margin: 0;
     z-index: -1;
 }
-.ff-el-form-check:not(.ff-el-image-holder).ff_item_selected span {
+.ff-el-form-check .ff_item_selected span {
     background-color: #17BCB9;
     border-color: #17BCB9;
     color:#ffffff;
 }
-.ff-el-form-check:not(.ff-el-image-holder) span:hover {
-    color: #aaa;
-}
-.ff-el-form-check:not(.ff-el-image-holder):first-child span {
+
+.ff-el-form-check:first-child span {
     border-left: 1px solid #dcdfe6;
     border-radius: 4px 0 0 4px;
     box-shadow: none!important;
 }
-.ff-el-form-check:not(.ff-el-image-holder) span {
+.ff-el-form-check span {
     line-height: 1;
     font-weight: 500;
     white-space: nowrap;
@@ -204,11 +179,14 @@ input[type=password]:focus {
     position: relative;
     display: inline-block;
 }
+.ff-el-form-check span:hover {
+    color: #aaa;
+}
 
 
 
 
-/*  Wei's customize codes */
+/*  Wei's customize codes based on bootstrap */
 #content {
     background: #ffffff;
     margin: 0;
@@ -217,6 +195,7 @@ input[type=password]:focus {
     margin-bottom: 40px;
 }
 
+/* Error message and success message  */
 .error{
     color: red;
 }
@@ -224,45 +203,8 @@ input[type=password]:focus {
     color: #01ab9d;
 }
 
-/*  Right side Form   */
-.contact_form input,.contact_form textarea{
-    width: 100% !important;
-    height: auto !important;
-    color: #fff !important;
-    line-height: 1.4 !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
-    min-height: 40px !important;
-    padding: 0.75em !important;
-    background-color: #4e4e4e !important;
-    border-color: #17bcb9 !important;
-    border-width: 0 0 2px !important;
-    border-radius: 0 !important;
 
-    /*margin-bottom: 12px;*/
-}
-.contact_form input:focus,.contact_form textarea:focus{
-    outline:0 !important;
-
-}
-
-
-::-webkit-input-placeholder{
-    color: #999999 !important;
-}
-:-moz-placeholder{
-    color: #999999 !important;
-}
-::-moz-placeholder{
-    color: #999999 !important;
-}
-:-ms-input-placeholder{
-    color: #999999 !important;
-}
-
-
-
-/*  Customize codes based on bootstrap  */
+/*  Progress bar 25%,50%,75%,100%  */
 .progress{
     height: 1.3rem;
 }
@@ -285,6 +227,7 @@ Yes/no button
     border-color: #17BCB9;
     color: #fff;
 }
+
 
 
 .yes,.no,.oneStatus{
@@ -420,7 +363,7 @@ input[type=radio]{
 }
 
 .my-textarea:focus{
-    border-color: #17BCB9;;
+    border-color: #17BCB9;
     outline: 0;
 }
 
