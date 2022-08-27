@@ -32,148 +32,112 @@ $this->Html->script('intakeform', ['block' => true]);
                     <h2>1. Basic Information</h2>
                     <h4>1.1 Your Details</h4>
                 </div>
-                <div class="ff-cell">
-                    <div class="column-1 ff-t-cell">
-                        <div class="ff-el-group">
-                            <div class="label required">
-                                <label>Given Name </label>
-                            </div>
-                            <div class="">
-                                <input type="text" name="givenName" id="inputGivenName" class="form-control"
-                                       maxlength="20"
-                                       required/>
-                                <div class="invalid-feedback">Please provide your given name</div>
-
-                            </div>
-
+                <div class="row g-0" id="customerName">
+                    <div class="mb-3 col-12 col-md-4 pe-md-3">
+                        <div class="label required">
+                            <label>Given Name </label>
                         </div>
+                        <input type="text" name="givenName" id="inputGivenName" class="form-control"
+                               maxlength="20"
+                               required/>
+                        <div class="invalid-feedback">Please provide your given name</div>
                     </div>
-                    <div class="column-2 ff-t-cell">
-                        <div class="ff-el-group">
-                            <div class="label required">
-                                <label>Last Name</label>
-                            </div>
-                            <div class="">
-                                <input id="inputLastName" type="text" name="lastName" class="form-control"
-                                       maxlength="20"
-                                       required/>
-                                <div class="invalid-feedback">Please provide your last name</div>
-                            </div>
+                    <div class="mb-3 col-12 col-md-4 pe-md-3">
+                        <div class="label required">
+                            <label>Last Name</label>
                         </div>
+                        <input id="inputLastName" type="text" name="lastName" class="form-control"
+                               maxlength="20"
+                               required/>
+                        <div class="invalid-feedback">Please provide your last name</div>
                     </div>
-                    <div class="column-2 ff-t-cell">
-                        <div class="ff-el-group">
-                            <div class="label">
-                                <label>Preferred Name</label>
-                            </div>
-                            <div class="">
-                                <input type="text" name="preferred_name" class="form-control" maxlength="20">
-                            </div>
+                    <div class="mb-3 col-12 col-md-4 pe-md-3">
+                        <div class="label">
+                            <label>Preferred Name</label>
                         </div>
+                        <input type="text" name="preferred_name" class="form-control" maxlength="20">
                     </div>
                 </div>
-                <div class="ff-cell">
-                    <div class="column-1 ff-t-cell">
-                        <div class="ff-el-group">
+
+                <div class="row g-0">
+                        <div class="mb-3 col-12 col-md-6 pe-md-3">
                             <div class="label required">
                                 <label>Date of Birth </label>
                             </div>
-                            <div class="input">
-                                <input type="text" id="inputDOB" name="date_birth" class="form-control"
-                                       placeholder="DD/MM/YYYY" required/>
-                                <div class="invalid-feedback">Please provide your date of birth</div>
-                            </div>
+                            <input type="text" id="inputDOB" name="date_birth" class="form-control"
+                                   placeholder="DD/MM/YYYY" required/>
+                            <div class="invalid-feedback">Please provide your date of birth</div>
                         </div>
-                    </div>
-                    <div class="column-2 ff-t-cell">
-                        <div class="ff-el-group">
+                        <div class="mb-3 col-12 col-md-6 pe-md-3">
                             <div class="label required">
                                 <label>Occupation</label>
                             </div>
-                            <div class="">
-                                <input type="text" id="inputOccupation" name="occupation" class="form-control"
-                                       required/>
-                                <div class="invalid-feedback">Please provide your occupation</div>
-                            </div>
+                            <input type="text" id="inputOccupation" name="occupation" class="form-control"
+                                   required/>
+                            <div class="invalid-feedback">Please provide your occupation</div>
                         </div>
-                    </div>
                 </div>
-                <div class="ff-cell">
-                    <div class="column-1 ff-t-cell">
-                        <div class="ff-el-group">
+
+                    <div class="row g-0">
+                        <div class="mb-3 col-12 col-md-4 pe-md-3">
                             <div class="label required">
                                 <label>Unit/House No.</label>
                             </div>
-                            <div class="">
-                                <input id="inputHouseNumber" type="text" name="address" class="input-control" required/>
-                                <div class="invalid-feedback">Please provide your unit/house number</div>
-                            </div>
+                            <input id="inputHouseNumber" type="text" name="address" class="input-control" required/>
+                            <div class="invalid-feedback">Please provide your unit/house number</div>
                         </div>
-                    </div>
-                    <div class="column-2 ff-t-cell">
-                        <div class="ff-el-group">
+                        <div class="mb-3 col-12 col-md-8 pe-md-3">
                             <div class="label required">
                                 <label>Street Address</label>
                             </div>
-                            <div class="">
-                                <input id="inputAddress" type="text" name="postal_address" class="input-control"
-                                       required/>
-                                <div class="invalid-feedback">Please provide your street address</div>
-                            </div>
+                            <input id="inputAddress" type="text" name="postal_address" class="input-control"
+                                   required/>
+                            <div class="invalid-feedback">Please provide your street address</div>
                         </div>
                     </div>
-                    <div class="column-2 ff-t-cell">
-                        <div class="ff-el-group">
-                            <div class="label required">
-                                <label>State</label>
+
+                    <div class="row g-0">
+                        <div class="mb-3 col-12 col-md-6 pe-md-3">
+                            <div class="ff-el-group">
+                                <div class="label required">
+                                    <label>State</label>
+                                </div>
+                                <select class="form-select" id="inputState" name="state" required>
+                                    <option selected>Choose:</option>
+                                    <option value="New South Wales">New South Wales</option>
+                                    <option value="Queensland">Queensland</option>
+                                    <option value="South Australia">South Australia</option>
+                                    <option value="Victoria">Victoria</option>
+                                    <option value="Western Australia">Western Australia</option>
+                                    <option value="Tasmania">Tasmania</option>
+                                </select>
+                                <div class="invalid-feedback">Please provide your state</div>
                             </div>
-                            <select class="form-select" id="inputState" name="state" required>
-                                <option selected>Choose:</option>
-                                <option value="New South Wales">New South Wales</option>
-                                <option value="Queensland">Queensland</option>
-                                <option value="South Australia">South Australia</option>
-                                <option value="Victoria">Victoria</option>
-                                <option value="Western Australia">Western Australia</option>
-                                <option value="Tasmania">Tasmania</option>
-                            </select>
-                            <div class="invalid-feedback">Please provide your state</div>
                         </div>
-                    </div>
-                    <div class="column-2 ff-t-cell">
-                        <div class="ff-el-group">
+                        <div class="mb-3 col-12 col-md-6 pe-md-3">
                             <div class="label required">
                                 <label>Post Code</label>
                             </div>
-                            <div class="">
-                                <input type="text" name="postCode" id="inputPostCode" class="input-control" required/>
-                                <div class="invalid-feedback">Please provide your post code</div>
-                            </div>
+                            <input type="text" name="postCode" id="inputPostCode" class="input-control" required/>
+                            <div class="invalid-feedback">Please provide your post code</div>
                         </div>
                     </div>
-                </div>
-                <div class="ff-cell">
-                    <div class="column-1 ff-t-cell">
-                        <div class="ff-el-group">
-                            <div class="label required">
-                                <label>Email</label>
-                            </div>
-                            <div class="">
-                                <input type="text" id="inputEmail" name="email" class="input-control"
-                                       placeholder="example@email.com" required/>
-                                <div class="invalid-feedback">Please provide your email</div>
-                            </div>
+
+                <div class="row g-0">
+                    <div class="mb-3 col-12 col-md-6 pe-md-3">
+                        <div class="label required">
+                            <label>Email</label>
                         </div>
+                        <input type="text" id="inputEmail" name="email" class="input-control"
+                               placeholder="example@email.com" required/>
+                        <div class="invalid-feedback">Please provide your email</div>
                     </div>
-                    <div class="column-2 ff-t-cell">
-                        <div class="ff-el-group">
-                            <div class="label required">
-                                <label>Phone number</label>
-                            </div>
-                            <div class="">
-                                <input id="inputPhoneNumber" type="text" name="phone" class="input-control" required/>
-                                <div class="invalid-feedback">Please provide your phone number</div>
-                            </div>
+                    <div class="mb-3 col-12 col-md-6 pe-md-3">
+                        <div class="label required">
+                            <label>Phone number</label>
                         </div>
+                        <input id="inputPhoneNumber" type="text" name="phone" class="input-control" required/>
+                        <div class="invalid-feedback">Please provide your phone number</div>
                     </div>
                 </div>
 
