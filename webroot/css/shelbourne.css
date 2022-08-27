@@ -2,6 +2,9 @@
 .text-shelbourne{
     color: #17BCB9;
 }
+.text-shelbourne:hover{
+    color: #118886;
+}
 .bg-shelbourne{
     background-color: #17BCB9;
 }

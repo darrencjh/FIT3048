@@ -47,7 +47,6 @@
                 </a>
             </div>
         </div>
-
     </div>
 
     <input type="hidden" name="child_relation[]" value="<?= $relation ?>">

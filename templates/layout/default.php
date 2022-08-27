@@ -83,10 +83,10 @@ $titleDescription = ' - Shelbourne legal';
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
+                        <a class="nav-link" href="https://shelbournelegal.com.au/blog/">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="https://shelbournelegal.com.au/contact/">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tel:1300743526">1300 743 526</a>
