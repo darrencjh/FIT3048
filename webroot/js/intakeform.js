@@ -1,4 +1,110 @@
 //-------------------------Page 1---------------------------------------------------
+let verifyFirstName=(inputGivenName)=>{
+    if(inputGivenName==""){
+        $("#nameError").text("Please enter your first name")
+        $("#inputGivenName").addClass("is-invalid")
+    } else if(!/[A-z]/.test(inputGivenName)){
+        $("#nameError").text("Name can only contain letters")
+        $("#inputGivenName").addClass("is-invalid")
+    }
+}
+
+let verifyLastName=(inputLastName)=>{
+    if(inputLastName==""){
+        $("#nameError").text("Please enter your last name")
+        $("#inputLastName").addClass("is-invalid")
+    } else if(!/[A-z]/.test(inputLastName)){
+        $("#nameError").text("Name can only contain letters")
+        $("#inputLastName").addClass("is-invalid")
+    }
+}
+
+let verifyPreferredName=(inputPrefName)=>{
+    if(inputPrefName==""){
+        $("#nameError").text("Please enter your preferred name")
+        $("#inputPrefName").addClass("is-invalid")
+    } else if(!/[A-z]/.test(inputPrefName)){
+        $("#nameError").text("Name can only contain letters")
+        $("#inputPrefName").addClass("is-invalid")
+    }
+}
+
+let verifyDOB=(inputDOB)=>{
+    if(inputDOB==""){
+        $("#nameError").text("Please enter your date of birth")
+        $("#inputDOB").addClass("is-invalid")
+    } else if(!/\d{1,2}[/]\d{1,2}[/]\d{4}/.test(inputDOB)){
+        $("#noDateTimeInfo").text("Please follow the date format")
+        $("#inputDOB").addClass("is-invalid")
+    }
+}
+
+let verifyPreferredName=(inputPrefName)=>{
+    if(inputPrefName==""){
+        $("#nameError").text("Please enter your preferred name")
+        $("#inputPrefName").addClass("is-invalid")
+    } else if(!/[A-z]/.test(inputPrefName)){
+        $("#nameError").text("Name can only contain letters")
+        $("#inputPrefName").addClass("is-invalid")
+    }
+}
+
+let verifyAddress=(inputStreet)=>{
+    if(inputStreet==""){
+        $("#nameError").text("Please enter your address")
+        $("#inputStreet").addClass("is-invalid")
+    } else if(!/[A-z]/.test(inputStreet)){
+        $("#nameError").text("Street name can only contain letters")
+        $("#inputStreet").addClass("is-invalid")
+    }
+}
+
+let verifySuburb=(inputSuburb)=>{
+    if(inputSuburb==""){
+        $("#nameError").text("Please enter your suburb")
+        $("#inputSuburb").addClass("is-invalid")
+    } else if(!/[A-z]/.test(inputSuburb)){
+        $("#nameError").text("Suburb name can only contain letters")
+        $("#inputSuburb").addClass("is-invalid")
+    }
+}
+
+let verifyState=(inputState)=>{
+    if(inputState==""){
+        $("#nameError").text("Please choose your state")
+        $("#inputState").addClass("is-invalid")
+    }
+}
+
+let verifyPostcode=(inputPostCode)=>{
+    if(inputPostCode==""){
+        $("#nameError").text("Please provide your postcode")
+        $("#inputPostCode").addClass("is-invalid")
+    } else if(!/[1-9][0-9]{3}/.test(inputPostCode)){
+        $("#nameError").text("Postcode can only contain numbers")
+        $("#inputPostCode").addClass("is-invalid")
+    }
+}
+
+let verifyEmail=(inputEmail)=>{
+    if(inputEmail==""){
+        $("#nameError").text("Please enter your suburb")
+        $("#inputEmail").addClass("is-invalid")
+    } else if(!/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(inputSuburb)){
+        $("#nameError").text("Please follow the email format")
+        $("#inputSuburb").addClass("is-invalid")
+    }
+}
+
+let verifyPhone=(inputPhone)=>{
+    if(inputPhone==""){
+        $("#nameError").text("Please provide your postcode")
+        $("#inputPhone").addClass("is-invalid")
+    } else if(!/04[0-9]{8}/.test(inputPhone)){
+        $("#nameError").text("Phone number can only contain numbers")
+        $("#inputPhone").addClass("is-invalid")
+    }
+}
 //add blur events here
 
 

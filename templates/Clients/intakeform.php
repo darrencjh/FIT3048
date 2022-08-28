@@ -55,12 +55,12 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                     <div class="col-12 col-md-4 ps-md-3">
                         <div class="label">
-                            <label>Previous Name</label>
+                            <label>Preferred Name</label>
                         </div>
-                        <input id="inputPrevName" type="text" name="previous_name" class="form-control" maxlength="20">
+                        <input id="inputPrefName" type="text" name="preferredName" class="form-control" maxlength="20">
                     </div>
                 </div>
-                <!--  Dat of birth + job  -->
+                <!--  Date of birth + job  -->
                 <div class="row g-0">
                     <div class="mb-3 col-12 col-md-6 pe-md-3">
                         <div class="label required">
@@ -68,7 +68,7 @@ $this->Html->script('intakeform', ['block' => true]);
                         </div>
                         <input type="text" id="inputDOB" name="date_of_birth" class="form-control"
                                placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"
-                               required/>
+                               required pattern="\d{1,2}[/]\d{1,2}[/]\d{4}"/>
                         <div class="invalid-feedback">Please provide your date of birth</div>
                     </div>
                     <div class="mb-3 col-12 col-md-6 ps-md-3">
@@ -142,13 +142,13 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="invalid-feedback">Please provide your post code</div>
                     </div>
                     <!--  Postal address   -->
-                    <div class="col-12 col-md-4 ps-md-3">
-                        <div class="label">
-                            <label>Postal address</label>
-                        </div>
-                        <input type="text" name="postal_address" id="inputPostAddress" class="form-control"/>
-                        <div class="invalid-feedback">Please provide your post code</div>
-                    </div>
+<!--                    <div class="col-12 col-md-4 ps-md-3">-->
+<!--                        <div class="label">-->
+<!--                            <label>Postal address</label>-->
+<!--                        </div>-->
+<!--                        <input type="text" name="postal_address" id="inputPostAddress" class="form-control"/>-->
+<!--                        <div class="invalid-feedback">Please provide your post code</div>-->
+<!--                    </div>-->
                 </div>
 
                 <!-- Email + phone -->
