@@ -32,8 +32,10 @@ $this->Html->script('intakeform', ['block' => true]);
                     <h2>1. Basic Information</h2>
                     <h4>1.1 Your Details</h4>
                 </div>
-                <div class="row g-0" id="customerName">
-                    <div class="mb-3 col-12 col-md-4 pe-md-3">
+
+                <!-- name row -->
+                <div class="row g-0 mb-3" id="customerName">
+                    <div class="col-12 col-md-4 pe-md-3">
                         <div class="label required">
                             <label>Given Name </label>
                         </div>
@@ -42,7 +44,7 @@ $this->Html->script('intakeform', ['block' => true]);
                                required/>
                         <div class="invalid-feedback">Please provide your given name</div>
                     </div>
-                    <div class="mb-3 col-12 col-md-4 pe-md-3">
+                    <div class="col-12 col-md-4 px-md-3">
                         <div class="label required">
                             <label>Last Name</label>
                         </div>
@@ -51,110 +53,125 @@ $this->Html->script('intakeform', ['block' => true]);
                                required/>
                         <div class="invalid-feedback">Please provide your last name</div>
                     </div>
-                    <div class="mb-3 col-12 col-md-4 pe-md-3">
+                    <div class="col-12 col-md-4 ps-md-3">
                         <div class="label">
-                            <label>Preferred Name</label>
+                            <label>Previous Name</label>
                         </div>
-                        <input type="text" name="preferred_name" class="form-control" maxlength="20">
+                        <input id="inputPrevName" type="text" name="previous_name" class="form-control" maxlength="20">
                     </div>
                 </div>
-
+                <!--  Dat of birth + job  -->
                 <div class="row g-0">
-                        <div class="mb-3 col-12 col-md-6 pe-md-3">
-                            <div class="label required">
-                                <label>Date of Birth </label>
-                            </div>
-                            <input type="text" id="inputDOB" name="date_birth" class="form-control"
-                                   placeholder="DD/MM/YYYY" required/>
-                            <div class="invalid-feedback">Please provide your date of birth</div>
+                    <div class="mb-3 col-12 col-md-6 pe-md-3">
+                        <div class="label required">
+                            <label>Date of Birth</label>
                         </div>
-                        <div class="mb-3 col-12 col-md-6 pe-md-3">
-                            <div class="label required">
-                                <label>Occupation</label>
-                            </div>
-                            <input type="text" id="inputOccupation" name="occupation" class="form-control"
-                                   required/>
-                            <div class="invalid-feedback">Please provide your occupation</div>
+                        <input type="text" id="inputDOB" name="date_of_birth" class="form-control"
+                               placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"
+                               required/>
+                        <div class="invalid-feedback">Please provide your date of birth</div>
+                    </div>
+                    <div class="mb-3 col-12 col-md-6 ps-md-3">
+                        <div class="label required">
+                            <label>Occupation</label>
                         </div>
+                        <input type="text" id="inputOccupation" name="occupation" class="form-control"
+                               required/>
+                        <div class="invalid-feedback">Please provide your occupation</div>
+                    </div>
+                </div>
+                <!-- Unit + street number +suburb/Town -->
+                <div class="row g-0 mb-3">
+                    <!--            Unit         -->
+                    <div class="col-12 col-md-4 pe-md-3">
+                        <div class="label required">
+                            <label>Unit/House No.</label>
+                        </div>
+                        <input id="inputUnit" type="text" name="unit" class="form-control" required/>
+                        <div class="invalid-feedback">Please provide your unit/house number</div>
+                    </div>
+                    <!--               street number      -->
+                    <div class="col-12 col-md-4 px-md-3">
+                        <div class="label required">
+                            <label>Street Address</label>
+                        </div>
+                        <input id="inputStreet" type="text" name="street" class="form-control"
+                               required/>
+                        <div class="invalid-feedback">Please provide your street address</div>
+                    </div>
+
+                    <!--               Suburb/Town     -->
+                    <div class="col-12 col-md-4 ps-md-3">
+                        <div class="label required">
+                            <label>Suburb/Town</label>
+                        </div>
+                        <input id="inputSuburb" type="text" name="suburb" class="form-control"
+                               required/>
+                        <div class="invalid-feedback">Please provide your Suburb/Town</div>
+                    </div>
+                </div>
+                <!--      State+ PostCode+ Postal address        -->
+                <div class="row g-0 mb-3">
+                    <!--State -->
+                    <div class="col-12 col-md-4 pe-md-3">
+                        <div class="ff-el-group">
+                            <div class="label required">
+                                <label>State</label>
+                            </div>
+                            <select class="form-select text-grey" id="inputState" name="state" required>
+                                <option selected value="">Choose...</option>
+                                <option value="New South Wales">New South Wales</option>
+                                <option value="Queensland">Queensland</option>
+                                <option value="South Australia">South Australia</option>
+                                <option value="Victoria">Victoria</option>
+                                <option value="Western Australia">Western Australia</option>
+                                <option value="Tasmania">Tasmania</option>
+                            </select>
+
+                            <div class="invalid-feedback">Please provide your state</div>
+                        </div>
+                    </div>
+                    <!-- PostCode -->
+                    <div class="col-12 col-md-4 px-md-3">
+                        <div class="label required">
+                            <label>Post Code</label>
+                        </div>
+                        <input type="zip" name="postCode" id="inputPostCode" class="form-control" maxlength="4"
+                               pattern="[1-9][0-9]{3}" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                               required/>
+                        <div class="invalid-feedback">Please provide your post code</div>
+                    </div>
+                    <!--  Postal address   -->
+                    <div class="col-12 col-md-4 ps-md-3">
+                        <div class="label">
+                            <label>Postal address</label>
+                        </div>
+                        <input type="text" name="postal_address" id="inputPostAddress" class="form-control"/>
+                        <div class="invalid-feedback">Please provide your post code</div>
+                    </div>
                 </div>
 
-                    <div class="row g-0">
-                        <div class="mb-3 col-12 col-md-4 pe-md-3">
-                            <div class="label required">
-                                <label>Unit/House No.</label>
-                            </div>
-                            <input id="inputHouseNumber" type="text" name="address" class="input-control" required/>
-                            <div class="invalid-feedback">Please provide your unit/house number</div>
-                        </div>
-                        <div class="mb-3 col-12 col-md-8 pe-md-3">
-                            <div class="label required">
-                                <label>Street Address</label>
-                            </div>
-                            <input id="inputAddress" type="text" name="postal_address" class="input-control"
-                                   required/>
-                            <div class="invalid-feedback">Please provide your street address</div>
-                        </div>
-                    </div>
-
-                    <div class="row g-0">
-                        <div class="mb-3 col-12 col-md-6 pe-md-3">
-                            <div class="ff-el-group">
-                                <div class="label required">
-                                    <label>State</label>
-                                </div>
-                                <select class="form-select" id="inputState" name="state" required>
-                                    <option selected>Choose:</option>
-                                    <option value="New South Wales">New South Wales</option>
-                                    <option value="Queensland">Queensland</option>
-                                    <option value="South Australia">South Australia</option>
-                                    <option value="Victoria">Victoria</option>
-                                    <option value="Western Australia">Western Australia</option>
-                                    <option value="Tasmania">Tasmania</option>
-                                </select>
-                                <div class="invalid-feedback">Please provide your state</div>
-                            </div>
-                        </div>
-                        <div class="mb-3 col-12 col-md-6 pe-md-3">
-                            <div class="label required">
-                                <label>Post Code</label>
-                            </div>
-                            <input type="text" name="postCode" id="inputPostCode" class="input-control" required/>
-                            <div class="invalid-feedback">Please provide your post code</div>
-                        </div>
-                    </div>
-
+                <!-- Email + phone -->
                 <div class="row g-0">
                     <div class="mb-3 col-12 col-md-6 pe-md-3">
                         <div class="label required">
                             <label>Email</label>
                         </div>
-                        <input type="text" id="inputEmail" name="email" class="input-control"
-                               placeholder="example@email.com" required/>
+                        <input type="email" id="inputEmail" name="email" class="form-control"
+                               placeholder="example@email.com" pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$' maxlength="64" required/>
                         <div class="invalid-feedback">Please provide your email</div>
                     </div>
-                    <div class="mb-3 col-12 col-md-6 pe-md-3">
+                    <div class="mb-3 col-12 col-md-6 ps-md-3">
                         <div class="label required">
                             <label>Phone number</label>
                         </div>
-                        <input id="inputPhoneNumber" type="text" name="phone" class="input-control" required/>
+                        <input type="text" id="inputPhone"  name="phone" class="form-control"  placeholder="eg. 04xxxxxxxx" maxlength="10" pattern='04[0-9]{8}'  onkeypress='return event.charCode >= 48 && event.charCode <= 57' required/>
                         <div class="invalid-feedback">Please provide your phone number</div>
                     </div>
                 </div>
 
-                <div class="ff-el-group">
-                    <div class="label">
-                        <label>Referred by?</label>
-                        <select class="form-select" id="referral">
-                            <option selected>Choose: (optional)</option>
-                            <option value="Tom">Tom</option>
-                            <option value="Mary">Mary</option>
-                            <option value="Linda">Linda</option>
-                            <option value="Lucy">Lucy</option>
-                        </select>
-                    </div>
-                </div>
 
-
+                <!--  Next page button    -->
                 <div class="text-end">
                     <a class="btn btn-shelbourne mt-3 rounded-pill px-4 py-2" id="page1Next">Next</a>
                 </div>
@@ -448,9 +465,11 @@ $this->Html->script('intakeform', ['block' => true]);
 
                     <!-- description:display when click "Yes"  -->
                     <div class="col-12 col-md-6 ps-md-2 collapse" id="health_desc">
-                        <div class="fw-bold">Please describe</div>
+                        <div class="fw-bold label">
+                            <label for="health_textarea">Please describe</label>
+                        </div>
                         <div>
-                            <textarea name="health_desc" id="health_textarea" class="my-textarea" rows="3" cols="2"
+                            <textarea name="health_desc" id="health_textarea" class="form-control"
                                       data-name="description" style="height: 92px; "></textarea>
                         </div>
                     </div>
@@ -511,8 +530,9 @@ $this->Html->script('intakeform', ['block' => true]);
                                 <div class="label">
                                     <label for="married_dob">Partner’s DOB</label>
                                 </div>
-                                <input type="date" name="married_dob" class="form-control" id="married_dob"
-                                       placeholder="dd/mm/yyyy">
+                                <input type="text" name="married_dob" class="form-control" id="married_dob"
+                                       placeholder="mm/dd/yyyy" onfocus="(this.type='date')"
+                                       onblur="(this.type='text')">
                             </div>
 
                             <div class="col-12 col-md-6 pe-md-3">

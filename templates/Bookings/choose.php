@@ -118,7 +118,7 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
             <!--    phone number-->
             <div class="mb-4">
                 <label for="validationTooltip05" class="fw-bold">Phone Number *</label>
-                <input type="number" class="form-control" id="InputPhone" name="phone" placeholder="eg. 04xxxxxxxx" maxlength="10" pattern='04[0-9]{8}' required>
+                <input type="text" class="form-control" id="InputPhone" name="phone" placeholder="eg. 04xxxxxxxx" maxlength="10" pattern='04[0-9]{8}' required>
                 <div id="phoneError" class="invalid-feedback">
                     Please provide your phone number.
                 </div>
@@ -642,9 +642,6 @@ $this->Html->css(['evo-calendar','booking'], ['block' => true]);
         })
         $("#InputName").blur(function(){
             verifyName(this.value)
-        })
-        $("#InputEmail").blur(function(){
-            verifyEmail(this.value)
         })
         $("#InputEmail").blur(function(){
             verifyEmail(this.value)
