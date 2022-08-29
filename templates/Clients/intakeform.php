@@ -142,13 +142,13 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="invalid-feedback">Please provide your post code</div>
                     </div>
                     <!--  Postal address   -->
-<!--                    <div class="col-12 col-md-4 ps-md-3">-->
-<!--                        <div class="label">-->
-<!--                            <label>Postal address</label>-->
-<!--                        </div>-->
-<!--                        <input type="text" name="postal_address" id="inputPostAddress" class="form-control"/>-->
-<!--                        <div class="invalid-feedback">Please provide your post code</div>-->
-<!--                    </div>-->
+                    <div class="col-12 col-md-4 ps-md-3">
+                        <div class="label">
+                            <label>Postal address</label>
+                        </div>
+                        <input type="text" name="postal_address" id="inputPostAddress" class="form-control"/>
+                        <div class="invalid-feedback">Please provide your post code</div>
+                    </div>
                 </div>
 
                 <!-- Email + phone -->
@@ -158,14 +158,18 @@ $this->Html->script('intakeform', ['block' => true]);
                             <label>Email</label>
                         </div>
                         <input type="email" id="inputEmail" name="email" class="form-control"
-                               placeholder="example@email.com" pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$' maxlength="64" required/>
+                               placeholder="example@email.com"
+                               pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'
+                               maxlength="64" required/>
                         <div class="invalid-feedback">Please provide your email</div>
                     </div>
                     <div class="mb-3 col-12 col-md-6 ps-md-3">
                         <div class="label required">
                             <label>Phone number</label>
                         </div>
-                        <input type="text" id="inputPhone"  name="phone" class="form-control"  placeholder="eg. 04xxxxxxxx" maxlength="10" pattern='04[0-9]{8}'  onkeypress='return event.charCode >= 48 && event.charCode <= 57' required/>
+                        <input type="text" id="inputPhone" name="phone" class="form-control"
+                               placeholder="eg. 04xxxxxxxx" maxlength="10" pattern='04[0-9]{8}'
+                               onkeypress='return event.charCode >= 48 && event.charCode <= 57' required/>
                         <div class="invalid-feedback">Please provide your phone number</div>
                     </div>
                 </div>
@@ -488,106 +492,108 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="relationStatus d-flex mb-3">
                             <div class="statusArea">
                                 <label class="statusLabel">
-                                    <input type="radio" name="relationship_status"
-                                           class="" value="married">
+                                    <input type="radio" name="relationship_status" value="married">
                                     <span class="oneStatus" id="firstStatus">Married</span>
                                 </label>
                             </div>
                             <div class="statusArea">
                                 <label class="statusLabel">
-                                    <input type="radio" name="relationship_status"
-                                           class="" value="de-facto">
+                                    <input type="radio" name="relationship_status" value="de-facto">
                                     <span class="oneStatus">De-facto</span>
                                 </label>
                             </div>
                             <div class="statusArea">
                                 <label class="statusLabel">
-                                    <input type="radio" name="relationship_status"
-                                           class="" value="separated or divorced">
+                                    <input type="radio" name="relationship_status" value="separated or divorced">
                                     <span class="oneStatus">Separated or Divorced</span>
                                 </label>
                             </div>
                             <div class="statusArea">
                                 <label class="statusLabel">
-                                    <input type="radio" name="relationship_status"
-                                           class="" value="never married or divorced">
+                                    <input type="radio" name="relationship_status" value="never married or divorced">
                                     <span class="oneStatus" id="lastStatus">never married or Divorced</span>
                                 </label>
                             </div>
                         </div>
 
-                        <!--    Married fields-->
-                        <div class="row g-0 relationFields collapse" id="marriedField">
-                            <div class="mb-3 col-12 col-md-6 pe-md-3">
-                                <div class="label">
-                                    <label for="married_fullName">Partner’s full name</label>
+                        <div id="relationFields">
+                            <!--    Married fields-->
+                            <div class="row g-0  collapse">
+                                <div class="mb-3 col-12 col-md-6 pe-md-3">
+                                    <div class="label">
+                                        <label for="married_fullName">Partner’s full name</label>
+                                    </div>
+                                    <input type="text" name="married_fullName" class="form-control"
+                                           id="married_fullName"
+                                           placeholder="Partner's full name">
                                 </div>
-                                <input type="text" name="married_fullName" class="form-control" id="married_fullName"
-                                       placeholder="Partner's full name">
+
+                                <div class="mb-3 col-12 col-md-6 ps-md-3">
+                                    <div class="label">
+                                        <label for="married_dob">Partner’s DOB</label>
+                                    </div>
+                                    <input type="text" name="married_dob" class="form-control" id="married_dob"
+                                           placeholder="mm/dd/yyyy" onfocus="(this.type='date')"
+                                           onblur="(this.type='text')">
+                                </div>
+
+                                <div class="col-12 col-md-6 pe-md-3">
+                                    <div class="label">
+                                        <label for="married_phone">Partner’s Mobile Number</label>
+                                    </div>
+                                    <input type="text" name="married_phone" class="form-control" id="married_phone"
+                                           placeholder="Mobile Number">
+                                </div>
+
+                            </div>
+                            <!--   de-facto fields-->
+                            <div class="row g-0 collapse">
+                                <div class="mb-3 col-12 col-md-6 pe-md-3">
+                                    <div class="label">
+                                        <label for="defacto_fullName">Partner’s full name</label>
+                                    </div>
+                                    <input type="text" name="defacto_fullName" class="form-control"
+                                           id="defacto_fullName"
+                                           placeholder="Partner's full name">
+                                </div>
+
+                                <div class="mb-3 col-12 col-md-6 ps-md-3">
+                                    <div class="label">
+                                        <label for="defacto_living">When did you start living together</label>
+                                    </div>
+                                    <input type="text" name="defacto_living" class="form-control" id="defacto_living"
+                                           placeholder="When did you start living together">
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="label">
+                                        <label>Are you contemplating marriage</label>
+                                    </div>
+                                    <!--   Yes/No selection    -->
+                                    <?=
+                                    $this->element('yesnoRadio', [
+                                        'inputName' => 'defacto_mariage',
+                                    ]);
+                                    ?>
+                                </div>
                             </div>
 
-                            <div class="mb-3 col-12 col-md-6 ps-md-3">
+                            <!--   Separated or Divorced-->
+                            <div class="collapse">
                                 <div class="label">
-                                    <label for="married_dob">Partner’s DOB</label>
-                                </div>
-                                <input type="text" name="married_dob" class="form-control" id="married_dob"
-                                       placeholder="mm/dd/yyyy" onfocus="(this.type='date')"
-                                       onblur="(this.type='text')">
-                            </div>
-
-                            <div class="col-12 col-md-6 pe-md-3">
-                                <div class="label">
-                                    <label for="married_phone">Partner’s Mobile Number</label>
-                                </div>
-                                <input type="text" name="married_phone" class="form-control" id="married_phone"
-                                       placeholder="Mobile Number">
-                            </div>
-
-                        </div>
-                        <!--   de-facto fields-->
-                        <div class="row g-0 relationFields collapse" id="deFactoField">
-                            <div class="mb-3 col-12 col-md-6 pe-md-3">
-                                <div class="label">
-                                    <label for="defacto_fullName">Partner’s full name</label>
-                                </div>
-                                <input type="text" name="defacto_fullName" class="form-control" id="defacto_fullName"
-                                       placeholder="Partner's full name">
-                            </div>
-
-                            <div class="mb-3 col-12 col-md-6 ps-md-3">
-                                <div class="label">
-                                    <label for="defacto_living">When did you start living together</label>
-                                </div>
-                                <input type="text" name="defacto_living" class="form-control" id="defacto_living"
-                                       placeholder="When did you start living together">
-                            </div>
-
-                            <div class="col-12">
-                                <div class="label">
-                                    <label>Are you contemplating marriage</label>
+                                    <label>Has a property settlement occurred?</label>
                                 </div>
                                 <!--   Yes/No selection    -->
                                 <?=
                                 $this->element('yesnoRadio', [
-                                    'inputName' => 'defacto_mariage',
+                                    'inputName' => 'sepdiv_property_settlement',
                                 ]);
                                 ?>
                             </div>
-                        </div>
 
-                        <!--                            Separated or Divorced-->
-                        <div class="collapse relationFields" id="sepField">
-                            <div class="label">
-                                <label>Has a property settlement occurred?</label>
-                            </div>
-                            <!--   Yes/No selection    -->
-                            <?=
-                            $this->element('yesnoRadio', [
-                                'inputName' => 'sepdiv_property_settlement',
-                            ]);
-                            ?>
+                            <!--    never      -->
+                            <div></div>
                         </div>
-
 
                     </div>
                 </div>
@@ -685,7 +691,7 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="label">
                             <label>If yes</label>
                         </div>
-                        <div class="row g-0 mb-3 houseMemberInputs">
+                        <div class="row g-0 mb-3 inputsRow">
                             <div class="col-12 col-lg-5 pe-md-2">
                                 <div class="label">
                                     <label>Full Name</label>
@@ -703,12 +709,12 @@ $this->Html->script('intakeform', ['block' => true]);
                             <div class="col-12 col-lg-2">
                                 <div class="row g-0">
                                     <div class="col-1 col-lg-12 mt-2 mt-lg-0">
-                                        <a class="btn addHouseMember">
+                                        <a class="btn add">
                                             <span class="fas fa-plus-circle"></span>
                                         </a>
                                     </div>
                                     <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
-                                        <a class="btn deleteHouseMember">
+                                        <a class="btn delete">
                                             <span class="fas fa-minus-circle"></span>
                                         </a>
                                     </div>
@@ -721,6 +727,8 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
 
+
+
                 <!--          1.7 add Other dependents  -->
                 <div class="ff-el-group">
                     <h2>1.7 Other dependents</h2>
@@ -728,7 +736,6 @@ $this->Html->script('intakeform', ['block' => true]);
                         <span style="font-weight: 400;">Other than those listed above… &nbsp; </span>
                     </p>
                 </div>
-
                 <div class="mb-5">
                     <div>
                         <div class="label">
@@ -2338,3 +2345,7 @@ $this->Html->script('intakeform', ['block' => true]);
 
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 
+
+<script>
+
+</script>

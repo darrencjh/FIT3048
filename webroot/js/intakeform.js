@@ -208,19 +208,14 @@ $(":radio[name=is_health]").change(function(){
     else $("#health_desc").removeClass("show")
 })
 //relationship button
-$(".relationStatus :radio").change(function (){
-    $(this).parent().parent().addClass("statusSelected")
+$(".relationStatus").change(function (e){
+    //add color/background-color for the selected one
+    $(e.target).parent().parent().addClass("statusSelected")
         .siblings().removeClass("statusSelected")
 
-    $(".relationFields").removeClass("show")
-    let value=$(this).val()
-    if(value=="married"){
-        $("#marriedField").addClass("show")
-    }else if(value=="de-facto"){
-        $("#deFactoField").addClass("show")
-    }else if(value=="separated or divorced"){
-        $("#sepField").addClass("show")
-    }
+    //find the index of radio input which is clicked
+    let index=$(".relationStatus :radio").index(e.target)
+    $(`#relationFields>div:nth-child(${index+1})`).addClass('show').siblings().removeClass('show')
 })
 
 //Children fields.
@@ -265,6 +260,31 @@ $("#yourGrandChildren").click(function(e){
 })
 
 
+
+//Add or Delete a row
+let addDeleteRow=(e,outerDivId)=>{
+    e.stopPropagation()
+    if($(e.target).parent().hasClass('add')){
+        //if more than 1 row,add "-" button below "+" button
+        $(".delete").parent().addClass('show')
+        //clone the first row
+        let $oneRow=$(`#${outerDivId}>.inputsRow:first`).clone()
+        //make the row inputs value to empty
+        $oneRow.find(":input").val("")
+        //append to its father div
+        $(`#${outerDivId}`).append($oneRow)
+    }else if($(e.target).parent().hasClass('delete')){
+        //find the target row and remove it
+        let $targetRow=$(e.target).parent().parent().parent().parent().parent()
+        $targetRow.remove()
+        //if only one row left,remove the '-' button
+        if($(`#${outerDivId}>.inputsRow`).length==1){
+            $(".delete").parent().removeClass('show')
+        }
+    }
+}
+
+
 //householder member
 // 1.display when 'Yes',disappear when 'no',default is disappear
 $(":radio[name=has_household_member]").change(function(){
@@ -273,19 +293,25 @@ $(":radio[name=has_household_member]").change(function(){
 })
 //2.add a householder member
 $("#yourHouseMembers").click(function(e){
-    e.stopPropagation()
-    if($(e.target).parent().hasClass('addHouseMember')){
-        $(".houseMemberInputs>div:last").children(":last-child").children(":last-child").addClass('show')
-        let $oneRow=$("#yourHouseMembers>.houseMemberInputs:first").clone()//clone the first row
-        $("#yourHouseMembers").append($oneRow)
-    }else if($(e.target).parent().hasClass('deleteHouseMember')){
-        let $targetRow=$(e.target).parent().parent().parent().parent().parent()
-        $targetRow.remove()
-        if($(".houseMemberInputs").length==1){
-            console.log("only one left")
-            $(".houseMemberInputs>div:last").children(":last-child").children(":last-child").removeClass('show')
-        }
-    }
+    // if($(e.target).parent().hasClass('addHouseMember')){
+    //     //if more than 1 row,add "-" button below "+" button
+    //     $(".deleteHouseMember").parent().addClass('show')
+    //     //clone the first row
+    //     let $oneRow=$("#yourHouseMembers>.houseMemberInputs:first").clone()
+    //     //make the row inputs value to empty
+    //     $oneRow.find(":input").val("")
+    //     //append to its father div
+    //     $("#yourHouseMembers").append($oneRow)
+    // }else if($(e.target).parent().hasClass('deleteHouseMember')){
+    //     //find the target row and remove it
+    //     let $targetRow=$(e.target).parent().parent().parent().parent().parent()
+    //     $targetRow.remove()
+    //     //if only one row left,remove the '-' button
+    //     if($(".houseMemberInputs").length==1){
+    //         $(".deleteHouseMember").parent().removeClass('show')
+    //     }
+    // }
+    addDeleteRow(e,"yourHouseMembers")
 })
 
 
@@ -299,15 +325,17 @@ $(":radio[name=has_financial_dependent]").change(function(){
 $("#yourOtherDep").click(function(e){
     e.stopPropagation()
     if($(e.target).parent().hasClass('addDependent')){
-        $(".otherDepInputs>div:last").children(":last-child").children(":last-child").addClass('show')
-        let $oneRow=$("#yourOtherDep>.otherDepInputs:first").clone()//clone the first row
+        $(".deleteDependent").parent().addClass('show')
+        let $oneRow=$("#yourOtherDep>.houseMemberInputs:first").clone()
+        $oneRow.find(":input").val("")
         $("#yourOtherDep").append($oneRow)
+
     }else if($(e.target).parent().hasClass('deleteDependent')){
         let $targetRow=$(e.target).parent().parent().parent().parent().parent()
         $targetRow.remove()
         if($(".otherDepInputs").length==1){
-            console.log("only one left")
             $(".otherDepInputs>div:last").children(":last-child").children(":last-child").removeClass('show')
+            $(".deleteDependent").parent().removeClass('show')
         }
     }
 })

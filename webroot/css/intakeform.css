@@ -44,7 +44,7 @@
     margin-bottom: 0;
     display: inline-block;
     font-weight: 600;
-    white-space:nowrap;
+    /*white-space:nowrap;*/
 }
 .label label::selection {
     background-color: #17bcb9;
@@ -274,7 +274,7 @@ Yes/no button
     position: relative;
     margin: 0 0 10px;
 }
-/* when clicked,style */
+/* when clicked a radio input */
 .yesNoSelected span,.statusSelected span{
     background-color: #17BCB9;
     border-color: #17BCB9;
