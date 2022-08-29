@@ -3,7 +3,7 @@ let verifyFirstName=(inputGivenName)=>{
     if(inputGivenName==""){
         $("#nameError").text("Please enter your first name")
         $("#inputGivenName").addClass("is-invalid")
-    } else if(!/[A-z]/.test(inputGivenName)){
+    } else if(!/^[a-zA-Z ]{2,}$/.test(inputGivenName)){
         $("#nameError").text("Name can only contain letters")
         $("#inputGivenName").addClass("is-invalid")
     }
@@ -13,17 +13,14 @@ let verifyLastName=(inputLastName)=>{
     if(inputLastName==""){
         $("#nameError").text("Please enter your last name")
         $("#inputLastName").addClass("is-invalid")
-    } else if(!/[A-z]/.test(inputLastName)){
+    } else if(!/^[a-zA-Z ]{2,}$/.test(inputLastName)){
         $("#nameError").text("Name can only contain letters")
         $("#inputLastName").addClass("is-invalid")
     }
 }
 
 let verifyPreferredName=(inputPrefName)=>{
-    if(inputPrefName==""){
-        $("#nameError").text("Please enter your preferred name")
-        $("#inputPrefName").addClass("is-invalid")
-    } else if(!/[A-z]/.test(inputPrefName)){
+    if(inputPrefName!= "" &&!/^[a-zA-Z ]{2,}$/.test(inputPrefName)){
         $("#nameError").text("Name can only contain letters")
         $("#inputPrefName").addClass("is-invalid")
     }
@@ -39,15 +36,7 @@ let verifyDOB=(inputDOB)=>{
     }
 }
 
-let verifyPreferredName=(inputPrefName)=>{
-    if(inputPrefName==""){
-        $("#nameError").text("Please enter your preferred name")
-        $("#inputPrefName").addClass("is-invalid")
-    } else if(!/[A-z]/.test(inputPrefName)){
-        $("#nameError").text("Name can only contain letters")
-        $("#inputPrefName").addClass("is-invalid")
-    }
-}
+
 
 let verifyAddress=(inputStreet)=>{
     if(inputStreet==""){

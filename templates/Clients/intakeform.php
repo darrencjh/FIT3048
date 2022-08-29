@@ -1491,7 +1491,6 @@ $this->Html->script('intakeform', ['block' => true]);
 
 
             <!--  Page 4        -->
-
             <div id="page4" class="collapse">
                 <div class="text-muted mt-3">Step 4 of 4 - Step 4</div>
                 <div class="progress my-2">
