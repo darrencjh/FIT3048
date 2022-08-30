@@ -1,4 +1,4 @@
-<div class="row g-0 mb-3 childInputs">
+<div class="row g-0 mb-3 inputsRow">
     <div class="col-12 col-lg-2 pe-md-2">
         <div class="label">
             <label>Name</label>
@@ -37,12 +37,12 @@
     <div class="col-12 col-lg-2">
         <div class="row g-0">
             <div class="col-1 col-lg-12 mt-2 mt-lg-0">
-                <a class="btn addChild">
+                <a class="btn add">
                     <span class="fas fa-plus-circle"></span>
                 </a>
             </div>
             <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
-                <a class="btn deleteChild">
+                <a class="btn delete">
                     <span class="fas fa-minus-circle"></span>
                 </a>
             </div>

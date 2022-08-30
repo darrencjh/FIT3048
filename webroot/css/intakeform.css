@@ -84,23 +84,6 @@
 
 
 /* Core codes for input fields  */
-/*input[type=text],*/
-/*input[type=date],*/
-/*input[type=zip],*/
-/*select,*/
-/*textarea {*/
-/*    width: 100%;*/
-/*    color: #424344;*/
-/*    padding: 10px;*/
-/*    height: auto;*/
-/*    border: 1px solid #757575;*/
-/*    border-radius: 5px;*/
-/*    background: #fff;*/
-/*    box-shadow: none;*/
-/*    box-sizing: border-box;*/
-/*    transition: all .2s linear;*/
-/*    font-size: 16px;*/
-/*}*/
 .form-control{
     width: 100%;
     color: #424344;

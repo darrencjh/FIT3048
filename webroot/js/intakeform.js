@@ -175,7 +175,7 @@ $("#submitIntakeform").click(function () {
 
 
 //-----------------------Page 2----------------------------------------------------
-// Yes/No button. When selected,make it
+// Yes/No button. When selected,make it color
 $(".yesNo :radio").change(function (){
     $(this).parent().parent().addClass("yesNoSelected")
         .siblings().removeClass("yesNoSelected")
@@ -202,71 +202,18 @@ $("#documentsGroup").on("change",":radio",function(e){
 })
 
 
-//health description display when 'Yes',disappear when 'no',default is disappear
-$(":radio[name=is_health]").change(function(){
-    if($(this).val()==1) $("#health_desc").addClass("show")
-    else $("#health_desc").removeClass("show")
-})
-//relationship button
-$(".relationStatus").change(function (e){
-    //add color/background-color for the selected one
-    $(e.target).parent().parent().addClass("statusSelected")
-        .siblings().removeClass("statusSelected")
-
-    //find the index of radio input which is clicked
-    let index=$(".relationStatus :radio").index(e.target)
-    $(`#relationFields>div:nth-child(${index+1})`).addClass('show').siblings().removeClass('show')
-})
-
-//Children fields.
-// 1.display when 'Yes',disappear when 'no',default is disappear
-$(":radio[name=has_child_current]").change(function(){
-    if($(this).val()==1) $("#hasChildren").slideDown()
-    else $("#hasChildren").slideUp()
-})
-$(":radio[name=has_child_prev]").change(function(){
-    if($(this).val()==1) $("#hasChildren").slideDown()
-    else $("#hasChildren").slideUp()
-})
-
-// 2.Add a children row
-$("#yourChildren").click(function(e){
-    if($(e.target).parent().hasClass('addChild')){
-        $("#yourChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").addClass('show')
-        let $oneChildInputs=$("#yourChildren>.childInputs:first").clone()
-        $("#yourChildren").append($oneChildInputs)
-
-    }else if($(e.target).parent().hasClass('deleteChild')){
-        $(e.target).parent().parent().parent().parent().parent().remove()
-        if($(this).children().length==2){
-            //hide the minus button,when only one child
-            $("#yourChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").removeClass('show')
-        }
-    }
-})
-$("#yourGrandChildren").click(function(e){
-    if($(e.target).parent().hasClass('addChild')){
-        $("#yourGrandChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").addClass('show')
-        let $oneChildInputs=$("#yourGrandChildren>.childInputs:first").clone()
-        $("#yourGrandChildren").append($oneChildInputs)
-
-    }else if($(e.target).parent().hasClass('deleteChild')){
-        $(e.target).parent().parent().parent().parent().parent().remove()
-        if($(this).children().length==2){
-            //hide the minus button,when only one grandchild
-            $("#yourGrandChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").removeClass('show')
-        }
-    }
-})
-
-
-
-//Add or Delete a row
+//Functions
+//display when 'Yes',disappear when 'no'
+let radioShowDisappearInputs=(target,hiddenDivId)=>{
+    if($(target).val()==1) $(`#${hiddenDivId}`).slideDown()
+    else $(`#${hiddenDivId}`).slideUp()
+}
+//Add or Delete a row. such as add a children,a home member,a financial dependant
 let addDeleteRow=(e,outerDivId)=>{
     e.stopPropagation()
     if($(e.target).parent().hasClass('add')){
         //if more than 1 row,add "-" button below "+" button
-        $(".delete").parent().addClass('show')
+        $(`#${outerDivId} .delete`).parent().addClass('show')
         //clone the first row
         let $oneRow=$(`#${outerDivId}>.inputsRow:first`).clone()
         //make the row inputs value to empty
@@ -279,38 +226,82 @@ let addDeleteRow=(e,outerDivId)=>{
         $targetRow.remove()
         //if only one row left,remove the '-' button
         if($(`#${outerDivId}>.inputsRow`).length==1){
-            $(".delete").parent().removeClass('show')
+            $(`#${outerDivId} .delete`).parent().removeClass('show')
         }
     }
 }
 
 
+//health description display when 'Yes',disappear when 'no',default is disappear
+$(":radio[name=is_health]").change(function(){
+    radioShowDisappearInputs(this,'health_desc')
+})
+
+//relationship status selection
+$(".relationStatus").change(function (e){
+    //add color/background-color for the selected one
+    $(e.target).parent().parent().addClass("statusSelected")
+        .siblings().removeClass("statusSelected")
+
+    //find the index of radio input which is clicked
+    let index=$(".relationStatus :radio").index(e.target)
+    $(`#relationFields>div:nth-child(${index+1})`).addClass('show').siblings().removeClass('show')
+})
+
+
+//Children fields.
+// 1.display when 'Yes',disappear when 'no',default is disappear
+$(":radio[name=has_child_current]").change(function(){
+    if($(this).val()==1) $("#hasChildren").slideDown()
+    else if($(":radio[name=has_child_prev]:checked").val()!=1) $("#hasChildren").slideUp()
+})
+$(":radio[name=has_child_prev]").change(function(){
+    if($(this).val()==1) $("#hasChildren").slideDown()
+    else if($(":radio[name=has_child_current]:checked").val()!=1) $("#hasChildren").slideUp()
+})
+
+// 2.Add a children row
+$("#yourChildren").click(function(e){
+    // if($(e.target).parent().hasClass('add')){
+    //     $("#yourChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").addClass('show')
+    //     let $oneChildInputs=$("#yourChildren>.childInputs:first").clone()
+    //     $("#yourChildren").append($oneChildInputs)
+    //
+    // }else if($(e.target).parent().hasClass('delete')){
+    //     $(e.target).parent().parent().parent().parent().parent().remove()
+    //     if($(this).children().length==2){
+    //         //hide the minus button,when only one child
+    //         $("#yourChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").removeClass('show')
+    //     }
+    // }
+    addDeleteRow(e,"yourChildren")
+
+})
+$("#yourGrandChildren").click(function(e){
+    // if($(e.target).parent().hasClass('add')){
+    //     $("#yourGrandChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").addClass('show')
+    //     let $oneChildInputs=$("#yourGrandChildren>.childInputs:first").clone()
+    //     $("#yourGrandChildren").append($oneChildInputs)
+    //
+    // }else if($(e.target).parent().hasClass('delete')){
+    //     $(e.target).parent().parent().parent().parent().parent().remove()
+    //     if($(this).children().length==2){
+    //         //hide the minus button,when only one grandchild
+    //         $("#yourGrandChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").removeClass('show')
+    //     }
+    // }
+    addDeleteRow(e,"yourGrandChildren")
+
+})
+
+
 //householder member
 // 1.display when 'Yes',disappear when 'no',default is disappear
 $(":radio[name=has_household_member]").change(function(){
-    if($(this).val()==1) $("#yourHouseMembers").slideDown()
-    else $("#yourHouseMembers").slideUp()
+    radioShowDisappearInputs(this,'yourHouseMembers')
 })
 //2.add a householder member
 $("#yourHouseMembers").click(function(e){
-    // if($(e.target).parent().hasClass('addHouseMember')){
-    //     //if more than 1 row,add "-" button below "+" button
-    //     $(".deleteHouseMember").parent().addClass('show')
-    //     //clone the first row
-    //     let $oneRow=$("#yourHouseMembers>.houseMemberInputs:first").clone()
-    //     //make the row inputs value to empty
-    //     $oneRow.find(":input").val("")
-    //     //append to its father div
-    //     $("#yourHouseMembers").append($oneRow)
-    // }else if($(e.target).parent().hasClass('deleteHouseMember')){
-    //     //find the target row and remove it
-    //     let $targetRow=$(e.target).parent().parent().parent().parent().parent()
-    //     $targetRow.remove()
-    //     //if only one row left,remove the '-' button
-    //     if($(".houseMemberInputs").length==1){
-    //         $(".deleteHouseMember").parent().removeClass('show')
-    //     }
-    // }
     addDeleteRow(e,"yourHouseMembers")
 })
 
@@ -318,24 +309,9 @@ $("#yourHouseMembers").click(function(e){
 //Dependents
 // 1.display when 'Yes',disappear when 'no',default is disappear
 $(":radio[name=has_financial_dependent]").change(function(){
-    if($(this).val()==1) $("#yourOtherDep").slideDown()
-    else $("#yourOtherDep").slideUp()
+    radioShowDisappearInputs(this,'yourOtherDep')
 })
 //2.add a dependents
 $("#yourOtherDep").click(function(e){
-    e.stopPropagation()
-    if($(e.target).parent().hasClass('addDependent')){
-        $(".deleteDependent").parent().addClass('show')
-        let $oneRow=$("#yourOtherDep>.houseMemberInputs:first").clone()
-        $oneRow.find(":input").val("")
-        $("#yourOtherDep").append($oneRow)
-
-    }else if($(e.target).parent().hasClass('deleteDependent')){
-        let $targetRow=$(e.target).parent().parent().parent().parent().parent()
-        $targetRow.remove()
-        if($(".otherDepInputs").length==1){
-            $(".otherDepInputs>div:last").children(":last-child").children(":last-child").removeClass('show')
-            $(".deleteDependent").parent().removeClass('show')
-        }
-    }
+    addDeleteRow(e,"yourOtherDep")
 })

@@ -629,10 +629,10 @@ $this->Html->script('intakeform', ['block' => true]);
                         ?>
                     </div>
 
-                    <!--  child fields  -->
+                    <!--  child hidden fields  -->
                     <div id="hasChildren" class="mt-3 collapse">
                         <!--     1.4 Your Children               -->
-                        <div id="yourChildren" class="mb-4">
+                        <div id="yourChildren">
                             <div class="label">
                                 <label>1.4 Your Children (including step and adopted children)</label>
                             </div>
@@ -645,7 +645,7 @@ $this->Html->script('intakeform', ['block' => true]);
 
                         </div>
 
-                        <!--     1.5 Your Grandchildren               -->
+                        <!--     1.5 Your Grandchildren    -->
                         <div id="yourGrandChildren">
                             <div class="label">
                                 <label>1.5 Your Grandchildren (including step, adopted grandchildren)</label>
@@ -662,7 +662,6 @@ $this->Html->script('intakeform', ['block' => true]);
 
                     </div>
 
-
                 </div>
 
 
@@ -673,7 +672,7 @@ $this->Html->script('intakeform', ['block' => true]);
                         <span style="font-weight: 400;">Other than those listed above… &nbsp; </span>
                     </p>
                 </div>
-                <div class="mb-5">
+                <div class="mb-4">
                     <div>
                         <div class="label">
                             <label>Does anyone else live with you?</label>
@@ -691,7 +690,7 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="label">
                             <label>If yes</label>
                         </div>
-                        <div class="row g-0 mb-3 inputsRow">
+                        <div class="row g-0 inputsRow">
                             <div class="col-12 col-lg-5 pe-md-2">
                                 <div class="label">
                                     <label>Full Name</label>
@@ -728,7 +727,6 @@ $this->Html->script('intakeform', ['block' => true]);
                 </div>
 
 
-
                 <!--          1.7 add Other dependents  -->
                 <div class="ff-el-group">
                     <h2>1.7 Other dependents</h2>
@@ -754,7 +752,7 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="label">
                             <label>If yes</label>
                         </div>
-                        <div class="row g-0 mb-3 otherDepInputs">
+                        <div class="row g-0 inputsRow">
                             <div class="col-12 col-lg-3 pe-md-2">
                                 <div class="label">
                                     <label>Full Name</label>
@@ -779,12 +777,12 @@ $this->Html->script('intakeform', ['block' => true]);
                             <div class="col-12 col-lg-3">
                                 <div class="row g-0">
                                     <div class="col-1 col-lg-12 mt-2 mt-lg-0">
-                                        <a class="btn addDependent">
+                                        <a class="btn add">
                                             <span class="fas fa-plus-circle"></span>
                                         </a>
                                     </div>
                                     <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
-                                        <a class="btn deleteDependent">
+                                        <a class="btn delete">
                                             <span class="fas fa-minus-circle"></span>
                                         </a>
                                     </div>
@@ -797,6 +795,8 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
 
+
+                <!--     Previous + next button           -->
                 <div class="clearfix">
                     <a class="btn btn-outline-secondary mt-3 float-start" id="page2Prev">Previous</a>
                     <a class="btn btn-shelbourne mt-3 rounded-pill px-4 py-2 float-end" id="page2Next">Next</a>
