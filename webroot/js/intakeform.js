@@ -315,3 +315,18 @@ $(":radio[name=has_financial_dependent]").change(function(){
 $("#yourOtherDep").click(function(e){
     addDeleteRow(e,"yourOtherDep")
 })
+
+
+
+//-----------------Page 3-------------------------------
+//Accountant/Adviser/referral
+// 1.display when 'Yes',disappear when 'no',default is disappear
+$(":radio[name=has_accountant]").change(function(){
+    radioShowDisappearInputs(this,'yourAccountant')
+})
+$(":radio[name=has_adviser]").change(function(){
+    radioShowDisappearInputs(this,'yourAdvisor')
+})
+$(":radio[name=has_referrer]").change(function(){
+    radioShowDisappearInputs(this,'yourReferral')
+})

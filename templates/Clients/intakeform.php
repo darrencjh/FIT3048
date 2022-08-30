@@ -27,8 +27,8 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
 
-                <!--    --><? //= $this->Form->create($client, ["method" => "post"]) ?>
-                <div class="ff-el-group">
+                <!-- $this->Form->create($client, ["method" => "post"])    -->
+                <div class="ff-el-group mt-4">
                     <h2>1. Basic Information</h2>
                     <h4>1.1 Your Details</h4>
                 </div>
@@ -193,7 +193,7 @@ $this->Html->script('intakeform', ['block' => true]);
                 </div>
 
                 <!--   1.2 Existing documents -->
-                <div class="ff-el-group mb-4">
+                <div class="ff-el-group my-4">
                     <h4>1.2 Existing Documents</h4>
                     <p>
                         <span class="text-muted">Do you have any existing… &nbsp; </span>
@@ -813,10 +813,98 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
 
-                <!--          2  -->
+
+                <!-- Section1   Helper      -->
+                <div class="ff-el-group mt-4">
+                    <h4>Accountant/Adviser/Referral</h4>
+                </div>
+                <!--     Accountant -->
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label>Do you have an accountant?</label>
+                        </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'has_accountant',
+                        ]);
+                        ?>
+                    </div>
+
+                    <!--    hidden inputs       -->
+                    <div id="yourAccountant" class="collapse">
+                        <div class="label">
+                            <label class="text-danger">*If yes</label>
+                        </div>
+                        <?=  $this->element('page3Helper'); ?>
+                        <div class="label mt-2">
+                            <label>Would you like your accountant to help complete this section for you?</label>
+                        </div>
+                        <?= $this->element('yesnoRadio', ['inputName' => 'accountant_help']); ?>
+
+                    </div>
+                </div>
+
+                <!--     Financial Adviser -->
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label>Do you have a Financial Adviser?</label>
+                        </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'has_adviser',
+                        ]);
+                        ?>
+                    </div>
+
+                    <!--    hidden inputs       -->
+                    <div id="yourAdvisor" class="collapse">
+                        <div class="label">
+                            <label class="text-danger">*If yes</label>
+                        </div>
+                        <?=  $this->element('page3Helper'); ?>
+                        <div class="label mt-2">
+                            <label>Would you like your financial adviser to help complete this section for you?</label>
+                        </div>
+                        <?= $this->element('yesnoRadio', ['inputName' => 'adviser_help']); ?>
+
+                    </div>
+                </div>
+
+                <!--     referral -->
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label>Do you have a Referral?</label>
+                        </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'has_referrer',
+                        ]);
+                        ?>
+                    </div>
+
+                    <!--    hidden inputs       -->
+                    <div id="yourReferral" class="collapse">
+                        <div class="label">
+                            <label class="text-danger">*If yes</label>
+                        </div>
+                        <?=  $this->element('page3Helper'); ?>
+                    </div>
+                </div>
+
+
+
+                <!-- 2.Assets & Liabilities  -->
                 <div class="ff-el-group">
                     <h2>2. Assets & Liabilities</h2>
                 </div>
+
+                <!--       Real estate         -->
                 <div data-type="repeater_field" data-name="repeater_field_3"
                      class="ff-el-group ff-el-repeater js-repeater"
                      data-root_name="repeater_field_3">
@@ -944,6 +1032,9 @@ $this->Html->script('intakeform', ['block' => true]);
                         </table>
                     </div>
                 </div>
+
+
+                <!--      Bank Accounts          -->
                 <div data-type="repeater_field" data-name="repeater_field_5"
                      class="ff-el-group ff-el-repeater js-repeater"
                      data-root_name="repeater_field_5">
@@ -1029,6 +1120,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
 
+                <!--       Motor vehicles         -->
                 <div data-type="repeater_field" data-name="repeater_field_6"
                      class="ff-el-group ff-el-repeater js-repeater"
                      data-root_name="repeater_field_6">
@@ -1098,6 +1190,8 @@ $this->Html->script('intakeform', ['block' => true]);
                         </table>
                     </div>
                 </div>
+
+                <!--        Investments        -->
                 <div data-type="repeater_field" data-name="repeater_field_7"
                      class="ff-el-group ff-el-repeater js-repeater"
                      data-root_name="repeater_field_7">
@@ -1168,7 +1262,8 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
 
-                <!--             add Loans and debts div  -->
+
+                <!--  Section2:add Loans and debts div  -->
                 <div class="ff-el-group">
                     <h4>Loans and debts</h4>
                 </div>
@@ -1238,10 +1333,9 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
 
-                <!--             add Insurance div  -->
+                <!--   Section3:add Insurance div  -->
                 <div class="ff-el-group">
                     <h4>Insurance</h4>
-
                 </div>
                 <div data-name="ff_cn_id_12" class="ff-t-container ff-column-container ff_columns_total_2  ">
                     <div class="ff-t-cell ff-t-column-1">
@@ -1436,7 +1530,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
 
-                <!--             add Businesses div  -->
+                <!--  Section4:add Businesses div  -->
                 <div class="ff-el-group">
                     <h4>Businesses</h4>
                 </div>
@@ -1489,6 +1583,7 @@ $this->Html->script('intakeform', ['block' => true]);
                 </div>
 
 
+                <!--  Previous + next button  -->
                 <div class="clearfix">
                     <a class="btn btn-outline-secondary mt-3 float-start" id="page3Prev">Previous</a>
                     <a class="btn btn-shelbourne mt-3 rounded-pill px-4 py-2 float-end" id="page3Next">Next</a>
@@ -1507,7 +1602,7 @@ $this->Html->script('intakeform', ['block' => true]);
                 </div>
 
 
-                <div class="ff-el-group" data-name="custom_html-7816594526301c876c25822.33748729"><h2>3.
+                <div class="ff-el-group mt-4" data-name="custom_html-7816594526301c876c25822.33748729"><h2>3.
                         Executor/Trustee</h2> <h4><span style="font-weight: 400;">Who do you want your executor(s) to be?</span>
                     </h4></div>
                 <div data-type="repeater_field" data-name="repeater_field_14"
