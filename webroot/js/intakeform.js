@@ -83,7 +83,7 @@ let verifyPostcode=(inputPostCode)=>{
 
 let verifyEmail=(inputEmail)=>{
     if(inputEmail==""){
-        $("#emailError").text("Please enter your suburb")
+        $("#emailError").text("Please enter your email")
         $("#inputEmail").addClass("is-invalid")
     } else if(!/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(inputEmail)){
         $("#emailError").text("Please follow the email format")
@@ -93,7 +93,7 @@ let verifyEmail=(inputEmail)=>{
 
 let verifyPhone=(inputPhone)=>{
     if(inputPhone==""){
-        $("#phoneError").text("Please provide your postcode")
+        $("#phoneError").text("Please provide your phone number")
         $("#inputPhone").addClass("is-invalid")
     } else if(!/04[0-9]{8}/.test(inputPhone)){
         $("#phoneError").text("Phone number can only contain numbers")
