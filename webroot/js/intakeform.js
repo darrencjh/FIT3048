@@ -62,7 +62,7 @@ let verifyUnit=(inputUnit)=>{
         $("#unitError").text("Please enter your unit/House number")
         $("#inputUnit").addClass("is-invalid")
         return false
-    } else if(!/[#0-9a-zA-Z\s]/.test(inputUnit)){
+    } else if(!/^[#.0-9A-Za-z\s,-]+$/.test(inputUnit)){
         $("#unitError").text("check your unit/House number")
         $("#inputUnit").addClass("is-invalid")
         return false
@@ -76,7 +76,7 @@ let verifyAddress=(inputStreet)=>{
         $("#addressError").text("Please enter your street address")
         $("#inputStreet").addClass("is-invalid")
         return false
-    } else if(!/[0-9a-zA-Z\s]/.test(inputStreet)){
+    } else if(!/^[#.0-9A-Za-z\s,-]+$/.test(inputStreet)){
         $("#addressError").text("check your street address")
         $("#inputStreet").addClass("is-invalid")
         return false
@@ -89,7 +89,7 @@ let verifySuburb=(inputSuburb)=>{
         $("#suburbError").text("Please enter your suburb")
         $("#inputSuburb").addClass("is-invalid")
         return false
-    } else if(!/[a-zA-Z]/.test(inputSuburb)){
+    } else if(!/^[A-Za-z\s]+$/.test(inputSuburb)){
         $("#suburbError").text("check your suburb")
         $("#inputSuburb").addClass("is-invalid")
         return false
