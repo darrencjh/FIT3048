@@ -37,7 +37,7 @@ $this->Html->script('intakeform', ['block' => true]);
                 <div class="row g-0 mb-3" id="customerName">
                     <div class="col-12 col-md-4 pe-md-3">
                         <div class="label required">
-                            <label>Given Name </label>
+                            <label>Given Name</label>
                         </div>
                         <input type="text" name="givenName" id="inputGivenName" class="form-control"
                                maxlength="20"
@@ -57,7 +57,7 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="label">
                             <label>Preferred Name</label>
                         </div>
-                        <input id="inputPrefName" type="text" name="preferredName" class="form-control" maxlength="20">
+                        <input id="inputPrevName" type="text" name="previousName" class="form-control" maxlength="20">
                     </div>
                 </div>
                 <!--  Date of birth + job  -->
@@ -68,7 +68,8 @@ $this->Html->script('intakeform', ['block' => true]);
                         </div>
                         <input type="text" id="inputDOB" name="date_of_birth" class="form-control"
                                placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"
-                               required pattern="\d{1,2}[/]\d{1,2}[/]\d{4}"/>
+                               required/>
+<!--                         pattern="\d{1,2}[/]\d{1,2}[/]\d{4}"-->
                         <div class="invalid-feedback" id="dateError">Please provide your date of birth</div>
                     </div>
                     <div class="mb-3 col-12 col-md-6 ps-md-3">
@@ -88,7 +89,7 @@ $this->Html->script('intakeform', ['block' => true]);
                             <label>Unit/House No.</label>
                         </div>
                         <input id="inputUnit" type="text" name="unit" class="form-control" required/>
-                        <div class="invalid-feedback">Please provide your unit/house number</div>
+                        <div class="invalid-feedback" id="unitError">Please provide your unit/house number</div>
                     </div>
                     <!--               street number      -->
                     <div class="col-12 col-md-4 px-md-3">
@@ -134,7 +135,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     <!-- PostCode -->
                     <div class="col-12 col-md-4 px-md-3">
                         <div class="label required">
-                            <label>Post Code</label>
+                            <label>Postcode</label>
                         </div>
                         <input type="zip" name="postCode" id="inputPostCode" class="form-control" maxlength="4"
                                pattern="[1-9][0-9]{3}" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
@@ -142,13 +143,13 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="invalid-feedback" id="postcodeError">Please provide your post code</div>
                     </div>
                     <!--  Postal address   -->
-<!--                    <div class="col-12 col-md-4 ps-md-3">-->
-<!--                        <div class="label">-->
-<!--                            <label>Postal address</label>-->
-<!--                        </div>-->
-<!--                        <input type="text" name="postal_address" id="inputPostAddress" class="form-control"/>-->
-<!--                        <div class="invalid-feedback">Please provide your post code</div>-->
-<!--                    </div>-->
+                    <div class="col-12 col-md-4 ps-md-3">
+                        <div class="label">
+                            <label>Postal address</label>
+                        </div>
+                        <input type="text" name="postal_address" id="inputPostAddress" class="form-control"/>
+                        <div class="invalid-feedback" id="postalAddressError">Please provide your postal address</div>
+                    </div>
                 </div>
 
                 <!-- Email + phone -->
@@ -251,36 +252,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 ]);
                                 ?>
 
-
-                                <!--                            <div class="input" style="font-size: 0;">-->
-                                <!--                                <div class="ff-el-form-check">-->
-                                <!--                                    <label class="ff-el-form-check-label">-->
-                                <!--                                        <input type="radio" name="has_will"-->
-                                <!--                                               class="ff-el-form-check-input ff-el-form-check-radio" value="1">-->
-                                <!--                                        <span>Yes</span>-->
-                                <!--                                    </label>-->
-                                <!--                                </div>-->
-                                <!--                                <div class="ff-el-form-check">-->
-                                <!--                                    <label class="ff-el-form-check-label">-->
-                                <!--                                        <input type="radio" name="has_will"-->
-                                <!--                                               class="ff-el-form-check-input ff-el-form-check-radio" value="0">-->
-                                <!--                                        <span>No</span>-->
-                                <!--                                    </label>-->
-                                <!--                                </div>-->
-                                <!--                            </div>-->
                             </div>
                         </div>
-                        <!--                    <div class="column-2 ff-t-cell" style="display:none">-->
-                        <!--                        <div class="ff-el-group">-->
-                        <!--                            <div class="label">-->
-                        <!--                                <label>Last Reviewed…</label>-->
-                        <!--                            </div>-->
-                        <!--                            <div class="input">-->
-                        <!--                                <input type="text" name="will_text" class="input-control"-->
-                        <!--                                       placeholder="  Last Reviewed…">-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
-                        <!--                    </div>-->
                     </div>
 
                     <!--                2-Powers of Attorney -->

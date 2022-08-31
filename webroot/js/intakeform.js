@@ -3,103 +3,156 @@ let verifyFirstName=(inputGivenName)=>{
     if(inputGivenName==""){
         $("#nameError").text("Please enter your first name")
         $("#inputGivenName").addClass("is-invalid")
-    } else if(!/^[a-zA-Z ]{2,}$/.test(inputGivenName)){
+        return false
+    } else if(!/^[a-zA-Z\s]{2,}$/.test(inputGivenName)){
         $("#nameError").text("Name can only contain letters")
         $("#inputGivenName").addClass("is-invalid")
+        return false
     }
+    return true
 }
 
 let verifyLastName=(inputLastName)=>{
     if(inputLastName==""){
         $("#lastNameError").text("Please enter your last name")
         $("#inputLastName").addClass("is-invalid")
-    } else if(!/^[a-zA-Z ]{2,}$/.test(inputLastName)){
+        return false
+    } else if(!/^[a-zA-Z\s]{2,}$/.test(inputLastName)){
         $("#lastNameError").text("Name can only contain letters")
         $("#inputLastName").addClass("is-invalid")
+        return false
     }
+    return true
 }
 
-let verifyPreferredName=(inputPrefName)=>{
-    if(inputPrefName!= "" &&!/^[a-zA-Z ]{2,}$/.test(inputPrefName)){
-        $("#nameError").text("Name can only contain letters")
-        $("#inputPrefName").addClass("is-invalid")
+let verifyPreviousName=(inputPrevName)=>{
+    if(inputPrevName!= "" &&!/^[a-zA-Z\s]{2,}$/.test(inputPrevName)){
+        $("#nameError").text("Name can only contain letters(more than 1 letter)")
+        $("#inputPrevName").addClass("is-invalid")
+        return false
     }
+    return true
 }
 
 let verifyDOB=(inputDOB)=>{
     if(inputDOB==""){
         $("#dateError").text("Please enter your date of birth")
         $("#inputDOB").addClass("is-invalid")
+        return false
     }
+    return true
 }
 
 let verifyOccupation=(inputOccupation)=>{
     if(inputOccupation==""){
         $("#occupationError").text("Please enter your occupation")
         $("#inputOccupation").addClass("is-invalid")
-    } else if(!/^[a-zA-Z ]{2,}$/.test(inputOccupation)){
+        return false
+    } else if(!/^[a-zA-Z\s]{2,}$/.test(inputOccupation)){
         $("#occupationError").text("Occupation can only contain letters")
         $("#inputOccupation").addClass("is-invalid")
+        return false
     }
+    return true
 }
 
 //street number need validation?
+let verifyUnit=(inputUnit)=>{
+    if(inputUnit==""){
+        $("#unitError").text("Please enter your unit/House number")
+        $("#inputUnit").addClass("is-invalid")
+        return false
+    } else if(!/[#0-9a-zA-Z\s]/.test(inputUnit)){
+        $("#unitError").text("check your unit/House number")
+        $("#inputUnit").addClass("is-invalid")
+        return false
+    }
+    return true
+}
+
 
 let verifyAddress=(inputStreet)=>{
     if(inputStreet==""){
-        $("#addressError").text("Please enter your address")
+        $("#addressError").text("Please enter your street address")
         $("#inputStreet").addClass("is-invalid")
-    } else if(!/[A-z]/.test(inputStreet)){
-        $("#addressError").text("Street name can only contain letters")
+        return false
+    } else if(!/[0-9a-zA-Z\s]/.test(inputStreet)){
+        $("#addressError").text("check your street address")
         $("#inputStreet").addClass("is-invalid")
+        return false
     }
+    return true
 }
 
 let verifySuburb=(inputSuburb)=>{
     if(inputSuburb==""){
         $("#suburbError").text("Please enter your suburb")
         $("#inputSuburb").addClass("is-invalid")
-    } else if(!/[A-z]/.test(inputSuburb)){
-        $("#suburbError").text("Suburb name can only contain letters")
+        return false
+    } else if(!/[a-zA-Z]/.test(inputSuburb)){
+        $("#suburbError").text("check your suburb")
         $("#inputSuburb").addClass("is-invalid")
+        return false
     }
+    return true
+
 }
 
 let verifyState=(inputState)=>{
     if(inputState==0){
         $("#inputState").addClass("is-invalid")
+        return false
     }
+    return true
 }
 
 let verifyPostcode=(inputPostCode)=>{
     if(inputPostCode==""){
         $("#postcodeError").text("Please provide your postcode")
         $("#inputPostCode").addClass("is-invalid")
+        return false
     } else if(!/[1-9][0-9]{3}/.test(inputPostCode)){
         $("#postcodeError").text("Postcode can only contain numbers")
         $("#inputPostCode").addClass("is-invalid")
+        return false
     }
+    return true
+
 }
+// let verifyPostalAddress=(inputPostalAddress)=>{
+//     if(inputPostalAddress!="" && !/^[#.0-9a-zA-Z\s,-]+$/.test(inputPostalAddress)){
+//         $("#postalAddressError").text("Please provide a valid address")
+//         $("#inputPostAddress").addClass("is-invalid")
+//     }
+// }
 
 let verifyEmail=(inputEmail)=>{
     if(inputEmail==""){
         $("#emailError").text("Please enter your email")
         $("#inputEmail").addClass("is-invalid")
+        return false
     } else if(!/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(inputEmail)){
         $("#emailError").text("Please follow the email format")
         $("#inputEmail").addClass("is-invalid")
+        return false
     }
+    return true
 }
 
 let verifyPhone=(inputPhone)=>{
     if(inputPhone==""){
         $("#phoneError").text("Please provide your phone number")
         $("#inputPhone").addClass("is-invalid")
+        return false
     } else if(!/04[0-9]{8}/.test(inputPhone)){
         $("#phoneError").text("Phone number can only contain numbers")
         $("#inputPhone").addClass("is-invalid")
+        return false
     }
+    return true
 }
+
+
 //add blur events here
 $("#inputGivenName").blur(function () {
     verifyFirstName(this.value)
@@ -107,14 +160,17 @@ $("#inputGivenName").blur(function () {
 $("#inputLastName").blur(function () {
     verifyLastName(this.value)
 })
-$("#inputPrefName").blur(function () {
-    verifyPreferredName(this.value)
+$("#inputPrevName").blur(function () {
+    verifyPreviousName(this.value)
 })
 $("#inputDOB").blur(function () {
     verifyDOB(this.value)
 })
 $("#inputOccupation").blur(function () {
     verifyOccupation(this.value)
+})
+$("#inputUnit").blur(function () {
+    verifyUnit(this.value)
 })
 $("#inputStreet").blur(function () {
     verifyAddress(this.value)
@@ -128,6 +184,9 @@ $("#inputState").blur(function () {
 $("#inputPostCode").blur(function () {
     verifyPostcode(this.value)
 })
+// $("#inputPostAddress").blur(function () {
+//     verifyPostalAddress(this.value)
+// })
 $("#inputEmail").blur(function () {
     verifyEmail(this.value)
 })
@@ -142,13 +201,16 @@ $("#inputGivenName").mousedown(function () {
 $("#inputLastName").mousedown(function () {
     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
 })
-$("#inputPrefName").mousedown(function () {
+$("#inputPrevName").mousedown(function () {
     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
 })
 $("#inputDOB").mousedown(function () {
     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
 })
 $("#inputOccupation").mousedown(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#inputUnit").mousedown(function () {
     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
 })
 $("#inputStreet").mousedown(function () {
@@ -163,6 +225,9 @@ $("#inputState").click(function () {
 $("#inputPostCode").mousedown(function () {
     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
 })
+// $("#inputPostAddress").mousedown(function () {
+//     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+// })
 $("#inputEmail").mousedown(function () {
     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
 })
@@ -176,35 +241,54 @@ $("#page1Next").click(function(){
 
     let firstName = inputGivenName.value
     let lastName = inputLastName.value
-    let preferredName = inputPrefName.value
+    let previousName = inputPrevName.value
     let dob = inputDOB.value
     let occupation = inputOccupation.value
+    let unit=inputUnit.value
     let street = inputStreet.value
     let suburb = inputSuburb.value
     let state = inputState.value
     let postcode = inputPostCode.value
+    // let postalAddress=inputPostAddress.value
     let email = inputEmail.value
     let phone = inputPhone.value
 
 
     let firstNameResult = verifyFirstName(firstName)
     let lastNameResult = verifyLastName(lastName)
-    let prefNameResult = verifyPreferredName(preferredName)
+    let prevNameResult = verifyPreviousName(previousName)
     let dobResult = verifyDOB(dob)
     let occupationResult = verifyOccupation(occupation)
+    let unitResult=verifyUnit(unit)
     let streetResult = verifyAddress(street)
     let suburbResult = verifySuburb(suburb)
     let stateResult = verifyState(state)
     let postcodeResult = verifyPostcode(postcode)
+    // let postalAddressResult=verifyPostalAddress(postalAddress)
     let emailResult = verifyEmail(email)
     let phoneResult = verifyPhone(phone)
 
-    if (firstNameResult && lastNameResult && prefNameResult && dobResult && occupationResult && streetResult && suburbResult
+
+    console.log('firstNameResult: ',firstNameResult)
+    console.log('lastNameResult: ',lastNameResult)
+    console.log('prevNameResult: ',prevNameResult)
+    console.log('dobResult: ',dobResult)
+    console.log('occupationResult: ',occupationResult)
+    console.log('unitResult: ',unitResult)
+    console.log('streetResult: ',streetResult)
+    console.log('suburbResult: ',suburbResult)
+    console.log('stateResult: ',stateResult)
+    console.log('postcodeResult: ',postcodeResult)
+    console.log('emailResult: ',emailResult)
+    console.log('phoneResult: ',phoneResult)
+    if (firstNameResult && lastNameResult && prevNameResult && dobResult && occupationResult && unitResult && streetResult && suburbResult
     && stateResult && postcodeResult && emailResult && phoneResult){
         //if pass verify,return true
+        console.log("pass")
         $("#page1").removeClass('show')
         $("#page2").addClass('show')
         window.scrollTo(0, 0);
+        return true
     }
     else {
         //if not pass,return false and scroll to top
