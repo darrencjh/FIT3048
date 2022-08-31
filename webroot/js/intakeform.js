@@ -30,18 +30,15 @@ let verifyDOB=(inputDOB)=>{
     if(inputDOB==""){
         $("#dateError").text("Please enter your date of birth")
         $("#inputDOB").addClass("is-invalid")
-    } else if(!/\d{1,2}[/]\d{1,2}[/]\d{4}/.test(inputDOB)){
-        $("#dateError").text("Please follow the date format")
-        $("#inputDOB").addClass("is-invalid")
     }
 }
 
 let verifyOccupation=(inputOccupation)=>{
     if(inputOccupation==""){
-        $("#occupationError").text("Please enter your last name")
+        $("#occupationError").text("Please enter your occupation")
         $("#inputOccupation").addClass("is-invalid")
     } else if(!/^[a-zA-Z ]{2,}$/.test(inputOccupation)){
-        $("#occupationError").text("Name can only contain letters")
+        $("#occupationError").text("Occupation can only contain letters")
         $("#inputOccupation").addClass("is-invalid")
     }
 }
@@ -211,7 +208,7 @@ $("#page1Next").click(function(){
     }
     else {
         //if not pass,return false and scroll to top
-        document.getElementById('naviToForm').scrollIntoView(true)
+        document.getElementById('page1').scrollIntoView(true)
         return false
     }
 
