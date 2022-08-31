@@ -58,6 +58,7 @@ $this->Html->script('intakeform', ['block' => true]);
                             <label>Preferred Name</label>
                         </div>
                         <input id="inputPrevName" type="text" name="previousName" class="form-control" maxlength="20">
+                        <div class="invalid-feedback" id="prevNameError"></div>
                     </div>
                 </div>
                 <!--  Date of birth + job  -->
@@ -160,7 +161,6 @@ $this->Html->script('intakeform', ['block' => true]);
                         </div>
                         <input type="email" id="inputEmail" name="email" class="form-control"
                                placeholder="example@email.com"
-                               pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'
                                maxlength="64" required/>
                         <div class="invalid-feedback" id="emailError">Please provide your email</div>
                     </div>
@@ -169,7 +169,7 @@ $this->Html->script('intakeform', ['block' => true]);
                             <label>Phone number</label>
                         </div>
                         <input type="text" id="inputPhone" name="phone" class="form-control"
-                               placeholder="eg. 04xxxxxxxx" maxlength="10" pattern='04[0-9]{8}'
+                               placeholder="eg. 04xxxxxxxx" maxlength="10"
                                onkeypress='return event.charCode >= 48 && event.charCode <= 57' required/>
                         <div class="invalid-feedback" id="phoneError">Please provide your phone number</div>
                     </div>
@@ -878,133 +878,115 @@ $this->Html->script('intakeform', ['block' => true]);
                 </div>
 
                 <!--       Real estate         -->
-                <div data-type="repeater_field" data-name="repeater_field_3"
-                     class="ff-el-group ff-el-repeater js-repeater"
-                     data-root_name="repeater_field_3">
-                    <div class="ff-el-input--label asterisk-right"><label for="">Real estate</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_3"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="label"><label for="">Address of the property: </label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Registered owner(s):</label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Type of ownership:</label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Location of title:</label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Mortgage:</label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Property value:</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Address of the property: ">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_3[0][]"
-                                                                                 id="ff_1_repeater_field_3_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_3_0_0"
-                                                                                 data-error_index="repeater_field_3[0]"
-                                                                                 class="ff-el-form-control"></div>
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label class="fs-5">Real estate</label>
+                        </div>
+                    </div>
+
+                    <div id="yourRealEstate">
+                        <div></div>
+                        <div class="row g-0 inputsRow">
+                            <div class="col-12 col-lg-2 pe-md-2">
+                                <div class="label">
+                                    <label>Address</label>
+                                </div>
+                                <input type="text" name="realestate_address[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-2 pe-md-2">
+                                <div class="label">
+                                    <label>Owner(s):</label>
+                                </div>
+                                <input type="text" name="realestate_owner[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-2 pe-md-2">
+                                <div class="label">
+                                    <label>Type of ownership:</label>
+                                </div>
+                                <select class="form-select text-grey" name="realestate_type[]">
+                                    <option selected value="">Select...</option>
+                                    <option value="Sole">Sole</option>
+                                    <option value="Joint">Joint</option>
+                                    <option value="Tenants in Common">Tenants in Common</option>
+                                    <option value="Unsure">Unsure</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-lg-2 pe-md-2">
+                                <div class="label">
+                                    <label>Location of title:</label>
+                                </div>
+                                <input type="text" name="realestate_location[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-2 pe-md-2">
+                                <div class="label">
+                                    <label>Mortgage:</label>
+                                </div>
+                                <select class="form-select text-grey" name="realestate_mortgage[]">
+                                    <option selected value="">Select...</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+
+<!--                            <div class="col-12 col-lg-2 row g-0">-->
+<!--                                <div class="col-12 col-lg-10">-->
+<!--                                    <div class="label">-->
+<!--                                        <label>Property value:</label>-->
+<!--                                    </div>-->
+<!--                                    <input type="text" name="realestate_value[]" class="form-control">-->
+<!--                                </div>-->
+<!--                                <div class="col-12 col-lg-2" >-->
+<!--                                    <div class="row g-0">-->
+<!--                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">-->
+<!--                                            <a class="btn add">-->
+<!--                                                <span class="fas fa-plus-circle"></span>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">-->
+<!--                                            <a class="btn delete">-->
+<!--                                                <span class="fas fa-minus-circle"></span>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+                            <div class="col-12 col-lg-2">
+                                <div class="label">
+                                    <label>Property value:</label>
+                                </div>
+                                <input type="text" name="realestate_value[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-2" >
+                                <div class="row g-0">
+                                    <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                        <a class="btn add">
+                                            <span class="fas fa-plus-circle"></span>
+                                        </a>
                                     </div>
-                                </td>
-                                <td data-label="Registered owner(s):">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_3[0][]"
-                                                                                 id="ff_1_repeater_field_3_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_3_1_0"
-                                                                                 data-error_index="repeater_field_3[1]"
-                                                                                 class="ff-el-form-control"></div>
+                                    <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
+                                        <a class="btn delete">
+                                            <span class="fas fa-minus-circle"></span>
+                                        </a>
                                     </div>
-                                </td>
-                                <td data-label="Type of ownership:">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><select type="select" placeholder="Select"
-                                                                                  name="repeater_field_3[0][]"
-                                                                                  id="ff_1_repeater_field_3_2"
-                                                                                  data-repeater_index="2"
-                                                                                  data-type="repeater_item"
-                                                                                  data-name="repeater_field_3_2_0"
-                                                                                  data-error_index="repeater_field_3[2]"
-                                                                                  data-calc_value="0"
-                                                                                  class="ff-el-form-control">
-                                                <option value="">Select</option>
-                                                <option value="Sole">Sole</option>
-                                                <option value="Joint">Joint</option>
-                                                <option value="Tenants in Common">Tenants in Common</option>
-                                                <option value="Unsure">Unsure</option>
-                                            </select></div>
-                                    </div>
-                                </td>
-                                <td data-label="Location of title:">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_3[0][]"
-                                                                                 id="ff_1_repeater_field_3_3"
-                                                                                 data-repeater_index="3"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_3_3_0"
-                                                                                 data-error_index="repeater_field_3[3]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Mortgage:">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><select type="select" placeholder="Select"
-                                                                                  name="repeater_field_3[0][]"
-                                                                                  id="ff_1_repeater_field_3_4"
-                                                                                  data-repeater_index="4"
-                                                                                  data-type="repeater_item"
-                                                                                  data-name="repeater_field_3_4_0"
-                                                                                  data-error_index="repeater_field_3[4]"
-                                                                                  data-calc_value="0"
-                                                                                  class="ff-el-form-control">
-                                                <option value="">Select</option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-                                            </select></div>
-                                    </div>
-                                </td>
-                                <td data-label="Property value:">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 placeholder="Property value:"
-                                                                                 name="repeater_field_3[0][]"
-                                                                                 id="ff_1_repeater_field_3_5"
-                                                                                 data-repeater_index="5"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_3_5_0"
-                                                                                 data-error_index="repeater_field_3[5]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
+
+
+
+
+
 
 
                 <!--      Bank Accounts          -->
