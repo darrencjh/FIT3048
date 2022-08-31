@@ -116,6 +116,11 @@ let verifyPostcode=(inputPostCode)=>{
         $("#inputPostCode").addClass("is-invalid")
         return false
     }
+    else if(inputPostCode.length != 4){
+        $("#postcodeError").text("Postcode can only contain 4 digits")
+        $("#inputPostCode").addClass("is-invalid")
+        return false
+    }
     return true
 
 }
@@ -146,6 +151,11 @@ let verifyPhone=(inputPhone)=>{
         return false
     } else if(!/04[0-9]{8}/.test(inputPhone)){
         $("#phoneError").text("Phone number can only contain numbers")
+        $("#inputPhone").addClass("is-invalid")
+        return false
+    }
+    else if(inputPhone.length != 10){
+        $("#phoneError").text("Phone number can only contain 10 numbers")
         $("#inputPhone").addClass("is-invalid")
         return false
     }
