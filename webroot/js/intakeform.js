@@ -11,10 +11,10 @@ let verifyFirstName=(inputGivenName)=>{
 
 let verifyLastName=(inputLastName)=>{
     if(inputLastName==""){
-        $("#nameError").text("Please enter your last name")
+        $("#lastNameError").text("Please enter your last name")
         $("#inputLastName").addClass("is-invalid")
     } else if(!/^[a-zA-Z ]{2,}$/.test(inputLastName)){
-        $("#nameError").text("Name can only contain letters")
+        $("#lastNameError").text("Name can only contain letters")
         $("#inputLastName").addClass("is-invalid")
     }
 }
@@ -28,86 +28,192 @@ let verifyPreferredName=(inputPrefName)=>{
 
 let verifyDOB=(inputDOB)=>{
     if(inputDOB==""){
-        $("#nameError").text("Please enter your date of birth")
+        $("#dateError").text("Please enter your date of birth")
         $("#inputDOB").addClass("is-invalid")
     } else if(!/\d{1,2}[/]\d{1,2}[/]\d{4}/.test(inputDOB)){
-        $("#noDateTimeInfo").text("Please follow the date format")
+        $("#dateError").text("Please follow the date format")
         $("#inputDOB").addClass("is-invalid")
     }
 }
 
+let verifyOccupation=(inputOccupation)=>{
+    if(inputOccupation==""){
+        $("#occupationError").text("Please enter your last name")
+        $("#inputOccupation").addClass("is-invalid")
+    } else if(!/^[a-zA-Z ]{2,}$/.test(inputOccupation)){
+        $("#occupationError").text("Name can only contain letters")
+        $("#inputOccupation").addClass("is-invalid")
+    }
+}
 
+//street number need validation?
 
 let verifyAddress=(inputStreet)=>{
     if(inputStreet==""){
-        $("#nameError").text("Please enter your address")
+        $("#addressError").text("Please enter your address")
         $("#inputStreet").addClass("is-invalid")
     } else if(!/[A-z]/.test(inputStreet)){
-        $("#nameError").text("Street name can only contain letters")
+        $("#addressError").text("Street name can only contain letters")
         $("#inputStreet").addClass("is-invalid")
     }
 }
 
 let verifySuburb=(inputSuburb)=>{
     if(inputSuburb==""){
-        $("#nameError").text("Please enter your suburb")
+        $("#suburbError").text("Please enter your suburb")
         $("#inputSuburb").addClass("is-invalid")
     } else if(!/[A-z]/.test(inputSuburb)){
-        $("#nameError").text("Suburb name can only contain letters")
+        $("#suburbError").text("Suburb name can only contain letters")
         $("#inputSuburb").addClass("is-invalid")
     }
 }
 
 let verifyState=(inputState)=>{
-    if(inputState==""){
-        $("#nameError").text("Please choose your state")
+    if(inputState==0){
         $("#inputState").addClass("is-invalid")
     }
 }
 
 let verifyPostcode=(inputPostCode)=>{
     if(inputPostCode==""){
-        $("#nameError").text("Please provide your postcode")
+        $("#postcodeError").text("Please provide your postcode")
         $("#inputPostCode").addClass("is-invalid")
     } else if(!/[1-9][0-9]{3}/.test(inputPostCode)){
-        $("#nameError").text("Postcode can only contain numbers")
+        $("#postcodeError").text("Postcode can only contain numbers")
         $("#inputPostCode").addClass("is-invalid")
     }
 }
 
 let verifyEmail=(inputEmail)=>{
     if(inputEmail==""){
-        $("#nameError").text("Please enter your suburb")
+        $("#emailError").text("Please enter your suburb")
         $("#inputEmail").addClass("is-invalid")
-    } else if(!/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(inputSuburb)){
-        $("#nameError").text("Please follow the email format")
-        $("#inputSuburb").addClass("is-invalid")
+    } else if(!/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(inputEmail)){
+        $("#emailError").text("Please follow the email format")
+        $("#inputEmail").addClass("is-invalid")
     }
 }
 
 let verifyPhone=(inputPhone)=>{
     if(inputPhone==""){
-        $("#nameError").text("Please provide your postcode")
+        $("#phoneError").text("Please provide your postcode")
         $("#inputPhone").addClass("is-invalid")
     } else if(!/04[0-9]{8}/.test(inputPhone)){
-        $("#nameError").text("Phone number can only contain numbers")
+        $("#phoneError").text("Phone number can only contain numbers")
         $("#inputPhone").addClass("is-invalid")
     }
 }
 //add blur events here
+$("#inputGivenName").blur(function () {
+    verifyFirstName(this.value)
+})
+$("#inputLastName").blur(function () {
+    verifyLastName(this.value)
+})
+$("#inputPrefName").blur(function () {
+    verifyPreferredName(this.value)
+})
+$("#inputDOB").blur(function () {
+    verifyDOB(this.value)
+})
+$("#inputOccupation").blur(function () {
+    verifyOccupation(this.value)
+})
+$("#inputStreet").blur(function () {
+    verifyAddress(this.value)
+})
+$("#inputSuburb").blur(function () {
+    verifySuburb(this.value)
+})
+$("#inputState").blur(function () {
+    verifyState(this.value)
+})
+$("#inputPostCode").blur(function () {
+    verifyPostcode(this.value)
+})
+$("#inputEmail").blur(function () {
+    verifyEmail(this.value)
+})
+$("#inputPhone").blur(function () {
+    verifyPhone(this.value)
+})
 
+
+$("#inputGivenName").mousedown(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#inputLastName").mousedown(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#inputPrefName").mousedown(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#inputDOB").mousedown(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#inputOccupation").mousedown(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#inputStreet").mousedown(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#inputSuburb").mousedown(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#inputState").click(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#inputPostCode").mousedown(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#inputEmail").mousedown(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#inputPhone").mousedown(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
 
 
 //In page 1,when you click "Next". Verify the basic information form first,then display next page
 $("#page1Next").click(function(){
 
+    let firstName = inputGivenName.value
+    let lastName = inputLastName.value
+    let preferredName = inputPrefName.value
+    let dob = inputDOB.value
+    let occupation = inputOccupation.value
+    let street = inputStreet.value
+    let suburb = inputSuburb.value
+    let state = inputState.value
+    let postcode = inputPostCode.value
+    let email = inputEmail.value
+    let phone = inputPhone.value
 
-    //if pass verify,return true
-    $("#page1").removeClass('show')
-    $("#page2").addClass('show')
-    window.scrollTo(0, 0);
 
-    //if not pass,return false and scroll to top
+    let firstNameResult = verifyFirstName(firstName)
+    let lastNameResult = verifyLastName(lastName)
+    let prefNameResult = verifyPreferredName(preferredName)
+    let dobResult = verifyDOB(dob)
+    let occupationResult = verifyOccupation(occupation)
+    let streetResult = verifyAddress(street)
+    let suburbResult = verifySuburb(suburb)
+    let stateResult = verifyState(state)
+    let postcodeResult = verifyPostcode(postcode)
+    let emailResult = verifyEmail(email)
+    let phoneResult = verifyPhone(phone)
+
+    if (firstNameResult && lastNameResult && prefNameResult && dobResult && occupationResult && streetResult && suburbResult
+    && stateResult && postcodeResult && emailResult && phoneResult){
+        //if pass verify,return true
+        $("#page1").removeClass('show')
+        $("#page2").addClass('show')
+        window.scrollTo(0, 0);
+    }
+    else {
+        //if not pass,return false and scroll to top
+        document.getElementById('naviToForm').scrollIntoView(true)
+        return false
+    }
 
 })
 
