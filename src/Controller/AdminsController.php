@@ -108,4 +108,8 @@ class AdminsController extends AppController
         $this->set(compact('pageTitle'));
 
     }
+
+    public function login(){
+
+    }
 }
