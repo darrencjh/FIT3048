@@ -17,12 +17,7 @@ ob_start(); // To allow setting header when there's already page contents render
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  * @var \App\View\AppView $this
  */
-
-$cakeDescription = 'Admin for management';
-$controller= $this->request->getParam('controller');
-$action= $this->request->getParam('action');
-//echo $controller;//Services
-//echo $action;//add
+$titleDescription = ' - Shelbourne legal';
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,25 +25,21 @@ $action= $this->request->getParam('action');
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
+        <?= $titleDescription ?>
     </title>
-    <?= $this->Html->meta('icon') ?>
-
-
-    <?= $this->Html->css(['font-awesome.min']) ?>
+    <?= $this->Html->meta('icon', $this->Url->build('/logo.png', ['fullBase' => true])); ?>
+    <?= $this->Html->meta('csrfToken', $this->request->getAttribute('csrfToken')); ?>
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap"
           rel="stylesheet">
-
-    <?= $this->Html->css(['admin']) ?>
-
+    <!--#01ab9d-->
+    <?= $this->Html->css(['normalize.min', 'bootstrap', 'fontawesome-free/css/all.min', 'shelbourne']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
 
-    <!-- Common jquery plugin -->
-    <?= $this->Html->script('jquery-3.3.1.min') ?>
+    <?= $this->Html->script('jquery-3.6.0.min') ?>
 
 </head>
 <body id="page-top">
@@ -135,67 +126,6 @@ $action= $this->request->getParam('action');
                     <h6 class="collapse-header">Bookings</h6>
                     <?= $this->Html->link(__('List Bookings'), ['controller' => 'Bookings','action' => 'index'],['class'=>'collapse-item']) ?>
                     <?= $this->Html->link(__('Add new Booking'), ['controller' => 'Bookings','action' => 'adminAdd'],['class'=>'collapse-item']) ?>
-                </div>
-            </div>
-        </li>
-
-        <!-- 5-Nav Item - Queries Collapse Menu-->
-        <li class="nav-item<?= ($controller == 'Queries') ? ' active' : '' ?>">
-            <a class="nav-link <?= ($controller == 'Queries') ? '' : ' collapsed' ?>" href="#" data-toggle="collapse" data-target="#collapseQueries" aria-expanded="false" aria-controls="collapseQueries">
-                <i class="fas fa-fw fa-question"></i>
-                <span>Queries</span>
-            </a>
-            <div id="collapseQueries" class="collapse<?= ($controller == 'Queries') ? ' show' : '' ?>" aria-labelledby="headingQueries" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Queries</h6>
-                    <?= $this->Html->link(__('List Queries'), ['controller' => 'Queries','action' => 'index'],['class'=>'collapse-item']) ?>
-                    <?= $this->Html->link(__('Send email to respond'), ['controller' => 'Queries','action' => 'email'],['class'=>'collapse-item']) ?>
-                </div>
-            </div>
-        </li>
-
-        <!-- 6-Nav Item - Blogs Collapse Menu-->
-        <li class="nav-item<?= ($controller == 'Blogs') ? ' active' : '' ?>">
-            <a class="nav-link <?= ($controller == 'Blogs') ? '' : ' collapsed' ?>" href="#" data-toggle="collapse" data-target="#collapseBlogs" aria-expanded="false" aria-controls="collapseBlogs">
-                <i class="fas fa-fw fa-blog"></i>
-                <span>Blogs</span>
-            </a>
-            <div id="collapseBlogs" class="collapse<?= ($controller == 'Blogs') ? ' show' : '' ?>" aria-labelledby="headingBlogs" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Blogs</h6>
-                    <?= $this->Html->link(__('List Blogs'), ['controller' => 'Blogs','action' => 'index'],['class'=>'collapse-item']) ?>
-                    <?= $this->Html->link(__('Add a Blog'), ['controller' => 'Blogs','action' => 'add'],['class'=>'collapse-item']) ?>
-
-                </div>
-            </div>
-        </li>
-
-        <!-- 6-Nav Item - Business Info Collapse Menu-->
-        <li class="nav-item<?= ($controller == 'BusinessInfo') ? ' active' : '' ?>">
-            <a class="nav-link <?= ($controller == 'BusinessInfo') ? '' : ' collapsed' ?>" href="#" data-toggle="collapse" data-target="#collapseBusinessInfo" aria-expanded="false" aria-controls="collapseBusinessInfo">
-                <i class="fas fa-fw fa-info"></i>
-                <span>Business Info</span>
-            </a>
-            <div id="collapseBusinessInfo" class="collapse<?= ($controller == 'BusinessInfo') ? ' show' : '' ?>" aria-labelledby="headingBusinessInfo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">BusinessInfo</h6>
-                    <?= $this->Html->link(__('Edit Business Info'), ['controller' => 'BusinessInfo','action' => 'index'],['class'=>'collapse-item']) ?>
-                </div>
-            </div>
-        </li>
-
-
-        <!-- 7-Nav Item - Admin account management Collapse Menu-->
-        <li class="nav-item<?= ($controller == 'Admins' && $action!='dashboard') ? ' active' : '' ?>">
-            <a class="nav-link <?= ($controller == 'Admins' && $action!='dashboard') ? '' : ' collapsed' ?>" href="#" data-toggle="collapse" data-target="#collapseAdmins" aria-expanded="false" aria-controls="collapseAdmins">
-                <i class="fas fa-user-cog"></i>
-                <span>Admins account</span>
-            </a>
-            <div id="collapseAdmins" class="collapse<?= ($controller == 'Admins' && $action!='dashboard') ? ' show' : '' ?>" aria-labelledby="headingAdmins" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Admins account</h6>
-                    <?= $this->Html->link(__('List Admins'), ['controller' => 'Admins','action' => 'index'],['class'=>'collapse-item']) ?>
-                    <?= $this->Html->link(__('Add an Admin'), ['controller' => 'Admins','action' => 'add'],['class'=>'collapse-item']) ?>
                 </div>
             </div>
         </li>

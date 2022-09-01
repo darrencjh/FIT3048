@@ -22,8 +22,8 @@ $this->Html->script('intakeform', ['block' => true]);
 
                 <div class="text-muted mt-3">Step 1 of 4 - Step 1</div>
                 <div class="progress my-2">
-                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 25%;"
-                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%
+                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 0%;"
+                         aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%
                     </div>
                 </div>
 
@@ -188,8 +188,8 @@ $this->Html->script('intakeform', ['block' => true]);
                 <!--    Progress bar         -->
                 <div class="mt-3">Step 2 of 4 - Step 2</div>
                 <div class="progress my-2">
-                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 50%;"
-                         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%
+                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 25%;"
+                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%
                     </div>
                 </div>
 
@@ -781,8 +781,8 @@ $this->Html->script('intakeform', ['block' => true]);
             <div id="page3" class="collapse">
                 <div class="text-muted mt-3">Step 3 of 4 - Step 3</div>
                 <div class="progress my-2">
-                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 75%;"
-                         aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%
+                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 50%;"
+                         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%
                     </div>
                 </div>
 
@@ -1551,8 +1551,8 @@ $this->Html->script('intakeform', ['block' => true]);
             <div id="page4" class="collapse">
                 <div class="text-muted mt-3">Step 4 of 4 - Step 4</div>
                 <div class="progress my-2">
-                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 100%;"
-                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%
+                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 75%;"
+                         aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%
                     </div>
                 </div>
 
