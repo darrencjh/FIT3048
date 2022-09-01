@@ -956,264 +956,176 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </div>
                             </div>
 
-<!--                            <div class="col-12 col-lg-2">-->
-<!--                                <div class="label">-->
-<!--                                    <label>Property value:</label>-->
-<!--                                </div>-->
-<!--                                <input type="text" name="realestate_value[]" class="form-control">-->
-<!--                            </div>-->
-<!---->
-<!--                            <div class="col-12 col-lg-2" >-->
-<!--                                <div class="row g-0">-->
-<!--                                    <div class="col-1 col-lg-12 mt-2 mt-lg-0">-->
-<!--                                        <a class="btn add">-->
-<!--                                            <span class="fas fa-plus-circle"></span>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">-->
-<!--                                        <a class="btn delete">-->
-<!--                                            <span class="fas fa-minus-circle"></span>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--      Bank Accounts          -->
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label class="fs-5">Bank Accounts</label>
+                        </div>
+                    </div>
+
+                    <div id="yourBankAccount">
+                        <div></div>
+                        <div class="row g-0 inputsRow">
+                            <div class="col-12 col-lg-3 pe-md-2">
+                                <div class="label">
+                                    <label>Bank Institution:</label>
+                                </div>
+                                <input type="text" name="bankAccount_name[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-3 pe-md-2">
+                                <div class="label">
+                                    <label>Account holder(s):</label>
+                                </div>
+                                <input type="text" name="bankAccount_holder[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-3 pe-md-2">
+                                <div class="label">
+                                    <label>Account type:</label>
+                                </div>
+                                <input type="text" name="bankAccount_type[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-3 row g-0">
+                                <div class="col-12 col-lg-10">
+                                    <div class="label">
+                                        <label>Approximate value:</label>
+                                    </div>
+                                    <input type="text" name="bankAccount_value[]" class="form-control">
+                                </div>
+                                <div class="col-12 col-lg-2" >
+                                    <div class="row g-0">
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                            <a class="btn add">
+                                                <span class="fas fa-plus-circle"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
+                                            <a class="btn delete">
+                                                <span class="fas fa-minus-circle"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
 
                     </div>
                 </div>
 
-
-
-
-
-
-
-                <!--      Bank Accounts          -->
-                <div data-type="repeater_field" data-name="repeater_field_5"
-                     class="ff-el-group ff-el-repeater js-repeater"
-                     data-root_name="repeater_field_5">
-                    <div class="ff-el-input--label asterisk-right"><label for="">Bank Accounts</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_5"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="label"><label for=""> Bank or Financial Institution: </label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Account holder(s):</label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Account type:</label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Approximate value:</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label=" Bank or Financial Institution: ">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_5[0][]"
-                                                                                 id="ff_1_repeater_field_5_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_5_0_0"
-                                                                                 data-error_index="repeater_field_5[0]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Account holder(s):">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_5[0][]"
-                                                                                 id="ff_1_repeater_field_5_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_5_1_0"
-                                                                                 data-error_index="repeater_field_5[1]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Account type:">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_5[0][]"
-                                                                                 id="ff_1_repeater_field_5_2"
-                                                                                 data-repeater_index="2"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_5_2_0"
-                                                                                 data-error_index="repeater_field_5[2]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Approximate value:">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_5[0][]"
-                                                                                 id="ff_1_repeater_field_5_3"
-                                                                                 data-repeater_index="3"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_5_3_0"
-                                                                                 data-error_index="repeater_field_5[3]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
                 <!--       Motor vehicles         -->
-                <div data-type="repeater_field" data-name="repeater_field_6"
-                     class="ff-el-group ff-el-repeater js-repeater"
-                     data-root_name="repeater_field_6">
-                    <div class="ff-el-input--label asterisk-right"><label for="">Motor vehicles</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_6"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="label"><label for="">Make</label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Model</label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Year</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Make">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_6[0][]"
-                                                                                 id="ff_1_repeater_field_6_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_6_0_0"
-                                                                                 data-error_index="repeater_field_6[0]"
-                                                                                 class="ff-el-form-control"></div>
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label class="fs-5">Motor vehicles</label>
+                        </div>
+                    </div>
+
+                    <div id="yourMotor">
+                        <div></div>
+                        <div class="row g-0 inputsRow">
+                            <div class="col-12 col-lg-4 pe-md-2">
+                                <div class="label">
+                                    <label>Make</label>
+                                </div>
+                                <input type="text" name="motor_make[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-4 pe-md-2">
+                                <div class="label">
+                                    <label>Model</label>
+                                </div>
+                                <input type="text" name="motor_model[]" class="form-control">
+                            </div>
+
+
+                            <div class="col-12 col-lg-4 row g-0">
+                                <div class="col-12 col-lg-10">
+                                    <div class="label">
+                                        <label>Year</label>
                                     </div>
-                                </td>
-                                <td data-label="Model">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_6[0][]"
-                                                                                 id="ff_1_repeater_field_6_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_6_1_0"
-                                                                                 data-error_index="repeater_field_6[1]"
-                                                                                 class="ff-el-form-control"></div>
+                                    <input type="text" name="motor_year[]" class="form-control">
+                                </div>
+                                <div class="col-12 col-lg-2" >
+                                    <div class="row g-0">
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                            <a class="btn add">
+                                                <span class="fas fa-plus-circle"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
+                                            <a class="btn delete">
+                                                <span class="fas fa-minus-circle"></span>
+                                            </a>
+                                        </div>
                                     </div>
-                                </td>
-                                <td data-label="Year">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_6[0][]"
-                                                                                 id="ff_1_repeater_field_6_2"
-                                                                                 data-repeater_index="2"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_6_2_0"
-                                                                                 data-error_index="repeater_field_6[2]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
 
                 <!--        Investments        -->
-                <div data-type="repeater_field" data-name="repeater_field_7"
-                     class="ff-el-group ff-el-repeater js-repeater"
-                     data-root_name="repeater_field_7">
-                    <div class="ff-el-input--label asterisk-right"><label for="">Investments </label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_7"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="label"><label for="">Type of investment: </label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Held with:</label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Approximate value:</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Type of investment: ">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_7[0][]"
-                                                                                 id="ff_1_repeater_field_7_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_7_0_0"
-                                                                                 data-error_index="repeater_field_7[0]"
-                                                                                 class="ff-el-form-control"></div>
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label class="fs-5">Investments</label>
+                        </div>
+                    </div>
+
+                    <div id="yourInvestment">
+                        <div></div>
+                        <div class="row g-0 inputsRow">
+                            <div class="col-12 col-lg-4 pe-md-2">
+                                <div class="label">
+                                    <label>Type:</label>
+                                </div>
+                                <input type="text" name="invest_type[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-4 pe-md-2">
+                                <div class="label">
+                                    <label>Held with:</label>
+                                </div>
+                                <input type="text" name="invest_holdwith[]" class="form-control">
+                            </div>
+
+
+                            <div class="col-12 col-lg-4 row g-0">
+                                <div class="col-12 col-lg-10">
+                                    <div class="label">
+                                        <label>Approximate value:</label>
                                     </div>
-                                </td>
-                                <td data-label="Held with:">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_7[0][]"
-                                                                                 id="ff_1_repeater_field_7_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_7_1_0"
-                                                                                 data-error_index="repeater_field_7[1]"
-                                                                                 class="ff-el-form-control"></div>
+                                    <input type="text" name="invest_value[]" class="form-control">
+                                </div>
+                                <div class="col-12 col-lg-2" >
+                                    <div class="row g-0">
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                            <a class="btn add">
+                                                <span class="fas fa-plus-circle"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
+                                            <a class="btn delete">
+                                                <span class="fas fa-minus-circle"></span>
+                                            </a>
+                                        </div>
                                     </div>
-                                </td>
-                                <td data-label="Approximate value:">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_7[0][]"
-                                                                                 id="ff_1_repeater_field_7_2"
-                                                                                 data-repeater_index="2"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_7_2_0"
-                                                                                 data-error_index="repeater_field_7[2]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
 
@@ -1222,320 +1134,281 @@ $this->Html->script('intakeform', ['block' => true]);
                 <div class="ff-el-group">
                     <h4>Loans and debts</h4>
                 </div>
-                <div class="ff-el-group">
-                    <div class="ff-el-input--label asterisk-right label"><label for="ff_1_description_1">Details of
-                            money
-                            you owe:</label></div>
-                    <div class="ff-el-input--content"><textarea name="description_1" id="ff_1_description_1"
-                                                                class="ff-el-form-control" rows="3" cols="2"
-                                                                data-name="description_1"></textarea></div>
-                </div>
-                <div class="ff-el-group ff-el-form-left  ff_list_buttons">
-                    <div class="ff-el-input--label asterisk-right label"><label>Is there a loan agreement?</label></div>
-                    <div class="ff-el-input--content">
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_11_c082e43255c5b0d25a9ca2affbf228d7"><input
-                                    type="radio" name="input_radio_11" data-name="input_radio_11"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                    id="input_radio_11_c082e43255c5b0d25a9ca2affbf228d7"> <span>Yes</span></label></div>
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_11_5525751c4b5b5dc676eb2c35803dec90"><input
-                                    type="radio" name="input_radio_11" data-name="input_radio_11"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                    id="input_radio_11_5525751c4b5b5dc676eb2c35803dec90"> <span>No</span></label></div>
+
+                <div class="mb-4">
+                    <div class="label">
+                        <label for="details_youowe">Details of money you owe:</label>
+                    </div>
+                    <div>
+                        <textarea name="details_youowe" id="details_youowe" class="form-control"
+                                   style="height: 92px;width: 100%; "></textarea>
                     </div>
                 </div>
-                <div class="ff-el-group">
-                    <div class="ff-el-input--label asterisk-right label"><label for="ff_1_description_2">Details of
-                            money
-                            owed to you:</label></div>
-                    <div class="ff-el-input--content"><textarea name="description_2" id="ff_1_description_2"
-                                                                class="ff-el-form-control" rows="3" cols="2"
-                                                                data-name="description_2"></textarea></div>
-                </div>
-                <div class="ff-el-group ff-el-form-left  ff_list_buttons">
-                    <div class="ff-el-input--label asterisk-right  label"><label>Is there a loan agreement?</label>
+
+                <div class="mb-4">
+                    <div class="label">
+                        <label for="has_owe_agreement">Is there a loan agreement?</label>
                     </div>
-                    <div class="ff-el-input--content">
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_12_3f734e96b7d0a8c8988a86372d918073"><input
-                                    type="radio" name="input_radio_12" data-name="input_radio_12"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                    id="input_radio_12_3f734e96b7d0a8c8988a86372d918073"> <span>Yes</span></label></div>
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_12_4836f19b5cfa63f47adaf07a20cb7940"><input
-                                    type="radio" name="input_radio_12" data-name="input_radio_12"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                    id="input_radio_12_4836f19b5cfa63f47adaf07a20cb7940"> <span>No</span></label></div>
+                    <!--   Yes/No selection    -->
+                    <?=
+                    $this->element('yesnoRadio', [
+                        'inputName' => 'has_owe_agreement',
+                    ]);
+                    ?>
+                </div>
+
+                <div class="mb-4">
+                    <div class="label">
+                        <label for="details_youowed">Details of money owed to you:</label>
+                    </div>
+                    <div>
+                        <textarea name="details_youowed" id="details_youowed" class="form-control"
+                                  style="height: 92px;width: 100%; "></textarea>
                     </div>
                 </div>
-                <div class="ff-el-group ff-el-form-left  ff_list_buttons">
-                    <div class="ff-el-input--label asterisk-right label"><label>Repayment to estate?</label></div>
-                    <div class="ff-el-input--content">
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_13_a6362cf826d65c90d875af5ac7b28b34"><input
-                                    type="radio" name="input_radio_13" data-name="input_radio_13"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="To be repaid"
-                                    id="input_radio_13_a6362cf826d65c90d875af5ac7b28b34">
-                                <span>To be repaid</span></label>
+
+                <div class="mb-4">
+                    <div class="label">
+                        <label for="has_owed_agreement">Is there a loan agreement?</label>
+                    </div>
+                    <!--   Yes/No selection    -->
+                    <?=
+                    $this->element('yesnoRadio', [
+                        'inputName' => 'has_owed_agreement',
+                    ]);
+                    ?>
+                </div>
+
+                <div class="mb-4">
+                    <div class="label">
+                        <label>Repayment to estate?</label>
+                    </div>
+                    <!--   Yes/No selection    -->
+                    <div class="yesNo d-flex">
+                        <div class="yesArea">
+                            <label class="yesLabel">
+                                <input type="radio" name="repay_estate"
+                                       class="" value="To be repaid">
+                                <span class="yes">To be repaid</span>
+                            </label>
                         </div>
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_13_27e7d76c9835a53eb3787ac6e2917b51"><input
-                                    type="radio" name="input_radio_13" data-name="input_radio_13"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="To be forgiven"
-                                    id="input_radio_13_27e7d76c9835a53eb3787ac6e2917b51">
-                                <span>To be forgiven</span></label></div>
+                        <div class="noArea">
+                            <label class="noLabel">
+                                <input type="radio" name="repay_estate"
+                                       class="" value="To be forgiven">
+                                <span class="no">To be forgiven</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
+
+
+
 
                 <!--   Section3:add Insurance div  -->
                 <div class="ff-el-group">
                     <h4>Insurance</h4>
                 </div>
-                <div data-name="ff_cn_id_12" class="ff-t-container ff-column-container ff_columns_total_2  ">
-                    <div class="ff-t-cell ff-t-column-1">
-                        <div class="ff-el-group  ff_list_buttons">
-                            <div class="ff-el-input--label asterisk-right label"><label>House and Contents:</label>
-                            </div>
-                            <div class="ff-el-input--content">
-                                <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                                       for="input_radio_14_a60d602f31d5494100fe8f14302398a4"><input
-                                            type="radio" name="input_radio_14" data-name="input_radio_14"
-                                            class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                            id="input_radio_14_a60d602f31d5494100fe8f14302398a4">
-                                        <span>Yes</span></label>
-                                </div>
-                                <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                                       for="input_radio_14_bbeabdc084584ec1b0a1be4c1885dc67"><input
-                                            type="radio" name="input_radio_14" data-name="input_radio_14"
-                                            class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                            id="input_radio_14_bbeabdc084584ec1b0a1be4c1885dc67">
-                                        <span>No</span></label>
-                                </div>
-                            </div>
+
+                <div class="mb-4 row g-0">
+                    <div class="col-12 col-lg-6">
+                        <div class="label">
+                            <label>House and Contents:</label>
+                        </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'insure_house',
+                        ]);
+                        ?>
+                    </div>
+
+                    <!--    hidden inputs       -->
+                    <div id="yourInsuranceHouse" class="col-12 col-lg-6 collapse">
+                        <div class="label">
+                            <label>Company</label>
+                        </div>
+                        <input type="text" name="insure_house_company" class="form-control">
+                    </div>
+                </div>
+
+                <div class="mb-4 row g-0">
+                    <div class="col-12 col-lg-6">
+                        <div class="label">
+                            <label>Vehicle insurance</label>
+                        </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'insure_vehicle',
+                        ]);
+                        ?>
+                    </div>
+
+                    <!--    hidden inputs       -->
+                    <div id="yourInsuranceVehicle" class="col-12 col-lg-6 collapse">
+                        <div class="label">
+                            <label>Company</label>
+                        </div>
+                        <input type="text" name="insure_vehicle_company" class="form-control">
+                    </div>
+                </div>
+
+                <div class="mb-4 row g-0">
+                    <div class="col-12 col-lg-6">
+                        <div class="label">
+                            <label>Health insurance</label>
+                        </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'insure_health',
+                        ]);
+                        ?>
+                    </div>
+
+                    <!--    hidden inputs       -->
+                    <div id="yourInsuranceHealth" class="col-12 col-lg-6 collapse">
+                        <div class="label">
+                            <label>Company</label>
+                        </div>
+                        <input type="text" name="insure_health_company" class="form-control">
+                    </div>
+                </div>
+
+                <div class="mb-4 row g-0">
+                    <div class="col-12 col-lg-6">
+                        <div class="label">
+                            <label>Life insurance</label>
+                        </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'insure_life',
+                        ]);
+                        ?>
+                    </div>
+
+                    <!--    hidden inputs       -->
+                    <div id="yourInsuranceLife" class="col-12 col-lg-6 collapse">
+                        <div class="label">
+                            <label>Company</label>
+                        </div>
+                        <input type="text" name="insure_life_company" class="form-control">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label class="fs-5">Superannuation</label>
                         </div>
                     </div>
-                    <div class="ff-t-cell ff-t-column-2">
-                        <div class="ff-el-group has-conditions ff_excluded" style="">
-                            <div class="ff-el-input--label asterisk-right label"><label
-                                    for="ff_1_input_text_17">Company</label></div>
-                            <div class="ff-el-input--content"><input type="text" name="input_text_17"
-                                                                     class="ff-el-form-control"
-                                                                     data-name="input_text_17"
-                                                                     id="ff_1_input_text_17"></div>
+
+                    <div id="yourSuperannuation">
+                        <div></div>
+                        <div class="row g-0 inputsRow">
+                            <div class="col-12 col-lg-3 pe-md-2">
+                                <div class="label">
+                                    <label>Fund</label>
+                                </div>
+                                <input type="text" name="superannuation_fund[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-3 pe-md-2">
+                                <div class="label">
+                                    <label>Value</label>
+                                </div>
+                                <input type="text" name="superannuation_value[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-3 pe-md-2">
+                                <div class="label">
+                                    <label>Current Nomination</label>
+                                </div>
+                                <input type="text" name="superannuation_nomi[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-3 row g-0">
+                                <div class="col-12 col-lg-10">
+                                    <div class="label">
+                                        <label>Binding</label>
+                                    </div>
+                                    <select class="form-select text-grey" name="superannuation_Binding[]">
+                                        <option selected value="">Select...</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="No">No</option>
+                                        <option value="Unsure">Unsure</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-lg-2" >
+                                    <div class="row g-0">
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                            <a class="btn add">
+                                                <span class="fas fa-plus-circle"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
+                                            <a class="btn delete">
+                                                <span class="fas fa-minus-circle"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <div data-name="ff_cn_id_13" class="ff-t-container ff-column-container ff_columns_total_2  ">
-                    <div class="ff-t-cell ff-t-column-1">
-                        <div class="ff-el-group  ff_list_buttons">
-                            <div class="ff-el-input--label asterisk-right label"><label>Vehicle insurance</label></div>
-                            <div class="ff-el-input--content">
-                                <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                                       for="input_radio_15_50118c60793610c400d483077813e8ac"><input
-                                            type="radio" name="input_radio_15" data-name="input_radio_15"
-                                            class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                            id="input_radio_15_50118c60793610c400d483077813e8ac">
-                                        <span>Yes</span></label>
-                                </div>
-                                <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                                       for="input_radio_15_659c65b84476f8da0de01141dbab2287"><input
-                                            type="radio" name="input_radio_15" data-name="input_radio_15"
-                                            class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                            id="input_radio_15_659c65b84476f8da0de01141dbab2287">
-                                        <span>No</span></label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ff-t-cell ff-t-column-2">
-                        <div class="ff-el-group has-conditions ff_excluded" style="">
-                            <div class="ff-el-input--label asterisk-right"><label
-                                    for="ff_1_input_text_18">Company</label>
-                            </div>
-                            <div class="ff-el-input--content"><input type="text" name="input_text_18"
-                                                                     class="ff-el-form-control"
-                                                                     data-name="input_text_18"
-                                                                     id="ff_1_input_text_18"></div>
-                        </div>
-                    </div>
-                </div>
-                <div data-name="ff_cn_id_15" class="ff-t-container ff-column-container ff_columns_total_2  ">
-                    <div class="ff-t-cell ff-t-column-1">
-                        <div class="ff-el-group  ff_list_buttons">
-                            <div class="ff-el-input--label asterisk-right label"><label>Life insurance</label></div>
-                            <div class="ff-el-input--content">
-                                <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                                       for="input_radio_17_228215417ba55e26dc7c20a17f56531a"><input
-                                            type="radio" name="input_radio_17" data-name="input_radio_17"
-                                            class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                            id="input_radio_17_228215417ba55e26dc7c20a17f56531a">
-                                        <span>Yes</span></label>
-                                </div>
-                                <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                                       for="input_radio_17_fc4fb385c654d7b85ce00419c52ae637"><input
-                                            type="radio" name="input_radio_17" data-name="input_radio_17"
-                                            class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                            id="input_radio_17_fc4fb385c654d7b85ce00419c52ae637">
-                                        <span>No</span></label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ff-t-cell ff-t-column-2">
-                        <div class="ff-el-group has-conditions ff_excluded" style="">
-                            <div class="ff-el-input--label asterisk-right"><label
-                                    for="ff_1_input_text_20">Company</label>
-                            </div>
-                            <div class="ff-el-input--content"><input type="text" name="input_text_20"
-                                                                     class="ff-el-form-control"
-                                                                     data-name="input_text_20"
-                                                                     id="ff_1_input_text_20"></div>
-                        </div>
-                    </div>
-                </div>
-                <div data-type="repeater_field" data-name="repeater_field_8"
-                     class="ff-el-group ff-el-repeater js-repeater"
-                     data-root_name="repeater_field_8">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">Superannuation</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_8"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="label"><label for="">Fund</label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Value</label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Current Nomination</label></div>
-                                </th>
-                                <th>
-                                    <div class="label"><label for="">Binding</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Fund">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_8[0][]"
-                                                                                 id="ff_1_repeater_field_8_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_8_0_0"
-                                                                                 data-error_index="repeater_field_8[0]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Value">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_8[0][]"
-                                                                                 id="ff_1_repeater_field_8_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_8_1_0"
-                                                                                 data-error_index="repeater_field_8[1]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Current Nomination">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_8[0][]"
-                                                                                 id="ff_1_repeater_field_8_2"
-                                                                                 data-repeater_index="2"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_8_2_0"
-                                                                                 data-error_index="repeater_field_8[2]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Binding">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><select type="select" placeholder="Select"
-                                                                                  name="repeater_field_8[0][]"
-                                                                                  id="ff_1_repeater_field_8_3"
-                                                                                  data-repeater_index="3"
-                                                                                  data-type="repeater_item"
-                                                                                  data-name="repeater_field_8_3_0"
-                                                                                  data-error_index="repeater_field_8[3]"
-                                                                                  data-calc_value="0"
-                                                                                  class="ff-el-form-control">
-                                                <option value="">Select</option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-                                                <option value="Unsure">Unsure</option>
-                                            </select></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+
+
+
+
 
                 <!--  Section4:add Businesses div  -->
                 <div class="ff-el-group">
                     <h4>Businesses</h4>
                 </div>
-                <div class="ff-el-group  ff_list_buttons">
-                    <div class="ff-el-input--label asterisk-right label"><label>Are you an office holder of any private
-                            companies? </label></div>
-                    <div class="ff-el-input--content">
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_18_32c918cd96c6a796ff1bdcb3de606878"><input
-                                    type="radio" name="input_radio_18" data-name="input_radio_18"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                    id="input_radio_18_32c918cd96c6a796ff1bdcb3de606878"> <span>Yes</span></label></div>
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_18_d8159324612e5947174ec2f10383362e"><input
-                                    type="radio" name="input_radio_18" data-name="input_radio_18"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                    id="input_radio_18_d8159324612e5947174ec2f10383362e"> <span>No</span></label></div>
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label>Are you an office holder of any private companies?</label>
+                        </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'is_office_holder',
+                        ]);
+                        ?>
                     </div>
                 </div>
-                <div class="ff-el-group  ff_list_buttons">
-                    <div class="ff-el-input--label asterisk-right label"><label>Are you the beneficiary/ trustee of any
-                            trusts?</label></div>
-                    <div class="ff-el-input--content">
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_19_907fa15e3fed7acb76547720c4240f80"><input
-                                    type="radio" name="input_radio_19" data-name="input_radio_19"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                    id="input_radio_19_907fa15e3fed7acb76547720c4240f80"> <span>Yes</span></label></div>
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_19_518a85482b65997d0df80b00629eb4bc"><input
-                                    type="radio" name="input_radio_19" data-name="input_radio_19"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                    id="input_radio_19_518a85482b65997d0df80b00629eb4bc"> <span>No</span></label></div>
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label>Are you the beneficiary/ trustee of any trusts?</label>
+                        </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'is_beneficiary',
+                        ]);
+                        ?>
                     </div>
                 </div>
-                <div class="ff-el-group  ff_list_buttons">
-                    <div class="ff-el-input--label asterisk-right label"><label>Are you in a partnership?</label></div>
-                    <div class="ff-el-input--content">
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_20_84ec688ac17e1b71128f23d55ab44ad9"><input
-                                    type="radio" name="input_radio_20" data-name="input_radio_20"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                    id="input_radio_20_84ec688ac17e1b71128f23d55ab44ad9"> <span>Yes</span></label></div>
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_20_f29fd0dd59ce928d24db64ef4e3eef11"><input
-                                    type="radio" name="input_radio_20" data-name="input_radio_20"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                    id="input_radio_20_f29fd0dd59ce928d24db64ef4e3eef11"> <span>No</span></label></div>
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label>Are you in a partnership?</label>
+                        </div>
+                        <!--   Yes/No selection    -->
+                        <?=
+                        $this->element('yesnoRadio', [
+                            'inputName' => 'in_partnership',
+                        ]);
+                        ?>
                     </div>
                 </div>
+
 
 
                 <!--  Previous + next button  -->

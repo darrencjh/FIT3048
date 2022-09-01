@@ -541,4 +541,34 @@ $(":radio[name=has_referrer]").change(function(){
 $("#yourRealEstate").click(function(e){
     addDeleteAssetRow(e,"yourRealEstate")
 })
+//Bank Accounts : add a bank account
+$("#yourBankAccount").click(function(e){
+    addDeleteAssetRow(e,"yourBankAccount")
+})
+$("#yourMotor").click(function(e){
+    addDeleteAssetRow(e,"yourMotor")
+})
+$("#yourInvestment").click(function(e){
+    addDeleteAssetRow(e,"yourInvestment")
+})
 
+//insurance
+$(":radio[name=insure_house]").change(function(){
+    radioShowDisappearInputs(this,'yourInsuranceHouse')
+})
+$(":radio[name=insure_vehicle]").change(function(){
+    radioShowDisappearInputs(this,'yourInsuranceVehicle')
+})
+$(":radio[name=insure_health]").change(function(){
+    radioShowDisappearInputs(this,'yourInsuranceHealth')
+})
+$(":radio[name=insure_life]").change(function(){
+    radioShowDisappearInputs(this,'yourInsuranceLife')
+})
+
+//Superannuation
+$("#yourSuperannuation").click(function(e){
+    addDeleteAssetRow(e,"yourSuperannuation")
+})
+
+//Business
