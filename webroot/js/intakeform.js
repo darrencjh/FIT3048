@@ -330,39 +330,6 @@ $("#page4Prev").click(function(){
     window.scrollTo(0, 0);
 })
 
-//Page 4: click submit button,the basic info should move to page1Next click event
-$("#submitIntakeform").click(function () {
-    let givenName = inputGivenName.value
-    let lastName = inputLastName.value
-    let DOB = inputDOB.value
-    let occupation = inputOccupation.value
-    let houseNumber = inputHouseNumber.value
-    let address = inputAddress.value
-    let state = inputState.value
-    let postCode = inputPostCode.value
-    let email = inputEmail.value
-    let phoneNumber = inputPhoneNumber.value
-    if (givenName == "") $("#inputGivenName").addClass("is-invalid")
-    if (lastName == "") $("#inputLastName").addClass("is-invalid")
-    if (DOB == "") $("#inputDOB").addClass("is-invalid")
-    if (occupation == "") $("#inputOccupation").addClass("is-invalid")
-    if (houseNumber == "") $("#inputHouseNumber").addClass("is-invalid")
-    if (address == "") $("#inputAddress").addClass("is-invalid")
-    if (state == "") $("#inputState").addClass("is-invalid")
-    if (postCode == "") $("#inputPostCode").addClass("is-invalid")
-    if (email == "") $("#inputEmail").addClass("is-invalid")
-    if (phoneNumber == "") $("#inputPhoneNumber").addClass("is-invalid")
-
-    if (!givenName || !lastName || !DOB || !occupation || !houseNumber || !address || !state || !postCode || !email || !phoneNumber) {
-        document.getElementById('content').scrollIntoView(true)
-
-        return false
-    } else {
-        return true
-    }
-
-
-})
 
 
 //-----------------------Page 2----------------------------------------------------
@@ -469,36 +436,10 @@ $(":radio[name=has_child_prev]").change(function(){
 
 // 2.Add a children row
 $("#yourChildren").click(function(e){
-    // if($(e.target).parent().hasClass('add')){
-    //     $("#yourChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").addClass('show')
-    //     let $oneChildInputs=$("#yourChildren>.childInputs:first").clone()
-    //     $("#yourChildren").append($oneChildInputs)
-    //
-    // }else if($(e.target).parent().hasClass('delete')){
-    //     $(e.target).parent().parent().parent().parent().parent().remove()
-    //     if($(this).children().length==2){
-    //         //hide the minus button,when only one child
-    //         $("#yourChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").removeClass('show')
-    //     }
-    // }
     addDeleteRow(e,"yourChildren")
-
 })
 $("#yourGrandChildren").click(function(e){
-    // if($(e.target).parent().hasClass('add')){
-    //     $("#yourGrandChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").addClass('show')
-    //     let $oneChildInputs=$("#yourGrandChildren>.childInputs:first").clone()
-    //     $("#yourGrandChildren").append($oneChildInputs)
-    //
-    // }else if($(e.target).parent().hasClass('delete')){
-    //     $(e.target).parent().parent().parent().parent().parent().remove()
-    //     if($(this).children().length==2){
-    //         //hide the minus button,when only one grandchild
-    //         $("#yourGrandChildren>.childInputs:first").children(":last-child").prev().children(":first-child").children(":last-child").removeClass('show')
-    //     }
-    // }
     addDeleteRow(e,"yourGrandChildren")
-
 })
 
 
@@ -571,4 +512,95 @@ $("#yourSuperannuation").click(function(e){
     addDeleteAssetRow(e,"yourSuperannuation")
 })
 
-//Business
+
+
+
+//-----------------Page 4-------------------------------
+//For better testing
+// remove later
+$("#jumpTo4").click(function(e){
+    $("#page1").removeClass('show')
+    $("#page4").addClass('show')
+})
+
+//Executor
+$("#yourExecutors").click(function(e){
+    addDeleteAssetRow(e,"yourExecutors")
+})
+$("#yourAltExecutors").click(function(e){
+    addDeleteAssetRow(e,"yourAltExecutors")
+})
+
+// 4.Guardian
+$(":radio[name=wish_appoint_child]").change(function(){
+    radioShowDisappearInputs(this,'yourGuardian')
+})
+// 5. Specific Bequests
+$(":radio[name=wish_property_special]").change(function(){
+    radioShowDisappearInputs(this,'yourSpecial')
+})
+$("#yourSpecial").click(function(e){
+    addDeleteAssetRow(e,"yourSpecial")
+})
+
+//6. Beneficiaries of the Residue
+$("#yourLeaveEstate").click(function(e){
+    addDeleteAssetRow(e,"yourLeaveEstate")
+})
+$("#yourLeaveEstateSecond").click(function(e){
+    addDeleteAssetRow(e,"yourLeaveEstateSecond")
+})
+$("#yourFeelResp").click(function(e){
+    addDeleteAssetRow(e,"yourFeelResp")
+})
+$("#yourProvision").click(function(e){
+    addDeleteAssetRow(e,"yourProvision")
+})
+
+//7. Enduring Powers of Attorney and Medical Decision Makers
+$("#yourAttorney").click(function(e){
+    addDeleteAssetRow(e,"yourAttorney")
+})
+$("#yourAltAttorney").click(function(e){
+    addDeleteAssetRow(e,"yourAltAttorney")
+})
+
+
+
+
+
+
+
+//Page 4: click submit button
+$("#submitIntakeform").click(function () {
+    let givenName = inputGivenName.value
+    let lastName = inputLastName.value
+    let DOB = inputDOB.value
+    let occupation = inputOccupation.value
+    let houseNumber = inputHouseNumber.value
+    let address = inputAddress.value
+    let state = inputState.value
+    let postCode = inputPostCode.value
+    let email = inputEmail.value
+    let phoneNumber = inputPhoneNumber.value
+    if (givenName == "") $("#inputGivenName").addClass("is-invalid")
+    if (lastName == "") $("#inputLastName").addClass("is-invalid")
+    if (DOB == "") $("#inputDOB").addClass("is-invalid")
+    if (occupation == "") $("#inputOccupation").addClass("is-invalid")
+    if (houseNumber == "") $("#inputHouseNumber").addClass("is-invalid")
+    if (address == "") $("#inputAddress").addClass("is-invalid")
+    if (state == "") $("#inputState").addClass("is-invalid")
+    if (postCode == "") $("#inputPostCode").addClass("is-invalid")
+    if (email == "") $("#inputEmail").addClass("is-invalid")
+    if (phoneNumber == "") $("#inputPhoneNumber").addClass("is-invalid")
+
+    if (!givenName || !lastName || !DOB || !occupation || !houseNumber || !address || !state || !postCode || !email || !phoneNumber) {
+        document.getElementById('content').scrollIntoView(true)
+
+        return false
+    } else {
+        return true
+    }
+
+
+})

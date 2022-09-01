@@ -38,12 +38,11 @@
 }
 
 .label label {
-    font-weight: 600;
     font-size: 15px;
     color: #757575;
     margin-bottom: 0;
     display: inline-block;
-    font-weight: 600;
+    font-weight: 400;
     /*white-space:nowrap;*/
 }
 .label label::selection {
@@ -59,28 +58,6 @@
     margin-left: 3px;
 }
 
-/*  Delete later */
-.input input {
-    background: #fff;
-    color: #424344;
-    border-radius: 5px;
-    border: 1px solid #757575;
-    padding: 10px;
-}
-.input-control {
-    display: block;
-    width: 100%;
-    padding: 6px 12px;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #495057;
-    background-image: none;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    margin-bottom: 0;
-}
 
 
 /* Core codes for input fields  */
@@ -139,18 +116,6 @@ input:focus,select:focus,textarea:focus {
     outline: 0 !important;
     box-shadow: none !important;
 }
-
-
-/*.ff-el-group.ff-el-is-error .input-control {*/
-/*    border-color: #f56c6c;*/
-/*}*/
-
-/*.ff-el-is-error .text-danger {*/
-/*    font-size: 12px;*/
-/*    margin-top: 4px;*/
-/*    color: #f56c6c;*/
-/*}*/
-
 
 
 

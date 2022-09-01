@@ -22,7 +22,7 @@ $this->Html->script('intakeform', ['block' => true]);
 
                 <div class="text-muted mt-3">Step 1 of 4 - Step 1</div>
                 <div class="progress my-2">
-                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 0%;"
+                    <div class="progress-bar bg-shelbourne text-end p-2" role="progressbar" style="width: 5%;"
                          aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%
                     </div>
                 </div>
@@ -70,7 +70,7 @@ $this->Html->script('intakeform', ['block' => true]);
                         <input type="text" id="inputDOB" name="date_of_birth" class="form-control"
                                placeholder="dd/mm/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"
                                required/>
-<!--                         pattern="\d{1,2}[/]\d{1,2}[/]\d{4}"-->
+                        <!--                         pattern="\d{1,2}[/]\d{1,2}[/]\d{4}"-->
                         <div class="invalid-feedback" id="dateError">Please provide your date of birth</div>
                     </div>
                     <div class="mb-3 col-12 col-md-6 ps-md-3">
@@ -181,7 +181,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     <a class="btn btn-shelbourne mt-3 rounded-pill px-4 py-2" id="page1Next">Next</a>
                 </div>
             </div>
-
+            <a href="#" class="btn btn-danger" id="jumpTo4">jump to page4</a>
 
             <!-- Page 2           -->
             <div id="page2" class="collapse text-grey">
@@ -810,7 +810,7 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="label">
                             <label class="text-danger">*If yes</label>
                         </div>
-                        <?=  $this->element('page3Helper'); ?>
+                        <?= $this->element('page3Helper'); ?>
                         <div class="label mt-2">
                             <label>Would you like your accountant to help complete this section for you?</label>
                         </div>
@@ -838,7 +838,7 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="label">
                             <label class="text-danger">*If yes</label>
                         </div>
-                        <?=  $this->element('page3Helper'); ?>
+                        <?= $this->element('page3Helper'); ?>
                         <div class="label mt-2">
                             <label>Would you like your financial adviser to help complete this section for you?</label>
                         </div>
@@ -866,10 +866,9 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="label">
                             <label class="text-danger">*If yes</label>
                         </div>
-                        <?=  $this->element('page3Helper'); ?>
+                        <?= $this->element('page3Helper'); ?>
                     </div>
                 </div>
-
 
 
                 <!-- 2.Assets & Liabilities  -->
@@ -881,28 +880,28 @@ $this->Html->script('intakeform', ['block' => true]);
                 <div class="mb-4">
                     <div>
                         <div class="label">
-                            <label class="fs-5">Real estate</label>
+                            <label class="fs-5 fw-bold">Real estate</label>
                         </div>
                     </div>
 
                     <div id="yourRealEstate">
                         <div></div>
                         <div class="row g-0 inputsRow">
-                            <div class="col-12 col-lg-2 pe-md-2">
+                            <div class="col-12 col-lg-4 col-xl-2 pe-lg-2">
                                 <div class="label">
                                     <label>Address</label>
                                 </div>
                                 <input type="text" name="realestate_address[]" class="form-control">
                             </div>
 
-                            <div class="col-12 col-lg-2 pe-md-2">
+                            <div class="col-12 col-lg-4 col-xl-2 pe-lg-2">
                                 <div class="label">
                                     <label>Owner(s):</label>
                                 </div>
                                 <input type="text" name="realestate_owner[]" class="form-control">
                             </div>
 
-                            <div class="col-12 col-lg-2 pe-md-2">
+                            <div class="col-12 col-lg-4 col-xl-2 pe-xl-2">
                                 <div class="label">
                                     <label>Type of ownership:</label>
                                 </div>
@@ -915,14 +914,14 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </select>
                             </div>
 
-                            <div class="col-12 col-lg-2 pe-md-2">
+                            <div class="col-12 col-lg-4  col-xl-2 pe-lg-2">
                                 <div class="label">
                                     <label>Location of title:</label>
                                 </div>
                                 <input type="text" name="realestate_location[]" class="form-control">
                             </div>
 
-                            <div class="col-12 col-lg-2 pe-md-2">
+                            <div class="col-12 col-lg-4  col-xl-2 pe-lg-2">
                                 <div class="label">
                                     <label>Mortgage:</label>
                                 </div>
@@ -933,14 +932,14 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </select>
                             </div>
 
-                            <div class="col-12 col-lg-2 row g-0">
+                            <div class="col-12 col-lg-4 col-xl-2 row g-0">
                                 <div class="col-12 col-lg-10">
                                     <div class="label">
                                         <label>Property value:</label>
                                     </div>
                                     <input type="text" name="realestate_value[]" class="form-control">
                                 </div>
-                                <div class="col-12 col-lg-2" >
+                                <div class="col-12 col-lg-2">
                                     <div class="row g-0">
                                         <div class="col-1 col-lg-12 mt-2 mt-lg-0">
                                             <a class="btn add">
@@ -965,28 +964,28 @@ $this->Html->script('intakeform', ['block' => true]);
                 <div class="mb-4">
                     <div>
                         <div class="label">
-                            <label class="fs-5">Bank Accounts</label>
+                            <label class="fs-5  fw-bold">Bank Accounts</label>
                         </div>
                     </div>
 
                     <div id="yourBankAccount">
                         <div></div>
                         <div class="row g-0 inputsRow">
-                            <div class="col-12 col-lg-3 pe-md-2">
+                            <div class="col-12 col-lg-3 pe-lg-2">
                                 <div class="label">
                                     <label>Bank Institution:</label>
                                 </div>
                                 <input type="text" name="bankAccount_name[]" class="form-control">
                             </div>
 
-                            <div class="col-12 col-lg-3 pe-md-2">
+                            <div class="col-12 col-lg-3 pe-lg-2">
                                 <div class="label">
                                     <label>Account holder(s):</label>
                                 </div>
                                 <input type="text" name="bankAccount_holder[]" class="form-control">
                             </div>
 
-                            <div class="col-12 col-lg-3 pe-md-2">
+                            <div class="col-12 col-lg-3 pe-lg-2">
                                 <div class="label">
                                     <label>Account type:</label>
                                 </div>
@@ -1000,7 +999,7 @@ $this->Html->script('intakeform', ['block' => true]);
                                     </div>
                                     <input type="text" name="bankAccount_value[]" class="form-control">
                                 </div>
-                                <div class="col-12 col-lg-2" >
+                                <div class="col-12 col-lg-2">
                                     <div class="row g-0">
                                         <div class="col-1 col-lg-12 mt-2 mt-lg-0">
                                             <a class="btn add">
@@ -1025,21 +1024,21 @@ $this->Html->script('intakeform', ['block' => true]);
                 <div class="mb-4">
                     <div>
                         <div class="label">
-                            <label class="fs-5">Motor vehicles</label>
+                            <label class="fs-5  fw-bold">Motor vehicles</label>
                         </div>
                     </div>
 
                     <div id="yourMotor">
                         <div></div>
                         <div class="row g-0 inputsRow">
-                            <div class="col-12 col-lg-4 pe-md-2">
+                            <div class="col-12 col-lg-4 pe-lg-2">
                                 <div class="label">
                                     <label>Make</label>
                                 </div>
                                 <input type="text" name="motor_make[]" class="form-control">
                             </div>
 
-                            <div class="col-12 col-lg-4 pe-md-2">
+                            <div class="col-12 col-lg-4 pe-lg-2">
                                 <div class="label">
                                     <label>Model</label>
                                 </div>
@@ -1054,7 +1053,7 @@ $this->Html->script('intakeform', ['block' => true]);
                                     </div>
                                     <input type="text" name="motor_year[]" class="form-control">
                                 </div>
-                                <div class="col-12 col-lg-2" >
+                                <div class="col-12 col-lg-2">
                                     <div class="row g-0">
                                         <div class="col-1 col-lg-12 mt-2 mt-lg-0">
                                             <a class="btn add">
@@ -1079,21 +1078,21 @@ $this->Html->script('intakeform', ['block' => true]);
                 <div class="mb-4">
                     <div>
                         <div class="label">
-                            <label class="fs-5">Investments</label>
+                            <label class="fs-5  fw-bold">Investments</label>
                         </div>
                     </div>
 
                     <div id="yourInvestment">
                         <div></div>
                         <div class="row g-0 inputsRow">
-                            <div class="col-12 col-lg-4 pe-md-2">
+                            <div class="col-12 col-lg-4 pe-lg-2">
                                 <div class="label">
                                     <label>Type:</label>
                                 </div>
                                 <input type="text" name="invest_type[]" class="form-control">
                             </div>
 
-                            <div class="col-12 col-lg-4 pe-md-2">
+                            <div class="col-12 col-lg-4 pe-lg-2">
                                 <div class="label">
                                     <label>Held with:</label>
                                 </div>
@@ -1108,7 +1107,7 @@ $this->Html->script('intakeform', ['block' => true]);
                                     </div>
                                     <input type="text" name="invest_value[]" class="form-control">
                                 </div>
-                                <div class="col-12 col-lg-2" >
+                                <div class="col-12 col-lg-2">
                                     <div class="row g-0">
                                         <div class="col-1 col-lg-12 mt-2 mt-lg-0">
                                             <a class="btn add">
@@ -1141,7 +1140,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                     <div>
                         <textarea name="details_youowe" id="details_youowe" class="form-control"
-                                   style="height: 92px;width: 100%; "></textarea>
+                                  style="height: 92px;width: 100%; "></textarea>
                     </div>
                 </div>
 
@@ -1201,8 +1200,6 @@ $this->Html->script('intakeform', ['block' => true]);
                         </div>
                     </div>
                 </div>
-
-
 
 
                 <!--   Section3:add Insurance div  -->
@@ -1301,28 +1298,28 @@ $this->Html->script('intakeform', ['block' => true]);
                 <div class="mb-4">
                     <div>
                         <div class="label">
-                            <label class="fs-5">Superannuation</label>
+                            <label class="fs-5 fw-bold">Superannuation</label>
                         </div>
                     </div>
 
                     <div id="yourSuperannuation">
                         <div></div>
                         <div class="row g-0 inputsRow">
-                            <div class="col-12 col-lg-3 pe-md-2">
+                            <div class="col-12 col-lg-3 pe-lg-2">
                                 <div class="label">
                                     <label>Fund</label>
                                 </div>
                                 <input type="text" name="superannuation_fund[]" class="form-control">
                             </div>
 
-                            <div class="col-12 col-lg-3 pe-md-2">
+                            <div class="col-12 col-lg-3 pe-lg-2">
                                 <div class="label">
                                     <label>Value</label>
                                 </div>
                                 <input type="text" name="superannuation_value[]" class="form-control">
                             </div>
 
-                            <div class="col-12 col-lg-3 pe-md-2">
+                            <div class="col-12 col-lg-3 pe-lg-2">
                                 <div class="label">
                                     <label>Current Nomination</label>
                                 </div>
@@ -1341,7 +1338,7 @@ $this->Html->script('intakeform', ['block' => true]);
                                         <option value="Unsure">Unsure</option>
                                     </select>
                                 </div>
-                                <div class="col-12 col-lg-2" >
+                                <div class="col-12 col-lg-2">
                                     <div class="row g-0">
                                         <div class="col-1 col-lg-12 mt-2 mt-lg-0">
                                             <a class="btn add">
@@ -1360,9 +1357,6 @@ $this->Html->script('intakeform', ['block' => true]);
                         </div>
                     </div>
                 </div>
-
-
-
 
 
                 <!--  Section4:add Businesses div  -->
@@ -1410,7 +1404,6 @@ $this->Html->script('intakeform', ['block' => true]);
                 </div>
 
 
-
                 <!--  Previous + next button  -->
                 <div class="clearfix">
                     <a class="btn btn-outline-secondary mt-3 float-start" id="page3Prev">Previous</a>
@@ -1430,821 +1423,440 @@ $this->Html->script('intakeform', ['block' => true]);
                 </div>
 
 
-                <div class="ff-el-group mt-4" data-name="custom_html-7816594526301c876c25822.33748729"><h2>3.
-                        Executor/Trustee</h2> <h4><span style="font-weight: 400;">Who do you want your executor(s) to be?</span>
-                    </h4></div>
-                <div data-type="repeater_field" data-name="repeater_field_14"
-                     class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_14">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">Executors</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_14"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Executor's Full
-                                            Name</label></div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Executor's
-                                            Address</label></div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Executor's
-                                            Relationship to You</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Executor's Full Name">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 placeholder="Executor's Full Name"
-                                                                                 name="repeater_field_14[0][]"
-                                                                                 id="ff_1_repeater_field_14_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_14_0_0"
-                                                                                 data-error_index="repeater_field_14[0]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Executor's Address">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_14[0][]"
-                                                                                 id="ff_1_repeater_field_14_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_14_1_0"
-                                                                                 data-error_index="repeater_field_14[1]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Executor's Relationship to You">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_14[0][]"
-                                                                                 id="ff_1_repeater_field_14_2"
-                                                                                 data-repeater_index="2"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_14_2_0"
-                                                                                 data-error_index="repeater_field_14[2]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="ff-el-group">
+                    <h2>3. Executor/Trustee</h2>
                 </div>
-                <div class="ff-el-group" data-name="custom_html-4593379706301c876c262b9.49987386"><h4><span
-                            style="font-weight: 400;">Who do you want your alternative executor(s) to be?</span></h4>
+
+                <!--      Executors          -->
+                <div class="ff-el-group">
+                    <h4>Who do you want your executor(s) to be?</h4>
                 </div>
-                <div data-type="repeater_field" data-name="repeater_field_15"
-                     class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_15">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">Alternative Executors</label>
-                    </div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_15"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Alternative
-                                            Executor's Full Name</label></div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Alternative
-                                            Executor's Address</label></div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Alternative
-                                            Executor's Relationship to You</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Alternative Executor's Full Name">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 placeholder="Alternative Executor's Full Name"
-                                                                                 name="repeater_field_15[0][]"
-                                                                                 id="ff_1_repeater_field_15_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_15_0_0"
-                                                                                 data-error_index="repeater_field_15[0]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Alternative Executor's Address">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 placeholder="Alternative Executor's Address"
-                                                                                 name="repeater_field_15[0][]"
-                                                                                 id="ff_1_repeater_field_15_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_15_1_0"
-                                                                                 data-error_index="repeater_field_15[1]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Alternative Executor's Relationship to You">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 placeholder="Alternative Executor's Relationship to You"
-                                                                                 name="repeater_field_15[0][]"
-                                                                                 id="ff_1_repeater_field_15_2"
-                                                                                 data-repeater_index="2"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_15_2_0"
-                                                                                 data-error_index="repeater_field_15[2]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="ff-el-group" data-name="custom_html-16611452446301c876c26f97.63407421"><h2>4. Guardian of
-                        Minor Children</h2></div>
-                <div class="ff-el-group  ff_list_buttons">
-                    <div class="ff-el-input--label asterisk-right label"><label>Do you wish to appoint a guardian of
-                            minor children?</label></div>
-                    <div class="ff-el-input--content">
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_21_2dbae6093a77dec3b517930a58c3c36a"><input
-                                    type="radio" name="input_radio_21" data-name="input_radio_21"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                    id="input_radio_21_2dbae6093a77dec3b517930a58c3c36a"> <span>Yes</span></label></div>
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_21_d717bfe811857c38bcaeab34d203b690"><input
-                                    type="radio" name="input_radio_21" data-name="input_radio_21"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                    id="input_radio_21_d717bfe811857c38bcaeab34d203b690"> <span>No</span></label></div>
-                    </div>
-                </div>
-                <div data-name="ff_cn_id_16" class="ff-t-container ff-column-container ff_columns_total_3  ">
-                    <div class="ff-t-cell ff-t-column-1">
-                        <div class="ff-el-group has-conditions ff_excluded" style="">
-                            <div class="ff-el-input--label asterisk-right label"><label for="ff_1_input_text_27">Full
-                                    Name of Surviving Parent </label></div>
-                            <div class="ff-el-input--content"><input type="text" name="input_text_27"
-                                                                     class="ff-el-form-control"
-                                                                     data-name="input_text_27" id="ff_1_input_text_27">
-                            </div>
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label class="fs-5  fw-bold">Executors</label>
+                            <a class="d-inline-block" data-bs-toggle="tooltip"
+                               data-bs-original-title="Your executor is the person appointed to administer your estate and carry out your wishes after your death. This means they may have to collect assets, pay any debts, arrange your funeral, distribute your estate according to your will and, if necessary, take  or defend legal action on behalf of your estate. You may wish to appoint one primary Executor and an alternate executor, or you may appoint up to 4 primary executors and/or alternate executors to act jointly if you prefer. They should be people who can work together."
+                               data-bs-placement="right">
+                                <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                     height="15px" width="15px">
+                                    <path
+                                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
+                                </svg>
+                            </a>
                         </div>
                     </div>
-                    <div class="ff-t-cell ff-t-column-2">
-                        <div class="ff-el-group has-conditions ff_excluded" style="">
-                            <div class="ff-el-input--label asterisk-right label"><label for="ff_1_input_text_28">Guardian’s
-                                    Full Name</label></div>
-                            <div class="ff-el-input--content"><input type="text" name="input_text_28"
-                                                                     class="ff-el-form-control"
-                                                                     data-name="input_text_28" id="ff_1_input_text_28">
+
+                    <div id="yourExecutors">
+                        <div></div>
+                        <div class="row g-0 inputsRow">
+                            <div class="col-12 col-lg-4 pe-lg-2">
+                                <div class="label">
+                                    <label>Full Name</label>
+                                </div>
+                                <input type="text" name="executor_name[]" class="form-control">
                             </div>
-                        </div>
-                    </div>
-                    <div class="ff-t-cell ff-t-column-3">
-                        <div class="ff-el-group has-conditions ff_excluded" style="">
-                            <div class="ff-el-input--label asterisk-right label"><label for="ff_1_input_text_29">Guardian’s
-                                    Relationship to You</label></div>
-                            <div class="ff-el-input--content"><input type="text" name="input_text_29"
-                                                                     class="ff-el-form-control"
-                                                                     data-name="input_text_29" id="ff_1_input_text_29">
+
+                            <div class="col-12 col-lg-4 pe-lg-2">
+                                <div class="label">
+                                    <label>Address</label>
+                                </div>
+                                <input type="text" name="executor_address[]" class="form-control">
                             </div>
+
+
+                            <div class="col-12 col-lg-4 row g-0">
+                                <div class="col-12 col-lg-10">
+                                    <div class="label">
+                                        <label>Relationship to You</label>
+                                    </div>
+                                    <input type="text" name="executor_relation[]" class="form-control">
+                                </div>
+                                <div class="col-12 col-lg-2">
+                                    <div class="row g-0">
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                            <a class="btn add">
+                                                <span class="fas fa-plus-circle"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
+                                            <a class="btn delete">
+                                                <span class="fas fa-minus-circle"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+
                     </div>
                 </div>
 
-                <div class="ff-el-group" data-name="custom_html-18812652486301c876c27e73.96395513"><h2>5. Specific
-                        Bequests</h2></div>
-                <div class="ff-el-group  ff_list_buttons">
-                    <div class="ff-el-input--label asterisk-right label"><label>Do you wish to leave any specific items
-                            of property to a particular person?</label></div>
-                    <div class="ff-el-input--content">
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_22_b1b082225418a1971b72dd9d47b8c894"><input
-                                    type="radio" name="input_radio_22" data-name="input_radio_22"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="yes"
-                                    id="input_radio_22_b1b082225418a1971b72dd9d47b8c894"> <span>Yes</span></label></div>
-                        <div class="ff-el-form-check ff-el-form-check-"><label class="ff-el-form-check-label"
-                                                                               for="input_radio_22_54bdc91736b145199aac4df6a00868b0"><input
-                                    type="radio" name="input_radio_22" data-name="input_radio_22"
-                                    class="ff-el-form-check-input ff-el-form-check-radio" value="no"
-                                    id="input_radio_22_54bdc91736b145199aac4df6a00868b0"> <span>No</span></label></div>
+                <!--      Alternative Executors          -->
+                <div class="ff-el-group">
+                    <h4>Who do you want your alternative executor(s) to be?</h4>
+                </div>
+                <div class="mb-4">
+                    <div>
+                        <div class="label">
+                            <label class="fs-5 fw-bold">Alternative Executors</label>
+                        </div>
+                    </div>
+
+                    <div id="yourAltExecutors">
+                        <div></div>
+                        <div class="row g-0 inputsRow">
+                            <div class="col-12 col-lg-4 pe-lg-2">
+                                <div class="label">
+                                    <label>Full Name</label>
+                                </div>
+                                <input type="text" name="altexecutor_name[]" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-4 pe-lg-2">
+                                <div class="label">
+                                    <label>Address</label>
+                                </div>
+                                <input type="text" name="altexecutor_address[]" class="form-control">
+                            </div>
+
+
+                            <div class="col-12 col-lg-4 row g-0">
+                                <div class="col-12 col-lg-10">
+                                    <div class="label">
+                                        <label>Relationship to You</label>
+                                    </div>
+                                    <input type="text" name="altexecutor_relation[]" class="form-control">
+                                </div>
+                                <div class="col-12 col-lg-2">
+                                    <div class="row g-0">
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                            <a class="btn add">
+                                                <span class="fas fa-plus-circle"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
+                                            <a class="btn delete">
+                                                <span class="fas fa-minus-circle"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
-                <div data-type="repeater_field" data-name="repeater_field_9"
-                     class="ff-el-group ff-el-repeater js-repeater has-conditions ff_excluded"
-                     data-root_name="repeater_field_9" style="">
-                    <div class="ff-el-input--label asterisk-right"><label for="">If yes</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_9"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for=""> Description of
-                                            the Property</label></div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Name of
-                                            Beneficiary</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label=" Description of the Property">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_9[0][]"
-                                                                                 id="ff_1_repeater_field_9_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_9_0_0"
-                                                                                 data-error_index="repeater_field_9[0]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Name of Beneficiary">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_9[0][]"
-                                                                                 id="ff_1_repeater_field_9_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_9_1_0"
-                                                                                 data-error_index="repeater_field_9[1]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+
+                <!--  4.Guardian   -->
+                <div class="ff-el-group">
+                    <h2>4. Guardian of Minor Children</h2>
+                </div>
+                <div class="mb-4">
+                    <div class="label">
+                        <label>Do you wish to appoint a guardian of minor children?</label>
+                    </div>
+                    <!--   Yes/No selection    -->
+                    <?=
+                    $this->element('yesnoRadio', [
+                        'inputName' => 'wish_appoint_child',
+                    ]);
+                    ?>
+
+
+                    <!--    hidden inputs       -->
+                    <div id="yourGuardian" class="collapse">
+                        <div class="row g-0">
+                            <div class="col-12 col-lg-4 pe-md-2">
+                                <div class="label">
+                                    <label>Full Name of Surviving Parent</label>
+                                </div>
+                                <input type="text" name="surviving_parent_fullname" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-4 px-md-2">
+                                <div class="label">
+                                    <label>Guardian’s Full Name</label>
+                                </div>
+                                <input type="text" name="guardian_fullname" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-4 ps-md-2">
+                                <div class="label">
+                                    <label>Guardian’s Relationship to You</label>
+                                </div>
+                                <input type="text" name="guardian_relation" class="form-control">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 5. Specific Bequests  -->
+                <div class="ff-el-group">
+                    <h2>5. Specific Bequests</h2>
+                </div>
+                <div class="mb-4">
+                    <div class="label">
+                        <label>Do you wish to leave any specific items of property to a particular person?</label>
+                    </div>
+                    <!--   Yes/No selection    -->
+                    <?=
+                    $this->element('yesnoRadio', [
+                        'inputName' => 'wish_property_special',
+                    ]);
+                    ?>
+
+
+                    <!--    hidden inputs       -->
+                    <div id="yourSpecial" class="collapse">
+                        <div class="label">
+                            <label class="text-danger">*If yes</label>
+                        </div>
+                        <?= $this->element('page4Inputs', [
+                            'field1Label' => 'Description of the Property',
+                            'field1Name' => 'special_prop_desc[]',
+                            'field2Label' => 'Name of Beneficiary',
+                            'field2Name' => 'beneficiary_name[]'
+                        ]); ?>
+                    </div>
+
+                </div>
+
+
+                <!-- 6. Beneficiaries of the Residue  -->
+                <div class="ff-el-group">
+                    <h2>6. Beneficiaries of the Residue</h2>
+                </div>
+                <div class="mb-4">
+                    <div class="label">
+                        <label class="fw-bold">Who do you wish to leave the balance of your estate to?</label>
+                    </div>
+                    <div id="yourLeaveEstate">
+                        <div></div>
+                        <?= $this->element('page4Inputs', [
+                            'field1Name' => 'leaveEstate_name[]',
+                            'field2Name' => 'leaveEstate_relation[]'
+                        ]); ?>
                     </div>
                 </div>
-                <div class="ff-el-group" data-name="custom_html-4936556166301c876c28982.11353455"><h2>6. Beneficiaries
-                        of the Residue</h2></div>
-                <div data-type="repeater_field" data-name="repeater_field_10"
-                     class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_10">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">Who do you wish to leave the
-                            balance of your estate to?</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_10"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Full name</label>
-                                    </div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Relationship To
-                                            You</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Full name">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_10[0][]"
-                                                                                 id="ff_1_repeater_field_10_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_10_0_0"
-                                                                                 data-error_index="repeater_field_10[0]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Relationship To You">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_10[0][]"
-                                                                                 id="ff_1_repeater_field_10_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_10_1_0"
-                                                                                 data-error_index="repeater_field_10[1]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+
+                <div class="mb-4">
+                    <div class="label">
+                        <label class="fw-bold">If something happens to the above beneficiary (ies), who do you wish to
+                            leave the balance of your estate to?</label>
+                    </div>
+                    <div id="yourLeaveEstateSecond">
+                        <div></div>
+                        <?= $this->element('page4Inputs', [
+                            'field1Name' => 'leaveEstateSecond_name[]',
+                            'field2Name' => 'leaveEstateSecond_relation[]'
+                        ]); ?>
                     </div>
                 </div>
-                <div data-type="repeater_field" data-name="repeater_field_11"
-                     class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_11">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">If something happens to the above
-                            beneficiary (ies), who do you wish to leave the balance of your estate to?</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_11"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Full name</label>
-                                    </div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Relationship To
-                                            You</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Full name">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_11[0][]"
-                                                                                 id="ff_1_repeater_field_11_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_11_0_0"
-                                                                                 data-error_index="repeater_field_11[0]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Relationship To You">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_11[0][]"
-                                                                                 id="ff_1_repeater_field_11_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_11_1_0"
-                                                                                 data-error_index="repeater_field_11[1]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+
+                <div class="mb-4">
+                    <div class="label">
+                        <label class="fw-bold">Is there anyone who you feel a responsibility to provide for not
+                            mentioned in your Will? If Yes – Please list</label>
+                    </div>
+                    <div id="yourFeelResp">
+                        <div></div>
+                        <?= $this->element('page4Inputs', [
+                            'field1Name' => 'feelRes_name[]',
+                            'field2Name' => 'feelRes_name[]'
+                        ]); ?>
                     </div>
                 </div>
-                <div data-type="repeater_field" data-name="repeater_field_12"
-                     class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_12">
-                    <div class="ff-el-input--label asterisk-right label"><label for=""> Is there anyone who you feel a
-                            responsibility to provide for not mentioned in your Will? If Yes – Please list</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_12"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Full name</label>
-                                    </div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Relationship To
-                                            You</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Full name">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_12[0][]"
-                                                                                 id="ff_1_repeater_field_12_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_12_0_0"
-                                                                                 data-error_index="repeater_field_12[0]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Relationship To You">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_12[0][]"
-                                                                                 id="ff_1_repeater_field_12_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_12_1_0"
-                                                                                 data-error_index="repeater_field_12[1]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+
+                <div class="mb-4">
+                    <div class="label">
+                        <label class="fw-bold">Are there any special provisions or instructions you wish to cover in
+                            your Will? If Yes – Please list</label>
+                    </div>
+                    <div id="yourProvision">
+                        <div></div>
+                        <?= $this->element('page4Inputs', [
+                            'field1Name' => 'provision_name[]',
+                            'field2Name' => 'provision_relation[]'
+                        ]); ?>
                     </div>
                 </div>
-                <div data-type="repeater_field" data-name="repeater_field_13"
-                     class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_13">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">Are there any special provisions
-                            or instructions you wish to cover in your Will? If Yes – Please list</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_13"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Full name</label>
-                                    </div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Relationship To
-                                            You</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Full name">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_13[0][]"
-                                                                                 id="ff_1_repeater_field_13_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_13_0_0"
-                                                                                 data-error_index="repeater_field_13[0]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Relationship To You">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_13[0][]"
-                                                                                 id="ff_1_repeater_field_13_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_13_1_0"
-                                                                                 data-error_index="repeater_field_13[1]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+
+
+                <!-- 7. Enduring Powers of Attorney and Medical Decision Makers  -->
+                <div class="ff-el-group">
+                    <h2>7. Enduring Powers of Attorney and Medical Decision Makers</h2>
+                </div>
+                <div class="label">
+                    <label>An enduring power of attorney is a legal document that lets you appoint someone to make
+                        decisions about personal or financial matters. This person is called an attorney. The power
+                        endures - or continues - if and when you are unable to make decisions.</label>
+                </div>
+                <div class="mb-4">
+                    <div class="label">
+                        <label class="fw-bold">Who do you want your attorney(s) to be?</label>
+                    </div>
+                    <div id="yourAttorney">
+                        <div></div>
+                        <?= $this->element('page4Inputs', [
+                            'field1Label' => 'Attorney Full name',
+                            'field2Label' => 'Attorney Address',
+                            'field1Name' => 'attorney_name[]',
+                            'field2Name' => 'attorney_address[]'
+                        ]); ?>
                     </div>
                 </div>
-                <div class="ff-el-group" data-name="custom_html-5549076006301c876c2a312.52366436"><h2>7. Enduring Powers
-                        of Attorney and Medical Decision Makers</h2></div>
-                <div class="ff-el-group" data-name="custom_html-10189469866301c876c2a4f8.25561992"><p>An enduring power
-                        of attorney is a legal document that lets you appoint someone to make decisions about personal
-                        or financial matters. This person is called an attorney. The power endures - or continues - if
-                        and when you are unable to make decisions.</p></div>
-                <div data-type="repeater_field" data-name="repeater_field_16"
-                     class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_16">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">Who do you want your attorney(s)
-                            to be?</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_16"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Attorney's Full
-                                            name</label></div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Attorney's
-                                            Address</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Attorney's Full name">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_16[0][]"
-                                                                                 id="ff_1_repeater_field_16_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_16_0_0"
-                                                                                 data-error_index="repeater_field_16[0]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Attorney's Address">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_16[0][]"
-                                                                                 id="ff_1_repeater_field_16_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_16_1_0"
-                                                                                 data-error_index="repeater_field_16[1]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+
+                <div class="mb-4">
+                    <div class="label">
+                        <label class="fw-bold">If naming more than one attorney, how would you like them to make
+                            decisions?</label>
+                    </div>
+                    <div id="yourAttorneyDecision">
+                        <div class="label">
+                            <label>Please select</label>
+                        </div>
+                        <div class="row g-0">
+                            <div class="col-12 col-lg-11">
+                                <select class="form-select text-grey" name="attorneyDecision">
+                                    <option selected value="">Select...</option>
+                                    <option value="Jointly">Jointly - the attorneys must all agree</option>
+                                    <option value="Separately">Separately - each alternative attorney must make
+                                        decisions separately
+                                    </option>
+                                    <option value="jointly and Separately">jointly and Separately - attorneys can make
+                                        decisions separately but if they make a joint decision, they must all agree
+                                    </option>
+                                </select>
+                            </div>
+
+                        </div>
+
+
                     </div>
                 </div>
-                <div data-type="repeater_field" data-name="repeater_field_17"
-                     class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_17">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">If naming more than one attorney,
-                            how would you like them to make decisions? </label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_17"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Please
-                                            Select</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Please Select">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><select type="select"
-                                                                                  placeholder="Please Select"
-                                                                                  name="repeater_field_17[0][]"
-                                                                                  id="ff_1_repeater_field_17_0"
-                                                                                  data-repeater_index="0"
-                                                                                  data-type="repeater_item"
-                                                                                  data-name="repeater_field_17_0_0"
-                                                                                  data-error_index="repeater_field_17[0]"
-                                                                                  data-calc_value="0"
-                                                                                  class="ff-el-form-control">
-                                                <option value="">Please Select</option>
-                                                <option value="Jointly - the attorneys must all agree">Jointly - the
-                                                    attorneys must all agree
-                                                </option>
-                                                <option
-                                                    value="jointly - each alternative attorney must make decisions separately">
-                                                    jointly - each alternative attorney must make decisions separately
-                                                </option>
-                                                <option
-                                                    value="jointly and severally - attorneys can make decisions separately but if they make a joint decision, they must all agree  ">
-                                                    jointly and severally - attorneys can make decisions separately but
-                                                    if they make a joint decision, they must all agree
-                                                </option>
-                                            </select></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+
+                <div class="mb-4">
+                    <div class="label">
+                        <label class="fw-bold">Who do you want your alternative attorney(s) to be?</label>
+                    </div>
+                    <div id="yourAltAttorney">
+                        <div></div>
+                        <?= $this->element('page4Inputs', [
+                            'field1Label' => 'Alternative Attorney Full name',
+                            'field2Label' => 'Alternative Attorney Address',
+                            'field1Name' => 'altAttorney_name[]',
+                            'field2Name' => 'altAttorney_address[]'
+                        ]); ?>
                     </div>
                 </div>
-                <div data-type="repeater_field" data-name="repeater_field_18"
-                     class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_18">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">Who do you want your alternative
-                            attorney(s) to be?</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_18"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Alternative
-                                            Attorney’s Full Name</label></div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Alternative
-                                            Attorney’s Address</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Alternative Attorney’s Full Name">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_18[0][]"
-                                                                                 id="ff_1_repeater_field_18_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_18_0_0"
-                                                                                 data-error_index="repeater_field_18[0]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Alternative Attorney’s Address">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 name="repeater_field_18[0][]"
-                                                                                 id="ff_1_repeater_field_18_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_18_1_0"
-                                                                                 data-error_index="repeater_field_18[1]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+
+
+                <!-- MEDICAL DECISION MAKER -->
+                <div class="mb-4">
+                    <div class="label">
+                        <label class="fs-5 fw-bold">MEDICAL DECISION MAKER</label>
+                    </div>
+
+                    <div id="yourBankAccount">
+                        <div class="label">
+                            <label>A person to make medical decisions if you cannot give consent. Your medical decision maker is the first person on the list who is reasonably available, and willing and able to make the decision</label>
+                        </div>
+                        <div class="row g-0">
+                            <div class="col-12 col-lg-6 col-xl-3 pe-lg-2">
+                                <div class="label">
+                                    <label>First Decision Maker</label>
+                                </div>
+                                <input type="text" name="firstDecisionMaker" class="form-control" placeholder="Full name,DOB,Phone">
+                            </div>
+
+                            <div class="col-12 col-lg-6 col-xl-3 pe-xl-2">
+                                <div class="label">
+                                    <label>	Second Decision Maker</label>
+                                </div>
+                                <input type="text" name="secondDecisionMaker" class="form-control" placeholder="Full name,DOB,Phone">
+                            </div>
+
+                            <div class="col-12 col-lg-6 col-xl-3 pe-lg-2">
+                                <div class="label">
+                                    <label>Third Decision Maker</label>
+                                </div>
+                                <input type="text" name="thirdDecisionMaker" class="form-control" placeholder="Full name,DOB,Phone">
+                            </div>
+
+                            <div class="col-12 col-lg-6 col-xl-3">
+                                <div class="label">
+                                    <label>Forth Decision Maker</label>
+                                </div>
+                                <input type="text" name="forthDecisionMaker" class="form-control" placeholder="Full name,DOB,Phone">
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
-                <div class="ff-el-group" data-name="custom_html-3672373316301c876c2b799.96314825"><p><strong>MEDICAL
-                            DECISION MAKER </strong></p></div>
-                <div data-type="repeater_field" data-name="repeater_field_19"
-                     class="ff-el-group ff-el-repeater js-repeater" data-root_name="repeater_field_19">
-                    <div class="ff-el-input--label asterisk-right label"><label for="">A person to make medical
-                            decisions if you cannot give consent. Your medical decision maker is the first person on the
-                            list who is reasonably available, and willing and able to make the decision</label></div>
-                    <div class="ff-el-input--content">
-                        <table data-max_repeat="" data-root_name="repeater_field_19"
-                               class="ff_repeater_table ff_flexible_table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">First Decision
-                                            Maker</label></div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Second Decision
-                                            Maker</label></div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Third Decision
-                                            Maker</label></div>
-                                </th>
-                                <th>
-                                    <div class="ff-el-input--label asterisk-right label"><label for="">Forth Decision
-                                            Maker</label></div>
-                                </th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="First Decision Maker">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 placeholder="1.	Full Name, DOB, Address, Mobile Number "
-                                                                                 name="repeater_field_19[0][]"
-                                                                                 id="ff_1_repeater_field_19_0"
-                                                                                 data-repeater_index="0"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_19_0_0"
-                                                                                 data-error_index="repeater_field_19[0]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Second Decision Maker">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 placeholder="1.	Full Name, DOB, Address, Mobile Number "
-                                                                                 name="repeater_field_19[0][]"
-                                                                                 id="ff_1_repeater_field_19_1"
-                                                                                 data-repeater_index="1"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_19_1_0"
-                                                                                 data-error_index="repeater_field_19[1]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Third Decision Maker">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 placeholder="1.	Full Name, DOB, Address, Mobile Number "
-                                                                                 name="repeater_field_19[0][]"
-                                                                                 id="ff_1_repeater_field_19_2"
-                                                                                 data-repeater_index="2"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_19_2_0"
-                                                                                 data-error_index="repeater_field_19[2]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td data-label="Forth Decision Maker">
-                                    <div class="ff-el-group">
-                                        <div class="ff-el-input--content"><input type="text"
-                                                                                 placeholder="1.	Full Name, DOB, Address, Mobile Number "
-                                                                                 name="repeater_field_19[0][]"
-                                                                                 id="ff_1_repeater_field_19_3"
-                                                                                 data-repeater_index="3"
-                                                                                 data-type="repeater_item"
-                                                                                 data-name="repeater_field_19_3_0"
-                                                                                 data-error_index="repeater_field_19[3]"
-                                                                                 class="ff-el-form-control"></div>
-                                    </div>
-                                </td>
-                                <td class="repeat_btn">
-                                    <div class="ff-el-repeat-buttons-list js-repeat-buttons"><span
-                                            class="repeat-plus ff-icon icon-plus-circle"></span><span
-                                            class="repeat-minus ff-icon icon-minus-circle"></span></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+
+
+
+                <!-- 7. Enduring Powers of Attorney and Medical Decision Makers  -->
+                <div class="ff-el-group">
+                    <h2>8. Additional notes</h2>
                 </div>
-                <div class="ff-el-group" data-name="custom_html-10494129136301c876c2c493.14999626"><h2>8. Additional
-                        notes</h2></div>
-                <div class="ff-el-group ff-el-form-hide_label">
-                    <div class="ff-el-input--label asterisk-right label"><label
-                            for="ff_1_description_3">Textarea</label></div>
-                    <div class="ff-el-input--content"><textarea name="description_3" id="ff_1_description_3"
-                                                                class="ff-el-form-control" rows="9" cols="2"
-                                                                data-name="description_3"></textarea></div>
+                <div class="mb-4">
+                        <textarea name="details_youowe" id="details_youowe" class="form-control"
+                                  style="height: 100px;width: 100%; "></textarea>
                 </div>
-                <div class="ff-el-group label" data-name="custom_html-15082431026301c876c2c917.70705464"><h4
-                        style="font-weight: 400;">Privacy Policy</h4>
-                    <div class="ff-el-input--label asterisk-right label"><label for="">At Shelbourne Legal, we take
+
+
+
+
+                <!--      Privacy Policy          -->
+                <div class="label">
+                    <h4>Privacy Policy</h4>
+                    <div class="label">
+                        <label>
+                            At Shelbourne Legal, we take
                             privacy and security of your personal information very seriously. &nbsp;Shelbourne Legal
                             will only use your personal information for the purpose for which you have provided it. We
                             will not disclose your personal information to third parties, unless you have consented to
                             such disclosure or in other circumstances where such disclosure is required or permitted by
-                            law.</label></div>
-                    <div class="ff-el-input--label asterisk-right label"><label for="">We endeavour to keep all personal
+                            law.
+                        </label>
+                    </div>
+                    <div class="label">
+                        <label for="">
+                            We endeavour to keep all personal
                             information safe by taking all reasonable precautions to protect personal information from
-                            misuse, loss, unauthorised access, modification or disclosure.</label></div>
+                            misuse, loss, unauthorised access, modification or disclosure.
+                        </label>
+                    </div>
                 </div>
 
 
                 <?= $this->Form->create($client, ["method" => "post"]) ?>
-                <div class="last">
-                    <div id="form_recaptcha" class="g-recaptcha"
-                         data-sitekey="<?= RECAPTCHAV2_SITEKEY ?>">
-                    </div>
-                    <?= $this->Flash->render() ?>
 
-
-                    <div class="clearfix">
-                        <a class="btn btn-outline-secondary mt-3 float-start" id="page4Prev">Previous</a>
-
-                        <div class="float-none text-center mt-3 float-md-end mt-md-0">
-                            <button type="submit" name="submit" id="submitIntakeform"
-                                    class="btn btn-shelbourne rounded-pill fw-bold w-100 px-4 py-2">Submit
-                            </button>
-                        </div>
-                    </div>
-
+                <!--    Recapture verification    -->
+                <div id="form_recaptcha" class="g-recaptcha"
+                     data-sitekey="<?= RECAPTCHAV2_SITEKEY ?>">
                 </div>
+                <?= $this->Flash->render() ?>
+
+
+                <!-- Previous + Submit button -->
+                <div class="clearfix">
+                    <a class="btn btn-outline-secondary mt-3 float-start" id="page4Prev">Previous</a>
+
+                    <div class="float-none text-center mt-3 float-md-end mt-md-0">
+                        <button type="submit" name="submit" id="submitIntakeform"
+                                class="btn btn-shelbourne rounded-pill fw-bold w-100 px-4 py-2">Submit
+                        </button>
+                    </div>
+                </div>
+
                 <?= $this->Form->end() ?>
 
             </div>
