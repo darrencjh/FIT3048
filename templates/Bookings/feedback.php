@@ -15,7 +15,7 @@ $this->assign('title', 'Booking Feedback');
     <div class="h4 my-5">Boooking information is sent to your email. Please confirm. If need changes,please contact us</div>
     <div class="text-center">
         <a class="btn btn-outline-shelbourne rounded-pill" target="_blank"
-           href="https://shelbournelegal.com.au/contact/">Contack us</a>
+           href="https://shelbournelegal.com.au/contact/">Contact us</a>
     </div>
     <div class="h4 my-5">Next Step: Please fill in the intake form before your booking time.</div>
     <div class="text-center">

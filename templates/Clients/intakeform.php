@@ -68,7 +68,7 @@ $this->Html->script('intakeform', ['block' => true]);
                             <label>Date of Birth</label>
                         </div>
                         <input type="text" id="inputDOB" name="date_of_birth" class="form-control"
-                               placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"
+                               placeholder="dd/mm/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"
                                required/>
 <!--                         pattern="\d{1,2}[/]\d{1,2}[/]\d{4}"-->
                         <div class="invalid-feedback" id="dateError">Please provide your date of birth</div>
