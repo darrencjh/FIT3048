@@ -933,50 +933,50 @@ $this->Html->script('intakeform', ['block' => true]);
                                 </select>
                             </div>
 
-<!--                            <div class="col-12 col-lg-2 row g-0">-->
-<!--                                <div class="col-12 col-lg-10">-->
-<!--                                    <div class="label">-->
-<!--                                        <label>Property value:</label>-->
-<!--                                    </div>-->
-<!--                                    <input type="text" name="realestate_value[]" class="form-control">-->
+                            <div class="col-12 col-lg-2 row g-0">
+                                <div class="col-12 col-lg-10">
+                                    <div class="label">
+                                        <label>Property value:</label>
+                                    </div>
+                                    <input type="text" name="realestate_value[]" class="form-control">
+                                </div>
+                                <div class="col-12 col-lg-2" >
+                                    <div class="row g-0">
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                            <a class="btn add">
+                                                <span class="fas fa-plus-circle"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
+                                            <a class="btn delete">
+                                                <span class="fas fa-minus-circle"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+<!--                            <div class="col-12 col-lg-2">-->
+<!--                                <div class="label">-->
+<!--                                    <label>Property value:</label>-->
 <!--                                </div>-->
-<!--                                <div class="col-12 col-lg-2" >-->
-<!--                                    <div class="row g-0">-->
-<!--                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">-->
-<!--                                            <a class="btn add">-->
-<!--                                                <span class="fas fa-plus-circle"></span>-->
-<!--                                            </a>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">-->
-<!--                                            <a class="btn delete">-->
-<!--                                                <span class="fas fa-minus-circle"></span>-->
-<!--                                            </a>-->
-<!--                                        </div>-->
+<!--                                <input type="text" name="realestate_value[]" class="form-control">-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="col-12 col-lg-2" >-->
+<!--                                <div class="row g-0">-->
+<!--                                    <div class="col-1 col-lg-12 mt-2 mt-lg-0">-->
+<!--                                        <a class="btn add">-->
+<!--                                            <span class="fas fa-plus-circle"></span>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">-->
+<!--                                        <a class="btn delete">-->
+<!--                                            <span class="fas fa-minus-circle"></span>-->
+<!--                                        </a>-->
 <!--                                    </div>-->
 <!--                                </div>-->
 <!--                            </div>-->
-
-                            <div class="col-12 col-lg-2">
-                                <div class="label">
-                                    <label>Property value:</label>
-                                </div>
-                                <input type="text" name="realestate_value[]" class="form-control">
-                            </div>
-
-                            <div class="col-12 col-lg-2" >
-                                <div class="row g-0">
-                                    <div class="col-1 col-lg-12 mt-2 mt-lg-0">
-                                        <a class="btn add">
-                                            <span class="fas fa-plus-circle"></span>
-                                        </a>
-                                    </div>
-                                    <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
-                                        <a class="btn delete">
-                                            <span class="fas fa-minus-circle"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
 

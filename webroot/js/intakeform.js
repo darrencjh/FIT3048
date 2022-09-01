@@ -422,6 +422,22 @@ let addDeleteRow=(e,outerDivId)=>{
     }
 }
 
+let addDeleteAssetRow=(e,outerDivId)=>{
+    e.stopPropagation()
+    if($(e.target).parent().hasClass('add')){
+        $(`#${outerDivId} .delete`).parent().addClass('show')
+        let $oneRow=$(`#${outerDivId}>.inputsRow:first`).clone()
+        $oneRow.find(":input").val("")
+        $(`#${outerDivId}`).append($oneRow)
+    }else if($(e.target).parent().hasClass('delete')){
+        let $targetRow=$(e.target).parent().parent().parent().parent().parent().parent()
+        $targetRow.remove()
+        if($(`#${outerDivId}>.inputsRow`).length==1){
+            $(`#${outerDivId} .delete`).parent().removeClass('show')
+        }
+    }
+}
+
 
 //health description display when 'Yes',disappear when 'no',default is disappear
 $(":radio[name=is_health]").change(function(){
@@ -523,6 +539,6 @@ $(":radio[name=has_referrer]").change(function(){
 })
 //Real estate: add a real estate
 $("#yourRealEstate").click(function(e){
-    addDeleteRow(e,"yourRealEstate")
+    addDeleteAssetRow(e,"yourRealEstate")
 })
 
