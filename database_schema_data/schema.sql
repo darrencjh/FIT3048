@@ -2,6 +2,21 @@ DROP DATABASE IF EXISTS shelbourne_legal;
 CREATE DATABASE shelbourne_legal CHARSET = UTF8MB4;
 USE shelbourne_legal;
 
+CREATE TABLE `admins` (
+  `id` char(36) NOT NULL,
+  `email` varchar(255) NOT NULL DEFAULT '',
+  `username` varchar(64) NOT NULL  DEFAULT '',
+  `password` varchar(64) NOT NULL  DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `admins`
+    ADD PRIMARY KEY (`id`),
+    ADD UNIQUE KEY `email` (`email`),
+    ADD UNIQUE KEY `username` (`username`);
+
+
+
+
 CREATE TABLE `bookings`
 (
     `id`          char(36)     NOT NULL,
