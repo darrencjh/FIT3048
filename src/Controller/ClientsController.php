@@ -164,4 +164,10 @@ class ClientsController extends AppController
         return $result->success;
     }
 
+    public function feedback(){
+        $pageTitle="Thank You";
+        $this->set(compact('pageTitle'));
+
+    }
+
 }
