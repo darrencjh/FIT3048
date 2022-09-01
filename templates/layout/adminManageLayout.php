@@ -67,7 +67,7 @@ $titleDescription = ' - Shelbourne legal';
         <hr class="sidebar-divider">
 
 
-        <!-- 1-Nav Item - Clients Collapse Menu -->
+        <!-- 1-Nav Item - Dashboard Collapse Menu -->
         <li class="nav-item <?= ($controller == 'Clients') ? ' active' : '' ?>">
             <a class="nav-link <?= ($controller == 'Clients') ? '' : ' collapsed' ?>" href="#" data-toggle="collapse" data-target="#collapseClients" aria-expanded="false" aria-controls="collapseClients">
                 <i class="fas fa-fw fa-users"></i>
@@ -83,7 +83,7 @@ $titleDescription = ' - Shelbourne legal';
         </li>
 
 
-        <!-- 2-Nav Item - Services Collapse Menu -->
+        <!-- 2-Nav Item - Clients Collapse Menu -->
         <li class="nav-item<?= ($controller == 'Services') ? ' active' : '' ?>">
             <a class="nav-link <?= ($controller == 'Services') ? '' : ' collapsed' ?>" href="#" data-toggle="collapse" data-target="#collapseServices" aria-expanded="false" aria-controls="collapseServices">
                 <i class="fas fa-fw fa-list"></i>
@@ -100,7 +100,7 @@ $titleDescription = ' - Shelbourne legal';
 
 
 
-        <!-- 3-Nav Item - Sessions Collapse Menu -->
+        <!-- 3-Nav Item - Bookings Collapse Menu -->
         <li class="nav-item<?= ($controller == 'Sessions') ? ' active' : '' ?>">
             <a class="nav-link <?= ($controller == 'Sessions') ? '' : ' collapsed' ?>" href="#" data-toggle="collapse" data-target="#collapseSessions" aria-expanded="false" aria-controls="collapseSessions">
                 <i class="fas fa-fw fa-calendar-check"></i>
@@ -115,7 +115,7 @@ $titleDescription = ' - Shelbourne legal';
             </div>
         </li>
 
-        <!-- 4-Nav Item - Bookings Collapse Menu -->
+        <!-- 4-Nav Item - Admins Collapse Menu -->
         <li class="nav-item<?= ($controller == 'Bookings') ? ' active' : '' ?>">
             <a class="nav-link <?= ($controller == 'Bookings') ? '' : ' collapsed' ?>" href="#" data-toggle="collapse" data-target="#collapseBookings" aria-expanded="false" aria-controls="collapseBookings">
                 <i class="fas fa-fw fa-clock"></i>
