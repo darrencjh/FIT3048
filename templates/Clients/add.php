@@ -32,6 +32,12 @@
                     echo $this->Form->control('will_text');
                     echo $this->Form->control('powers_text');
                     echo $this->Form->control('binding_text');
+//                echo $this->Form->control('Children.0.firstname');
+//                echo $this->Form->control('Children.0.lastname');
+//                echo $this->Form->control('Children.0.dob');
+//                echo $this->Form->control('Children.1.firstname');
+//                echo $this->Form->control('Children.1.lastname');
+//                echo $this->Form->control('Children.1.dob');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
