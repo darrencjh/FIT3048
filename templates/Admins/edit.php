@@ -5,29 +5,20 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $admin->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $admin->id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Admins'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
+    <div class="column-responsive column-80 ml-5">
         <div class="admins form content">
             <?= $this->Form->create($admin) ?>
             <fieldset>
                 <legend><?= __('Edit Admin') ?></legend>
                 <?php
-                    echo $this->Form->control('email');
+                    echo $this->Form->control('email', ['placeholder' => 'eg. example@email.com','pattern'=>'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$']);
                     echo $this->Form->control('username');
-                    echo $this->Form->control('password');
+                    echo $this->Form->control('password',['value'=>"",'label'=>"New password"]);
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Submit'),['class'=>'btn btn-lg btn-primary']) ?>
+            <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-lg btn-secondary']) ?>
+
             <?= $this->Form->end() ?>
         </div>
     </div>

@@ -5,19 +5,10 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Admin'), ['action' => 'edit', $admin->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Admin'), ['action' => 'delete', $admin->id], ['confirm' => __('Are you sure you want to delete # {0}?', $admin->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Admins'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Admin'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
+    <div class="column-responsive column-80 ml-5">
         <div class="admins view content">
-            <h3><?= h($admin->id) ?></h3>
-            <table>
+            <h3>Admin: <?= h($admin->username) ?></h3>
+            <table class="table table-bordered table-striped table-hover" width="100%" cellspacing="0">
                 <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= h($admin->id) ?></td>
@@ -31,6 +22,8 @@
                     <td><?= h($admin->username) ?></td>
                 </tr>
             </table>
+            <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-lg btn-secondary']) ?>
+
         </div>
     </div>
 </div>

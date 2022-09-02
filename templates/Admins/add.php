@@ -5,24 +5,19 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Admins'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
+    <div class="column-responsive column-80 ml-5">
         <div class="admins form content">
             <?= $this->Form->create($admin) ?>
             <fieldset>
-                <legend><?= __('Add Admin') ?></legend>
+                <legend><?= __('Add an Admin account') ?></legend>
                 <?php
-                    echo $this->Form->control('email');
+                    echo $this->Form->control('email', ['placeholder' => 'eg. example@email.com','pattern'=>'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$']);
                     echo $this->Form->control('username');
                     echo $this->Form->control('password');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Submit'),['class'=>'btn btn-lg btn-primary']) ?>
+            <?= $this->Html->link(__('List Admins'), ['action' => 'index'], ['class' => 'btn btn-lg btn-secondary']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
