@@ -35,12 +35,25 @@ $titleDescription = ' - Shelbourne legal';
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
+    <style>
+        body{
+            background: url("<?= $this->Url->build('/img/login/login-bg.jpg') ?>");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #loginUsername{
+            background-image: url("<?= $this->Url->build('/img/login/username.png') ?>");
+        }
+        #loginUserPassword{
+            background-image: url("<?= $this->Url->build('/img/login/pwd.png') ?>");
+        }
+    </style>
+
 
     <?= $this->Html->script('jquery-3.6.0.min') ?>
 </head>
 
-<!--class="bg-gradient-primary"-->
-<body class="bg-gradient-primary">
+<body>
 
     <div class="container">
         <!-- Here's where I want my views to be displayed -->

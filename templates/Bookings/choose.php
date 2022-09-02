@@ -102,7 +102,6 @@ $this->Html->css(['evo-calendar', 'booking'], ['block' => true]);
                             <img src="//assets.calendly.com/packs/booking/media/ms-teams-e0858e32c5245a478456.svg"
                                  alt="" width="24px" height="24px">
                             <span>Microsoft Teams</span>
-                            <!--                        <div id="emailHelp" class="form-text">Web conferencing details provided upon confirmation</div>-->
                         </label>
                     </div>
                     <div class="form-check">
@@ -575,8 +574,6 @@ $this->Html->css(['evo-calendar', 'booking'], ['block' => true]);
                 });
 
             });
-
-
         </script>
 
         <!--  form bootstrap validations   -->
@@ -751,20 +748,7 @@ $this->Html->css(['evo-calendar', 'booking'], ['block' => true]);
             })
         </script>
 
-        <!--  js verify  -->
-        <script>
-            // $(function () {
-            //
-            //     form.addEventListener('submit', function (event) {
-            //         if (!form.checkValidity()) {
-            //             event.preventDefault()
-            //             event.stopPropagation()
-            //         }
-            //
-            //         form.classList.add('was-validated')
-            //     }, false)
-            // });
-        </script>
+
 
     </div>
 

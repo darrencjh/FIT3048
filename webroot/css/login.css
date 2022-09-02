@@ -1,8 +1,44 @@
-body{
-    background: url("<?= $this->Url->build('/img/login/bg.png') ?>");
-    background-size: cover;
+/* Login in page styles */
+
+
+/* Core codes for input fields  */
+.form-control{
+    width: 100%;
+    color: #424344;
+    padding: 10px;
+    height: auto;
+    border: 1px solid #757575;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: all .2s linear;
+    font-size: 16px;
 }
 
+/* placeholder color */
+::-webkit-input-placeholder{
+    color: #c5c5c5 !important;
+}
+:-moz-placeholder{
+    color: #c5c5c5 !important;
+}
+::-moz-placeholder{
+    color: #c5c5c5 !important;
+}
+:-ms-input-placeholder{
+    color: #c5c5c5 !important;
+}
+
+
+input:focus{
+    border-color: #17BCB9 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+
+/* Customize style for inputs */
 #loginUsername,#loginUserPassword{
     height: 3rem;
     border:2px solid #fff;
@@ -10,30 +46,22 @@ body{
     background-position: 2%;
     padding-left: 9%;
 }
-#loginUsername{
-    background-image: url("<?= $this->Url->build('/img/login/username.png') ?>");
-}
+/* error message style */
 .msg-uname,.msg-pwd{
     height: 20px;
     color: red;
 }
-#loginUserPassword{
-    background-image: url("<?= $this->Url->build('/img/login/pwd.png') ?>");
 
-}
-.form-control-input:focus{
-    box-shadow: none;
-}
-input::-webkit-input-placeholder{
-    color: #666; !important;
 
-}
-.form-button{
-    height: 3rem;
+
+@media (min-width: 992px) {
+    .w-lg-25{
+        width: 25% !important;
+    }
 }
 
-.sub-log {
-    width: 40px;
-    border-radius: 20px 20px 0px 0px;
-    border-top: 8px solid #000;
+#forgetPassword:hover{
+    color: #17BCB9;
+    background-color: #fff;
+    outline: 0;
 }

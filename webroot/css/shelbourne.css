@@ -27,7 +27,7 @@
 }
 .btn-check:checked + .btn-shelbourne, .btn-check:active + .btn-shelbourne, .btn-shelbourne:active, .btn-shelbourne.active, .show > .btn-shelbourne.dropdown-toggle {
     color: #fff;
-    background-color: #01ab17BCB99d;
+    background-color: #17BCB9;
     border-color: #17BCB9;
 }
 .btn-check:checked + .btn-shelbourne:focus, .btn-check:active + .btn-shelbourne:focus, .btn-shelbourne:active:focus, .btn-shelbourne.active:focus, .show > .btn-shelbourne.dropdown-toggle:focus {
@@ -43,7 +43,7 @@
 .btn-outline-shelbourne {
     color: #17BCB9;
     height: 44px;
-    line-height: 30px;
+    line-height: 26px;
     border: 2px solid #17BCB9;
     font-size: 16px;
     font-weight: 500;

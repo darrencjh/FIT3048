@@ -1,45 +1,47 @@
 <?php
-echo $this->Html->script('login',['block'=>true]);
+echo $this->Html->script('login', ['block' => true]);
 ?>
 
 
 <!-- Outer Row -->
 <div class="row justify-content-center">
 
-    <div class="col-xl-10 col-md-9">
-        <div class="card o-hidden border-0  my-5 bg-transparent" >
+    <div class="col-md-9 col-xl-10">
+        <div class="card border-0 my-5 bg-transparent">
 
-            <div class="card-body p-0">
+            <div class="card-body p-0 text-light mt-md-5">
                 <!-- Nested Row within Card Body -->
-                <div class="row">
+                <div class="row g-0">
                     <div class="col-lg-12">
-                        <div class="p-5 mt-5">
+                        <div class="p-5">
+                            <!--   Title -->
                             <div class="text-center">
-                                <h1>
-                                    <b>Shelbourne Legal</b>
-                                </h1>
-                                <!--    <h1 class="h1 text-dark mb-4 mt-5" id="login_companyname">Healing the Spirit</h1>-->
+                                <!--  $this->Html->image('legal_logo_trans.png', ['alt' => 'Shelbourne legal', 'class' => '']);   -->
+                                <h1><b>Shelbourne Legal</b></h1>
                                 <h2>Admin Login </h2>
                             </div>
 
-                            <?= $this->Form->create(null,['type'=>'post','class'=>'user']); ?>
+                            <!--     Username+password      -->
+                            <?= $this->Form->create(null, ['type' => 'post', 'class' => 'user']); ?>
                             <fieldset>
-							    <div class="label required">
-                                     <label>Username</label>
+                                <div class="label required">
+                                    <label>Username</label>
                                 </div>
-                                <?php echo $this->Form->control('username',['label' => false,'class'=>"form-control bg-transparent font-weight-bold form-control-input mt-2",'id'=>"loginUsername", 'name'=>"username", 'aria-describedby'=>"emailHelp",'placeholder'=>"Username"]);
+                                <?php echo $this->Form->control('username', ['label' => false, 'class' => "form-control bg-transparent fw-bold mt-2 text-light", 'id' => "loginUsername", 'name' => "username",  'placeholder' => "Username"]);
                                 ?>
-								<div class="msg-uname mb-3"></div>
+                                <div class="msg-uname mb-3"></div>
 
-							    <div class="label required">
-                                     <label>Password</label>
+                                <div class="label required">
+                                    <label>Password</label>
                                 </div>
-     							<?php echo $this->Form->control('password',['label' => false,'type'=>"password",'class'=>"form-control bg-transparent font-weight-bold form-control-input mt-2",'id'=>"loginUserPassword", 'name'=>"password", 'aria-describedby'=>"emailHelp",'placeholder'=>"Password"]);
+                                <?php echo $this->Form->control('password', ['label' => false, 'type' => "password", 'class' => "form-control bg-transparent fw-bold mt-2  text-light", 'id' => "loginUserPassword", 'name' => "password", 'placeholder' => "Password"]);
                                 ?>
-								<div class="msg-pwd"></div>
+                                <div class="msg-pwd"></div>
                             </fieldset>
-                            <?= $this->Form->button(__('Login'),['class' => 'btn btn-lg btn-shelbourne text-uppercase','id'=>'loginSubmit']) ?>
-                            <?= $this->Html->link('Forget Password', ['controller' => 'Admins', 'action' => 'resetPasswordEmail'],['class'=>"btn  btn-lg btn-light text-uppercase float-end",'id'=>"forgetPassword",'target'=>"_blank"]) ?>
+                            <div class="mt-3 clearfix">
+                                <?= $this->Form->button(__('Login'), ['class' => 'btn btn-lg btn-shelbourne w-100 w-lg-25', 'id' => 'loginSubmit']) ?>
+                                <?= $this->Html->link('Forget Password', ['controller' => 'Admins', 'action' => 'resetPasswordEmail'], ['class' => "btn btn-lg btn-outline-shelbourne text-capitalize d-block d-lg-inline-block float-lg-end mt-3 mt-lg-0", 'id' => "forgetPassword", 'target' => "_blank"]) ?>
+                            </div>
                             <?= $this->Form->end() ?>
                         </div>
                     </div>
@@ -68,7 +70,7 @@ echo $this->Html->script('login',['block'=>true]);
     <?php
     //form page just send query string to home page after submit a form
     //using action to distinguish which message to display
-    $action = $this->request->getQuery('action','');
+    $action = $this->request->getQuery('action', '');
     if(!empty($action)){
     ?>
     $('.mask').removeClass('hide');
@@ -76,7 +78,7 @@ echo $this->Html->script('login',['block'=>true]);
         $('.mask').addClass('hide');
     })
     <?php
-    if($action=='resetPwdSuccess'){
+    if($action == 'resetPwdSuccess'){
     ?>
     $('.prompt_text').text('Your password has been reset,please login.');
     <?php
