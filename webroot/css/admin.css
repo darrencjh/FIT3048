@@ -1,0 +1,94 @@
+
+td.table-cell-center {
+    text-align: center;
+}
+
+td code {
+    color: #858796;
+}
+
+.product-image-thumbnail {
+    object-fit: cover;
+}
+
+/*herder.php*/
+#accordionSidebar{
+    background-image: linear-gradient(180deg,#4b4d58 0%,#242F41 100%);
+}
+
+#logo{
+    text-align: center;
+}
+#logo>a:hover{
+    text-decoration: none;
+}
+#logo>a>img{
+    width: 50%;
+}
+#company_name{
+    margin-top: -50px;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+}
+.toggled #company_name{
+    margin-top: -20px;
+    font-size: 1rem;
+}
+
+#accordionSidebar{
+    transition: all 0.7s;
+}
+
+/*toptap*/
+#profile{
+    width: 50px;
+    height: 50px;
+    background:#fff url(../img/profile.jpg) no-repeat 90%;
+    background-size: cover;
+}
+
+/*products*/
+.searchIcon{
+    position: relative;
+    left: 18px;
+    top: 33px;
+    z-index: 9999;
+}
+.searchAndEdit{
+    position: relative;
+}
+.keywords{
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.searchButton{
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+#edit-muti-products{
+    position: absolute;
+    right: 0;
+}
+
+.side-nav-item{
+    display: block;
+}
+
+
+
+/* pop up window*/
+.mask{background-color:rgba(0,0,0,0.2); width:100%; height:100%;position:fixed;top:0;left:0;}
+.prompt_box{width:400px;height:200px;background:#ffffff;border-radius:6px;
+    position:fixed;top:25%; left:50%; margin-left:-200px;overflow: hidden;}
+.prompt_box .prompt_title{height:40px;line-height:40px;padding-left:20px;border-bottom:2px solid #1a9ebf;background:#e6e6e6;position: relative;}
+.prompt_box .prompt_title h3{font-size:16px;color: #333333; margin-top:0;}
+
+.prompt_box .prompt_cont{position: relative;height:158px;}
+.prompt_box .prompt_cont .prompt_text{line-height:140px;padding-left:30px;}
+.prompt_box .prompt_cont .prompt_sure{position: absolute;right:20px;bottom:34px;
+    width:50px;height: 26px;background:#1a9ebf;border-radius:5px;color:#ffffff;
+    font-size: 14px;line-height:26px;text-align: center;}
+
+.hide{display:none;}
+.show{display:block;}

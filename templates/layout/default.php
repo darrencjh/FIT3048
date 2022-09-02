@@ -41,68 +41,66 @@ $titleDescription = ' - Shelbourne legal';
 <body>
 
     <header class="fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fw-bold">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fw-bold">
 
-        <div class="container-fluid nav-content">
-            <!--   logo       -->
-            <a class="navbar-brand" href="https://shelbournelegal.com.au/">
-                <img width="300" height="27"
-                     src="https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web-300x27.png"
-                     class="custom-logo" alt="Shelbourne Legal"
-                     srcset="https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web-300x27.png 300w, https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web-768x70.png 768w, https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web.png 827w"
-                     sizes="(max-width: 300px) 100vw, 300px">
-            </a>
+            <div class="container-fluid nav-content">
+                <!--   logo       -->
+                <a class="navbar-brand" href="https://shelbournelegal.com.au/">
+                    <img width="300" height="27"
+                         src="https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web-300x27.png"
+                         class="custom-logo" alt="Shelbourne Legal"
+                         srcset="https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web-300x27.png 300w, https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web-768x70.png 768w, https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web.png 827w"
+                         sizes="(max-width: 300px) 100vw, 300px">
+                </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!--     Menu items   -->
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item"> <!-- show  -->
-                        <a class="nav-link" aria-current="page" href="https://shelbournelegal.com.au/">Home</a>
-                        <!-- active  -->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://shelbournelegal.com.au/about/">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Services
-                        </a>
-                        <ul class="dropdown-menu p-2" aria-labelledby="navbarDropdownMenuLink"><!-- show  -->
-                            <li><a class="dropdown-item bg-white p-2 mb-2  text-muted"
-                                   href="https://shelbournelegal.com.au/estate-planning/">Estate Planning</a></li>
-                            <li><a class="dropdown-item bg-white p-2 mb-2  text-muted"
-                                   href="https://shelbournelegal.com.au/probate-estate-administration/">Probate &
-                                    Administration</a></li>
-                            <li><a class="dropdown-item bg-white p-2  text-muted"
-                                   href="https://shelbournelegal.com.au/estate-litigation/">Estate Litigation</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://shelbournelegal.com.au/blog/">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://shelbournelegal.com.au/contact/">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="tel:1300743526">1300 743 526</a>
-                    </li>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--     Menu items   -->
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"> <!-- show  -->
+                            <a class="nav-link" aria-current="page" href="https://shelbournelegal.com.au/">Home</a>
+                            <!-- active  -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://shelbournelegal.com.au/about/">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu p-2" aria-labelledby="navbarDropdownMenuLink"><!-- show  -->
+                                <li><a class="dropdown-item bg-white p-2 mb-2  text-muted"
+                                       href="https://shelbournelegal.com.au/estate-planning/">Estate Planning</a></li>
+                                <li><a class="dropdown-item bg-white p-2 mb-2  text-muted"
+                                       href="https://shelbournelegal.com.au/probate-estate-administration/">Probate &
+                                        Administration</a></li>
+                                <li><a class="dropdown-item bg-white p-2  text-muted"
+                                       href="https://shelbournelegal.com.au/estate-litigation/">Estate Litigation</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://shelbournelegal.com.au/blog/">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://shelbournelegal.com.au/contact/">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="tel:1300743526">1300 743 526</a>
+                        </li>
 
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
 
     <article>
-
         <?= $this->fetch('content') ?>
-
     </article>
 
 

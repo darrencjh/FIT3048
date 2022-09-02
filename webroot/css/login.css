@@ -1,0 +1,39 @@
+body{
+    background: url("<?= $this->Url->build('/img/login/bg.png') ?>");
+    background-size: cover;
+}
+
+#loginUsername,#loginUserPassword{
+    height: 3rem;
+    border:2px solid #fff;
+    background-repeat: no-repeat;
+    background-position: 2%;
+    padding-left: 9%;
+}
+#loginUsername{
+    background-image: url("<?= $this->Url->build('/img/login/username.png') ?>");
+}
+.msg-uname,.msg-pwd{
+    height: 20px;
+    color: red;
+}
+#loginUserPassword{
+    background-image: url("<?= $this->Url->build('/img/login/pwd.png') ?>");
+
+}
+.form-control-input:focus{
+    box-shadow: none;
+}
+input::-webkit-input-placeholder{
+    color: #666; !important;
+
+}
+.form-button{
+    height: 3rem;
+}
+
+.sub-log {
+    width: 40px;
+    border-radius: 20px 20px 0px 0px;
+    border-top: 8px solid #000;
+}

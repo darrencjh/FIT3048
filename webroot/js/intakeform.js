@@ -567,40 +567,8 @@ $("#yourAltAttorney").click(function(e){
 
 
 
-
-
-
-
 //Page 4: click submit button
 $("#submitIntakeform").click(function () {
-    let givenName = inputGivenName.value
-    let lastName = inputLastName.value
-    let DOB = inputDOB.value
-    let occupation = inputOccupation.value
-    let houseNumber = inputHouseNumber.value
-    let address = inputAddress.value
-    let state = inputState.value
-    let postCode = inputPostCode.value
-    let email = inputEmail.value
-    let phoneNumber = inputPhoneNumber.value
-    if (givenName == "") $("#inputGivenName").addClass("is-invalid")
-    if (lastName == "") $("#inputLastName").addClass("is-invalid")
-    if (DOB == "") $("#inputDOB").addClass("is-invalid")
-    if (occupation == "") $("#inputOccupation").addClass("is-invalid")
-    if (houseNumber == "") $("#inputHouseNumber").addClass("is-invalid")
-    if (address == "") $("#inputAddress").addClass("is-invalid")
-    if (state == "") $("#inputState").addClass("is-invalid")
-    if (postCode == "") $("#inputPostCode").addClass("is-invalid")
-    if (email == "") $("#inputEmail").addClass("is-invalid")
-    if (phoneNumber == "") $("#inputPhoneNumber").addClass("is-invalid")
-
-    if (!givenName || !lastName || !DOB || !occupation || !houseNumber || !address || !state || !postCode || !email || !phoneNumber) {
-        document.getElementById('content').scrollIntoView(true)
-
-        return false
-    } else {
-        return true
-    }
 
 
 })

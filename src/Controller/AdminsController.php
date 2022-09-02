@@ -110,6 +110,8 @@ class AdminsController extends AppController
     }
 
     public function login(){
+        // Set the login layout.
+        $this->viewBuilder()->setLayout('adminLoginLayout');
 
     }
 }
