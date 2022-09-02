@@ -54,6 +54,7 @@ $(()=>{
     });
 
 
+    //if type url,make the relative nav active
     //console.log($(".show .collapse-item").attr("href"));//get the first element selected
     $(".show .collapse-item").each(function () {
         // console.log($(this).attr("href"));

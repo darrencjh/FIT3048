@@ -155,15 +155,12 @@ $action = $this->request->getParam('action');
 
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
-                            <span
-                                class="d-none d-lg-inline font-weight-bolder text-gray-600 small mr-2">Hi,Admin <?= $admin_name ?></span>
-                            <!--                                <i class="fa fa-sign-out-alt fa-sm fa-fw text-gray-400"></i>Log out-->
-
+                            <span class="d-none d-lg-inline font-weight-bolder text-gray-600 small mr-2">Hi,Admin</span>
                         </a>
                     </li>
 
                     <li class="nav-item mt-3">
-                        <?= $this->Html->link(__('Log out'), ['controller' => 'Admins', 'action' => 'logout'], ['class' => 'btn btn-danger float-right ml-3 logout']) ?>
+                        <?= $this->Html->link(__('<i class="fas fa-sign-out-alt"></i>Log out'), ['controller' => 'Admins', 'action' => 'logout'], [ 'data-toggle'=>"modal",'data-target'=>"#logoutModal",'escape'=>false,'class' => 'btn btn-danger float-right ml-3']) ?>
                     </li>
 
 
@@ -211,12 +208,12 @@ $action = $this->request->getParam('action');
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="logoutModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="logoutModalLabel">Ready to Log out?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-body">Select "Logout" below if you are ready to quit this Admin system.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                 <?= $this->Html->link(__('Logout'), ['controller' => 'Admins', 'action' => 'logout'], ['class' => 'btn btn-primary']) ?>
@@ -242,47 +239,12 @@ $action = $this->request->getParam('action');
 </div>
 
 
-<!--            Pop up window-->
-<div class="mask hide">
-    <div class="prompt_box">
-        <div class="prompt_title">
-            <h3 class="pt-3 font-weight-bold"></h3>
-            <span class="prompt_cancel"></span>
-        </div>
-        <div class="prompt_cont">
-            <div class="prompt_text"></div>
-            <a class="prompt_sure">Ok</a>
-        </div>
-    </div>
-</div>
+
 <div id="currentAction" style="display: none;"><?= $action ?></div>
 <div id="currentController" style="display: none;"><?= $controller ?></div>
 
 
 <!--  JS  -->
-<script>
-    <?php
-    //form page just send query string to home page after submit a form
-    //using action to distinguish which message to display
-    $action = $this->request->getQuery('action', '');
-    if(!empty($action)){
-    ?>
-    $('.mask').removeClass('hide');
-    $('.prompt_sure,.prompt_cancel').click(function () {
-        $('.mask').addClass('hide');
-    })
-    <?php
-    if($action == 'respondQuerySuccess'){
-    ?>
-    $('.prompt_text').text('The response email has been sent.');
-    <?php  }
-    }
-    ?>
-</script>
-
-
-
-
 <?= $this->Html->script('bootstrap.min') ?>
 
 

@@ -27,14 +27,14 @@ echo $this->Html->script('login', ['block' => true]);
                                 <div class="label required">
                                     <label>Username</label>
                                 </div>
-                                <?php echo $this->Form->control('username', ['label' => false, 'class' => "form-control bg-transparent fw-bold mt-2 text-light", 'id' => "loginUsername", 'name' => "username",  'placeholder' => "Username"]);
+                                <?php echo $this->Form->control('username', ['label' => false, 'class' => "form-control bg-transparent fw-bold mt-2 text-light", 'id' => "loginUsername", 'name' => "username",  'placeholder' => "Username",'required' => true]);
                                 ?>
                                 <div class="msg-uname mb-3"></div>
 
                                 <div class="label required">
                                     <label>Password</label>
                                 </div>
-                                <?php echo $this->Form->control('password', ['label' => false, 'type' => "password", 'class' => "form-control bg-transparent fw-bold mt-2  text-light", 'id' => "loginUserPassword", 'name' => "password", 'placeholder' => "Password"]);
+                                <?php echo $this->Form->control('password', ['label' => false, 'type' => "password", 'class' => "form-control bg-transparent fw-bold mt-2  text-light", 'id' => "loginUserPassword", 'name' => "password", 'placeholder' => "Password",'required' => true]);
                                 ?>
                                 <div class="msg-pwd"></div>
                             </fieldset>
@@ -43,6 +43,8 @@ echo $this->Html->script('login', ['block' => true]);
                                 <?= $this->Html->link('Forget Password', ['controller' => 'Admins', 'action' => 'resetPasswordEmail'], ['class' => "btn btn-lg btn-outline-shelbourne text-capitalize d-block d-lg-inline-block float-lg-end mt-3 mt-lg-0", 'id' => "forgetPassword", 'target' => "_blank"]) ?>
                             </div>
                             <?= $this->Form->end() ?>
+
+                            <?= $this->Flash->render() ?>
                         </div>
                     </div>
                 </div>
