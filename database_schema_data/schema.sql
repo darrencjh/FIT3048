@@ -6,7 +6,7 @@ CREATE TABLE `admins` (
   `id` char(36) NOT NULL,
   `email` varchar(255) NOT NULL DEFAULT '',
   `username` varchar(64) NOT NULL  DEFAULT '',
-  `password` varchar(64) NOT NULL  DEFAULT ''
+  `password` varchar(255) NOT NULL  DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `admins`

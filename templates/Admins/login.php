@@ -16,7 +16,6 @@ echo $this->Html->script('login', ['block' => true]);
                         <div class="p-5">
                             <!--   Title -->
                             <div class="text-center">
-                                <!--  $this->Html->image('legal_logo_trans.png', ['alt' => 'Shelbourne legal', 'class' => '']);   -->
                                 <h1><b>Shelbourne Legal</b></h1>
                                 <h2>Admin Login </h2>
                             </div>

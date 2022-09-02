@@ -63,7 +63,7 @@ class AdminsTable extends Table
 
         $validator
             ->scalar('password')
-            ->maxLength('password', 64)
+            ->maxLength('password', 255)
             ->notEmptyString('password');
 
         return $validator;

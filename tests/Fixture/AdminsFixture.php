@@ -19,7 +19,7 @@ class AdminsFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '90b4b323-984a-4251-9bd5-19bec8c9bc08',
+                'id' => '964f593b-b86f-46a9-a316-b653aed8f9d2',
                 'email' => 'Lorem ipsum dolor sit amet',
                 'username' => 'Lorem ipsum dolor sit amet',
                 'password' => 'Lorem ipsum dolor sit amet',
