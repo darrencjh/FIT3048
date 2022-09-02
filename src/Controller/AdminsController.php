@@ -11,6 +11,34 @@ namespace App\Controller;
  */
 class AdminsController extends AppController
 {
+    //Called before the controller action. You can use this method to
+    //configure and customize components or perform logic that needs to happen before each controller action.
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        $this->viewBuilder()->setLayout('adminManageLayout');
+    }
+
+
+
+    public function dashboard(){
+        $pageTitle="Dashboard";
+        $admin_name='test';
+        $this->set(compact('pageTitle'));
+        $this->set(compact('admin_name'));
+
+    }
+
+    public function login(){
+        // Set the login layout.
+        $this->viewBuilder()->setLayout('adminLoginLayout');
+
+    }
+
+
+
+
+
     /**
      * Index method
      *
@@ -103,15 +131,7 @@ class AdminsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function dashboard(){
-        $pageTitle="Thank You";
-        $this->set(compact('pageTitle'));
 
-    }
 
-    public function login(){
-        // Set the login layout.
-        $this->viewBuilder()->setLayout('adminLoginLayout');
 
-    }
 }
