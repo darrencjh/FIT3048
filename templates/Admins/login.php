@@ -1,6 +1,18 @@
 <?php
 echo $this->Html->script('login',['block'=>true]);
 ?>
+
+<style type="text/css">
+.colorred{
+	background-color: #0073ff;
+    color: #002aff;
+}
+.colorgreen{
+	background-color: #d52811;
+    color: #cc2722;
+}
+</style>
+
 <!-- Outer Row -->
 <div class="row justify-content-center">
 
@@ -19,24 +31,29 @@ echo $this->Html->script('login',['block'=>true]);
                                     </b>
                                 </h1>
                                 <!--    <h1 class="h1 text-dark mb-4 mt-5" id="login_companyname">Healing the Spirit</h1>-->
-                                <h1
-                                    <b
-                                    class="h2 text-dark mb-4 mt-5" id="login_companyname" >Admin Login
-                                        </b>
+                                <h1>
+                                    <a href="#">Admin Login </a>
                                 </h1>
                             </div>
 
                             <?= $this->Form->create(null,['type'=>'post','class'=>'user']); ?>
                             <fieldset>
-                                <?php
+							    <div class="label required">
+                                     <label>Username</label>
+                                </div>
+                                <?php echo $this->Form->control('username',['label' => false,'class'=>"form-control bg-transparent font-weight-bold form-control-input mt-5",'id'=>"loginUsername", 'name'=>"username", 'aria-describedby'=>"emailHelp",'placeholder'=>"Username"]);
+                                ?>
+								<div class="msg-uname mb-3"></div>
 
-                                echo $this->Form->control('username',['label' => false,'class'=>"form-control bg-transparent font-weight-bold form-control-input mt-5",'id'=>"loginUsername", 'name'=>"username", 'aria-describedby'=>"emailHelp",'placeholder'=>"Username"]);
-                                ?><div class="msg-uname mb-3"></div>
-                                <?php echo $this->Form->control('password',['label' => false,'type'=>"password",'class'=>"form-control bg-transparent font-weight-bold form-control-input mt-5",'id'=>"loginUserPassword", 'name'=>"password", 'aria-describedby'=>"emailHelp",'placeholder'=>"Password"]);
-                                ?><div class="msg-pwd"></div>
+							    <div class="label required">
+                                     <label>Password</label>
+                                </div>
+     							<?php echo $this->Form->control('password',['label' => false,'type'=>"password",'class'=>"form-control bg-transparent font-weight-bold form-control-input mt-5",'id'=>"loginUserPassword", 'name'=>"password", 'aria-describedby'=>"emailHelp",'placeholder'=>"Password"]);
+                                ?>
+								<div class="msg-pwd"></div>
                             </fieldset>
-                            <?= $this->Form->button(__('Login'),['class' => 'btn btn-light btn-block mt-5 form-button text-dark font-weight-bold text-uppercase','id'=>'loginSubmit']) ?>
-                            <?= $this->Html->link('Forget Password', ['controller' => 'Admins', 'action' => 'resetPasswordEmail'],['class'=>"btn btn-light btn-block mt-5 form-button text-dark font-weight-bold text-uppercase",'id'=>"forgetPassword",'target'=>"_blank"]) ?>
+                            <?= $this->Form->button(__('Login'),['class' => 'btn btn-light btn-block mt-5 form-button text-dark font-weight-bold text-uppercase colorred','id'=>'loginSubmit']) ?>
+                            <?= $this->Html->link('Forget Password', ['controller' => 'Admins', 'action' => 'resetPasswordEmail'],['class'=>"btn btn-light btn-block mt-5 form-button text-dark font-weight-bold text-uppercase colorgreen",'id'=>"forgetPassword",'target'=>"_blank"]) ?>
                             <?= $this->Form->end() ?>
                         </div>
                     </div>
