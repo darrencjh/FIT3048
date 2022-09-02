@@ -12120,3 +12120,7 @@ td code {
     background-color: #17bcb9;
     color: #000;
 }
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item.active, .sidebar .nav-item .collapsing .collapse-inner .collapse-item.active{
+    color: #17BCB9;
+}

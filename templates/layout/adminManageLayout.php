@@ -59,13 +59,12 @@ $action = $this->request->getParam('action');
         <div id="logo" class="mt-5 pt-5">
             <?= $this->Html->link('<div id="company_name">Shelbourne Legal</div>', ['controller' => 'Admins', 'action' => 'dashboard'], ['escape' => false]) ?>
         </div>
-        <!-- Sidebar - Brand -->
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0 mt-4">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item <?= ($controller == 'Admins' && $action == 'dashboard') ? ' active' : '' ?>">
+        <li class="nav-item <?= ($controller == 'Admins' && $action == 'dashboard') ? 'active' : '' ?>">
             <?= $this->Html->link(__('<i class="fas fa-fw fa-home"></i> Dashboard'), ['controller' => 'Admins', 'action' => 'dashboard'], ['class' => "nav-link", 'escape' => false]) ?>
         </li>
 
@@ -74,13 +73,13 @@ $action = $this->request->getParam('action');
 
 
         <!-- 1-Nav Item - Clients Collapse Menu -->
-        <li class="nav-item <?= ($controller == 'Clients') ? 'active' : '' ?>">
-            <a class="nav-link <?= ($controller == 'Clients') ? '' : ' collapsed' ?>" href="#" data-toggle="collapse"
-               data-target="#collapseClients" aria-expanded="false" aria-controls="collapseClients">
+        <li class="nav-item <?= $controller == 'Clients' ? 'active' : '' ?>">
+            <a class="nav-link <?= ($controller == 'Clients') ? '' : 'collapsed' ?>" href="#" data-toggle="collapse"
+               data-target="#collapseClients" aria-expanded="true" aria-controls="collapseClients">
                 <i class="fas fa-fw fa-users"></i>
                 <span>Clients</span>
             </a>
-            <div id="collapseClients" class="collapse <?= ($controller == 'Clients') ? ' show' : '' ?>"
+            <div id="collapseClients" class="collapse <?= ($controller == 'Clients') ? 'show' : '' ?>"
                  aria-labelledby="headingUsers" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Clients</h6>
@@ -90,9 +89,9 @@ $action = $this->request->getParam('action');
         </li>
 
         <!-- 2-Nav Item - Bookings Collapse Menu -->
-        <li class="nav-item<?= ($controller == 'Bookings') ? ' active' : '' ?>">
-            <a class="nav-link <?= ($controller == 'Bookings') ? '' : ' collapsed' ?>" href="#" data-toggle="collapse"
-               data-target="#collapseBookings" aria-expanded="false" aria-controls="collapseBookings">
+        <li class="nav-item<?= ($controller == 'Bookings') ? 'active' : '' ?>">
+            <a class="nav-link <?= ($controller == 'Bookings') ? '' : 'collapsed' ?>" href="#" data-toggle="collapse"
+               data-target="#collapseBookings" aria-expanded="true" aria-controls="collapseBookings">
                 <i class="fas fa-fw fa-clock"></i>
                 <span>Bookings</span>
             </a>
@@ -106,9 +105,9 @@ $action = $this->request->getParam('action');
         </li>
 
         <!-- 3-Nav Item - Admin account management Collapse Menu-->
-        <li class="nav-item<?= ($controller == 'Admins' && $action != 'dashboard') ? ' active' : '' ?>">
-            <a class="nav-link <?= ($controller == 'Admins' && $action != 'dashboard') ? '' : ' collapsed' ?>" href="#"
-               data-toggle="collapse" data-target="#collapseAdmins" aria-expanded="false"
+        <li class="nav-item <?= ($controller == 'Admins' && $action != 'dashboard') ? 'active' : '' ?>">
+            <a class="nav-link <?= ($controller == 'Admins' && $action != 'dashboard') ? '' : 'collapsed' ?>" href="#"
+               data-toggle="collapse" data-target="#collapseAdmins" aria-expanded="true"
                aria-controls="collapseAdmins">
                 <i class="fas fa-user-cog"></i>
                 <span>Admins account</span>
@@ -282,29 +281,9 @@ $action = $this->request->getParam('action');
 </script>
 
 
-<script>
-    $(document).ready(function () {
-        //console.log($(".show .collapse-item").attr("href"));//get the first element selected
-        $(".show .collapse-item").each(function () {
-            // console.log($(this).attr("href"));
-            var hrefArray = $(this).attr("href").split('/');
-            var actionFromLink = hrefArray[hrefArray.length - 1].replace('-', '').toLowerCase();
-
-            if (actionFromLink == $("#currentController").text().toLowerCase() && $("#currentAction").text().toLowerCase() == 'index') {
-                //if index page clicked,actionFromLink will be controller name + action is index
-                $(this).addClass('active');
-
-            } else if (actionFromLink == $("#currentAction").text().toLowerCase()) {
-                //if other page clicked,the action(link) will match the action(method)
-                $(this).addClass('active');
-            }
-        })
-
-    });
-</script>
 
 
-<?= $this->Html->script('bootstrap.bundle.min') ?>
+<?= $this->Html->script('bootstrap.min') ?>
 
 
 <?= $this->Html->script('admin') ?>

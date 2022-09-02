@@ -52,4 +52,27 @@ $(()=>{
         }, 800);
         e.preventDefault();
     });
+
+
+    //console.log($(".show .collapse-item").attr("href"));//get the first element selected
+    $(".show .collapse-item").each(function () {
+        // console.log($(this).attr("href"));
+        var hrefArray = $(this).attr("href").split('/');
+        var actionFromLink = hrefArray[hrefArray.length - 1].replace('-', '').toLowerCase();
+
+        if (actionFromLink == $("#currentController").text().toLowerCase() && $("#currentAction").text().toLowerCase() == 'index') {
+            //if index page clicked,actionFromLink will be controller name + action is index
+            $(this).addClass('active');
+
+        } else if (actionFromLink == $("#currentAction").text().toLowerCase()) {
+            //if other page clicked,the action(link) will match the action(method)
+            $(this).addClass('active');
+        }
+    })
+
+
+
+
+
+
 })
