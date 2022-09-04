@@ -4,7 +4,7 @@
 /* Core codes for input fields  */
 .form-control{
     width: 100%;
-    color: #424344;
+    color: #F5F5F6 !important;
     padding: 10px;
     height: auto;
     border: 1px solid #757575;
@@ -18,25 +18,17 @@
 
 /* placeholder color */
 ::-webkit-input-placeholder{
-    color: #c5c5c5 !important;
+    color: rgba(232, 232, 232, 0.86) !important;
 }
 :-moz-placeholder{
-    color: #c5c5c5 !important;
+    color: rgba(232, 232, 232, 0.86) !important;
 }
 ::-moz-placeholder{
-    color: #c5c5c5 !important;
+    color: rgba(232, 232, 232, 0.86) !important;
 }
 :-ms-input-placeholder{
-    color: #c5c5c5 !important;
+    color: rgba(232, 232, 232, 0.86) !important;
 }
-
-
-input:focus{
-    border-color: #17BCB9 !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-}
-
 
 /* Customize style for inputs */
 #loginUsername,#loginUserPassword{
@@ -46,6 +38,14 @@ input:focus{
     background-position: 2%;
     padding-left: 9%;
 }
+
+input:focus{
+    border-color: #17BCB9 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+
 /* error message style */
 .msg-uname,.msg-pwd{
     height: 20px;

@@ -155,7 +155,7 @@ $action = $this->request->getParam('action');
 
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
-                            <span class="d-none d-lg-inline font-weight-bolder text-gray-600 small mr-2">Hi,Admin</span>
+                            <span class="d-none d-lg-inline font-weight-bolder text-gray-600 small mr-2">Hi,Admin <?= $this->Identity->get('username');  ?></span>
                         </a>
                     </li>
 

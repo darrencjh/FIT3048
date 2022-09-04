@@ -13,6 +13,12 @@ use Cake\Mailer\Mailer;
  */
 class BookingsController extends AppController
 {
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        // booking page not need login
+        $this->Authentication->addUnauthenticatedActions(['choose','feedback']);
+    }
     /**
      * Index method
      *

@@ -11,6 +11,15 @@ namespace App\Controller;
  */
 class ClientsController extends AppController
 {
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        //client intake form page not need login as well as feedback
+        $this->Authentication->addUnauthenticatedActions(['intakeform','feedback']);
+    }
+
+
+
     /**
      * Index method
      *

@@ -21,19 +21,19 @@ echo $this->Html->script('login', ['block' => true]);
                             </div>
 
                             <!--     Username+password      -->
-                            <?= $this->Form->create(null, ['type' => 'post', 'class' => 'user']); ?>
+                            <?= $this->Form->create(); ?>
                             <fieldset>
                                 <div class="label required">
                                     <label>Username</label>
                                 </div>
-                                <?php echo $this->Form->control('username', ['label' => false, 'class' => "form-control bg-transparent fw-bold mt-2 text-light", 'id' => "loginUsername", 'name' => "username",  'placeholder' => "Username",'required' => true]);
+                                <?php echo $this->Form->control('username', ['label' => false, 'class' => "form-control bg-transparent fw-bold mt-2", 'id' => "loginUsername", 'name' => "username",  'placeholder' => "Username",'required' => true]);
                                 ?>
                                 <div class="msg-uname mb-3"></div>
 
                                 <div class="label required">
                                     <label>Password</label>
                                 </div>
-                                <?php echo $this->Form->control('password', ['label' => false, 'type' => "password", 'class' => "form-control bg-transparent fw-bold mt-2  text-light", 'id' => "loginUserPassword", 'name' => "password", 'placeholder' => "Password",'required' => true]);
+                                <?php echo $this->Form->control('password', ['label' => false, 'type' => "password", 'class' => "form-control bg-transparent fw-bold mt-2", 'id' => "loginUserPassword", 'name' => "password", 'placeholder' => "Password",'required' => true]);
                                 ?>
                                 <div class="msg-pwd"></div>
                             </fieldset>
