@@ -10,10 +10,6 @@
             <h3>Admin: <?= h($admin->username) ?></h3>
             <table class="table table-bordered table-striped table-hover" width="100%" cellspacing="0">
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= h($admin->id) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Email') ?></th>
                     <td><?= h($admin->email) ?></td>
                 </tr>

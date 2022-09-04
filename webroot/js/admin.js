@@ -1,3 +1,54 @@
+let verifyEmail=(adminEmail)=>{
+    if(adminEmail==""){
+        $("#emailError").text("Please enter your email")
+        $("#adminEmail").addClass("is-invalid")
+        return false
+    } else if(!/^[0-9A-Za-z.!#$%&’*+/=?^_`{|}~-]+@[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*$/.test(adminEmail)){
+        $("#emailError").text("Please follow the email format")
+        $("#adminEmail").addClass("is-invalid")
+        return false
+    }
+    return true
+}
+
+let verifyUsername=(adminUsername)=>{
+    if(adminUsername==""){
+        $("#usernameError").text("Please enter your username")
+        $("#adminUsername").addClass("is-invalid")
+        return false
+    }
+    return true
+}
+
+let verifyPassword=(adminPassword)=>{
+    if(adminPassword==""){
+        $("#passwordError").text("Please enter your password")
+        $("#adminPassword").addClass("is-invalid")
+        return false
+    }
+    return true
+}
+
+//add blur events here
+$("#adminEmail").blur(function () {
+    verifyEmail(this.value)
+})
+$("#adminUsername").blur(function () {
+    verifyUsername(this.value)
+})
+$("#adminPassword").blur(function () {
+    verifyPassword(this.value)
+})
+$("#editAdminEmail").blur(function () {
+    verifyEmail(this.value)
+})
+$("#editAdminUsername").blur(function () {
+    verifyUsername(this.value)
+})
+$("#editAdminNewPassword").blur(function () {
+    verifyPassword(this.value)
+})
+
 $(()=>{
     "use strict"; // Start of use strict
 
