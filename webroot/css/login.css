@@ -2,7 +2,7 @@
 
 
 /* Core codes for input fields  */
-.form-control{
+.form-control {
     width: 100%;
     color: #F5F5F6 !important;
     padding: 10px;
@@ -17,51 +17,66 @@
 }
 
 /* placeholder color */
-::-webkit-input-placeholder{
+::-webkit-input-placeholder {
     color: rgba(232, 232, 232, 0.86) !important;
 }
-:-moz-placeholder{
+
+:-moz-placeholder {
     color: rgba(232, 232, 232, 0.86) !important;
 }
-::-moz-placeholder{
+
+::-moz-placeholder {
     color: rgba(232, 232, 232, 0.86) !important;
 }
-:-ms-input-placeholder{
+
+:-ms-input-placeholder {
     color: rgba(232, 232, 232, 0.86) !important;
 }
 
 /* Customize style for inputs */
-#loginUsername,#loginUserPassword{
+.loginInput {
     height: 3rem;
-    border:2px solid #fff;
+    border: 2px solid #fff;
     background-repeat: no-repeat;
     background-position: 2%;
-    padding-left: 9%;
+    padding-left: 6%;
 }
 
-input:focus{
+.form-control.is-invalid {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e") !important;
+}
+
+input:focus {
     border-color: #17BCB9 !important;
     outline: 0 !important;
     box-shadow: none !important;
 }
 
+.inputArea {
+    position: relative;
+}
 
-/* error message style */
-.msg-uname,.msg-pwd{
-    height: 20px;
-    color: red;
+.loginIcon {
+    position: absolute;
+    left: 2%;
+    top: 46px;
 }
 
 
-
 @media (min-width: 992px) {
-    .w-lg-25{
+    .w-lg-25 {
         width: 25% !important;
     }
 }
 
-#forgetPassword:hover{
+/* Forget pwd button */
+#forgetPassword:hover {
     color: #17BCB9;
     background-color: #fff;
     outline: 0;
+}
+
+::selection{
+    background-color: #17bcb9;
+    color: #000;
 }

@@ -52,7 +52,9 @@ class AdminsController extends AppController
         }
         // display error if user submitted and authentication failed
         if ($this->request->is('post') && !$result->isValid()) {
-            $this->Flash->error(__('Invalid username or password'));
+//            $this->Flash->error(__('Invalid username or password'));
+            $loginResult=$result->isValid();
+            $this->set(compact('loginResult'));
         }
 
     }

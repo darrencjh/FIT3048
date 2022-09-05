@@ -41,12 +41,6 @@ $titleDescription = ' - Shelbourne legal';
             background-size: cover;
             background-repeat: no-repeat;
         }
-        #loginUsername{
-            background-image: url("<?= $this->Url->build('/img/login/username.png') ?>");
-        }
-        #loginUserPassword{
-            background-image: url("<?= $this->Url->build('/img/login/pwd.png') ?>");
-        }
     </style>
 
 

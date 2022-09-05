@@ -23,19 +23,24 @@ echo $this->Html->script('login', ['block' => true]);
                             <!--     Username+password      -->
                             <?= $this->Form->create(); ?>
                             <fieldset>
-                                <div class="label required">
-                                    <label>Username</label>
+                                <div class="mb-3 inputArea">
+                                    <div class="label required">
+                                        <label for="loginUsername">Username</label>
+                                    </div>
+                                    <input type="text" class="form-control loginInput bg-transparent fw-bold mt-2" id="loginUsername" name="username" placeholder="Username" required>
+                                    <img src="<?= $this->Url->build('/img/login/username.png') ?>" alt="user icon" class="loginIcon">
+                                    <div class="invalid-feedback" id="msg-uname">Please provide your username</div>
                                 </div>
-                                <?php echo $this->Form->control('username', ['label' => false, 'class' => "form-control bg-transparent fw-bold mt-2", 'id' => "loginUsername", 'name' => "username",  'placeholder' => "Username",'required' => true]);
-                                ?>
-                                <div class="msg-uname mb-3"></div>
 
-                                <div class="label required">
-                                    <label>Password</label>
+                                <div class="mb-3 inputArea">
+                                    <div class="label required">
+                                        <label for="loginUserPassword">Password</label>
+                                    </div>
+                                    <input type="password" class="form-control loginInput bg-transparent fw-bold mt-2" id="loginUserPassword" name="password" placeholder="Password" required>
+                                    <img src="<?= $this->Url->build('/img/login/pwd.png') ?>" alt="user icon" class="loginIcon">
+                                    <div class="invalid-feedback" id="msg-pwd">Please provide your password</div>
                                 </div>
-                                <?php echo $this->Form->control('password', ['label' => false, 'type' => "password", 'class' => "form-control bg-transparent fw-bold mt-2", 'id' => "loginUserPassword", 'name' => "password", 'placeholder' => "Password",'required' => true]);
-                                ?>
-                                <div class="msg-pwd"></div>
+
                             </fieldset>
                             <div class="mt-3 clearfix">
                                 <?= $this->Form->button(__('Login'), ['class' => 'btn btn-lg btn-shelbourne w-100 w-lg-25', 'id' => 'loginSubmit']) ?>
@@ -53,38 +58,23 @@ echo $this->Html->script('login', ['block' => true]);
     </div>
 
 </div>
-<!--            Pop up window-->
-<!--<div class="mask hide">-->
-<!--    <div class="prompt_box">-->
-<!--        <div class="prompt_title">-->
-<!--            <h3 class="pt-3 font-weight-bold">Hint</h3>-->
-<!--            <span class="prompt_cancel"></span>-->
-<!--        </div>-->
-<!--        <div class="prompt_cont">-->
-<!--            <div class="prompt_text"></div>-->
-<!--            <a class="prompt_sure">Ok</a>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+
 
 <script>
     <?php
     //form page just send query string to home page after submit a form
     //using action to distinguish which message to display
     $action = $this->request->getQuery('action', '');
-    if(!empty($action)){
+
+    if(!$loginResult){
     ?>
-    $('.mask').removeClass('hide');
-    $('.prompt_sure,.prompt_cancel').click(function () {
-        $('.mask').addClass('hide');
-    })
-    <?php
-    if($action == 'resetPwdSuccess'){
-    ?>
-    $('.prompt_text').text('Your password has been reset,please login.');
-    <?php
-    }
-    }
-    ?>
+    $("#msg-uname").text("*username or password is wrong")
+    $("#loginUsername").addClass("is-invalid")
+
+    $("#msg-pwd").text("*username or password is wrong")
+    $("#loginUserPassword").addClass("is-invalid")
+    <?php } ?>
+
+
 </script>
 

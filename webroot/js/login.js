@@ -1,36 +1,61 @@
-$("#loginUsername").blur(function(){
-    var $this=$(this);
-    if(!$this.val()){
-        $('.msg-uname').html("*username cannot be empty");
-    }else{
-        $('.msg-uname').html("");
-    }
-});
-$("#loginUserPassword").blur(function(){
-    var $this=$(this);
-    if(!$this.val()){
-        $('.msg-pwd').html("*password cannot be empty");
-    }else{
-        $('.msg-pwd').html("");
-    }
-});
-$("#loginSubmit").on("click", function () {
-    var uname=$("#loginUsername").val();
-    var pwd=$("#loginUserPassword").val();
-    if(!uname){
-        $('.msg-uname').html("*username cannot be empty");
-        if(!pwd){
-            $('.msg-pwd').html("*password cannot be empty");
+$(() => {
+    let verifyUsername = (adminUsername) => {
+        if (adminUsername == "") {
+            $("#msg-uname").text("Please enter your username")
+            $("#loginUsername").addClass("is-invalid")
+            return false
+        } else {
+            $("#loginUsername").removeClass("is-invalid")
+            return true
         }
-        return false;
     }
-    $('form').trigger("submit");
-    return true;
-});
 
-var urlParams = new URLSearchParams(window.location.search);
-console.log(urlParams.get('action'));
-if(urlParams.get('action')=='error'){
-    $('.msg-uname').html("*username or password is wrong");
-    $('.msg-pwd').html("*username or password is wrong");
-}
+    let verifyPassword = (adminPassword) => {
+        if (adminPassword == "") {
+            $("#msg-pwd").text("Please enter your password")
+            $("#loginUserPassword").addClass("is-invalid")
+            return false
+        } else {
+            $("#loginUserPassword").removeClass("is-invalid")
+            return true
+
+        }
+    }
+
+
+    // When leave the input,check
+    $("#loginUsername").blur(function () {
+        verifyUsername(this.value)
+    });
+    // When change the value in the inout,check
+    $("#loginUsername").change(function () {
+        verifyUsername(this.value)
+    });
+    $("#loginUserPassword").blur(function () {
+        verifyPassword(this.value)
+    });
+    $("#loginUserPassword").change(function () {
+        verifyPassword(this.value)
+    });
+
+    $("#loginSubmit").click(function () {
+        let nameResult = verifyUsername(loginUsername.value)
+        let pwdResult = verifyPassword(loginUserPassword.value)
+
+        if (!nameResult || !pwdResult) {
+            return false
+        } else {
+            $('form').trigger("submit");
+            return true;
+        }
+    });
+
+    var urlParams = new URLSearchParams(window.location.search);
+    console.log(urlParams.get('action'));
+    if (urlParams.get('action') == 'error') {
+
+    }
+
+
+})
+
