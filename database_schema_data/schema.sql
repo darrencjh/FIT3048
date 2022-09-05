@@ -50,100 +50,100 @@ CREATE TABLE IF NOT EXISTS `clients`
     `phone`          char(10) NOT NULL,
 
     # 1.2 Existing Documents
-    `has_will`        tinyint(1) NOT NULL DEFAULT 0,
-    `has_power` tinyint(1) NOT NULL DEFAULT 0,
-    `has_binding`     tinyint(1) NOT NULL DEFAULT 0,
-    `has_decision_maker` tinyint(1) NOT NULL DEFAULT 0,
-    `has_superannu_deed` tinyint(1) NOT NULL DEFAULT 0,
-    `has_family_deed` tinyint(1) NOT NULL DEFAULT 0,
+    `has_will`        tinyint(1) DEFAULT 0,
+    `has_power` tinyint(1) DEFAULT 0,
+    `has_binding`     tinyint(1)  DEFAULT 0,
+    `has_decision_maker` tinyint(1)  DEFAULT 0,
+    `has_superannu_deed` tinyint(1)  DEFAULT 0,
+    `has_family_deed` tinyint(1)  DEFAULT 0,
 
 
     # 1.3
-    `is_health`     tinyint(1) NOT NULL DEFAULT 0,
+    `is_health`     tinyint(1)  DEFAULT 0,
     `health_desc` varchar(1024) DEFAULT '',
 
     # 1.4
-    `relationship_status` varchar(64) NOT NULL DEFAULT 'unknown',
-    `married_fullName` varchar(128) NOT NULL DEFAULT '',
+    `relationship_status` varchar(64)  DEFAULT 'unknown',
+    `married_fullName` varchar(128) DEFAULT '',
     `married_dob` date,
-    `married_phone` varchar(10) NOT NULL DEFAULT '',
-    `defacto_fullName` varchar(128) NOT NULL DEFAULT '',
+    `married_phone` varchar(10)  DEFAULT '',
+    `defacto_fullName` varchar(128)  DEFAULT '',
     `defacto_living` date,
-    `defacto_mariage` tinyint(1) NOT NULL DEFAULT 0,
-    `sepdiv_property_settlement` tinyint(1) NOT NULL DEFAULT 0,
+    `defacto_mariage` tinyint(1)  DEFAULT 0,
+    `sepdiv_property_settlement` tinyint(1)  DEFAULT 0,
 
     # 1.5 child
-    `has_child_current` tinyint(1) NOT NULL DEFAULT 0,
-    `has_child_prev` tinyint(1) NOT NULL DEFAULT 0,
+    `has_child_current` tinyint(1)  DEFAULT 0,
+    `has_child_prev` tinyint(1)  DEFAULT 0,
 
 
     # 1.6
-    `has_household_member` tinyint(1) NOT NULL DEFAULT 0,
+    `has_household_member` tinyint(1)  DEFAULT 0,
 
     # 1.7
-    `has_financial_dependent` tinyint(1) NOT NULL DEFAULT 0,
+    `has_financial_dependent` tinyint(1)  DEFAULT 0,
 
     # 2
     # 2.1
-    `has_accountant` tinyint(1) NOT NULL DEFAULT 0,
-    `accountant_name`      varchar(128) NOT NULL DEFAULT '',
-    `accountant_firm`      varchar(128) NOT NULL DEFAULT '',
-    `accountant_email`      varchar(64) NOT NULL DEFAULT '',
-    `accountant_help`  tinyint(1) NOT NULL DEFAULT 0,
+    `has_accountant` tinyint(1)  DEFAULT 0,
+    `accountant_name`      varchar(128)  DEFAULT '',
+    `accountant_firm`      varchar(128)  DEFAULT '',
+    `accountant_email`      varchar(64)  DEFAULT '',
+    `accountant_help`  tinyint(1)  DEFAULT 0,
 
-    `has_adviser` tinyint(1) NOT NULL DEFAULT 0,
-    `adviser_name`      varchar(128) NOT NULL DEFAULT '',
-    `adviser_firm`      varchar(128) NOT NULL DEFAULT '',
-    `adviser_email`      varchar(64) NOT NULL DEFAULT '',
-    `adviser_help`  tinyint(1) NOT NULL DEFAULT 0,
+    `has_adviser` tinyint(1)  DEFAULT 0,
+    `adviser_name`      varchar(128)  DEFAULT '',
+    `adviser_firm`      varchar(128)  DEFAULT '',
+    `adviser_email`      varchar(64)  DEFAULT '',
+    `adviser_help`  tinyint(1)  DEFAULT 0,
 
-    `has_referrer` tinyint(1) NOT NULL DEFAULT 0,
-    `referrer_name`      varchar(128) NOT NULL DEFAULT '',
-    `referrer_firm`      varchar(128) NOT NULL DEFAULT '',
-    `referrer_email`      varchar(64) NOT NULL DEFAULT '',
+    `has_referrer` tinyint(1)  DEFAULT 0,
+    `referrer_name`      varchar(128)  DEFAULT '',
+    `referrer_firm`      varchar(128)  DEFAULT '',
+    `referrer_email`      varchar(64)  DEFAULT '',
 
 
     # 2.2
     # 2.3
-    `details_youowe` text NOT NULL DEFAULT '',
-    `has_owe_agreement`  tinyint(1) NOT NULL DEFAULT 0,
-    `details_youowed` text NOT NULL DEFAULT '',
-    `has_owed_agreement`  tinyint(1) NOT NULL DEFAULT 0,
-    `repay_estate` varchar(32) NOT NULL DEFAULT '',
+    `details_youowe` text  DEFAULT '',
+    `has_owe_agreement`  tinyint(1)  DEFAULT 0,
+    `details_youowed` text  DEFAULT '',
+    `has_owed_agreement`  tinyint(1)  DEFAULT 0,
+    `repay_estate` varchar(32)  DEFAULT '',
 
     # 2.3
-    `insure_house` tinyint(1) NOT NULL DEFAULT 0,
-    `insure_house_company`     varchar(64) NOT NULL,
-    `insure_vehicle` tinyint(1) NOT NULL DEFAULT 0,
-    `insure_vehicle_company`     varchar(64) NOT NULL,
-    `insure_health` tinyint(1) NOT NULL DEFAULT 0,
-    `insure_health_company`     varchar(64) NOT NULL,
-    `insure_life` tinyint(1) NOT NULL DEFAULT 0,
-    `insure_life_company`     varchar(64) NOT NULL,
+    `insure_house` tinyint(1)  DEFAULT 0,
+    `insure_house_company`     varchar(64),
+    `insure_vehicle` tinyint(1)  DEFAULT 0,
+    `insure_vehicle_company`     varchar(64),
+    `insure_health` tinyint(1)  DEFAULT 0,
+    `insure_health_company`     varchar(64) ,
+    `insure_life` tinyint(1)  DEFAULT 0,
+    `insure_life_company`     varchar(64) ,
 
     # 2.4
-    `is_office_holder` tinyint(1) NOT NULL DEFAULT 0,
-    `is_beneficiary` tinyint(1) NOT NULL DEFAULT 0,
-    `in_partnership` tinyint(1) NOT NULL DEFAULT 0,
+    `is_office_holder` tinyint(1)  DEFAULT 0,
+    `is_beneficiary` tinyint(1)  DEFAULT 0,
+    `in_partnership` tinyint(1)  DEFAULT 0,
 
     # 3
 
     # 4
-    `wish_appoint_child` tinyint(1) NOT NULL DEFAULT 0,
-    `surviving_parent_fullname` varchar(128) NOT NULL default '',
-    `guardian_fullname`  varchar(128) NOT NULL default '',
-    `guardian_relation` varchar(64) NOT NULL default '',
+    `wish_appoint_child` tinyint(1)  DEFAULT 0,
+    `surviving_parent_fullname` varchar(128)  default '',
+    `guardian_fullname`  varchar(128)  default '',
+    `guardian_relation` varchar(64) default '',
 
 
     # 5
-    `wish_property_special` tinyint(1) NOT NULL DEFAULT 0,
+    `wish_property_special` tinyint(1)  DEFAULT 0,
 
     # 6
     # 7
-    `way_attorney_decision` varchar(128) NOT NULL default '',
+    `way_attorney_decision` varchar(128)  default '',
 
     # 8
-    `addition_notes` text NOT NULL DEFAULT '',
+    `addition_notes` text  DEFAULT '',
 
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB

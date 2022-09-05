@@ -15,9 +15,8 @@ class ClientsController extends AppController
     {
         parent::beforeFilter($event);
         //client intake form page not need login as well as feedback
-        $this->Authentication->addUnauthenticatedActions(['intakeform','feedback']);
+        $this->Authentication->addUnauthenticatedActions(['intakeform', 'feedback']);
     }
-
 
 
     /**
@@ -118,24 +117,32 @@ class ClientsController extends AppController
         $client = $this->Clients->newEmptyEntity();
         if ($this->request->is("post")) {
             // Form submit handler
+            $client = $this->Clients->patchEntity($client, $this->request->getData());
 
             $postData = $this->request->getData();
 
             if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
-                //$first_name = $this->request->getQuery('givenName');
-                //$last_name = $this->request->getQuery('lastName');
-                //$given_name = $this->request->getQuery('other_names');
-
-                //$client->full_name = $first_name . $last_name;
-                //$client->other_names = $given_name;
-                //if ($this->Clients->save($client)) {
-                    //$this->Flash->success('Form has been successfully submitted');
-                    //navigate to new page
-                //}
-                //else{
-                    //$this->Flash->error(__('The client could not be saved. Please, try again.'));
-                //}
                 $this->Flash->success('Robot verification passed,you are not a robot');
+
+
+                $first_name = $this->request->getData('givenName');
+                $last_name = $this->request->getData('lastName');
+                $unit = $this->request->getData('unit');
+                $street = $this->request->getData('street');
+                $suburb = $this->request->getData('suburb');
+                $state = $this->request->getData('state');
+                $postcode = $this->request->getData('postcode');
+
+
+                $client->full_name = $first_name . ' ' . $last_name;
+                $client->home_address = $unit . $street . ',' . $suburb . ',' . $state . ',' . $postcode;
+
+                if ($this->Clients->save($client)) {
+                    $this->Flash->success('Form has been successfully submitted');
+                    return $this->redirect(['action' => 'feedback']);
+                } else {
+                    $this->Flash->error(__('The client could not be saved. Please, try again.'));
+                }
             } else {
                 $this->Flash->error('Robot verification failed,you are a robot');
             }
@@ -145,7 +152,9 @@ class ClientsController extends AppController
 
     }
 
-    private function __checkRecaptchaResponse($response){
+    private
+    function __checkRecaptchaResponse($response)
+    {
         // verifying the response is done through a request to this URL
         $url = 'https://www.google.com/recaptcha/api/siteverify';
         // The API request has three parameters (last one is optional)
@@ -156,21 +165,23 @@ class ClientsController extends AppController
         // use key 'http' even if you send the request to https://...
         $options = array(
             'http' => array(
-                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-                'method'  => 'POST',
+                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method' => 'POST',
                 'content' => http_build_query($data),
             ),
         );
 
         // We could also use curl to send the API request
-        $context  = stream_context_create($options);
+        $context = stream_context_create($options);
         $json_result = file_get_contents($url, false, $context);
         $result = json_decode($json_result);
         return $result->success;
     }
 
-    public function feedback(){
-        $pageTitle="Thank You";
+    public
+    function feedback()
+    {
+        $pageTitle = "Thank You";
         $this->set(compact('pageTitle'));
 
     }

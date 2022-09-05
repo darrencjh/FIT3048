@@ -17,6 +17,8 @@ $this->Html->script('intakeform', ['block' => true]);
                 Wills & Estates Intake Form
             </div>
 
+
+            <?= $this->Form->create($client, ["method" => "post"]) ?>
             <!-- Page 1           -->
             <div id="page1" class="collapse show">
 
@@ -27,7 +29,6 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                 </div>
 
-                <!-- $this->Form->create($client, ["method" => "post"])    -->
                 <div class="ff-el-group mt-4">
                     <h2>1. Basic Information</h2>
                     <h4>1.1 Your Details</h4>
@@ -68,7 +69,7 @@ $this->Html->script('intakeform', ['block' => true]);
                             <label>Date of Birth</label>
                         </div>
                         <input type="text" id="inputDOB" name="date_of_birth" class="form-control"
-                               placeholder="dd/mm/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"
+                               placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"
                                required/>
                         <!--                         pattern="\d{1,2}[/]\d{1,2}[/]\d{4}"-->
                         <div class="invalid-feedback" id="dateError">Please provide your date of birth</div>
@@ -1809,7 +1810,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     <h2>8. Additional notes</h2>
                 </div>
                 <div class="mb-4">
-                        <textarea name="details_youowe" id="details_youowe" class="form-control"
+                        <textarea name="addition_notes" id="addition_notes" class="form-control"
                                   style="height: 100px;width: 100%; "></textarea>
                 </div>
 
@@ -1839,7 +1840,7 @@ $this->Html->script('intakeform', ['block' => true]);
                 </div>
 
 
-                <?= $this->Form->create($client, ["method" => "post"]) ?>
+<!--                --><?//= $this->Form->create($client, ["method" => "post"]) ?>
 
                 <!--    Recapture verification    -->
                 <div id="form_recaptcha" class="g-recaptcha"
@@ -1853,15 +1854,13 @@ $this->Html->script('intakeform', ['block' => true]);
                     <a class="btn btn-outline-secondary mt-3 float-start" id="page4Prev">Previous</a>
 
                     <div class="float-none text-center mt-3 float-md-end mt-md-0">
-                        <button type="submit" name="submit" id="submitIntakeform"
-                                class="btn btn-shelbourne rounded-pill fw-bold w-100 px-4 py-2">Submit
-                        </button>
+                        <?= $this->Form->button(__('Submit'),['id'=>'submitIntakeform','class'=>'btn btn-shelbourne rounded-pill fw-bold w-100 px-4 py-2']) ?>
                     </div>
                 </div>
-
-                <?= $this->Form->end() ?>
-
             </div>
+
+            <?= $this->Form->end() ?>
+
 
 
         </div>

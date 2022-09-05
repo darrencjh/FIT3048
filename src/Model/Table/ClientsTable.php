@@ -52,39 +52,36 @@ class ClientsTable extends Table
     {
         $validator
             ->scalar('full_name')
-            ->maxLength('full_name', 255)
+            ->maxLength('full_name', 128)
             ->requirePresence('full_name', 'create')
             ->notEmptyString('full_name');
 
         $validator
-            ->scalar('other_names')
-            ->maxLength('other_names', 255)
-            ->requirePresence('other_names', 'create')
-            ->notEmptyString('other_names');
+            ->scalar('previous_name')
+            ->maxLength('previous_name', 128)
+            ->allowEmptyString('previous_name');
 
         $validator
-            ->scalar('date_birth')
-            ->maxLength('date_birth', 255)
-            ->requirePresence('date_birth', 'create')
-            ->notEmptyString('date_birth');
+            ->date('date_of_birth')
+            ->requirePresence('date_of_birth', 'create')
+            ->notEmptyDate('date_of_birth');
 
         $validator
             ->scalar('occupation')
-            ->maxLength('occupation', 255)
+            ->maxLength('occupation', 64)
             ->requirePresence('occupation', 'create')
             ->notEmptyString('occupation');
 
         $validator
-            ->scalar('address')
-            ->maxLength('address', 255)
-            ->requirePresence('address', 'create')
-            ->notEmptyString('address');
+            ->scalar('home_address')
+            ->maxLength('home_address', 255)
+            ->requirePresence('home_address', 'create')
+            ->notEmptyString('home_address');
 
         $validator
             ->scalar('postal_address')
             ->maxLength('postal_address', 255)
-            ->requirePresence('postal_address', 'create')
-            ->notEmptyString('postal_address');
+            ->allowEmptyString('postal_address');
 
         $validator
             ->email('email')
@@ -93,42 +90,260 @@ class ClientsTable extends Table
 
         $validator
             ->scalar('phone')
-            ->maxLength('phone', 255)
+            ->maxLength('phone', 10)
             ->requirePresence('phone', 'create')
             ->notEmptyString('phone');
 
         $validator
-            ->scalar('referred_by')
-            ->maxLength('referred_by', 255)
-            ->requirePresence('referred_by', 'create')
-            ->notEmptyString('referred_by');
+            ->boolean('has_will')
+            ->allowEmptyString('has_will');
 
         $validator
-            ->boolean('is_will')
-            ->notEmptyString('is_will');
+            ->boolean('has_power')
+            ->allowEmptyString('has_power');
 
         $validator
-            ->boolean('is_powers')
-            ->notEmptyString('is_powers');
+            ->boolean('has_binding')
+            ->allowEmptyString('has_binding');
 
         $validator
-            ->boolean('is_binding')
-            ->notEmptyString('is_binding');
+            ->boolean('has_decision_maker')
+            ->allowEmptyString('has_decision_maker');
 
         $validator
-            ->scalar('will_text')
-            ->maxLength('will_text', 255)
-            ->allowEmptyString('will_text');
+            ->boolean('has_superannu_deed')
+            ->allowEmptyString('has_superannu_deed');
 
         $validator
-            ->scalar('powers_text')
-            ->maxLength('powers_text', 255)
-            ->allowEmptyString('powers_text');
+            ->boolean('has_family_deed')
+            ->allowEmptyString('has_family_deed');
 
         $validator
-            ->scalar('binding_text')
-            ->maxLength('binding_text', 255)
-            ->allowEmptyString('binding_text');
+            ->boolean('is_health')
+            ->allowEmptyString('is_health');
+
+        $validator
+            ->scalar('health_desc')
+            ->maxLength('health_desc', 1024)
+            ->allowEmptyString('health_desc');
+
+        $validator
+            ->scalar('relationship_status')
+            ->maxLength('relationship_status', 64)
+            ->allowEmptyString('relationship_status');
+
+        $validator
+            ->scalar('married_fullName')
+            ->maxLength('married_fullName', 128)
+            ->allowEmptyString('married_fullName');
+
+        $validator
+            ->date('married_dob')
+            ->allowEmptyDate('married_dob');
+
+        $validator
+            ->scalar('married_phone')
+            ->maxLength('married_phone', 10)
+            ->allowEmptyString('married_phone');
+
+        $validator
+            ->scalar('defacto_fullName')
+            ->maxLength('defacto_fullName', 128)
+            ->allowEmptyString('defacto_fullName');
+
+        $validator
+            ->date('defacto_living')
+            ->allowEmptyDate('defacto_living');
+
+        $validator
+            ->boolean('defacto_mariage')
+            ->allowEmptyString('defacto_mariage');
+
+        $validator
+            ->boolean('sepdiv_property_settlement')
+            ->allowEmptyString('sepdiv_property_settlement');
+
+        $validator
+            ->boolean('has_child_current')
+            ->allowEmptyString('has_child_current');
+
+        $validator
+            ->boolean('has_child_prev')
+            ->allowEmptyString('has_child_prev');
+
+        $validator
+            ->boolean('has_household_member')
+            ->allowEmptyString('has_household_member');
+
+        $validator
+            ->boolean('has_financial_dependent')
+            ->allowEmptyString('has_financial_dependent');
+
+        $validator
+            ->boolean('has_accountant')
+            ->allowEmptyString('has_accountant');
+
+        $validator
+            ->scalar('accountant_name')
+            ->maxLength('accountant_name', 128)
+            ->allowEmptyString('accountant_name');
+
+        $validator
+            ->scalar('accountant_firm')
+            ->maxLength('accountant_firm', 128)
+            ->allowEmptyString('accountant_firm');
+
+        $validator
+            ->scalar('accountant_email')
+            ->maxLength('accountant_email', 64)
+            ->allowEmptyString('accountant_email');
+
+        $validator
+            ->boolean('accountant_help')
+            ->allowEmptyString('accountant_help');
+
+        $validator
+            ->boolean('has_adviser')
+            ->allowEmptyString('has_adviser');
+
+        $validator
+            ->scalar('adviser_name')
+            ->maxLength('adviser_name', 128)
+            ->allowEmptyString('adviser_name');
+
+        $validator
+            ->scalar('adviser_firm')
+            ->maxLength('adviser_firm', 128)
+            ->allowEmptyString('adviser_firm');
+
+        $validator
+            ->scalar('adviser_email')
+            ->maxLength('adviser_email', 64)
+            ->allowEmptyString('adviser_email');
+
+        $validator
+            ->boolean('adviser_help')
+            ->allowEmptyString('adviser_help');
+
+        $validator
+            ->boolean('has_referrer')
+            ->allowEmptyString('has_referrer');
+
+        $validator
+            ->scalar('referrer_name')
+            ->maxLength('referrer_name', 128)
+            ->allowEmptyString('referrer_name');
+
+        $validator
+            ->scalar('referrer_firm')
+            ->maxLength('referrer_firm', 128)
+            ->allowEmptyString('referrer_firm');
+
+        $validator
+            ->scalar('referrer_email')
+            ->maxLength('referrer_email', 64)
+            ->allowEmptyString('referrer_email');
+
+        $validator
+            ->scalar('details_youowe')
+            ->allowEmptyString('details_youowe');
+
+        $validator
+            ->boolean('has_owe_agreement')
+            ->allowEmptyString('has_owe_agreement');
+
+        $validator
+            ->scalar('details_youowed')
+            ->allowEmptyString('details_youowed');
+
+        $validator
+            ->boolean('has_owed_agreement')
+            ->allowEmptyString('has_owed_agreement');
+
+        $validator
+            ->scalar('repay_estate')
+            ->maxLength('repay_estate', 32)
+            ->allowEmptyString('repay_estate');
+
+        $validator
+            ->boolean('insure_house')
+            ->allowEmptyString('insure_house');
+
+        $validator
+            ->scalar('insure_house_company')
+            ->maxLength('insure_house_company', 64)
+            ->allowEmptyString('insure_house_company');
+
+        $validator
+            ->boolean('insure_vehicle')
+            ->allowEmptyString('insure_vehicle');
+
+        $validator
+            ->scalar('insure_vehicle_company')
+            ->maxLength('insure_vehicle_company', 64)
+            ->allowEmptyString('insure_vehicle_company');
+
+        $validator
+            ->boolean('insure_health')
+            ->allowEmptyString('insure_health');
+
+        $validator
+            ->scalar('insure_health_company')
+            ->maxLength('insure_health_company', 64)
+            ->allowEmptyString('insure_health_company');
+
+        $validator
+            ->boolean('insure_life')
+            ->allowEmptyString('insure_life');
+
+        $validator
+            ->scalar('insure_life_company')
+            ->maxLength('insure_life_company', 64)
+            ->allowEmptyString('insure_life_company');
+
+        $validator
+            ->boolean('is_office_holder')
+            ->allowEmptyString('is_office_holder');
+
+        $validator
+            ->boolean('is_beneficiary')
+            ->allowEmptyString('is_beneficiary');
+
+        $validator
+            ->boolean('in_partnership')
+            ->allowEmptyString('in_partnership');
+
+        $validator
+            ->boolean('wish_appoint_child')
+            ->allowEmptyString('wish_appoint_child');
+
+        $validator
+            ->scalar('surviving_parent_fullname')
+            ->maxLength('surviving_parent_fullname', 128)
+            ->allowEmptyString('surviving_parent_fullname');
+
+        $validator
+            ->scalar('guardian_fullname')
+            ->maxLength('guardian_fullname', 128)
+            ->allowEmptyString('guardian_fullname');
+
+        $validator
+            ->scalar('guardian_relation')
+            ->maxLength('guardian_relation', 64)
+            ->allowEmptyString('guardian_relation');
+
+        $validator
+            ->boolean('wish_property_special')
+            ->allowEmptyString('wish_property_special');
+
+        $validator
+            ->scalar('way_attorney_decision')
+            ->maxLength('way_attorney_decision', 128)
+            ->allowEmptyString('way_attorney_decision');
+
+        $validator
+            ->scalar('addition_notes')
+            ->allowEmptyString('addition_notes');
 
         return $validator;
     }
