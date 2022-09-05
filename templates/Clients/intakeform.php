@@ -122,14 +122,14 @@ $this->Html->script('intakeform', ['block' => true]);
                             </div>
                             <select class="form-select text-grey" id="inputState" name="state" required>
                                 <option selected value="">Choose...</option>
+                                <option value="Australian Capital Territory">Australian Capital Territory</option>
                                 <option value="New South Wales">New South Wales</option>
+                                <option value="Northern Territory">Northern Territory</option>
                                 <option value="Queensland">Queensland</option>
                                 <option value="South Australia">South Australia</option>
+                                <option value="Tasmania">Tasmania</option>
                                 <option value="Victoria">Victoria</option>
                                 <option value="Western Australia">Western Australia</option>
-                                <option value="Tasmania">Tasmania</option>
-                                <option value="Northern Territory">Northern Territory</option>
-                                <option value="Australian Capital Territory">Australian Capital Territory</option>
                             </select>
 
                             <div class="invalid-feedback">Please provide your state</div>
