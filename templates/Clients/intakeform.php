@@ -128,6 +128,8 @@ $this->Html->script('intakeform', ['block' => true]);
                                 <option value="Victoria">Victoria</option>
                                 <option value="Western Australia">Western Australia</option>
                                 <option value="Tasmania">Tasmania</option>
+                                <option value="Northern Territory">Northern Territory</option>
+                                <option value="Australian Capital Territory">Australian Capital Territory</option>
                             </select>
 
                             <div class="invalid-feedback">Please provide your state</div>
