@@ -78,7 +78,7 @@ class AdminsController extends AppController
      */
     public function index()
     {
-        $admins = $this->paginate($this->Admins);
+        $admins = $this->Admins->find()->all();
 
         $this->set(compact('admins'));
     }

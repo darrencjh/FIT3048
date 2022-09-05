@@ -29,6 +29,7 @@ let verifyPassword=(adminPassword)=>{
     return true
 }
 
+//add page
 //add blur events here
 $("#adminEmail").blur(function () {
     verifyEmail(this.value)
@@ -39,6 +40,8 @@ $("#adminUsername").blur(function () {
 $("#adminPassword").blur(function () {
     verifyPassword(this.value)
 })
+
+//edit page
 $("#editAdminEmail").blur(function () {
     verifyEmail(this.value)
 })
@@ -49,6 +52,8 @@ $("#editAdminNewPassword").blur(function () {
     verifyPassword(this.value)
 })
 
+
+//Layout
 $(()=>{
     "use strict"; // Start of use strict
 
@@ -121,10 +126,5 @@ $(()=>{
             $(this).addClass('active');
         }
     })
-
-
-
-
-
 
 })

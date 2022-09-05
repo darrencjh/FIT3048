@@ -3,20 +3,31 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Admin[]|\Cake\Collection\CollectionInterface $admins
  */
+
+echo $this->Html->css('//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css',['block'=>true]);
+echo $this->Html->script('//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js',['block'=>true]);
+
 ?>
+<script>
+    //table to display
+    $(()=>{
+        $('#adminTable').DataTable();
+    } );
+</script>
 <div class="admins index content">
     <?= $this->Html->link(__('<span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span><span class="text">Add new Admin</span>'), ['action' => 'add'],['class' => 'btn btn-success btn-icon-split float-right','escape'=>false]) ?>
     <h3><?= __('Admins') ?></h3>
     <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover" width="100%" cellspacing="0">
+<!--        <table class="table table-bordered table-striped table-hover" width="100%" cellspacing="0">-->
+        <table id="adminTable">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('email') ?></th>
-                    <th><?= $this->Paginator->sort('username') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th>id</th>
+                    <th>email</th>
+                    <th>username</th>
+                    <th class="actions">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,14 +47,5 @@
             </tbody>
         </table>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
-    </div>
+
 </div>

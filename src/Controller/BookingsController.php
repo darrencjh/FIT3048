@@ -17,7 +17,7 @@ class BookingsController extends AppController
     {
         parent::beforeFilter($event);
         // booking page not need login
-        $this->Authentication->addUnauthenticatedActions(['choose','feedback']);
+        $this->Authentication->addUnauthenticatedActions(['choose','feedback','getBookedTime']);
     }
     /**
      * Index method
