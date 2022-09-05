@@ -55,9 +55,9 @@ $this->Html->script('intakeform', ['block' => true]);
                     </div>
                     <div class="col-12 col-md-4 ps-md-3">
                         <div class="label">
-                            <label>Preferred Name</label>
+                            <label>Previous Name</label>
                         </div>
-                        <input id="inputPrevName" type="text" name="previousName" class="form-control" maxlength="20">
+                        <input id="inputPrevName" type="text" name="previous_name" class="form-control" maxlength="20">
                         <div class="invalid-feedback" id="prevNameError"></div>
                     </div>
                 </div>

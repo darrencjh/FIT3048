@@ -27,8 +27,10 @@ echo $this->Html->script('login', ['block' => true]);
                                     <div class="label required">
                                         <label for="loginUsername">Username</label>
                                     </div>
-                                    <input type="text" class="form-control loginInput bg-transparent fw-bold mt-2" id="loginUsername" name="username" placeholder="Username" required>
-                                    <img src="<?= $this->Url->build('/img/login/username.png') ?>" alt="user icon" class="loginIcon">
+                                    <input type="text" class="form-control loginInput bg-transparent fw-bold mt-2"
+                                           id="loginUsername" name="username" placeholder="Username" required>
+                                    <img src="<?= $this->Url->build('/img/login/username.png') ?>" alt="user icon"
+                                         class="loginIcon">
                                     <div class="invalid-feedback" id="msg-uname">Please provide your username</div>
                                 </div>
 
@@ -36,8 +38,10 @@ echo $this->Html->script('login', ['block' => true]);
                                     <div class="label required">
                                         <label for="loginUserPassword">Password</label>
                                     </div>
-                                    <input type="password" class="form-control loginInput bg-transparent fw-bold mt-2" id="loginUserPassword" name="password" placeholder="Password" required>
-                                    <img src="<?= $this->Url->build('/img/login/pwd.png') ?>" alt="user icon" class="loginIcon">
+                                    <input type="password" class="form-control loginInput bg-transparent fw-bold mt-2"
+                                           id="loginUserPassword" name="password" placeholder="Password" required>
+                                    <img src="<?= $this->Url->build('/img/login/pwd.png') ?>" alt="user icon"
+                                         class="loginIcon">
                                     <div class="invalid-feedback" id="msg-pwd">Please provide your password</div>
                                 </div>
 
@@ -62,6 +66,7 @@ echo $this->Html->script('login', ['block' => true]);
 
 <script>
     <?php
+    // Cakephp method to the the url
     //form page just send query string to home page after submit a form
     //using action to distinguish which message to display
     $action = $this->request->getQuery('action', '');

@@ -50,6 +50,8 @@ $(() => {
         }
     });
 
+
+    //js method to the the url
     var urlParams = new URLSearchParams(window.location.search);
     console.log(urlParams.get('action'));
     if (urlParams.get('action') == 'error') {

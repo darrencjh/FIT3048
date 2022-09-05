@@ -37,30 +37,113 @@ ALTER TABLE `bookings`
 
 CREATE TABLE IF NOT EXISTS `clients`
 (
+    # 1.personal information
+    # 1.1 Your details
     `id`             char(36)     NOT NULL,
-    `full_name`      varchar(255) NOT NULL,
-    `preferred_name`    varchar(255) NOT NULL,
-    `date_birth`     varchar(255) NOT NULL,
-    `occupation`     varchar(255) NOT NULL,
-    `house_number`   varchar(255) NOT NULL,
-    `postal_address` varchar(255) NOT NULL,
-    `state`          varchar(255) NOT NULL,
-    `postcode`       varchar(255) NOT NULL,
-    `email`          varchar(255) NOT NULL,
-    `phone`          varchar(255) NOT NULL,
-    `referred_by`    varchar(255) NOT NULL,
-    `is_will`        tinyint(1)       NOT NULL            DEFAULT '0',
-    `is_powers`      tinyint(1)       NOT NULL            DEFAULT '0',
-    `is_binding`     tinyint(1)       NOT NULL            DEFAULT '0',
-    `is_health`     tinyint(1)       NOT NULL            DEFAULT '0',
-    `is_relationship`     tinyint(1)       NOT NULL            DEFAULT '0',
-    `current_children`     tinyint(1)       NOT NULL            DEFAULT '0',
-    `previous_children`     tinyint(1)       NOT NULL            DEFAULT '0',
-    `is_living`     tinyint(1)       NOT NULL            DEFAULT '0',
-    `is_dependent`     tinyint(1)       NOT NULL            DEFAULT '0',
-    `will_text`      varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-    `powers_text`    varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-    `binding_text`   varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+    `full_name`      varchar(128) NOT NULL,
+    `previous_name`    varchar(128),
+    `date_of_birth`     date NOT NULL,
+    `occupation`     varchar(64) NOT NULL,
+    `home_address` varchar(255) NOT NULL,
+    `postal_address` varchar(255),
+    `email`          varchar(64) NOT NULL,
+    `phone`          char(10) NOT NULL,
+
+    # 1.2 Existing Documents
+    `has_will`        tinyint(1) NOT NULL DEFAULT 0,
+    `has_power` tinyint(1) NOT NULL DEFAULT 0,
+    `has_binding`     tinyint(1) NOT NULL DEFAULT 0,
+    `has_decision_maker` tinyint(1) NOT NULL DEFAULT 0,
+    `has_superannu_deed` tinyint(1) NOT NULL DEFAULT 0,
+    `has_family_deed` tinyint(1) NOT NULL DEFAULT 0,
+
+
+    # 1.3
+    `is_health`     tinyint(1) NOT NULL DEFAULT 0,
+    `health_desc` varchar(1024) DEFAULT '',
+
+    # 1.4
+    `relationship_status` varchar(64) NOT NULL DEFAULT 'unknown',
+    `married_fullName` varchar(128) NOT NULL DEFAULT '',
+    `married_dob` date,
+    `married_phone` varchar(10) NOT NULL DEFAULT '',
+    `defacto_fullName` varchar(128) NOT NULL DEFAULT '',
+    `defacto_living` date,
+    `defacto_mariage` tinyint(1) NOT NULL DEFAULT 0,
+    `sepdiv_property_settlement` tinyint(1) NOT NULL DEFAULT 0,
+
+    # 1.5 child
+    `has_child_current` tinyint(1) NOT NULL DEFAULT 0,
+    `has_child_prev` tinyint(1) NOT NULL DEFAULT 0,
+
+
+    # 1.6
+    `has_household_member` tinyint(1) NOT NULL DEFAULT 0,
+
+    # 1.7
+    `has_financial_dependent` tinyint(1) NOT NULL DEFAULT 0,
+
+    # 2
+    # 2.1
+    `has_accountant` tinyint(1) NOT NULL DEFAULT 0,
+    `accountant_name`      varchar(128) NOT NULL DEFAULT '',
+    `accountant_firm`      varchar(128) NOT NULL DEFAULT '',
+    `accountant_email`      varchar(64) NOT NULL DEFAULT '',
+    `accountant_help`  tinyint(1) NOT NULL DEFAULT 0,
+
+    `has_adviser` tinyint(1) NOT NULL DEFAULT 0,
+    `adviser_name`      varchar(128) NOT NULL DEFAULT '',
+    `adviser_firm`      varchar(128) NOT NULL DEFAULT '',
+    `adviser_email`      varchar(64) NOT NULL DEFAULT '',
+    `adviser_help`  tinyint(1) NOT NULL DEFAULT 0,
+
+    `has_referrer` tinyint(1) NOT NULL DEFAULT 0,
+    `referrer_name`      varchar(128) NOT NULL DEFAULT '',
+    `referrer_firm`      varchar(128) NOT NULL DEFAULT '',
+    `referrer_email`      varchar(64) NOT NULL DEFAULT '',
+
+
+    # 2.2
+    # 2.3
+    `details_youowe` text NOT NULL DEFAULT '',
+    `has_owe_agreement`  tinyint(1) NOT NULL DEFAULT 0,
+    `details_youowed` text NOT NULL DEFAULT '',
+    `has_owed_agreement`  tinyint(1) NOT NULL DEFAULT 0,
+    `repay_estate` varchar(32) NOT NULL DEFAULT '',
+
+    # 2.3
+    `insure_house` tinyint(1) NOT NULL DEFAULT 0,
+    `insure_house_company`     varchar(64) NOT NULL,
+    `insure_vehicle` tinyint(1) NOT NULL DEFAULT 0,
+    `insure_vehicle_company`     varchar(64) NOT NULL,
+    `insure_health` tinyint(1) NOT NULL DEFAULT 0,
+    `insure_health_company`     varchar(64) NOT NULL,
+    `insure_life` tinyint(1) NOT NULL DEFAULT 0,
+    `insure_life_company`     varchar(64) NOT NULL,
+
+    # 2.4
+    `is_office_holder` tinyint(1) NOT NULL DEFAULT 0,
+    `is_beneficiary` tinyint(1) NOT NULL DEFAULT 0,
+    `in_partnership` tinyint(1) NOT NULL DEFAULT 0,
+
+    # 3
+
+    # 4
+    `wish_appoint_child` tinyint(1) NOT NULL DEFAULT 0,
+    `surviving_parent_fullname` varchar(128) NOT NULL default '',
+    `guardian_fullname`  varchar(128) NOT NULL default '',
+    `guardian_relation` varchar(64) NOT NULL default '',
+
+
+    # 5
+    `wish_property_special` tinyint(1) NOT NULL DEFAULT 0,
+
+    # 6
+    # 7
+    `way_attorney_decision` varchar(128) NOT NULL default '',
+
+    # 8
+    `addition_notes` text NOT NULL DEFAULT '',
 
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
