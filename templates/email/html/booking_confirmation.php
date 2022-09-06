@@ -458,7 +458,7 @@ endforeach;
                                         <p><b>Client Full name:</b> <?= h($name) ?></p>
                                         <p><b>Client Email address:</b> <?= $this->Html->link(h($email), 'mailto:' . h($email)) ?></p>
                                         <p><b>Client Phone number:</b> <?= h($phone) ?></p>
-
+                                        
                                         <h2>What's Next Step? </h2>
                                         <p><b>Please fill in the Intake form(if filled before,please ignore this step): </b></p>
                                         <div class="align-center">

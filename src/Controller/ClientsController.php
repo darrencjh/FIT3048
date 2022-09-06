@@ -139,6 +139,21 @@ class ClientsController extends AppController
 
                 if ($this->Clients->save($client)) {
                     $this->Flash->success('Form has been successfully submitted');
+                    //sending email here
+                    //1.sending to client
+
+
+
+
+                    //2.sending to leonie
+
+
+
+
+                    //3.sending to referral
+
+
+
                     return $this->redirect(['action' => 'feedback']);
                 } else {
                     $this->Flash->error(__('The client could not be saved. Please, try again.'));
