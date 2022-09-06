@@ -184,7 +184,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     <a class="btn btn-shelbourne mt-3 rounded-pill px-4 py-2" id="page1Next">Next</a>
                 </div>
             </div>
-            <a href="#" class="btn btn-danger" id="jumpTo4">jump to page4</a>
+<!--            <a href="#" class="btn btn-danger" id="jumpTo4">jump to page4</a>-->
 
             <!-- Page 2           -->
             <div id="page2" class="collapse text-grey">

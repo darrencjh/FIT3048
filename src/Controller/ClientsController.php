@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Mailer\Mailer;
+
 /**
  * Clients Controller
  *
@@ -141,6 +143,26 @@ class ClientsController extends AppController
                     $this->Flash->success('Form has been successfully submitted');
                     //sending email here
                     //1.sending to client
+                    $mailer1 = new Mailer('default');
+                    // Setup email parameters
+                    $mailer1
+                        ->setEmailFormat('html')
+                        ->setTo($client->email)
+                        ->setFrom("leonie@u22s1043.monash-ie.me")
+                        ->setSubject('Confirmation of your intake form' . " <" . h($client->email) . ">")
+                        ->viewBuilder()
+                        ->disableAutoLayout()
+                        ->setTemplate('intakeformConfirmation');
+
+                    // Send data to the email template
+                    $mailer1->setViewVars([
+                        'client' => $postData
+                    ]);
+                    //Send email
+                    $email_result = $mailer1->deliver();
+                    if (!$email_result)  {
+                        $this->Flash->error(__('Email failed to send. Please check the query in the system later. '));
+                    }
 
 
 
@@ -151,6 +173,10 @@ class ClientsController extends AppController
 
 
                     //3.sending to referral
+
+
+
+
 
 
 
