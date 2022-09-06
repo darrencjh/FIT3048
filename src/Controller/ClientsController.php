@@ -126,21 +126,13 @@ class ClientsController extends AppController
             if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
                 $this->Flash->success('Robot verification passed,you are not a robot');
 
-
-                $first_name = $this->request->getData('givenName');
-                $last_name = $this->request->getData('lastName');
-                $unit = $this->request->getData('unit');
-                $street = $this->request->getData('street');
-                $suburb = $this->request->getData('suburb');
-                $state = $this->request->getData('state');
-                $postcode = $this->request->getData('postcode');
-
-
-                $client->full_name = $first_name . ' ' . $last_name;
-                $client->home_address = $unit . $street . ',' . $suburb . ',' . $state . ',' . $postcode;
+                //combine the client name+address and save into database
+                $client->full_name = $postData['givenName'] . ' ' . $postData['lastName'];
+                $client->home_address = $postData['unit'] . $postData['street'] . ',' . $postData['suburb'] . ',' . $postData['state'] . ',' . $postData['postcode'];
 
                 if ($this->Clients->save($client)) {
                     $this->Flash->success('Form has been successfully submitted');
+
                     //sending email here
                     //1.sending to client
                     $mailer1 = new Mailer('default');
@@ -168,11 +160,25 @@ class ClientsController extends AppController
 
 
                     //2.sending to leonie
+                    //same codes as above
+                    //change to $mailer2
+                    //->setSubject    : email title
+                    //->setTemplate() : change this to the email template name. if the file name is "a_b". write "aB"
 
 
 
 
                     //3.sending to referral
+                    //
+                    if($postData['has_referrer']){
+                        //if client has a referrer,then send email. Otherwise,not
+                        //same email sending codes as above
+                        //change to $mailer3
+
+
+
+                    }
+
 
 
 
