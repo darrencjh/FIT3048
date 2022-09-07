@@ -164,7 +164,26 @@ class ClientsController extends AppController
                     //change to $mailer2
                     //->setSubject    : email title
                     //->setTemplate() : change this to the email template name. if the file name is "a_b". write "aB"
+                    $mailer2 = new Mailer('default');
+                    // Setup email parameters
+                    $mailer2
+                        ->setEmailFormat('html')
+                        ->setTo($client->email) //put Leonie's Email
+                        ->setFrom("leonie@u22s1043.monash-ie.me")
+                        ->setSubject('New Client' . " <" . h($client->full_name) . ">")
+                        ->viewBuilder()
+                        ->disableAutoLayout()
+                        ->setTemplate('intakeformConfirmation'); //Change template
 
+                    // Send data to the email template
+                    $mailer2->setViewVars([
+                        'client' => $postData
+                    ]);
+                    //Send email
+                    $email_result = $mailer2->deliver();
+                    if (!$email_result)  {
+                        $this->Flash->error(__('Email failed to send. Please check the query in the system later. '));
+                    }
 
 
 
@@ -174,7 +193,26 @@ class ClientsController extends AppController
                         //if client has a referrer,then send email. Otherwise,not
                         //same email sending codes as above
                         //change to $mailer3
+                        $mailer3 = new Mailer('default');
+                        // Setup email parameters
+                        $mailer3
+                            ->setEmailFormat('html')
+                            ->setTo($client->referrer_email) //put referral email
+                            ->setFrom("leonie@u22s1043.monash-ie.me")
+                            ->setSubject("Shelbourne Legal: ". h($client->full_name) . "was referred by you")
+                            ->viewBuilder()
+                            ->disableAutoLayout()
+                            ->setTemplate('referrerConfirmation'); //Change template
 
+                        // Send data to the email template
+                        $mailer3->setViewVars([
+                            'client' => $postData
+                        ]);
+                        //Send email
+                        $email_result = $mailer3->deliver();
+                        if (!$email_result)  {
+                            $this->Flash->error(__('Email failed to send. Please check the query in the system later. '));
+                        }
 
 
                     }

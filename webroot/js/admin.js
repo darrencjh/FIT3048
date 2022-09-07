@@ -41,16 +41,26 @@ $("#adminPassword").blur(function () {
     verifyPassword(this.value)
 })
 
+//when changed
+$("#adminEmail").change(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#adminUsername").change(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+$("#adminPassword").change(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
 //edit page
-$("#editAdminEmail").blur(function () {
-    verifyEmail(this.value)
-})
-$("#editAdminUsername").blur(function () {
-    verifyUsername(this.value)
-})
-$("#editAdminNewPassword").blur(function () {
-    verifyPassword(this.value)
-})
+// $("#editAdminEmail").blur(function () {
+//     verifyEmail(this.value)
+// })
+// $("#editAdminUsername").blur(function () {
+//     verifyUsername(this.value)
+// })
+// $("#editAdminNewPassword").blur(function () {
+//     verifyPassword(this.value)
+// })
 
 
 //Layout
