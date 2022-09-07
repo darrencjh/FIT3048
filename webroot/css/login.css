@@ -80,3 +80,9 @@ input:focus {
     background-color: #17bcb9;
     color: #000;
 }
+
+
+/* Error message*/
+.alert-danger{
+    background-color: rgba(248, 215, 218, 0.75) !important;
+}

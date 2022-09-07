@@ -27,16 +27,16 @@ $(() => {
     $("#loginUsername").blur(function () {
         verifyUsername(this.value)
     });
-    // When change the value in the inout,check
-    $("#loginUsername").change(function () {
-        verifyUsername(this.value)
-    });
     $("#loginUserPassword").blur(function () {
         verifyPassword(this.value)
     });
-    $("#loginUserPassword").change(function () {
-        verifyPassword(this.value)
-    });
+    // When change the value in the inout,check
+    // $("#loginUsername").change(function () {
+    //     verifyUsername(this.value)
+    // });
+    // $("#loginUserPassword").change(function () {
+    //     verifyPassword(this.value)
+    // });
 
     $("#loginSubmit").click(function () {
         let nameResult = verifyUsername(loginUsername.value)

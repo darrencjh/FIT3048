@@ -128,7 +128,7 @@ class ClientsController extends AppController
 
                 //combine the client name+address and save into database
                 $client->full_name = $postData['givenName'] . ' ' . $postData['lastName'];
-                $client->home_address = $postData['unit'] . $postData['street'] . ',' . $postData['suburb'] . ',' . $postData['state'] . ',' . $postData['postcode'];
+                $client->home_address = $postData['unit'] . $postData['street'] . ',' . $postData['suburb'] . ',' . $postData['state'] . ',' . $postData['postCode'];
 
                 if ($this->Clients->save($client)) {
                     $this->Flash->success('Form has been successfully submitted');
