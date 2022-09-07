@@ -72,7 +72,7 @@ echo $this->Html->script('login', ['block' => true]);
     //using action to distinguish which message to display
     $action = $this->request->getQuery('action', '');
 
-    if(!$loginResult){
+    if(isset($loginResult) and $loginResult==false){
     ?>
     $("#msg-uname").text("")
     $("#loginUsername").addClass("is-invalid")
