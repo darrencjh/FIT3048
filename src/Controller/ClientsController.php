@@ -173,7 +173,7 @@ class ClientsController extends AppController
                         ->setSubject('New Client' . " <" . h($client->full_name) . ">")
                         ->viewBuilder()
                         ->disableAutoLayout()
-                        ->setTemplate('intakeformConfirmation'); //Change template
+                        ->setTemplate('leonieConfirmation'); //Change template
 
                     // Send data to the email template
                     $mailer2->setViewVars([
