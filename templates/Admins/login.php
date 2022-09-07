@@ -9,7 +9,7 @@ echo $this->Html->script('login', ['block' => true]);
     <div class="col-md-9 col-xl-10">
         <div class="card border-0 my-5 bg-transparent">
 
-            <div class="card-body p-0 text-light mt-md-5">
+            <div class="card-body p-0 text-light">
                 <!-- Nested Row within Card Body -->
                 <div class="row g-0">
                     <div class="col-lg-12">
@@ -19,6 +19,8 @@ echo $this->Html->script('login', ['block' => true]);
                                 <h1><b>Shelbourne Legal</b></h1>
                                 <h2>Admin Login </h2>
                             </div>
+                            <?= $this->Flash->render() ?>
+
 
                             <!--     Username+password      -->
                             <?= $this->Form->create(); ?>
@@ -52,7 +54,6 @@ echo $this->Html->script('login', ['block' => true]);
                             </div>
                             <?= $this->Form->end() ?>
 
-                            <?= $this->Flash->render() ?>
                         </div>
                     </div>
                 </div>
@@ -73,10 +74,10 @@ echo $this->Html->script('login', ['block' => true]);
 
     if(!$loginResult){
     ?>
-    $("#msg-uname").text("*username or password is wrong")
+    $("#msg-uname").text("")
     $("#loginUsername").addClass("is-invalid")
 
-    $("#msg-pwd").text("*username or password is wrong")
+    $("#msg-pwd").text("")
     $("#loginUserPassword").addClass("is-invalid")
     <?php } ?>
 
