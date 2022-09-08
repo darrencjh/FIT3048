@@ -813,7 +813,30 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="label">
                             <label class="text-danger">*If yes</label>
                         </div>
-                        <?= $this->element('page3Helper'); ?>
+                        <div class="row g-0 inputsRow">
+                            <div class="col-12 col-lg-4 pe-md-2">
+                                <div class="label">
+                                    <label>Full Name</label>
+                                </div>
+                                <input type="text" name="accountant_name" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-4 px-md-2">
+                                <div class="label">
+                                    <label>Firm</label>
+                                </div>
+                                <input type="text" name="accountant_firm" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-4 ps-md-2">
+                                <div class="label">
+                                    <label>Email</label>
+                                </div>
+                                <input type="text" name="accountant_email" class="form-control">
+                            </div>
+
+                        </div>
+
                         <div class="label mt-2">
                             <label>Would you like your accountant to help complete this section for you?</label>
                         </div>
@@ -841,7 +864,29 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="label">
                             <label class="text-danger">*If yes</label>
                         </div>
-                        <?= $this->element('page3Helper'); ?>
+                        <div class="row g-0 inputsRow">
+                            <div class="col-12 col-lg-4 pe-md-2">
+                                <div class="label">
+                                    <label>Full Name</label>
+                                </div>
+                                <input type="text" name="adviser_name" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-4 px-md-2">
+                                <div class="label">
+                                    <label>Firm</label>
+                                </div>
+                                <input type="text" name="adviser_firm" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-4 ps-md-2">
+                                <div class="label">
+                                    <label>Email</label>
+                                </div>
+                                <input type="text" name="adviser_email" class="form-control">
+                            </div>
+
+                        </div>
                         <div class="label mt-2">
                             <label>Would you like your financial adviser to help complete this section for you?</label>
                         </div>
@@ -869,7 +914,29 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="label">
                             <label class="text-danger">*If yes</label>
                         </div>
-                        <?= $this->element('page3Helper'); ?>
+                        <div class="row g-0 inputsRow">
+                            <div class="col-12 col-lg-4 pe-md-2">
+                                <div class="label">
+                                    <label>Full Name</label>
+                                </div>
+                                <input type="text" name="referrer_name" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-4 px-md-2">
+                                <div class="label">
+                                    <label>Firm</label>
+                                </div>
+                                <input type="text" name="referrer_firm" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-lg-4 ps-md-2">
+                                <div class="label">
+                                    <label>Email</label>
+                                </div>
+                                <input type="text" name="referrer_email" class="form-control">
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
