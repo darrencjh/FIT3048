@@ -4,7 +4,7 @@ let verifyFirstName=(inputGivenName)=>{
         $("#nameError").text("Please enter your first name")
         $("#inputGivenName").addClass("is-invalid")
         return false
-    } else if(!/^[A-Za-z]{2,}$/.test(inputGivenName)){
+    } else if(!/^[A-Za-z ,.'-]+$/.test(inputGivenName)){
         $("#nameError").text("Name can only contain letters")
         $("#inputGivenName").addClass("is-invalid")
         return false
@@ -18,7 +18,7 @@ let verifyLastName=(inputLastName)=>{
         $("#inputLastName").addClass("is-invalid")
         return false
     } else if(!/^[A-Za-z]{2,}$/.test(inputLastName)){
-        $("#lastNameError").text("Name can only contain letters")
+        $("#lastNameError").text("Last Name can only contain letters")
         $("#inputLastName").addClass("is-invalid")
         return false
     }
@@ -26,7 +26,7 @@ let verifyLastName=(inputLastName)=>{
 }
 
 let verifyPreviousName=(inputPrevName)=>{
-    if(inputPrevName!= "" &&!/^[A-Za-z\s]{2,}$/.test(inputPrevName)){
+    if(inputPrevName!= "" && !/^[A-Za-z ,.'-]+$/.test(inputPrevName)){
         $("#prevNameError").text("Name can only contain letters")
         $("#inputPrevName").addClass("is-invalid")
         return false
