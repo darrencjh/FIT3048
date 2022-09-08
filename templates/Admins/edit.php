@@ -10,26 +10,29 @@
             <?= $this->Form->create($admin) ?>
             <fieldset>
                 <legend><?= __('Edit Admin') ?></legend>
-                <div class="label required">
-                    <label>Email</label>
+                <div class="mb-3">
+                    <div class="label required">
+                        <label>Email</label>
+                    </div>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="adminEmail" name="email" value="<?= $admin->email?>" placeholder="eg. example@email.com" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
+                    <div class="invalid-feedback" id="emailError">Please provide your email</div>
                 </div>
-                <?php echo $this->Form->control('email', ['label' => false, 'class' => "form-control bg-transparent fw-bold mt-2 mb-3", 'id' => "editAdminEmail",  'placeholder' => "eg. example@email.com",'required' => true, 'pattern'=>'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$']);
-                ?>
-                <div class="invalid-feedback" id="emailError">Please provide your email</div>
 
-                <div class="label required mt-3">
-                    <label>Username</label>
+                <div class="mb-3">
+                    <div class="label required mt-3">
+                        <label>Username</label>
+                    </div>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="adminUsername" name="username" value="<?= $admin->username?>" required>
+                    <div class="invalid-feedback" id="usernameError">Please provide your username</div>
                 </div>
-                <?php echo $this->Form->control('username', ['label' => false, 'class' => "form-control bg-transparent fw-bold mt-2 mb-3", 'id' => "editAdminUsername",'required' => true]);
-                ?>
-                <div class="invalid-feedback" id="usernameError">Please provide your username</div>
 
-                <div class="label required mt-3">
-                    <label>New Password</label>
+                <div class="mb-3">
+                    <div class="label required mt-3">
+                        <label>New Password</label>
+                    </div>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="adminPassword" name="newPassword" value="" placeholder="New Password" required>
+                    <div class="invalid-feedback" id="password">Please provide your new password</div>
                 </div>
-                <?php echo $this->Form->control('password', ['label' => false, 'value'=>'' ,'placeholder'=>'New Password', 'class' => "form-control bg-transparent fw-bold mt-2 mb-3", 'id' => "editAdminNewPassword",  'required' => true]);
-                ?>
-                <div class="invalid-feedback" id="password">Please provide your new password</div>
 
             </fieldset>
             <?= $this->Form->button(__('Submit'),['class'=>'btn btn-lg btn-primary']) ?>
