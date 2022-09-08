@@ -209,7 +209,7 @@ $this->Html->script('intakeform', ['block' => true]);
                     <div class="col-12">
                         <div class="ff-el-group">
                             <div class="label required">
-                                <label>Proof of Identification(always required)</label>
+                                <label>Proof of Identification (always required)</label>
                             </div>
                             <!--                            <select class="form-select text-grey" id="inputProofId" name="proof_id" required>-->
                             <!--                                <option selected class="text-muted">Choose your id type</option>-->
@@ -400,7 +400,7 @@ $this->Html->script('intakeform', ['block' => true]);
                             appointment.</h6>
                         <p class="card-text text-grey">
                         <ol id="documentsToBring" class="list-group-numbered">
-                            <li>Identification(always required)</li>
+                            <li>Identification (always required)</li>
                             <li class="collapse">Your existing will</li>
                             <li class="collapse">Your existing power of attorney</li>
                             <li class="collapse">Your binding Death Benefit Nominations</li>
