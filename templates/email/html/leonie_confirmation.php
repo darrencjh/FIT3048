@@ -451,53 +451,108 @@ endforeach;
                                         </div>
                                         <p><?= h($client['givenName'] . $client['lastName'] . "has successfully completed the intake form") ?></p>
                                         <p>Their details are as follows:</p>
-                                        <p><b>Full Name:</b> <?=  h($client['givenName'] . $client['lastName'] . "(" . $client['previous_name'] . ")") ?></p>
+                                        <p><b>Full Name:</b> <?=  h($client['full_name']) ?></p>
                                         <p><b>Email address:</b> <?=  h($client['email']) ?></p>
                                         <p><b>Phone number:</b> <?= h($client['phone']) ?></p>
                                         <p><b>Date of birth:</b> <?= h($client['date_of_birth']) ?></p>
                                         <p><b>Occupation:</b> <?= h($client['occupation']) ?></p>
-                                        <p><b>Address:</b> <?= h($client['unit'] . $client['street'] . $client['suburb'] . $client['postcode'] . $client['state']) ?></p>
+                                        <p><b>Address:</b> <?= h($client['home_address']) ?></p>
                                         <p><b>Postal address:</b> <?= h($client['postal_address']) ?></p>
 
+                                        <p>Has will: <?= $client['has_will'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Has powers of attorney: <?= $client['has_power'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Has binding death benefit nominations: <?= $client['has_binding'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Has existing medical treatment decision maker: <?= $client['has_decision_maker'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Has self managed superannuation trust deed: <?= $client['has_superannu_deed'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Has family trust deed: <?= $client['has_family_deed'] == 1 ? "Yes" : "No" ?></p>
+
+                                        <p>Health concerns: <?= $client['is_health'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Description: <?= h($client['health_desc']) ?></p>
+
+                                        <p>Relationship status: <?= h($client['relationship_status']) ?></p>
+                                        <p>
+                                            Relationship description:
+                                            <p>Married</p>
+                                            <p>Partner's full name: <?= h($client['married_fullName']) ?></p>
+                                            <p>Partner's DOB: <?= h($client['married_dob']) ?></p>
+                                            <p>Partner's mobile number: <?= h($client['married_phone']) ?></p>
+
+                                            <p>De-facto</p>
+                                            <p>Partner's full name: <?= h($client['defacto_fullName']) ?></p>
+                                            <p>Started living together: <?= h($client['defacto_living']) ?></p>
+                                            <p>Contemplating marriage: <?= $client['defacto_marriage'] == 1 ? "Yes" : "No" ?></p>
+
+                                            <p>Separated/Divorced</p>
+                                            <p>Property settlement occured: <?= $client['sepdiv_property_settlement'] == 1 ? "Yes" : "No" ?></p>
+
+                                            <p>Children from current relationship: <?= $client['$has_child_current'] == 1 ? "Yes" : "No" ?></p>
+                                            <p>Children from previous relationship: <?= $client['$has_child_prev'] == 1 ? "Yes" : "No" ?></p>
+
+                                            <p>Does anyone else live with you</p>
+                                            <p>Children from previous relationship: <?= $client['$has_household_member'] == 1 ? "Yes" : "No" ?></p>
+
+                                            <p>Children from previous relationship: <?= $client['$has_financial_dependent'] == 1 ? "Yes" : "No" ?></p>
+
+                                            <p>Accountant</p>
+                                        <p>Client has accountant: <?= $client['has_accountant'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Accountant Name: <?= h($client['accountant_name']) ?></p>
+                                        <p>Accountant Firm: <?= h($client['accountant_firm']) ?></p>
+                                        <p>Accountant to complete section: <?= $client['$accountant_help'] == 1 ? "Yes" : "No" ?></p>
+
+                                        <p>Financial Adviser</p>
+                                        <p>Client has financial adviser: <?= $client['$has_adviser'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Financial Adviser Name: <?= h($client['adviser_name']) ?></p>
+                                        <p>Financial Adviser Firm: <?= h($client['adviser_firm']) ?></p>
+                                        <p>Financial Adviser to complete section: <?= $client['$adviser_help'] == 1 ? "Yes" : "No" ?></p>
+                                        </p>
+
+                                        <p>Referrer</p>
+                                        <p>Has referrer: <?= $client['$has_referrer'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Referrer Name: <?= h($client['referrer_name']) ?></p>
+                                        <p>Referrer Firm: <?= h($client['referrer_firm']) ?></p>
+                                        <p>Referrer Email: <?= h($client['referrer_email']) ?></p>
+
+                                        <p>Loans</p>
+                                        <p>Loan details: <?= h($client['details_youowe']) ?></p>
+                                        <p>Loan agreement: <?= $client['$has_owe_agreement'] == 1 ? "Yes" : "No" ?></p>
+
+                                        <p>Money owed to client: <?= h($client['details_youowed']) ?></p>
+                                        <p>Loan agreement: <?= $client['$has_owed_agreement'] == 1 ? "Yes" : "No" ?></p>
+
+                                        <p>Repayment estate: <?= h($client['repay_estate']) ?></p>
+
+                                        <p>Insurance</p>
+                                        <p>House and Contents: <?= $client['$insure_house'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Insurance Company: <?= h($client['insure_house_company']) ?></p>
+                                        <p>Vehicle insurance: <?= $client['$insure_vehicle'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Insurance Company: <?= h($client['insure_vehicle_company']) ?></p>
+                                        <p>Health: <?= $client['insure_health'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Insurance Company: <?= h($client['insure_health_company']) ?></p>
+                                        <p>Life: <?= $client['insure_life'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Insurance Company: <?= h($client['insure_life_company']) ?></p>
+
+                                        <p>Business</p>
+                                        <p>Are you an office holder of any private companies?: <?= $client['is_office_holder'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Are you the beneficiary/ trustee of any trusts?: <?= $client['is_beneficiary'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Are you in a partnership?: <?= $client['in_partnership'] == 1 ? "Yes" : "No" ?></p>
+
+                                        <p>Guardian of Minor Children</p>
+                                        <p>Do you wish to appoint a guardian of minor children?: <?= $client['wish_appoint_child'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Full Name of Surviving Parent: <?= h($client['surviving_parent_fullname']) ?></p>
+                                        <p>Guardian's Full Name: <?= h($client['guardian_fullname']) ?></p>
+                                        <p>Guardian’s Relationship to You: <?= h($client['guardian_relation']) ?></p>
+
+                                        <p>Specific Bequests</p>
+                                        <p>Do you wish to leave any specific items of property to a particular person?: <?= $client['wish_property_special'] == 1 ? "Yes" : "No" ?></p>
+
+                                        <p>Enduring Powers of Attorney</p>
+                                        <p>If naming more than one attorney, how would you like them to make
+                                            decisions? <?= h($client['way_attorney_decision']) ?></p>
+
+                                        <p>Addition Notes: <?= h($client['addition_notes']) ?></p>
 
                                         <!--                                        write each attributes here. see name="" in intakeform.php view page  -->
 
-
-
-                                        <h2>What's Next Step? </h2>
-                                        <p><b>Please make a booking with us(if booked,please ignore this step): </b></p>
-                                        <div class="align-center">
-                                            <a class="btn btn-shelbourne" href="<?=  $this->Url->build(['controller'=>'Bookings','action'=>'choose'], ['fullBase' => true]) ?>" target="_blank">Make a booking</a>
-                                        </div>
-
-                                        <div class="emailformat">
-                                            Kind regards,
-                                            <br>
-                                            <br>
-                                            <br>
-                                            Leonie Dubbelman │ Solicitor
-                                            <br>                                            <br>
-                                            <br>
-                                            <span class="text-shelbourne">S H E L B O U R N E</span> l e g a l
-                                            <br>                                            <br>
-                                            <br>
-                                            P. 1300 743 526
-                                            <br>
-                                            M. 0401 044 017
-                                            <br>
-                                            W. <a href="https://shelbournelegal.com.au/" target="_blank">shelbournelegal.com.au</a>
-                                            <br>
-                                            <br>
-                                            <br>
-                                            Suite 1, 1265 Nepean Highway, Cheltenham VIC 3192
-                                            <br>
-                                            PO Box 173, Southland Centre VIC 3192
-                                            <br><br>
-                                            Suite 2, 681 Burke Road, Camberwell VIC 3124
-                                            <br>
-                                            <!--                                            change url later when deployed to client's real server-->
-                                            Booking With Us:<a href="http://review.u22s1043.monash-ie.me/" target="_blank">Booking</a>
-                                        </div>
 
 
                                     </td>

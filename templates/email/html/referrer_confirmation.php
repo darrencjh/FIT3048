@@ -449,8 +449,8 @@ endforeach;
                                         <div class="text-center">
                                             <img src="https://d3v0px0pttie1i.cloudfront.net/uploads/user/logo/6737024/445e6b00.jpg" alt="Shelbourne legal">
                                         </div>
-                                        <p>Hi,<?= h($client['referrer_email']) ?></p>
-                                        <p>You have successfully referred <?= h($client['givenName'] . $client['lastName']) ?></p>
+                                        <p>Hi,<?= h($client['referrer_name']) ?></p>
+                                        <p>You have successfully referred <?= h($client['full_name']) ?></p>
                                         <p><b>Thank you for your support to Shelbourne Legal</p>
                                         <!--                                        write each attributes here. see name="" in intakeform.php view page  -->
 
