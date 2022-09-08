@@ -1520,7 +1520,7 @@ $this->Html->script('intakeform', ['block' => true]);
 
                     <div id="yourExecutors">
                         <div></div>
-                        <div class="row g-0 inputsRow">
+                            <div class="row g-0 inputsRow">
                             <div class="col-12 col-lg-4 pe-lg-2">
                                 <div class="label">
                                     <label>Full Name</label>
