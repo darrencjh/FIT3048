@@ -19,10 +19,10 @@ class ClientsFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '68583b96-5922-4213-8051-e36551c1dfce',
+                'id' => '42ccbf78-40d2-4b3d-8007-a241251813de',
                 'full_name' => 'Lorem ipsum dolor sit amet',
                 'previous_name' => 'Lorem ipsum dolor sit amet',
-                'date_of_birth' => '2022-09-05',
+                'date_of_birth' => '2022-09-08',
                 'occupation' => 'Lorem ipsum dolor sit amet',
                 'home_address' => 'Lorem ipsum dolor sit amet',
                 'postal_address' => 'Lorem ipsum dolor sit amet',
@@ -38,10 +38,10 @@ class ClientsFixture extends TestFixture
                 'health_desc' => 'Lorem ipsum dolor sit amet',
                 'relationship_status' => 'Lorem ipsum dolor sit amet',
                 'married_fullName' => 'Lorem ipsum dolor sit amet',
-                'married_dob' => '2022-09-05',
+                'married_dob' => '2022-09-08',
                 'married_phone' => 'Lorem ip',
                 'defacto_fullName' => 'Lorem ipsum dolor sit amet',
-                'defacto_living' => '2022-09-05',
+                'defacto_living' => '2022-09-08',
                 'defacto_mariage' => 1,
                 'sepdiv_property_settlement' => 1,
                 'has_child_current' => 1,

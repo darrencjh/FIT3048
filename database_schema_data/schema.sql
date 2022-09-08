@@ -105,9 +105,9 @@ CREATE TABLE IF NOT EXISTS `clients`
 
     # 2.2
     # 2.3
-    `details_youowe` text  DEFAULT '',
+    `details_youowe` text,
     `has_owe_agreement`  tinyint(1)  DEFAULT 0,
-    `details_youowed` text  DEFAULT '',
+    `details_youowed` text,
     `has_owed_agreement`  tinyint(1)  DEFAULT 0,
     `repay_estate` varchar(32)  DEFAULT '',
 
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `clients`
     `way_attorney_decision` varchar(128)  default '',
 
     # 8
-    `addition_notes` text  DEFAULT '',
+    `addition_notes` text,
 
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB

@@ -170,14 +170,14 @@ class ClientsController extends AppController
 
                     //3.sending to referral
                     //
-                    if($postData['has_referrer']){
+                    //if($postData['has_referrer']){
                         //if client has a referrer,then send email. Otherwise,not
                         //same email sending codes as above
                         //change to $mailer3
 
 
 
-                    }
+                    //}
 
 
 
