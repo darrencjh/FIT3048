@@ -131,7 +131,7 @@ class ClientsController extends AppController
                 $client->home_address = $postData['unit'] . $postData['street'] . ',' . $postData['suburb'] . ',' . $postData['state'] . ',' . $postData['postCode'];
 
                 if ($this->Clients->save($client)) {
-                    $this->Flash->success('Form has been successfully submitted');
+                    $this->Flash->success('Intake Form has been successfully submitted');
 
                     //sending email here
                     //1.sending to client
@@ -168,7 +168,7 @@ class ClientsController extends AppController
                     // Setup email parameters
                     $mailer2
                         ->setEmailFormat('html')
-                        ->setTo($client->email) //put Leonie's Email
+                        ->setTo("wliu0025@student.monash.edu") //put Leonie's Email
                         ->setFrom("leonie@u22s1043.monash-ie.me")
                         ->setSubject('New Client' . " <" . h($client->full_name) . ">")
                         ->viewBuilder()
@@ -188,8 +188,8 @@ class ClientsController extends AppController
 
 
                     //3.sending to referral
-                    //
-                    //if($postData['has_referrer']){
+
+                    if(isset($postData['has_referrer']) && $postData['has_referrer']==1){
                         //if client has a referrer,then send email. Otherwise,not
                         //same email sending codes as above
                         //change to $mailer3
@@ -199,7 +199,7 @@ class ClientsController extends AppController
                             ->setEmailFormat('html')
                             ->setTo($client->referrer_email) //put referral email
                             ->setFrom("leonie@u22s1043.monash-ie.me")
-                            ->setSubject("Shelbourne Legal: ". h($client->full_name) . "was referred by you")
+                            ->setSubject("Shelbourne Legal: ". " <" . h($client->full_name) . "was referred by you" . ">")
                             ->viewBuilder()
                             ->disableAutoLayout()
                             ->setTemplate('referrerConfirmation'); //Change template
@@ -215,7 +215,7 @@ class ClientsController extends AppController
                         }
 
 
-                    //}
+                    }
 
 
 
