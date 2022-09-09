@@ -5,8 +5,51 @@
  */
 $this->assign('title', 'Intake Form');
 $this->Html->css('intakeform', ['block' => true]);
-$this->Html->script('intakeform', ['block' => true]);
+
+$this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true]);
 ?>
+<script>
+    $(() => {
+        //disable the Enter
+        $(window).keydown(function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+
+
+        $('#inputSuburb').keyup(function(){
+            $(".bootstrap-autocomplete").addClass("show")
+        })
+
+
+        $('#inputSuburb').autoComplete({
+            resolverSettings: {
+                url: '<?php echo $this->Url->build(['controller'=>'suburbs','action'=>'getPostcodeAndState'])?>',
+                queryKey: 'input'
+            },
+            minLength: 2,
+        }).on('autocomplete.select',function (e){
+            let responseData = e.target.value
+            console.log(responseData)
+
+            let temp = responseData.toString().split(' ')
+            let postcode = temp.pop()
+            let state = temp.pop()
+            let suburb = temp.join(' ')
+            document.getElementById('inputSuburb').value = suburb
+            document.getElementById('inputPostCode').value = postcode
+            // $('#inputState').selectpicker('val',state)
+            document.getElementById('inputState').value=state
+
+            $('.bootstrap-autocomplete').mouseleave(function(){
+                $(".bootstrap-autocomplete").removeClass("show")
+            })
+        });
+    })
+</script>
 
 
 <main class="main">
@@ -108,8 +151,7 @@ $this->Html->script('intakeform', ['block' => true]);
                         <div class="label required">
                             <label>Suburb/Town</label>
                         </div>
-                        <input id="inputSuburb" type="text" name="suburb" class="form-control"
-                               required/>
+                        <input id="inputSuburb" type="text" name="suburb" class="form-control" auto-complete='off' required/>
                         <div class="invalid-feedback" id="suburbError">Please provide your Suburb/Town</div>
                     </div>
                 </div>
@@ -123,14 +165,14 @@ $this->Html->script('intakeform', ['block' => true]);
                             </div>
                             <select class="form-select text-grey" id="inputState" name="state" required>
                                 <option selected value="">Choose...</option>
-                                <option value="Australian Capital Territory">Australian Capital Territory</option>
-                                <option value="New South Wales">New South Wales</option>
-                                <option value="Northern Territory">Northern Territory</option>
-                                <option value="Queensland">Queensland</option>
-                                <option value="South Australia">South Australia</option>
-                                <option value="Tasmania">Tasmania</option>
-                                <option value="Victoria">Victoria</option>
-                                <option value="Western Australia">Western Australia</option>
+                                <option value="ACT">Australian Capital Territory</option>
+                                <option value="NSW">New South Wales</option>
+                                <option value="NT">Northern Territory</option>
+                                <option value="QLD">Queensland</option>
+                                <option value="SA">South Australia</option>
+                                <option value="TAS">Tasmania</option>
+                                <option value="VIC">Victoria</option>
+                                <option value="WA">Western Australia</option>
                             </select>
 
                             <div class="invalid-feedback">Please provide your state</div>

@@ -27,14 +27,13 @@ $titleDescription = ' - Shelbourne legal';
     </title>
     <?= $this->Html->meta('icon', $this->Url->build('/logo.png', ['fullBase' => true])); ?>
     <?= $this->Html->meta('csrfToken', $this->request->getAttribute('csrfToken')); ?>
+    <?= $this->fetch('meta') ?>
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap"
           rel="stylesheet">
-    <!--#01ab9d-->
     <?= $this->Html->css(['normalize.min', 'bootstrap', 'fontawesome-free/css/all.min', 'shelbourne', 'common']) ?>
-
-    <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
+
 
     <?= $this->Html->script('jquery-3.6.0.min') ?>
 </head>
@@ -46,11 +45,7 @@ $titleDescription = ' - Shelbourne legal';
             <div class="container-fluid nav-content">
                 <!--   logo       -->
                 <a class="navbar-brand" href="https://shelbournelegal.com.au/">
-                    <img width="300" height="27"
-                         src="https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web-300x27.png"
-                         class="custom-logo" alt="Shelbourne Legal"
-                         srcset="https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web-300x27.png 300w, https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web-768x70.png 768w, https://shelbournelegal.com.au/wp-content/uploads/2020/04/Logo-grey-web.png 827w"
-                         sizes="(max-width: 300px) 100vw, 300px">
+                    <?= $this->Html->image('Logo-name.png',['width'=>'300','height'=>'27','alt'=>"Shelbourne Legal"]); ?>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -113,7 +108,7 @@ $titleDescription = ' - Shelbourne legal';
                     <!-- Company name -->
                     <h2 class="text-shelbourne">Shelbourne Legal</h2>
                     <!-- contact phone+email -->
-                    <ul class="list-unstyled list-group">
+                    <ul class="list-unstyled list-group" id="contactUl">
                         <li>
                             <a href="tel:1300743526">
                                 <span class="phone-icon">

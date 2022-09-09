@@ -350,3 +350,19 @@ input[type=radio]{
     top: -3px;
 }
 
+
+
+/* Auto Complete styles */
+.bootstrap-autocomplete {
+    max-height: 200px;
+    overflow: auto;
+    padding-left: 12px;
+}
+.bootstrap-autocomplete>li{
+    margin-bottom: 3px;
+}
+.bootstrap-autocomplete>li>a{
+    text-decoration: none;
+    color: #000 !important;
+}
+

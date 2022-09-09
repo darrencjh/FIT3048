@@ -218,12 +218,6 @@ class ClientsController extends AppController
                     }
 
 
-
-
-
-
-
-
                     return $this->redirect(['action' => 'feedback']);
                 } else {
                     $this->Flash->error(__('The client could not be saved. Please, try again.'));
@@ -263,8 +257,7 @@ class ClientsController extends AppController
         return $result->success;
     }
 
-    public
-    function feedback()
+    public function feedback()
     {
         $pageTitle = "Thank You";
         $this->set(compact('pageTitle'));

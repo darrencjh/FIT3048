@@ -52,6 +52,7 @@ return static function (RouteBuilder $routes) {
          */
         $builder->connect('/', ['controller' => 'Bookings', 'action' => 'choose']);
 
+        $builder->setExtensions(['json', 'xml']);
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
          */
