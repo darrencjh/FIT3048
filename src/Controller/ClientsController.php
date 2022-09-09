@@ -124,14 +124,14 @@ class ClientsController extends AppController
             $postData = $this->request->getData();
 
             if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
-                $this->Flash->success('Robot verification passed,you are not a robot');
+//                $this->Flash->success('Robot verification passed,you are not a robot');
 
                 //combine the client name+address and save into database
                 $client->full_name = $postData['givenName'] . ' ' . $postData['lastName'];
                 $client->home_address = $postData['unit'] . ' ' . $postData['street'] . ',' . $postData['suburb'] . ',' . $postData['state'] . ',' . $postData['postCode'];
 
                 if ($this->Clients->save($client)) {
-                    $this->Flash->success('Intake Form has been successfully submitted');
+//                    $this->Flash->success('Intake Form has been successfully submitted');
 
                     //sending email here
                     //1.sending to client
@@ -199,7 +199,7 @@ class ClientsController extends AppController
                             ->setEmailFormat('html')
                             ->setTo($client->referrer_email) //put referral email
                             ->setFrom("leonie@u22s1043.monash-ie.me")
-                            ->setSubject("Shelbourne Legal: ". " <" . h($client->full_name) . "was referred by you" . ">")
+                            ->setSubject("Shelbourne Legal: ". " <" . h($client->full_name) . " was referred by you" . ">")
                             ->viewBuilder()
                             ->disableAutoLayout()
                             ->setTemplate('referrerConfirmation'); //Change template
