@@ -110,13 +110,8 @@ let verifyPostcode=(inputPostCode)=>{
         $("#postcodeError").text("Please provide your postcode")
         $("#inputPostCode").addClass("is-invalid")
         return false
-    } else if(!/[1-9][0-9]{3}/.test(inputPostCode)){
+    } else if(!/[0-9]{3,4}/.test(inputPostCode)){
         $("#postcodeError").text("Please check the postcode")
-        $("#inputPostCode").addClass("is-invalid")
-        return false
-    }
-    else if(inputPostCode.length != 4){
-        $("#postcodeError").text("Postcode can only contain 4 digits")
         $("#inputPostCode").addClass("is-invalid")
         return false
     }
