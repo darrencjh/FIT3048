@@ -148,7 +148,7 @@ class ClientsController extends AppController
 
                     // Send data to the email template
                     $mailer1->setViewVars([
-                        'client' => $postData
+                        'client' => $client
                     ]);
                     //Send email
                     $email_result = $mailer1->deliver();
@@ -177,7 +177,7 @@ class ClientsController extends AppController
 
                     // Send data to the email template
                     $mailer2->setViewVars([
-                        'client' => $postData
+                        'client' => $client
                     ]);
                     //Send email
                     $email_result = $mailer2->deliver();
@@ -206,7 +206,7 @@ class ClientsController extends AppController
 
                         // Send data to the email template
                         $mailer3->setViewVars([
-                            'client' => $postData
+                            'client' => $client
                         ]);
                         //Send email
                         $email_result = $mailer3->deliver();

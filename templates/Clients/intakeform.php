@@ -1509,7 +1509,8 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                         <!--   Yes/No selection    -->
                         <?=
                         $this->element('yesnoRadio', [
-                            'inputName' => 'in_partnership',
+                            'inputName' => '
+                            ',
                         ]);
                         ?>
                     </div>
@@ -1561,7 +1562,7 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
 
                     <div id="yourExecutors">
                         <div></div>
-                        <div class="row g-0 inputsRow">
+                            <div class="row g-0 inputsRow">
                             <div class="col-12 col-lg-4 pe-lg-2">
                                 <div class="label">
                                     <label>Full Name</label>
@@ -1834,7 +1835,7 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                         </div>
                         <div class="row g-0">
                             <div class="col-12 col-lg-11">
-                                <select class="form-select text-grey" name="attorneyDecision">
+                                <select class="form-select text-grey" name="way_attorney_decision">
                                     <option selected value="">Select...</option>
                                     <option value="Jointly">Jointly - the attorneys must all agree</option>
                                     <option value="Separately">Separately - each alternative attorney must make

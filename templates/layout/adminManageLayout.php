@@ -73,36 +73,10 @@ $action = $this->request->getParam('action');
 
 
         <!-- 1-Nav Item - Clients Collapse Menu -->
-        <li class="nav-item <?= $controller == 'Clients' ? 'active' : '' ?>">
-            <a class="nav-link <?= ($controller == 'Clients') ? '' : 'collapsed' ?>" href="#" data-toggle="collapse"
-               data-target="#collapseClients" aria-expanded="true" aria-controls="collapseClients">
-                <i class="fas fa-fw fa-users"></i>
-                <span>Clients</span>
-            </a>
-            <div id="collapseClients" class="collapse <?= ($controller == 'Clients') ? 'show' : '' ?>"
-                 aria-labelledby="headingUsers" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Clients</h6>
-                    <?= $this->Html->link(__('List Clients'), ['controller' => 'Clients', 'action' => 'index'], ['class' => 'collapse-item']) ?>
-                </div>
-            </div>
-        </li>
+
 
         <!-- 2-Nav Item - Bookings Collapse Menu -->
-        <li class="nav-item<?= ($controller == 'Bookings') ? 'active' : '' ?>">
-            <a class="nav-link <?= ($controller == 'Bookings') ? '' : 'collapsed' ?>" href="#" data-toggle="collapse"
-               data-target="#collapseBookings" aria-expanded="true" aria-controls="collapseBookings">
-                <i class="fas fa-fw fa-clock"></i>
-                <span>Bookings</span>
-            </a>
-            <div id="collapseBookings" class="collapse<?= ($controller == 'Bookings') ? ' show' : '' ?>"
-                 aria-labelledby="headingBookings" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Bookings</h6>
-                    <?= $this->Html->link(__('List Bookings'), ['controller' => 'Bookings', 'action' => 'index'], ['class' => 'collapse-item']) ?>
-                </div>
-            </div>
-        </li>
+
 
         <!-- 3-Nav Item - Admin account management Collapse Menu-->
         <li class="nav-item <?= ($controller == 'Admins' && $action != 'dashboard') ? 'active' : '' ?>">
