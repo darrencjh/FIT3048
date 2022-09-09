@@ -128,7 +128,7 @@ class ClientsController extends AppController
 
                 //combine the client name+address and save into database
                 $client->full_name = $postData['givenName'] . ' ' . $postData['lastName'];
-                $client->home_address = $postData['unit'] . $postData['street'] . ',' . $postData['suburb'] . ',' . $postData['state'] . ',' . $postData['postCode'];
+                $client->home_address = $postData['unit'] . ' ' . $postData['street'] . ',' . $postData['suburb'] . ',' . $postData['state'] . ',' . $postData['postCode'];
 
                 if ($this->Clients->save($client)) {
                     $this->Flash->success('Intake Form has been successfully submitted');
@@ -141,7 +141,7 @@ class ClientsController extends AppController
                         ->setEmailFormat('html')
                         ->setTo($client->email)
                         ->setFrom("leonie@u22s1043.monash-ie.me")
-                        ->setSubject('Confirmation of your intake form' . " <" . h($client->email) . ">")
+                        ->setSubject('Confirmation of your intake form' . " <" . h($client->full_name) . ">")
                         ->viewBuilder()
                         ->disableAutoLayout()
                         ->setTemplate('intakeformConfirmation');
