@@ -452,7 +452,6 @@ endforeach;
                                         <p>Hi,<?= h($client['referrer_name']) ?></p>
                                         <p>You have successfully referred <?= h($client['full_name']) ?></p>
                                         <p><b>Thank you for your support to Shelbourne Legal</p>
-                                        <!--                                        write each attributes here. see name="" in intakeform.php view page  -->
 
 
                                         <div class="emailformat">

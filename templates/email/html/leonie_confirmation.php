@@ -449,8 +449,8 @@ endforeach;
                                         <div class="text-center">
                                             <img src="https://d3v0px0pttie1i.cloudfront.net/uploads/user/logo/6737024/445e6b00.jpg" alt="Shelbourne legal">
                                         </div>
-                                        <p><?= h($client['givenName'] . $client['lastName'] . "has successfully completed the intake form") ?></p>
-                                        <p>Their details are as follows:</p>
+                                        <p><?= h($client['full_name'] . "has successfully completed the intake form") ?></p>
+                                        <p>His/Her details are as follows:</p>
                                         <p><b>Full Name:</b> <?=  h($client['full_name']) ?></p>
                                         <p><b>Email address:</b> <?=  h($client['email']) ?></p>
                                         <p><b>Phone number:</b> <?= h($client['phone']) ?></p>
@@ -550,9 +550,6 @@ endforeach;
                                             decisions? <?= h($client['way_attorney_decision']) ?></p>
 
                                         <p>Addition Notes: <?= h($client['addition_notes']) ?></p>
-
-                                        <!--                                        write each attributes here. see name="" in intakeform.php view page  -->
-
 
 
                                     </td>
