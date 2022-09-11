@@ -28,6 +28,8 @@ class BookingsController extends AppController
     {
         $bookings = $this->paginate($this->Bookings);
 
+        $this->viewBuilder()->setLayout('adminManageLayout');
+
         $this->set(compact('bookings'));
     }
 
@@ -74,6 +76,9 @@ class BookingsController extends AppController
      */
     public function view($id = null)
     {
+
+        $this->viewBuilder()->setLayout('adminManageLayout');
+
         $booking = $this->Bookings->get($id, [
             'contain' => [],
         ]);

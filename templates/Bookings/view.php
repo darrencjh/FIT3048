@@ -5,19 +5,10 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Booking'), ['action' => 'edit', $booking->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Booking'), ['action' => 'delete', $booking->id], ['confirm' => __('Are you sure you want to delete # {0}?', $booking->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Bookings'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Booking'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
     <div class="column-responsive column-80">
         <div class="bookings view content">
             <h3><?= h($booking->name) ?></h3>
-            <table>
+            <table class="table table-bordered table-striped table-hover" width="100%" cellspacing="0">
                 <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= h($booking->id) ?></td>
@@ -55,6 +46,7 @@
                     <td><?= h($booking->date) ?></td>
                 </tr>
             </table>
+            <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-lg btn-secondary']) ?>
         </div>
     </div>
 </div>

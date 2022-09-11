@@ -3,23 +3,37 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Booking[]|\Cake\Collection\CollectionInterface $bookings
  */
+
+echo $this->Html->css('//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css',['block'=>true]);
+echo $this->Html->script('//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js',['block'=>true]);
+
 ?>
+<script>
+    //table to display
+    $(()=>{
+        $('#bookingTable').DataTable();
+    } );
+</script>
+
 <div class="bookings index content">
-    <?= $this->Html->link(__('New Booking'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('<span class="icon text-white-50">
+                      <i class="fas fa-plus"></i>
+                    </span><span class="text">New Booking</span>'), ['action' => 'add'],['class' => 'btn btn-success btn-icon-split float-right','escape'=>false]) ?>
     <h3><?= __('Bookings') ?></h3>
     <div class="table-responsive">
-        <table>
+        <table id="bookingTable">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('date') ?></th>
-                    <th><?= $this->Paginator->sort('booked_time') ?></th>
-                    <th><?= $this->Paginator->sort('service') ?></th>
-                    <th><?= $this->Paginator->sort('name') ?></th>
-                    <th><?= $this->Paginator->sort('email') ?></th>
-                    <th><?= $this->Paginator->sort('location') ?></th>
-                    <th><?= $this->Paginator->sort('phone') ?></th>
-                    <th><?= $this->Paginator->sort('referred_by') ?></th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>date</th>
+                    <th>booking_time</th>
+                    <th>service</th>
+
+<!--                    $this->Paginator->sort('email')-->
+<!--                    $this->Paginator->sort('location')-->
+<!--                    $this->Paginator->sort('phone')-->
+<!--                    $this->Paginator->sort('referred_by')-->
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -45,14 +59,5 @@
             </tbody>
         </table>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
-    </div>
+
 </div>
