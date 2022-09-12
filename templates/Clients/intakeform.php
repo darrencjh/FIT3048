@@ -874,7 +874,9 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                                 <div class="label">
                                     <label>Email</label>
                                 </div>
-                                <input type="text" name="accountant_email" class="form-control">
+                                <input type="email" name="accountant_email" class="form-control">
+                                <div class="invalid-feedback">Please check the email format</div>
+
                             </div>
 
                         </div>
@@ -925,7 +927,9 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                                 <div class="label">
                                     <label>Email</label>
                                 </div>
-                                <input type="text" name="adviser_email" class="form-control">
+                                <input type="email" name="adviser_email" class="form-control">
+                                <div class="invalid-feedback">Please check the email format</div>
+
                             </div>
 
                         </div>
@@ -975,7 +979,8 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                                 <div class="label">
                                     <label>Email</label>
                                 </div>
-                                <input type="text" name="referrer_email" class="form-control">
+                                <input type="email" name="referrer_email" class="form-control">
+                                <div class="invalid-feedback">Please check the email format</div>
                             </div>
 
                         </div>

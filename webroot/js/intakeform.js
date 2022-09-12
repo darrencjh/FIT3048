@@ -131,12 +131,24 @@ let verifyEmail=(inputEmail)=>{
         $("#inputEmail").addClass("is-invalid")
         return false
     } else if(!/^[0-9A-Za-z.!#$%&’*+/=?^_`{|}~-]+@[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*$/.test(inputEmail)){
-        $("#emailError").text("Please follow the email format")
+        $("#emailError").text("Please check the email format")
         $("#inputEmail").addClass("is-invalid")
         return false
     }
     return true
 }
+let verifyCommonEmail=(target)=>{
+    if(target.value!="" && !/^[0-9A-Za-z.!#$%&’*+/=?^_`{|}~-]+@[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*$/.test(target.value)){
+        $(target).next().text("Please check the email format")
+        $(target).addClass("is-invalid")
+        return false
+    }
+    return true
+}
+
+
+
+
 
 let verifyPhone=(inputPhone)=>{
     if(inputPhone==""){
@@ -191,11 +203,10 @@ $("#inputPostCode").blur(function () {
 // $("#inputPostAddress").blur(function () {
 //     verifyPostalAddress(this.value)
 // })
-$("#inputEmail").blur(function () {
-    verifyEmail(this.value)
+$("input[type=email]").blur(function () {
+    verifyCommonEmail(this)
 })
 $("#inputPhone").blur(function () {
-    console.log("blur")
     verifyPhone(this.value)
 })
 
