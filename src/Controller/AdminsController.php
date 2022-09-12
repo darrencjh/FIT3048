@@ -18,7 +18,7 @@ class AdminsController extends AppController
         parent::beforeFilter($event);
         // Configure the login action to not require authentication, preventing
         // the infinite redirect loop issue
-        $this->Authentication->addUnauthenticatedActions(['login','add']);
+        $this->Authentication->addUnauthenticatedActions(['login']);
 
 
         $this->viewBuilder()->setLayout('adminManageLayout');
