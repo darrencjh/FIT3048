@@ -85,6 +85,7 @@ $action = $this->request->getParam('action');
                  aria-labelledby="headingBookings" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Bookings</h6>
+                    <?= $this->Html->link(__('Calendar Bookings'), ['controller' => 'Bookings', 'action' => 'calendar'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('List Bookings'), ['controller' => 'Bookings', 'action' => 'index'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>

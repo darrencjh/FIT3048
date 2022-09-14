@@ -33,6 +33,26 @@ class BookingsController extends AppController
         $this->set(compact('bookings'));
     }
 
+    public function calendar()
+    {
+        $this->viewBuilder()->setLayout('adminManageLayout');
+
+
+        $start_range=$this->request->getQuery('start');
+        $end_range=$this->request->getQuery('end');
+
+        $bookings=$this->Bookings->find();
+        if($start_range){
+            $bookings->where(['date >= '=>$start_range]);
+        }
+        if($end_range){
+            $bookings->where(['date <= '=>$end_range]);
+        }
+
+        $this->set(compact('bookings'));
+    }
+
+
 
     public function getBookedTime()
     {

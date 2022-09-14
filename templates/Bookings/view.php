@@ -46,7 +46,7 @@
                     <td><?= h($booking->date) ?></td>
                 </tr>
             </table>
-            <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-lg btn-secondary']) ?>
+            <?= $this->Html->link(__('Back'), ['action' => 'calendar'], ['class' => 'btn btn-lg btn-secondary']) ?>
         </div>
     </div>
 </div>

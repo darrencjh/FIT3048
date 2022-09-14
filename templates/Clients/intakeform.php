@@ -184,7 +184,7 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                             <label>Postcode</label>
                         </div>
                         <input type="zip" name="postCode" id="inputPostCode" class="form-control" maxlength="4"
-                               pattern="[1-9][0-9]{3}" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                required/>
                         <div class="invalid-feedback" id="postcodeError">Please provide your post code</div>
                     </div>
