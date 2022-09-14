@@ -74,11 +74,10 @@ $action = $this->request->getParam('action');
 
         <!-- 1-Nav Item - Clients Collapse Menu -->
 
-
         <!-- 2-Nav Item - Bookings Collapse Menu -->
         <li class="nav-item <?= ($controller == 'Bookings' && $action != 'dashboard') ? 'active' : '' ?>">
-            <a class="nav-link <?= ($controller == 'Bookings' && $action != 'dashboard') ? '' : 'collapsed' ?>" href="#" data-toggle="collapse"
-               data-target="#collapseBookings" aria-expanded="true" aria-controls="collapseBookings">
+            <a class="nav-link <?= ($controller == 'Bookings' && $action != 'dashboard') ? '' : 'collapsed' ?>" href="#"
+               data-toggle="collapse" data-target="#collapseBookings" aria-expanded="true" aria-controls="collapseBookings">
                 <i class="fas fa-fw fa-clock"></i>
                 <span>Bookings</span>
             </a>

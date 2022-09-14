@@ -544,6 +544,7 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                                     <input type="text" name="married_fullName" class="form-control"
                                            id="married_fullName"
                                            placeholder="Partner's full name">
+                                    <div class="invalid-feedback">Please check the name format</div>
                                 </div>
 
                                 <div class="mb-3 col-12 col-md-6 ps-md-3">
@@ -561,6 +562,7 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                                     </div>
                                     <input type="text" name="married_phone" class="form-control" id="married_phone"
                                            placeholder="Mobile Number">
+                                    <div class="invalid-feedback">Please check the phone format</div>
                                 </div>
 
                             </div>
@@ -573,6 +575,7 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                                     <input type="text" name="defacto_fullName" class="form-control"
                                            id="defacto_fullName"
                                            placeholder="Partner's full name">
+                                    <div class="invalid-feedback">Please check the name format</div>
                                 </div>
 
                                 <div class="mb-3 col-12 col-md-6 ps-md-3">
@@ -860,7 +863,8 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                                 <div class="label">
                                     <label>Full Name</label>
                                 </div>
-                                <input type="text" name="accountant_name" class="form-control">
+                                <input type="text" id="accountant_name" name="accountant_name" class="form-control">
+                                <div class="invalid-feedback">Please check the name format</div>
                             </div>
 
                             <div class="col-12 col-lg-4 px-md-2">
@@ -913,7 +917,8 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                                 <div class="label">
                                     <label>Full Name</label>
                                 </div>
-                                <input type="text" name="adviser_name" class="form-control">
+                                <input type="text" id="adviser_name" name="adviser_name" class="form-control">
+                                <div class="invalid-feedback">Please check the name format</div>
                             </div>
 
                             <div class="col-12 col-lg-4 px-md-2">
@@ -965,7 +970,8 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                                 <div class="label">
                                     <label>Full Name</label>
                                 </div>
-                                <input type="text" name="referrer_name" class="form-control">
+                                <input type="text" id="referrer_name" name="referrer_name" class="form-control">
+                                <div class="invalid-feedback">Please check the name format</div>
                             </div>
 
                             <div class="col-12 col-lg-4 px-md-2">
@@ -1691,14 +1697,16 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                                 <div class="label">
                                     <label>Full Name of Surviving Parent</label>
                                 </div>
-                                <input type="text" name="surviving_parent_fullname" class="form-control">
+                                <input type="text" id="surviving_parent_fullname" name="surviving_parent_fullname" class="form-control">
+                                <div class="invalid-feedback">Please check the name format</div>
                             </div>
 
                             <div class="col-12 col-lg-4 px-md-2">
                                 <div class="label">
                                     <label>Guardian’s Full Name</label>
                                 </div>
-                                <input type="text" name="guardian_fullname" class="form-control">
+                                <input type="text" id="guardian_fullname" name="guardian_fullname" class="form-control">
+                                <div class="invalid-feedback">Please check the name format</div>
                             </div>
 
                             <div class="col-12 col-lg-4 ps-md-2">
