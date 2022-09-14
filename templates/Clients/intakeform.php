@@ -431,6 +431,50 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                             ?>
                         </div>
                     </div>
+
+                    <!-- 7,8,9 Businesses div  -->
+                    <h4 class="border-0">Businesses</h4>
+                    <div class="mb-4">
+                        <div>
+                            <div class="label">
+                                <label>Are you an office holder of any private companies?</label>
+                            </div>
+                            <!--   Yes/No selection    -->
+                            <?=
+                            $this->element('yesnoRadio', [
+                                'inputName' => 'is_office_holder',
+                            ]);
+                            ?>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div>
+                            <div class="label">
+                                <label>Are you the beneficiary/ trustee of any trusts?</label>
+                            </div>
+                            <!--   Yes/No selection    -->
+                            <?=
+                            $this->element('yesnoRadio', [
+                                'inputName' => 'is_beneficiary',
+                            ]);
+                            ?>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div>
+                            <div class="label">
+                                <label>Are you in a partnership?</label>
+                            </div>
+                            <!--   Yes/No selection    -->
+                            <?=
+                            $this->element('yesnoRadio', [
+                                'inputName' => 'in_partnership',
+                            ]);
+                            ?>
+                        </div>
+                    </div>
+
+
                 </div>
 
 
@@ -449,6 +493,9 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                             <li class="collapse">Your existing medical treatment decision maker appointment</li>
                             <li class="collapse">Copy of Self Managed Superannuation Trust Deed</li>
                             <li class="collapse">Copy of Family Trust Deed</li>
+                            <li class="collapse">Copy of shareholders agreement and company constitution</li>
+                            <li class="collapse">Copy of existing trustees</li>
+                            <li class="collapse">Copy of partnership agreement</li>
                         </ol>
                         </p>
                         <div>
@@ -950,14 +997,19 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                 <div class="mb-4">
                     <div>
                         <div class="label">
-                            <label>Do you have a Referral?</label>
+                            <label>Who referred you to us?</label>
                         </div>
-                        <!--   Yes/No selection    -->
-                        <?=
-                        $this->element('yesnoRadio', [
-                            'inputName' => 'has_referrer',
-                        ]);
-                        ?>
+
+                        <select class="form-select text-grey w-25" id="inputReferral" name="referral">
+                            <option selected value="">Choose...</option>
+                            <option value="accountant">Accountant</option>
+                            <option value="financial adviser">Financial Adviser</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="google">Google</option>
+                            <option value="my website">My Website</option>
+                            <option value="others">Others</option>
+                        </select>
+
                     </div>
 
                     <!--    hidden inputs       -->
@@ -1478,52 +1530,6 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                             </div>
 
                         </div>
-                    </div>
-                </div>
-
-
-                <!--  Section4:add Businesses div  -->
-                <div class="ff-el-group">
-                    <h4>Businesses</h4>
-                </div>
-                <div class="mb-4">
-                    <div>
-                        <div class="label">
-                            <label>Are you an office holder of any private companies?</label>
-                        </div>
-                        <!--   Yes/No selection    -->
-                        <?=
-                        $this->element('yesnoRadio', [
-                            'inputName' => 'is_office_holder',
-                        ]);
-                        ?>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <div>
-                        <div class="label">
-                            <label>Are you the beneficiary/ trustee of any trusts?</label>
-                        </div>
-                        <!--   Yes/No selection    -->
-                        <?=
-                        $this->element('yesnoRadio', [
-                            'inputName' => 'is_beneficiary',
-                        ]);
-                        ?>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <div>
-                        <div class="label">
-                            <label>Are you in a partnership?</label>
-                        </div>
-                        <!--   Yes/No selection    -->
-                        <?=
-                        $this->element('yesnoRadio', [
-                            'inputName' => '
-                            ',
-                        ]);
-                        ?>
                     </div>
                 </div>
 

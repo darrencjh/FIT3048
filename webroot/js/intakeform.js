@@ -245,6 +245,10 @@ $("#inputPostCode").change(function () {
 $("#inputEmail").change(function () {
     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
 })
+$("input[type=email]").change(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
+
 $("#inputPhone").change(function () {
     console.log("change")
     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
@@ -254,48 +258,48 @@ $("#inputPhone").change(function () {
 //In page 1,when you click "Next". Verify the basic information form first,then display next page
 $("#page1Next").click(function(){
 
-    let firstName = inputGivenName.value
-    let lastName = inputLastName.value
-    let previousName = inputPrevName.value
-    let dob = inputDOB.value
-    let occupation = inputOccupation.value
-    let unit=inputUnit.value
-    let street = inputStreet.value
-    let suburb = inputSuburb.value
-    let state = inputState.value
-    let postcode = inputPostCode.value
-    // let postalAddress=inputPostAddress.value
-    let email = inputEmail.value
-    let phone = inputPhone.value
-
-
-    let firstNameResult = verifyFirstName(firstName)
-    let lastNameResult = verifyLastName(lastName)
-    let prevNameResult = verifyPreviousName(previousName)
-    let dobResult = verifyDOB(dob)
-    let occupationResult = verifyOccupation(occupation)
-    let unitResult=verifyUnit(unit)
-    let streetResult = verifyAddress(street)
-    let suburbResult = verifySuburb(suburb)
-    let stateResult = verifyState(state)
-    let postcodeResult = verifyPostcode(postcode)
-    // let postalAddressResult=verifyPostalAddress(postalAddress)
-    let emailResult = verifyEmail(email)
-    let phoneResult = verifyPhone(phone)
-
-    if (firstNameResult && lastNameResult && prevNameResult && dobResult && occupationResult && unitResult && streetResult && suburbResult
-    && stateResult && postcodeResult && emailResult && phoneResult){
-        //if pass verify,return true
-        $("#page1").removeClass('show')
-        $("#page2").addClass('show')
-        window.scrollTo(0, 0);
-        return true
-    }
-    else {
-        //if not pass,return false and scroll to top
-        document.getElementById('page1').scrollIntoView(true)
-        return false
-    }
+    // let firstName = inputGivenName.value
+    // let lastName = inputLastName.value
+    // let previousName = inputPrevName.value
+    // let dob = inputDOB.value
+    // let occupation = inputOccupation.value
+    // let unit=inputUnit.value
+    // let street = inputStreet.value
+    // let suburb = inputSuburb.value
+    // let state = inputState.value
+    // let postcode = inputPostCode.value
+    // // let postalAddress=inputPostAddress.value
+    // let email = inputEmail.value
+    // let phone = inputPhone.value
+    //
+    //
+    // let firstNameResult = verifyFirstName(firstName)
+    // let lastNameResult = verifyLastName(lastName)
+    // let prevNameResult = verifyPreviousName(previousName)
+    // let dobResult = verifyDOB(dob)
+    // let occupationResult = verifyOccupation(occupation)
+    // let unitResult=verifyUnit(unit)
+    // let streetResult = verifyAddress(street)
+    // let suburbResult = verifySuburb(suburb)
+    // let stateResult = verifyState(state)
+    // let postcodeResult = verifyPostcode(postcode)
+    // // let postalAddressResult=verifyPostalAddress(postalAddress)
+    // let emailResult = verifyEmail(email)
+    // let phoneResult = verifyPhone(phone)
+    //
+    // if (firstNameResult && lastNameResult && prevNameResult && dobResult && occupationResult && unitResult && streetResult && suburbResult
+    // && stateResult && postcodeResult && emailResult && phoneResult){
+    //     //if pass verify,return true
+    //     $("#page1").removeClass('show')
+    //     $("#page2").addClass('show')
+    //     window.scrollTo(0, 0);
+    //     return true
+    // }
+    // else {
+    //     //if not pass,return false and scroll to top
+    //     document.getElementById('page1').scrollIntoView(true)
+    //     return false
+    // }
 
 
     $("#page1").removeClass('show')
@@ -357,6 +361,12 @@ $("#documentsGroup").on("change",":radio",function(e){
         targetLi=$("#documentsToBring>li:nth-child(6)")
     }else if(this.name=="has_family_deed"){
         targetLi=$("#documentsToBring>li:nth-child(7)")
+    }else if(this.name=="is_office_holder"){
+        targetLi=$("#documentsToBring>li:nth-child(8)")
+    }else if(this.name=="is_beneficiary"){
+        targetLi=$("#documentsToBring>li:nth-child(9)")
+    }else if(this.name=="in_partnership"){
+        targetLi=$("#documentsToBring>li:nth-child(10)")
     }
     if(this.value==1) targetLi.addClass("show")
     else targetLi.removeClass("show")
@@ -478,8 +488,12 @@ $(":radio[name=has_accountant]").change(function(){
 $(":radio[name=has_adviser]").change(function(){
     radioShowDisappearInputs(this,'yourAdvisor')
 })
-$(":radio[name=has_referrer]").change(function(){
-    radioShowDisappearInputs(this,'yourReferral')
+$("#inputReferral").change(function(){
+    if(this.value=="accountant" ||this.value=="financial adviser"  ){
+        $(`#yourReferral`).slideDown();
+    }else{
+        $(`#yourReferral`).slideUp();
+    }
 })
 //Real estate: add a real estate
 $("#yourRealEstate").click(function(e){

@@ -57,6 +57,10 @@ CREATE TABLE IF NOT EXISTS `clients`
     `has_superannu_deed` tinyint(1)  DEFAULT 0,
     `has_family_deed` tinyint(1)  DEFAULT 0,
 
+    `is_office_holder` tinyint(1)  DEFAULT 0,
+    `is_beneficiary` tinyint(1)  DEFAULT 0,
+    `in_partnership` tinyint(1)  DEFAULT 0,
+
 
     # 1.3
     `is_health`     tinyint(1)  DEFAULT 0,
@@ -97,10 +101,10 @@ CREATE TABLE IF NOT EXISTS `clients`
     `adviser_email`      varchar(64)  DEFAULT '',
     `adviser_help`  tinyint(1)  DEFAULT 0,
 
-    `has_referrer` tinyint(1)  DEFAULT 0,
-    `referrer_name`      varchar(128)  DEFAULT '',
-    `referrer_firm`      varchar(128)  DEFAULT '',
-    `referrer_email`      varchar(64)  DEFAULT '',
+    `referral` varchar(64)  DEFAULT '',
+    `referral_name`      varchar(128)  DEFAULT '',
+    `referral_firm`      varchar(128)  DEFAULT '',
+    `referral_email`      varchar(64)  DEFAULT '',
 
 
     # 2.2
@@ -121,10 +125,7 @@ CREATE TABLE IF NOT EXISTS `clients`
     `insure_life` tinyint(1)  DEFAULT 0,
     `insure_life_company`     varchar(64) ,
 
-    # 2.4
-    `is_office_holder` tinyint(1)  DEFAULT 0,
-    `is_beneficiary` tinyint(1)  DEFAULT 0,
-    `in_partnership` tinyint(1)  DEFAULT 0,
+
 
     # 3
 
