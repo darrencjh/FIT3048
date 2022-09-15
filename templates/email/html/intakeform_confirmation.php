@@ -494,13 +494,13 @@ endforeach;
                                         <p>Children from the previous relationships: <?= $client['$has_financial_dependent'] == 1 ? "Yes" : "No" ?></p>
 
                                         <p>Accountant</p>
-                                        <p>The client has accountant: <?= $client['has_accountant'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Client has accountant: <?= $client['has_accountant'] == 1 ? "Yes" : "No" ?></p>
                                         <p>Accountant Name: <?= h($client['accountant_name']) ?></p>
                                         <p>Accountant Firm: <?= h($client['accountant_firm']) ?></p>
                                         <p>Accountant to complete section: <?= $client['$accountant_help'] == 1 ? "Yes" : "No" ?></p>
 
                                         <p>Financial Adviser</p>
-                                        <p>The client has financial adviser: <?= $client['$has_adviser'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Client has financial adviser: <?= $client['$has_adviser'] == 1 ? "Yes" : "No" ?></p>
                                         <p>Financial Adviser Name: <?= h($client['adviser_name']) ?></p>
                                         <p>Financial Adviser Firm: <?= h($client['adviser_firm']) ?></p>
                                         <p>Financial Adviser to complete section: <?= $client['$adviser_help'] == 1 ? "Yes" : "No" ?></p>

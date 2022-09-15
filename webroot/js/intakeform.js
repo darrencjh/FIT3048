@@ -118,12 +118,12 @@ let verifyPostcode=(inputPostCode)=>{
     return true
 
 }
-// let verifyPostalAddress=(inputPostalAddress)=>{
-//     if(inputPostalAddress!="" && !/^[#.0-9a-zA-Z\s,-]+$/.test(inputPostalAddress)){
-//         $("#postalAddressError").text("Please provide a valid address")
-//         $("#inputPostAddress").addClass("is-invalid")
-//     }
-// }
+let verifyPostalAddress=(inputPostalAddress)=>{
+    if(inputPostalAddress!="" && !/^[#.0-9a-zA-Z\s,-]+$/.test(inputPostalAddress)){
+        // $("#postalAddressError").text("Please provide a valid address")
+        $("#inputPostAddress").addClass("is-invalid")
+    }
+}
 
 let verifyEmail=(inputEmail)=>{
     if(inputEmail==""){
@@ -153,7 +153,7 @@ let verifyPhone=(inputPhone)=>{
         $("#inputPhone").addClass("is-invalid")
         return false
     } else if(!/04[0-9]{8}/.test(inputPhone)){
-        $("#phoneError").text("phone number can only contain right number format")
+        $("#phoneError").text("phone number can only contain numbers")
         $("#inputPhone").addClass("is-invalid")
         return false
     }
@@ -198,8 +198,9 @@ $("#inputPostCode").blur(function () {
     verifyPostcode(this.value)
 })
 $("#inputPostAddress").blur(function () {
-    verifyAddress(this.value)
+    verifyPostalAddress(this.value)
 })
+
 $("input[type=email]").blur(function () {
     verifyCommonEmail(this)
 })
@@ -243,7 +244,7 @@ $("#inputState").click(function () {
 $("#inputPostCode").change(function () {
     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
 })
-$("#inputPostAddress").mousedown(function () {
+$("#inputPostAddress").change(function () {
     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
 })
 $("#inputEmail").change(function () {

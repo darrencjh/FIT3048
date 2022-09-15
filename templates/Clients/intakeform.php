@@ -116,7 +116,7 @@ $householder_key = isset($householder_key) ? $householder_key : '<%= householder
                         <div class="label required">
                             <label>Date of Birth</label>
                         </div>
-                        <input type="date" id="inputDOB" name="date_of_birth" class="form-control"
+                        <input type="text" id="inputDOB" name="date_of_birth" class="form-control"
                                placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"
                                required/>
                         <!--                         pattern="\d{1,2}[/]\d{1,2}[/]\d{4}"-->
@@ -124,10 +124,9 @@ $householder_key = isset($householder_key) ? $householder_key : '<%= householder
                     </div>
                     <div class="mb-3 col-12 col-md-6 ps-md-3">
                         <div class="label required">
-                            <label>Occupation2222222</label>
+                            <label>Occupation</label>
                         </div>
-                        <input type="text" id="inputOccupation" name="occupation" class="form-control" maxlength="15"
-                               required/>
+                        <input type="text" id="inputOccupation" name="occupation" class="form-control" required/>
                         <div class="invalid-feedback" id="occupationError">Please provide your occupation</div>
                     </div>
                 </div>
@@ -199,7 +198,7 @@ $householder_key = isset($householder_key) ? $householder_key : '<%= householder
                             <label>Postal address</label>
                         </div>
                         <input type="text" name="postal_address" id="inputPostAddress" class="form-control"/>
-                        <div class="invalid-feedback" id="postalAddressError">Please provide your postal address</div>
+                        <div class="invalid-feedback" id="postalAddressError">Please provide a valid address</div>
                     </div>
                 </div>
 
@@ -258,16 +257,8 @@ $householder_key = isset($householder_key) ? $householder_key : '<%= householder
                             <div class="label required">
                                 <label>Proof of Identification (always required)</label>
                             </div>
-                            <!--                            <select class="form-select text-grey" id="inputProofId" name="proof_id" required>-->
-                            <!--                                <option selected class="text-muted">Choose your id type</option>-->
-                            <!--                                <option value="password" class="text-dark">Password</option>-->
-                            <!--                                <option value="driver licence" class="text-dark">Driver's Licence</option>-->
-                            <!--                                <option value="medical card" class="text-dark">Medical Card</option>-->
-                            <!--                                <option value="Age card" class="text-dark">Age Card</option>-->
-                            <!--                            </select>-->
                             <ul>
-                                <li>Proof of your identities, such as a passport, or a driver's licence, and a bank card
-                                    with your full name
+                                <li>Proof of your identities, such as a passport, or a driver's licence, or a bank card with your full name
                                 </li>
                                 <li class="mt-2">Proof of your address, such as a utility bill with your house as the
                                     supply address, or a bank or super statement addressed to your name at your address
@@ -525,7 +516,7 @@ $householder_key = isset($householder_key) ? $householder_key : '<%= householder
                         <div class="ff-el-group">
                             <div class="label">
                                 <label>Do you have any brain-related disorders; memory loss or confusion; or take any
-                                    medication that could impact cognitive function?</label>
+                                    medication that could impact on cognitive function?</label>
                             </div>
                             <!--   Yes/No selection    -->
                             <?=
@@ -1789,7 +1780,7 @@ $householder_key = isset($householder_key) ? $householder_key : '<%= householder
 
                 <div class="mb-4">
                     <div class="label">
-                        <label class="fw-bold">If something happens to the above beneficiary, who do you wish to
+                        <label class="fw-bold">If something happens to the above beneficiary(ies), who do you wish to
                             leave the balance of your estate to?</label>
                     </div>
                     <div id="yourLeaveEstateSecond">
