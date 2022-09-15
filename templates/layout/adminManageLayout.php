@@ -87,6 +87,8 @@ $action = $this->request->getParam('action');
                     <h6 class="collapse-header">Bookings</h6>
                     <?= $this->Html->link(__('Calendar Bookings'), ['controller' => 'Bookings', 'action' => 'calendar'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('List Bookings'), ['controller' => 'Bookings', 'action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add a Booking'), ['controller' => 'Bookings', 'action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Edit a Booking'), ['controller' => 'Bookings', 'action' => 'edit'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
         </li>

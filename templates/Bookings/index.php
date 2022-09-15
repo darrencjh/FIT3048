@@ -28,7 +28,7 @@ echo $this->Html->script('//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.j
                 <th>date</th>
                 <th>booking_time</th>
                 <th>service</th>
-                <th>emial</th>
+                <th>email</th>
                 <th>phone</th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -44,9 +44,10 @@ echo $this->Html->script('//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.j
                     <td><?= h($booking->email) ?></td>
                     <td><?= h($booking->phone) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $booking->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $booking->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $booking->id], ['confirm' => __('Are you sure you want to delete # {0}?', $booking->id)]) ?>
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $booking->id],['class'=>"btn btn-success btn-circle btn-sm",'escape'=>false]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $booking->id],['class'=>"btn btn-info btn-circle btn-sm",'escape'=>false]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $booking->id], ['class'=>"btn btn-danger btn-circle btn-sm button-delete-client",'escape'=>false,'confirm' => __('Are you sure you want to delete # {0}?', $booking->id)]) ?>
+
                     </td>
                 </tr>
             <?php endforeach; ?>

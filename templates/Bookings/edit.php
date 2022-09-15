@@ -21,16 +21,68 @@
             <?= $this->Form->create($booking) ?>
             <fieldset>
                 <legend><?= __('Edit Booking') ?></legend>
-                <?php
-                    echo $this->Form->control('date');
-                    echo $this->Form->control('booked_time');
-                    echo $this->Form->control('service');
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('location');
-                    echo $this->Form->control('phone');
-                    echo $this->Form->control('referred_by');
-                ?>
+
+                <div class="mb-3">
+                    <div class="label required">
+                        <label>Date</label>
+                    </div>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingDate" name="date" value="<?= $booking->date?>" required>
+<!--                    <div class="invalid-feedback" id="emailError">Please provide your booking date</div>-->
+                </div>
+
+                <div class="mb-3">
+                    <div class="label required">
+                        <label>Booking Time</label>
+                    </div>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingTime" name="booked_time" value="<?= $booking->booked_time?>" required>
+                </div>
+
+                <div class="mb-3">
+                    <div class="label required">
+                        <label>Service</label>
+                    </div>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingService" name="service" value="<?= $booking->service?>" required>
+                </div>
+
+                <div class="mb-3">
+                    <div class="label required">
+                        <label>Name</label>
+                    </div>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingName" name="name" value="<?= $booking->name?>" required>
+<!--                    <div class="invalid-feedback" id="emailError">Please provide your booking date</div>-->
+                </div>
+
+                <div class="mb-3">
+                    <div class="label required">
+                        <label>Email</label>
+                    </div>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingEmail" name="email" value="<?= $booking->email?>" required>
+<!--                    <div class="invalid-feedback" id="emailError">Please provide your booking date</div>-->
+                </div>
+
+                <div class="mb-3">
+                    <div class="label required">
+                        <label>Location</label>
+                    </div>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingLocation" name="location" value="<?= $booking->location?>" required>
+<!--                    <div class="invalid-feedback" id="emailError">Please provide your booking date</div>-->
+                </div>
+
+                <div class="mb-3">
+                    <div class="label required">
+                        <label>Phone</label>
+                    </div>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingPhone" name="phone" value="<?= $booking->phone?>" required>
+<!--                    <div class="invalid-feedback" id="emailError">Please provide your booking date</div>-->
+                </div>
+
+                <div class="mb-3">
+                    <div class="label required">
+                        <label>Referred By</label>
+                    </div>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingReferredBy" name="referred_by" value="<?= $booking->referred_by?>" required>
+<!--                    <div class="invalid-feedback" id="emailError">Please provide your booking date</div>-->
+                </div>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>

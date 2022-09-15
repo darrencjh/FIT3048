@@ -113,6 +113,8 @@ class BookingsController extends AppController
      */
     public function add()
     {
+        $this->viewBuilder()->setLayout('adminManageLayout');
+
         $booking = $this->Bookings->newEmptyEntity();
         if ($this->request->is('post')) {
             $booking = $this->Bookings->patchEntity($booking, $this->request->getData());
@@ -135,6 +137,8 @@ class BookingsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->viewBuilder()->setLayout('adminManageLayout');
+
         $booking = $this->Bookings->get($id, [
             'contain' => [],
         ]);
