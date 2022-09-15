@@ -124,11 +124,11 @@ $householder_key = isset($householder_key) ? $householder_key : '<%= householder
                     </div>
                     <div class="mb-3 col-12 col-md-6 ps-md-3">
                         <div class="label required">
-                            <label>Occupation</label>
+                            <label>Occupation2222222</label>
                         </div>
                         <input type="text" id="inputOccupation" name="occupation" class="form-control" maxlength="15"
                                required/>
-                        <div class="invalid-feedback" id="occupationError">Please provide XXX your occupation</div>
+                        <div class="invalid-feedback" id="occupationError">Please provide your occupation</div>
                     </div>
                 </div>
                 <!-- Unit + street number +suburb/Town -->
