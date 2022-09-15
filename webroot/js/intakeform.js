@@ -197,12 +197,14 @@ $("#inputState").blur(function () {
 $("#inputPostCode").blur(function () {
     verifyPostcode(this.value)
 })
-// $("#inputPostAddress").blur(function () {
-//     verifyPostalAddress(this.value)
-// })
+
 $("input[type=email]").blur(function () {
     verifyCommonEmail(this)
 })
+$("#inputEmail").blur(function () {
+    verifyEmail(this.value)
+})
+
 $("#inputPhone").blur(function () {
     verifyPhone(this.value)
 })
@@ -457,14 +459,44 @@ $("#yourGrandChildren").click(function(e){
 
 
 //householder member
+let hhContainer = $('#householder-container')
+let hhTemplate = _.template($('#householder-template').remove().text());
+let numbersRows = hhContainer.find('.inputsRow').length;
 // 1.display when 'Yes',disappear when 'no',default is disappear
-$(":radio[name=has_household_member]").change(function(){
-    radioShowDisappearInputs(this,'yourHouseMembers')
+$(":radio[name=has_household_member]").change(function(e){
+    //radioShowDisappearInputs(this,'yourHouseMembers')
+
+    e.preventDefault();
+    if($(this).val()==1){
+        $("#yourHouseMembers").addClass('show')
+        $(hhTemplate({householder_key: numbersRows++})).hide().appendTo(hhContainer).fadeIn('fast')
+        $(".error-message").text('')
+
+    } else{
+        $("#yourHouseMembers").removeClass('show')
+        hhContainer.children('.inputsRow').remove()
+    }
+
+
 })
 //2.add a householder member
-$("#yourHouseMembers").click(function(e){
-    addDeleteRow(e,"yourHouseMembers")
+// $("#yourHouseMembers").click(function(e){
+//     addDeleteRow(e,"yourHouseMembers")
+// })
+
+//dynamic listen
+hhContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    $(hhTemplate({householder_key: numbersRows++})).hide().appendTo(hhContainer).fadeIn('fast')
+    $(".error-message").text('')
 })
+hhContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut();
+})
+
+
+
 
 
 //Dependents

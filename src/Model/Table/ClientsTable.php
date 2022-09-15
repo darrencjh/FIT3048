@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Clients Model
  *
+ * @property \App\Model\Table\HouseholdersTable&\Cake\ORM\Association\HasMany $Householders
+ *
  * @method \App\Model\Entity\Client newEmptyEntity()
  * @method \App\Model\Entity\Client newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Client[] newEntities(array $data, array $options = [])
@@ -40,6 +42,13 @@ class ClientsTable extends Table
         $this->setTable('clients');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Householders', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
     }
 
     /**

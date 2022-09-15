@@ -116,24 +116,20 @@ class ClientsController extends AppController
 
     public function intakeform()
     {
-        $client = $this->Clients->newEmptyEntity();
+        $client = $this->Clients->newEntity(['associated'=>['Householders']]);
         if ($this->request->is("post")) {
             // Form submit handler
-            $client = $this->Clients->patchEntity($client, $this->request->getData());
-
             $postData = $this->request->getData();
 
             if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
-//                $this->Flash->success('Robot verification passed,you are not a robot');
+                $client = $this->Clients->patchEntity($client, $postData);
 
                 //combine the client name+address and save into database
                 $client->full_name = $postData['givenName'] . ' ' . $postData['lastName'];
                 $client->home_address = $postData['unit'] . ' ' . $postData['street'] . ',' . $postData['suburb'] . ',' . $postData['state'] . ',' . $postData['postCode'];
 
                 if ($this->Clients->save($client)) {
-//                    $this->Flash->success('Intake Form has been successfully submitted');
-
-                    //sending email here
+                    //After saving into database,sending emails
                     //1.sending to client
                     $mailer1 = new Mailer('default');
                     // Setup email parameters

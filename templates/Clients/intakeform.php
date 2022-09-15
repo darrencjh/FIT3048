@@ -5,8 +5,13 @@
  */
 $this->assign('title', 'Intake Form');
 $this->Html->css('intakeform', ['block' => true]);
+$this->Html->script(['bootstrap-autocomplete.min','underscore-min','intakeform'],['block'=>true]);
 
-$this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true]);
+
+$householder_key = isset($householder_key) ? $householder_key : '<%= householder_key %>';
+
+
+
 ?>
 <script>
     $(() => {
@@ -758,38 +763,44 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                         <div class="label">
                             <label>If yes</label>
                         </div>
-                        <div class="row g-0 inputsRow">
-                            <div class="col-12 col-lg-5 pe-md-2">
-                                <div class="label">
-                                    <label>Full Name</label>
-                                </div>
-                                <input type="text" name="hh_fullName[]" class="form-control">
-                            </div>
 
-                            <div class="col-12 col-lg-5 pe-md-2">
-                                <div class="label">
-                                    <label>Relationship to you</label>
-                                </div>
-                                <input type="text" name="hh_relation[]" class="form-control">
-                            </div>
-
-                            <div class="col-12 col-lg-2">
-                                <div class="row g-0">
-                                    <div class="col-1 col-lg-12 mt-2 mt-lg-0">
-                                        <a class="btn add">
-                                            <span class="fas fa-plus-circle"></span>
-                                        </a>
-                                    </div>
-                                    <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
-                                        <a class="btn delete">
-                                            <span class="fas fa-minus-circle"></span>
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>
+                        <div id="householder-container">
 
                         </div>
+
+
+                        <script id="householder-template" type="text/x-underscore-template">
+                            <div class="row g-0 inputsRow">
+                                <div class="col-12 col-lg-5 pe-md-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("householders.{$householder_key}.full_name",['label'=>'Full Name','class'=>'form-control']);?>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-5 pe-md-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("householders.{$householder_key}.relationship",['label'=>'Relationship to you','class'=>'form-control']);?>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-2">
+                                    <div class="row g-0">
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                            <a class="btn add">
+                                                <span class="fas fa-plus-circle"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0 ">
+                                            <a class="btn delete">
+                                                <span class="fas fa-minus-circle"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </script>
+
+
+
 
                     </div>
                 </div>
@@ -1579,7 +1590,7 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
 
                     <div id="yourExecutors">
                         <div></div>
-                            <div class="row g-0 inputsRow">
+                        <div class="row g-0 inputsRow">
                             <div class="col-12 col-lg-4 pe-lg-2">
                                 <div class="label">
                                     <label>Full Name</label>
@@ -1845,6 +1856,22 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
 
                 <div class="mb-4">
                     <div class="label">
+                        <label class="fw-bold">Who do you want your alternative attorney(s) to be?</label>
+                    </div>
+                    <div id="yourAltAttorney">
+                        <div></div>
+                        <?= $this->element('page4Inputs', [
+                            'field1Label' => 'Alternative Attorney Full name',
+                            'field2Label' => 'Alternative Attorney Address',
+                            'field1Name' => 'altAttorney_name[]',
+                            'field2Name' => 'altAttorney_address[]'
+                        ]); ?>
+                    </div>
+                </div>
+
+
+                <div class="mb-4">
+                    <div class="label">
                         <label class="fw-bold">If naming more than one attorney, how would you like them to make
                             decisions?</label>
                     </div>
@@ -1869,21 +1896,6 @@ $this->Html->script(['intakeform','bootstrap-autocomplete.min'],['block'=>true])
                         </div>
 
 
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <div class="label">
-                        <label class="fw-bold">Who do you want your alternative attorney(s) to be?</label>
-                    </div>
-                    <div id="yourAltAttorney">
-                        <div></div>
-                        <?= $this->element('page4Inputs', [
-                            'field1Label' => 'Alternative Attorney Full name',
-                            'field2Label' => 'Alternative Attorney Address',
-                            'field1Name' => 'altAttorney_name[]',
-                            'field2Name' => 'altAttorney_address[]'
-                        ]); ?>
                     </div>
                 </div>
 

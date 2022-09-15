@@ -74,6 +74,8 @@ use Cake\ORM\Entity;
  * @property bool|null $wish_property_special
  * @property string|null $way_attorney_decision
  * @property string|null $addition_notes
+ *
+ * @property \App\Model\Entity\Householder[] $householders
  */
 class Client extends Entity
 {
@@ -114,6 +116,7 @@ class Client extends Entity
         'has_child_current' => true,
         'has_child_prev' => true,
         'has_household_member' => true,
+        'householders' => true,
         'has_financial_dependent' => true,
         'has_accountant' => true,
         'accountant_name' => true,
