@@ -153,7 +153,7 @@ let verifyPhone=(inputPhone)=>{
         $("#inputPhone").addClass("is-invalid")
         return false
     } else if(!/04[0-9]{8}/.test(inputPhone)){
-        $("#phoneError").text("Phone number can only contain numbers")
+        $("#phoneError").text("phone number can only contain right number format")
         $("#inputPhone").addClass("is-invalid")
         return false
     }
@@ -197,7 +197,9 @@ $("#inputState").blur(function () {
 $("#inputPostCode").blur(function () {
     verifyPostcode(this.value)
 })
-
+$("#inputPostAddress").blur(function () {
+    verifyAddress(this.value)
+})
 $("input[type=email]").blur(function () {
     verifyCommonEmail(this)
 })
@@ -241,9 +243,9 @@ $("#inputState").click(function () {
 $("#inputPostCode").change(function () {
     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
 })
-// $("#inputPostAddress").mousedown(function () {
-//     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
-// })
+$("#inputPostAddress").mousedown(function () {
+    if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
+})
 $("#inputEmail").change(function () {
     if ($(this).hasClass('is-invalid')) $(this).removeClass('is-invalid')
 })

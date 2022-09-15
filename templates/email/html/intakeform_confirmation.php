@@ -463,7 +463,7 @@ endforeach;
                                         <p>Has powers of attorney: <?= $client['has_power'] == 1 ? "Yes" : "No" ?></p>
                                         <p>Has binding death benefit nominations: <?= $client['has_binding'] == 1 ? "Yes" : "No" ?></p>
                                         <p>Has existing medical treatment decision maker: <?= $client['has_decision_maker'] == 1 ? "Yes" : "No" ?></p>
-                                        <p>Has self managed superannuation trust deed: <?= $client['has_superannu_deed'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Has self-managed superannuation trust deed: <?= $client['has_superannu_deed'] == 1 ? "Yes" : "No" ?></p>
                                         <p>Has family trust deed: <?= $client['has_family_deed'] == 1 ? "Yes" : "No" ?></p>
 
                                         <p>Health concerns: <?= $client['is_health'] == 1 ? "Yes" : "No" ?></p>
@@ -483,24 +483,24 @@ endforeach;
                                         <p>Contemplating marriage: <?= $client['defacto_marriage'] == 1 ? "Yes" : "No" ?></p>
 
                                         <p>Separated/Divorced</p>
-                                        <p>Property settlement occured: <?= $client['sepdiv_property_settlement'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Property settlement occurred: <?= $client['sepdiv_property_settlement'] == 1 ? "Yes" : "No" ?></p>
 
-                                        <p>Children from current relationship: <?= $client['$has_child_current'] == 1 ? "Yes" : "No" ?></p>
-                                        <p>Children from previous relationship: <?= $client['$has_child_prev'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Children from the current relationships: <?= $client['$has_child_current'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Children from the previous relationships: <?= $client['$has_child_prev'] == 1 ? "Yes" : "No" ?></p>
 
                                         <p>Does anyone else live with you</p>
-                                        <p>Children from previous relationship: <?= $client['$has_household_member'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Children from the previous relationships: <?= $client['$has_household_member'] == 1 ? "Yes" : "No" ?></p>
 
-                                        <p>Children from previous relationship: <?= $client['$has_financial_dependent'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>Children from the previous relationships: <?= $client['$has_financial_dependent'] == 1 ? "Yes" : "No" ?></p>
 
                                         <p>Accountant</p>
-                                        <p>Client has accountant: <?= $client['has_accountant'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>The client has accountant: <?= $client['has_accountant'] == 1 ? "Yes" : "No" ?></p>
                                         <p>Accountant Name: <?= h($client['accountant_name']) ?></p>
                                         <p>Accountant Firm: <?= h($client['accountant_firm']) ?></p>
                                         <p>Accountant to complete section: <?= $client['$accountant_help'] == 1 ? "Yes" : "No" ?></p>
 
                                         <p>Financial Adviser</p>
-                                        <p>Client has financial adviser: <?= $client['$has_adviser'] == 1 ? "Yes" : "No" ?></p>
+                                        <p>The client has financial adviser: <?= $client['$has_adviser'] == 1 ? "Yes" : "No" ?></p>
                                         <p>Financial Adviser Name: <?= h($client['adviser_name']) ?></p>
                                         <p>Financial Adviser Firm: <?= h($client['adviser_firm']) ?></p>
                                         <p>Financial Adviser to complete section: <?= $client['$adviser_help'] == 1 ? "Yes" : "No" ?></p>
@@ -555,7 +555,7 @@ endforeach;
 
 
 
-                                        <h2>What's Next Step? </h2>
+                                        <h2>What's the Next Step? </h2>
                                         <p><b>Please make a booking with us(if booked,please ignore this step): </b></p>
                                         <div class="align-center">
                                             <a class="btn btn-shelbourne" href="<?=  $this->Url->build(['controller'=>'Bookings','action'=>'choose'], ['fullBase' => true]) ?>" target="_blank">Make a booking</a>
