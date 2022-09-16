@@ -19,11 +19,11 @@ class DependentsFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '80b60e8b-4d32-4e0f-8ffc-1af3e5af8766',
+                'id' => '12984a75-c114-4aaf-bdb3-23cb06f6fa44',
                 'full_name' => 'Lorem ipsum dolor sit amet',
                 'relationship' => 'Lorem ipsum dolor sit amet',
                 'nature' => 'Lorem ipsum dolor sit amet',
-                'client_id' => '5559afb0-5cdb-4c10-a913-dc13b358ecae',
+                'client_id' => 'e3190c8d-78b3-4df2-b45d-88fd910c6a4f',
             ],
         ];
         parent::init();

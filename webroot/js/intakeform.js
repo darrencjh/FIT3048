@@ -449,22 +449,61 @@ $(".relationStatus").change(function (e){
 
 
 //Children fields.
+let childContainer = $('#children-container')
+let grandChildContainer=$('#grandChildren-container')
+let childrenTemplate = _.template($('#children-template').remove().text());
+let grandchildrenTemplate = _.template($('#grandchildren-template').remove().text());
+let childNumbersRows = childContainer.find('.inputsRow').length;
+let grandChildNumbersRows = grandChildContainer.find('.inputsRow').length;
+
+
 // 1.display when 'Yes',disappear when 'no',default is disappear
-$(":radio[name=has_child_current]").change(function(){
-    if($(this).val()==1) $("#hasChildren").slideDown()
-    else if($(":radio[name=has_child_prev]:checked").val()!=1) $("#hasChildren").slideUp()
+$(":radio[name=has_child_current]").change(function(e){
+    e.preventDefault();
+    if($(this).val()==1){
+        $("#hasChildren").slideDown()
+        $(childrenTemplate({child_key: childNumbersRows++})).hide().appendTo(childContainer).fadeIn()
+        $(grandchildrenTemplate({grandchild_key: grandChildNumbersRows++})).hide().appendTo(grandChildContainer).fadeIn()
+        $(".error-message").text('')
+    }
+    else if($(":radio[name=has_child_prev]:checked").val()!=1){
+        $("#hasChildren").slideUp()
+        $("#hasChildren").find('.inputsRow').remove()
+    }
 })
-$(":radio[name=has_child_prev]").change(function(){
-    if($(this).val()==1) $("#hasChildren").slideDown()
-    else if($(":radio[name=has_child_current]:checked").val()!=1) $("#hasChildren").slideUp()
+$(":radio[name=has_child_prev]").change(function(e){
+    e.preventDefault();
+    if($(this).val()==1){
+        $("#hasChildren").slideDown()
+        $(childrenTemplate({child_key: childNumbersRows++})).hide().appendTo(childContainer).fadeIn()
+        $(grandchildrenTemplate({grandchild_key: grandChildNumbersRows++})).hide().appendTo(grandChildContainer).fadeIn()
+        $(".error-message").text('')
+    }
+    else if($(":radio[name=has_child_current]:checked").val()!=1){
+        $("#hasChildren").slideUp()
+        $("#hasChildren").find('.inputsRow').remove()
+    }
 })
 
-// 2.Add a children row
-$("#yourChildren").click(function(e){
-    addDeleteRow(e,"yourChildren")
+
+//dynamic listen to new element
+childContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    $(childrenTemplate({child_key: childNumbersRows++})).hide().appendTo(childContainer).fadeIn('fast')
+    $(".error-message").text('')
 })
-$("#yourGrandChildren").click(function(e){
-    addDeleteRow(e,"yourGrandChildren")
+childContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut();
+})
+grandChildContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    $(grandchildrenTemplate({grandchild_key: grandChildNumbersRows++})).hide().appendTo(grandChildContainer).fadeIn('fast')
+    $(".error-message").text('')
+})
+grandChildContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut();
 })
 
 
@@ -499,7 +538,9 @@ hhContainer.on('click','a.delete',function (e){
 })
 
 
-
+// let manyInputs=function(container,){
+//
+// }
 
 //Dependents
 let depdContainer = $('#dependent-container')

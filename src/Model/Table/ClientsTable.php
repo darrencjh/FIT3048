@@ -13,6 +13,10 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\HouseholdersTable&\Cake\ORM\Association\HasMany $Householders
  * @property \App\Model\Table\DependentsTable&\Cake\ORM\Association\HasMany $Dependents
+ *@property \App\Model\Table\ChildrenTable&\Cake\ORM\Association\HasMany $Children
+ *@property \App\Model\Table\GrandchildrenTable&\Cake\ORM\Association\HasMany $Grandchildren
+ *
+ *
  *
  * @method \App\Model\Entity\Client newEmptyEntity()
  * @method \App\Model\Entity\Client newEntity(array $data, array $options = [])
@@ -52,6 +56,20 @@ class ClientsTable extends Table
         ]);
 
         $this->hasMany('Dependents', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('Children', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('Grandchildren', [
             'foreignKey' => 'client_id',
             'saveStrategy' => 'replace',
             'dependent' => true,

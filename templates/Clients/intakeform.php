@@ -10,8 +10,8 @@ $this->Html->script(['bootstrap-autocomplete.min','underscore-min','intakeform']
 
 $householder_key = isset($householder_key) ? $householder_key : '<%= householder_key %>';
 $dependent_key=isset($dependent_key) ? $dependent_key : '<%= dependent_key %>';
-
-
+$children_key=isset($children_key) ? $children_key : '<%= child_key %>';
+$grandchildren_key=isset($grandchildren_key) ? $grandchildren_key : '<%= grandchild_key %>';
 ?>
 <script>
     $(() => {
@@ -701,11 +701,55 @@ $dependent_key=isset($dependent_key) ? $dependent_key : '<%= dependent_key %>';
                                 <label>1.4 Your Children (including step and adopted children)</label>
                             </div>
                             <!--   child inputs    -->
-                            <?=
-                            $this->element('childInputs', [
-                                'relation' => 'child'
-                            ]);
-                            ?>
+                            <div id="children-container">
+
+                            </div>
+
+                            <script id="children-template" type="text/x-underscore-template">
+                                <div class="row g-0 inputsRow">
+                                    <div class="col-12 col-lg-2 pe-md-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("children.{$children_key}.full_name",['label'=>'Name','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 pe-md-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("children.{$children_key}.age",['label'=>'Age','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 pe-md-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("children.{$children_key}.address",['label'=>'Address','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 pe-md-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("children.{$children_key}.mother",['label'=>'Mother','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 pe-md-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("children.{$children_key}.father",['label'=>'Father','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-2">
+                                        <div class="row g-0">
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn add">
+                                                    <span class="fas fa-plus-circle"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0 ">
+                                                <a class="btn delete">
+                                                    <span class="fas fa-minus-circle"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </script>
+
 
                         </div>
 
@@ -715,11 +759,54 @@ $dependent_key=isset($dependent_key) ? $dependent_key : '<%= dependent_key %>';
                                 <label>1.5 Your Grandchildren (including step, adopted grandchildren)</label>
                             </div>
                             <!--   child inputs    -->
-                            <?=
-                            $this->element('childInputs', [
-                                'relation' => 'grandchild'
-                            ]);
-                            ?>
+                            <div id="grandChildren-container">
+
+                            </div>
+
+                            <script id="grandchildren-template" type="text/x-underscore-template">
+                                <div class="row g-0 inputsRow">
+                                    <div class="col-12 col-lg-2 pe-md-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.full_name",['label'=>'Name','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 pe-md-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.age",['label'=>'Age','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 pe-md-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.address",['label'=>'Address','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 pe-md-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.mother",['label'=>'Mother','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 pe-md-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.father",['label'=>'Father','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-2">
+                                        <div class="row g-0">
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn add">
+                                                    <span class="fas fa-plus-circle"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0 ">
+                                                <a class="btn delete">
+                                                    <span class="fas fa-minus-circle"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </script>
 
 
                         </div>

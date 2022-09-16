@@ -76,7 +76,10 @@ use Cake\ORM\Entity;
  * @property string|null $addition_notes
  *
  * @property \App\Model\Entity\Householder[] $householders
- * @property \App\Model\Entity\Dependen[] $dependents
+ * @property \App\Model\Entity\Dependent[] $dependents
+ * @property \App\Model\Entity\Child[] $children
+ * @property \App\Model\Entity\Grandchild[] $grandchildren
+ *
  */
 class Client extends Entity
 {
@@ -114,10 +117,15 @@ class Client extends Entity
         'defacto_living' => true,
         'defacto_mariage' => true,
         'sepdiv_property_settlement' => true,
+
         'has_child_current' => true,
         'has_child_prev' => true,
+        'children'=>true,
+        'grandchildren'=>true,
+
         'has_household_member' => true,
         'householders' => true,
+
         'has_financial_dependent' => true,
         'dependents'=>true,
 

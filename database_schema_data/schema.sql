@@ -152,6 +152,37 @@ CREATE TABLE IF NOT EXISTS `clients`
 
 
 
+CREATE TABLE IF NOT EXISTS `children`
+(
+    `id`             char(36)     NOT NULL,
+    `full_name`      varchar(255) NOT NULL,
+    `age` tinyint DEFAULT 0,
+    `address` varchar(255) DEFAULT NULL,
+    `mother` varchar(255) DEFAULT NULL,
+    `father` varchar(255) DEFAULT NULL,
+    `client_id`      char(36)     DEFAULT NULL,
+
+    PRIMARY KEY (`id`),
+    FOREIGN KEY client_children_key(`client_id`) REFERENCES clients(`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `grandChildren`
+(
+    `id`             char(36)     NOT NULL,
+    `full_name`      varchar(255) NOT NULL,
+    `age` tinyint DEFAULT 0,
+    `address` varchar(255) DEFAULT NULL,
+    `mother` varchar(255) DEFAULT NULL,
+    `father` varchar(255) DEFAULT NULL,
+    `client_id`      char(36)     DEFAULT NULL,
+
+    PRIMARY KEY (`id`),
+    FOREIGN KEY client_grandChildren_key(`client_id`) REFERENCES clients(`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+
 
 
 CREATE TABLE IF NOT EXISTS `householders`
