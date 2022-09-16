@@ -406,7 +406,6 @@ let addDeleteRow=(e,outerDivId)=>{
         }
     }
 }
-
 let addDeleteAssetRow=(e,outerDivId)=>{
     e.stopPropagation()
     if($(e.target).parent().hasClass('add')){
@@ -422,6 +421,14 @@ let addDeleteAssetRow=(e,outerDivId)=>{
         }
     }
 }
+
+
+
+
+
+
+
+
 
 
 //health description display when 'Yes',disappear when 'no',default is disappear
@@ -464,33 +471,26 @@ $("#yourGrandChildren").click(function(e){
 //householder member
 let hhContainer = $('#householder-container')
 let hhTemplate = _.template($('#householder-template').remove().text());
-let numbersRows = hhContainer.find('.inputsRow').length;
+let hhNumbersRows = hhContainer.find('.inputsRow').length;
 // 1.display when 'Yes',disappear when 'no',default is disappear
 $(":radio[name=has_household_member]").change(function(e){
     //radioShowDisappearInputs(this,'yourHouseMembers')
-
     e.preventDefault();
     if($(this).val()==1){
         $("#yourHouseMembers").addClass('show')
-        $(hhTemplate({householder_key: numbersRows++})).hide().appendTo(hhContainer).fadeIn('fast')
+        $(hhTemplate({householder_key: hhNumbersRows++})).hide().appendTo(hhContainer).fadeIn('fast')
         $(".error-message").text('')
 
     } else{
         $("#yourHouseMembers").removeClass('show')
         hhContainer.children('.inputsRow').remove()
     }
-
-
 })
-//2.add a householder member
-// $("#yourHouseMembers").click(function(e){
-//     addDeleteRow(e,"yourHouseMembers")
-// })
 
-//dynamic listen
+//dynamic listen to new element
 hhContainer.on('click','a.add',function (e){
     e.preventDefault();
-    $(hhTemplate({householder_key: numbersRows++})).hide().appendTo(hhContainer).fadeIn('fast')
+    $(hhTemplate({householder_key: hhNumbersRows++})).hide().appendTo(hhContainer).fadeIn('fast')
     $(".error-message").text('')
 })
 hhContainer.on('click','a.delete',function (e){
@@ -501,16 +501,43 @@ hhContainer.on('click','a.delete',function (e){
 
 
 
-
 //Dependents
+let depdContainer = $('#dependent-container')
+let depdTemplate = _.template($('#dependent-template').remove().text());
+let depdNumbersRows = depdContainer.find('.inputsRow').length;
 // 1.display when 'Yes',disappear when 'no',default is disappear
-$(":radio[name=has_financial_dependent]").change(function(){
-    radioShowDisappearInputs(this,'yourOtherDep')
+$(":radio[name=has_financial_dependent]").change(function(e){
+    e.preventDefault();
+    if($(this).val()==1){
+        $("#yourOtherDep").addClass('show')
+        $(depdTemplate({dependent_key: depdNumbersRows++})).hide().appendTo(depdContainer).fadeIn('fast')
+        $(".error-message").text('')
+    } else{
+        $("#yourOtherDep").removeClass('show')
+        depdContainer.children('.inputsRow').remove()
+    }
 })
 //2.add a dependents
-$("#yourOtherDep").click(function(e){
-    addDeleteRow(e,"yourOtherDep")
+//dynamic listen to new element
+depdContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    $(depdTemplate({dependent_key: depdNumbersRows++})).hide().appendTo(depdContainer).fadeIn('fast')
+    $(".error-message").text('')
 })
+depdContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut();
+})
+
+
+
+
+
+
+
+
+
+
 
 
 

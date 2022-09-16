@@ -166,7 +166,18 @@ CREATE TABLE IF NOT EXISTS `householders`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `dependents`
+(
+    `id`             char(36)     NOT NULL,
+    `full_name`      varchar(255) NOT NULL,
+    `relationship`   varchar(255) DEFAULT NULL,
+    `nature`   varchar(255) DEFAULT NULL,
+    `client_id`      char(36)     DEFAULT NULL,
 
+    PRIMARY KEY (`id`),
+    FOREIGN KEY client_dept_key(`client_id`) REFERENCES clients(`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
 
 
 

@@ -9,7 +9,7 @@ $this->Html->script(['bootstrap-autocomplete.min','underscore-min','intakeform']
 
 
 $householder_key = isset($householder_key) ? $householder_key : '<%= householder_key %>';
-
+$dependent_key=isset($dependent_key) ? $dependent_key : '<%= dependent_key %>';
 
 
 ?>
@@ -789,10 +789,6 @@ $householder_key = isset($householder_key) ? $householder_key : '<%= householder
                                 </div>
                             </div>
                         </script>
-
-
-
-
                     </div>
                 </div>
 
@@ -822,45 +818,48 @@ $householder_key = isset($householder_key) ? $householder_key : '<%= householder
                         <div class="label">
                             <label>If yes</label>
                         </div>
-                        <div class="row g-0 inputsRow">
-                            <div class="col-12 col-lg-3 pe-md-2">
-                                <div class="label">
-                                    <label>Full Name</label>
-                                </div>
-                                <input type="text" name="dependent_fullName[]" class="form-control">
-                            </div>
 
-                            <div class="col-12 col-lg-3 pe-md-2">
-                                <div class="label">
-                                    <label>Relationship to you</label>
-                                </div>
-                                <input type="text" name="dependent_relation[]" class="form-control">
-                            </div>
-
-                            <div class="col-12 col-lg-3 pe-md-2">
-                                <div class="label">
-                                    <label>Nature of dependency</label>
-                                </div>
-                                <input type="text" name="dependent_nature[]" class="form-control">
-                            </div>
-
-                            <div class="col-12 col-lg-3">
-                                <div class="row g-0">
-                                    <div class="col-1 col-lg-12 mt-2 mt-lg-0">
-                                        <a class="btn add">
-                                            <span class="fas fa-plus-circle"></span>
-                                        </a>
-                                    </div>
-                                    <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
-                                        <a class="btn delete">
-                                            <span class="fas fa-minus-circle"></span>
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>
+                        <div id="dependent-container">
 
                         </div>
+
+
+                        <script id="dependent-template" type="text/x-underscore-template">
+                            <div class="row g-0 inputsRow">
+                                <div class="col-12 col-lg-3 pe-md-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("dependents.{$dependent_key}.full_name",['label'=>'Full Name','class'=>'form-control']);?>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 pe-md-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("dependents.{$dependent_key}.relationship",['label'=>'Relationship to you','class'=>'form-control']);?>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 pe-md-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("dependents.{$dependent_key}.nature",['label'=>'Nature of dependency','class'=>'form-control']);?>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-3">
+                                    <div class="row g-0">
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                            <a class="btn add">
+                                                <span class="fas fa-plus-circle"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                            <a class="btn delete">
+                                                <span class="fas fa-minus-circle"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </script>
+
 
                     </div>
                 </div>

@@ -116,7 +116,7 @@ class ClientsController extends AppController
 
     public function intakeform()
     {
-        $client = $this->Clients->newEntity(['associated'=>['Householders']]);
+        $client = $this->Clients->newEntity(['associated'=>['Householders','dependents']]);
         if ($this->request->is("post")) {
             // Form submit handler
             $postData = $this->request->getData();
