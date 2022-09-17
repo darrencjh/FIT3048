@@ -192,7 +192,7 @@ input:focus,select:focus,textarea:focus {
     background: #ffffff;
     margin: 0;
     padding: 90px;
-    color: #ffffff;
+    /*color: #ffffff;*/
     margin-bottom: 40px;
 }
 

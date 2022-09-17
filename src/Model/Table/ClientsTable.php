@@ -16,6 +16,12 @@ use Cake\Validation\Validator;
  *@property \App\Model\Table\ChildrenTable&\Cake\ORM\Association\HasMany $Children
  *@property \App\Model\Table\GrandchildrenTable&\Cake\ORM\Association\HasMany $Grandchildren
  *
+ *@property \App\Model\Table\EstatesTable&\Cake\ORM\Association\HasMany $Estates
+ *@property \App\Model\Table\BankaccountsTable&\Cake\ORM\Association\HasMany $Bankaccounts
+ *@property \App\Model\Table\VehiclesTable&\Cake\ORM\Association\HasMany $Vehicles
+ *@property \App\Model\Table\InvestmentsTable&\Cake\ORM\Association\HasMany $Investments
+ *@property \App\Model\Table\SuperannuationsTable&\Cake\ORM\Association\HasMany $Superannuations
+ *
  *
  *
  * @method \App\Model\Entity\Client newEmptyEntity()
@@ -70,6 +76,42 @@ class ClientsTable extends Table
         ]);
 
         $this->hasMany('Grandchildren', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        //page 3
+        $this->hasMany('Estates', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('Bankaccounts', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('Vehicles', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('Investments', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('Superannuations', [
             'foreignKey' => 'client_id',
             'saveStrategy' => 'replace',
             'dependent' => true,
@@ -263,8 +305,9 @@ class ClientsTable extends Table
             ->allowEmptyString('adviser_help');
 
         $validator
-            ->boolean('has_referrer')
-            ->allowEmptyString('has_referrer');
+            ->scalar('referrer_source')
+            ->maxLength('referrer_source', 128)
+            ->allowEmptyString('referrer_source');
 
         $validator
             ->scalar('referrer_name')

@@ -47,7 +47,7 @@ use Cake\ORM\Entity;
  * @property string|null $adviser_firm
  * @property string|null $adviser_email
  * @property bool|null $adviser_help
- * @property bool|null $has_referrer
+ * @property bool|null $referrer_source
  * @property string|null $referrer_name
  * @property string|null $referrer_firm
  * @property string|null $referrer_email
@@ -79,6 +79,13 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Dependent[] $dependents
  * @property \App\Model\Entity\Child[] $children
  * @property \App\Model\Entity\Grandchild[] $grandchildren
+ *
+ * @property \App\Model\Entity\Estate[] $estates
+ * @property \App\Model\Entity\Bankaccount[] $bankaccounts
+ * @property \App\Model\Entity\Vehicle[] $vehicles
+ * @property \App\Model\Entity\Investment[] $investments
+ * @property \App\Model\Entity\Superannuation[] $superannuations
+ *
  *
  */
 class Client extends Entity
@@ -139,10 +146,18 @@ class Client extends Entity
         'adviser_firm' => true,
         'adviser_email' => true,
         'adviser_help' => true,
-        'has_referrer' => true,
+        'referrer_source' => true,
         'referrer_name' => true,
         'referrer_firm' => true,
         'referrer_email' => true,
+
+        'estates' => true,
+        'bankaccounts'=> true,
+        'vehicles'=> true,
+        'investments'=> true,
+        'superannuations'=> true,
+
+
         'details_youowe' => true,
         'has_owe_agreement' => true,
         'details_youowed' => true,

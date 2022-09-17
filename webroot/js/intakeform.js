@@ -314,33 +314,6 @@ $("#page1Next").click(function(){
 
 })
 
-$("#page2Prev").click(function(){
-    $("#page2").removeClass('show')
-    $("#page1").addClass('show')
-    window.scrollTo(0, 0);
-})
-$("#page2Next").click(function(){
-    $("#page2").removeClass('show')
-    $("#page3").addClass('show')
-    window.scrollTo(0, 0);
-})
-
-$("#page3Prev").click(function(){
-    $("#page3").removeClass('show')
-    $("#page2").addClass('show')
-    window.scrollTo(0, 0);
-})
-$("#page3Next").click(function(){
-    $("#page3").removeClass('show')
-    $("#page4").addClass('show')
-    window.scrollTo(0, 0);
-})
-
-$("#page4Prev").click(function(){
-    $("#page4").removeClass('show')
-    $("#page3").addClass('show')
-    window.scrollTo(0, 0);
-})
 
 
 
@@ -447,8 +420,7 @@ $(".relationStatus").change(function (e){
     $(`#relationFields>div:nth-child(${index+1})`).addClass('show').siblings().removeClass('show')
 })
 
-
-//Children fields.
+//--------------------------------Children--------------------------------------------------------
 let childContainer = $('#children-container')
 let grandChildContainer=$('#grandChildren-container')
 let childrenTemplate = _.template($('#children-template').remove().text());
@@ -461,26 +433,26 @@ let grandChildNumbersRows = grandChildContainer.find('.inputsRow').length;
 $(":radio[name=has_child_current]").change(function(e){
     e.preventDefault();
     if($(this).val()==1){
-        $("#hasChildren").slideDown()
+        $("#hasChildren").addClass('show')
         $(childrenTemplate({child_key: childNumbersRows++})).hide().appendTo(childContainer).fadeIn()
         $(grandchildrenTemplate({grandchild_key: grandChildNumbersRows++})).hide().appendTo(grandChildContainer).fadeIn()
         $(".error-message").text('')
     }
     else if($(":radio[name=has_child_prev]:checked").val()!=1){
-        $("#hasChildren").slideUp()
+        $("#hasChildren").removeClass('show')
         $("#hasChildren").find('.inputsRow').remove()
     }
 })
 $(":radio[name=has_child_prev]").change(function(e){
     e.preventDefault();
     if($(this).val()==1){
-        $("#hasChildren").slideDown()
+        $("#hasChildren").addClass('show')
         $(childrenTemplate({child_key: childNumbersRows++})).hide().appendTo(childContainer).fadeIn()
         $(grandchildrenTemplate({grandchild_key: grandChildNumbersRows++})).hide().appendTo(grandChildContainer).fadeIn()
         $(".error-message").text('')
     }
     else if($(":radio[name=has_child_current]:checked").val()!=1){
-        $("#hasChildren").slideUp()
+        $("#hasChildren").removeClass('show')
         $("#hasChildren").find('.inputsRow').remove()
     }
 })
@@ -507,7 +479,8 @@ grandChildContainer.on('click','a.delete',function (e){
 })
 
 
-//householder member
+
+//-----------------------------------------householder member--------------------------------------------
 let hhContainer = $('#householder-container')
 let hhTemplate = _.template($('#householder-template').remove().text());
 let hhNumbersRows = hhContainer.find('.inputsRow').length;
@@ -538,11 +511,7 @@ hhContainer.on('click','a.delete',function (e){
 })
 
 
-// let manyInputs=function(container,){
-//
-// }
-
-//Dependents
+// ----------------------------------Dependents----------------------------------------------------
 let depdContainer = $('#dependent-container')
 let depdTemplate = _.template($('#dependent-template').remove().text());
 let depdNumbersRows = depdContainer.find('.inputsRow').length;
@@ -570,19 +539,24 @@ depdContainer.on('click','a.delete',function (e){
     $(this).closest('.inputsRow').fadeOut();
 })
 
+//page 2 previous+next button
+$("#page2Prev").click(function(){
+    $("#page2").removeClass('show')
+    $("#page1").addClass('show')
+    window.scrollTo(0, 0);
+})
+$("#page2Next").click(function(){
+    $("#page2").removeClass('show')
+    $("#page3").addClass('show')
+    window.scrollTo(0, 0);
+})
 
 
 
 
 
 
-
-
-
-
-
-
-//-----------------Page 3-------------------------------
+//-----------------Page 3----------------------------------------------------------------------------------------
 //Accountant/Adviser/referral
 // 1.display when 'Yes',disappear when 'no',default is disappear
 $(":radio[name=has_accountant]").change(function(){
@@ -598,20 +572,99 @@ $("#inputReferral").change(function(){
         $(`#yourReferral`).slideUp();
     }
 })
-//Real estate: add a real estate
-$("#yourRealEstate").click(function(e){
-    addDeleteAssetRow(e,"yourRealEstate")
+
+//2. Assets & Liabilities
+//-----------------------------------Real estate: add a real estate--------------------------------------
+let estateContainer = $('#estate-container')
+let estateTemplate = _.template($('#estate-template').remove().text());
+let estateNumbersRows = estateContainer.find('.inputsRow').length;
+$(":radio[name=has_estate]").change(function(e){
+    e.preventDefault();
+    if($(this).val()==1){
+        $("#yourRealEstate").addClass('show')
+        $(estateTemplate({estate_key: estateNumbersRows++})).hide().appendTo(estateContainer).fadeIn('fast')
+    } else{
+        $("#yourRealEstate").removeClass('show')
+        estateContainer.find('.inputsRow').remove()
+    }
 })
-//Bank Accounts : add a bank account
-$("#yourBankAccount").click(function(e){
-    addDeleteAssetRow(e,"yourBankAccount")
+estateContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    $(estateTemplate({estate_key: estateNumbersRows++})).hide().appendTo(estateContainer).fadeIn('fast')
 })
-$("#yourMotor").click(function(e){
-    addDeleteAssetRow(e,"yourMotor")
+estateContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut();
 })
-$("#yourInvestment").click(function(e){
-    addDeleteAssetRow(e,"yourInvestment")
+
+//-----------------------------------Bank Accounts : add a bank account-----------------------------------
+let bankContainer = $('#bank-container')
+let bankTemplate = _.template($('#bank-template').remove().text());
+let bankNumbersRows = bankContainer.find('.inputsRow').length;
+$(":radio[name=has_bankaccount]").change(function(e){
+    e.preventDefault();
+    if($(this).val()==1){
+        $("#yourBankAccount").addClass('show')
+        $(bankTemplate({bank_key: bankNumbersRows++})).hide().appendTo(bankContainer).fadeIn('fast')
+    } else{
+        $("#yourBankAccount").removeClass('show')
+        bankContainer.find('.inputsRow').remove()
+    }
 })
+bankContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    $(bankTemplate({bank_key: bankNumbersRows++})).hide().appendTo(bankContainer).fadeIn('fast')
+})
+bankContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut();
+})
+//-----------------------------------Vehicle----------------------------------------------------------------
+let vehicleContainer = $('#vehicle-container')
+let vehicleTemplate = _.template($('#vehicle-template').remove().text());
+let vehicleNumbersRows = vehicleContainer.find('.inputsRow').length;
+$(":radio[name=has_vehicle]").change(function(e){
+    e.preventDefault();
+    if($(this).val()==1){
+        $("#yourVehicle").addClass('show')
+        $(vehicleTemplate({vehicle_key: vehicleNumbersRows++})).hide().appendTo(vehicleContainer).fadeIn('fast')
+    } else{
+        $("#yourVehicle").removeClass('show')
+        vehicleContainer.find('.inputsRow').remove()
+    }
+})
+vehicleContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    $(vehicleTemplate({vehicle_key: vehicleNumbersRows++})).hide().appendTo(vehicleContainer).fadeIn('fast')
+})
+vehicleContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut();
+})
+//-----------------------------------Investment----------------------------------------------------------------
+let investmentContainer = $('#investment-container')
+let investmentTemplate = _.template($('#investment-template').remove().text());
+let investmentNumbersRows = investmentContainer.find('.inputsRow').length;
+$(":radio[name=has_investment]").change(function(e){
+    e.preventDefault();
+    if($(this).val()==1){
+        $("#yourInvestment").addClass('show')
+        $(investmentTemplate({investment_key: investmentNumbersRows++})).hide().appendTo(investmentContainer).fadeIn('fast')
+    } else{
+        $("#yourInvestment").removeClass('show')
+        investmentContainer.find('.inputsRow').remove()
+    }
+})
+investmentContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    $(investmentTemplate({investment_key: investmentNumbersRows++})).hide().appendTo(investmentContainer).fadeIn('fast')
+})
+investmentContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut();
+})
+
+
 
 //insurance
 $(":radio[name=insure_house]").change(function(){
@@ -627,22 +680,78 @@ $(":radio[name=insure_life]").change(function(){
     radioShowDisappearInputs(this,'yourInsuranceLife')
 })
 
-//Superannuation
-$("#yourSuperannuation").click(function(e){
-    addDeleteAssetRow(e,"yourSuperannuation")
+//--------------------------------------------Superannuation--------------------------------------------------------
+let superannuationContainer = $('#superannuation-container')
+let superannuationTemplate = _.template($('#superannuation-template').remove().text());
+let superannuationNumbersRows = superannuationContainer.find('.inputsRow').length;
+$(":radio[name=has_superannuation]").change(function(e){
+    e.preventDefault();
+    if($(this).val()==1){
+        $("#yourSuperannuation").addClass('show')
+        $(superannuationTemplate({superannuation_key: superannuationNumbersRows++})).hide().appendTo(superannuationContainer).fadeIn('fast')
+    } else{
+        $("#yourSuperannuation").removeClass('show')
+        superannuationContainer.find('.inputsRow').remove()
+    }
+})
+superannuationContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    $(superannuationTemplate({superannuation_key: superannuationNumbersRows++})).hide().appendTo(superannuationContainer).fadeIn('fast')
+})
+superannuationContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut();
+})
+
+
+//page 3: Previous+Next button
+$("#page3Prev").click(function(){
+    $("#page3").removeClass('show')
+    $("#page2").addClass('show')
+    window.scrollTo(0, 0);
+})
+
+let page3ShowError=function(id){
+    $(`#${id}`).addClass('show')
+    document.getElementById('inputReferral').scrollIntoView(true)
+}
+$("#page3Next").click(function(){
+    //Estates
+    if( $("#yourRealEstate").hasClass('show') && !$("#estates-estate-key-address").val()){
+        page3ShowError('estateError')
+        return false
+    }
+    //Bank
+    if($("#yourBankAccount").hasClass('show') && !$("#bankaccounts-bank-key-bank").val()){
+        page3ShowError('bankError')
+        return false
+    }
+    //Vehicles
+    if($("#yourVehicle").hasClass('show') && !$("#vehicles-vehicle-key-make").val()){
+        page3ShowError('vehicleError')
+        return false
+    }
+    //Investments
+    if($("#yourInvestment").hasClass('show') && !$("#investments-investment-key-type").val()){
+        page3ShowError('investError')
+        return false
+    }
+    //Superannuations
+    if($("#yourSuperannuation").hasClass('show') && !$("#superannuations-superannuation-key-fund").val()){
+        page3ShowError('superannuationError')
+        return false
+    }
+
+
+    $("#page3").removeClass('show')
+    $("#page4").addClass('show')
+    window.scrollTo(0, 0);
 })
 
 
 
 
 //-----------------Page 4-------------------------------
-//For better testing
-// remove later
-$("#jumpTo4").click(function(e){
-    $("#page1").removeClass('show')
-    $("#page4").addClass('show')
-})
-
 //Executor
 $("#yourExecutors").click(function(e){
     addDeleteAssetRow(e,"yourExecutors")
@@ -687,7 +796,13 @@ $("#yourAltAttorney").click(function(e){
 
 
 
-//Page 4: click submit button
+//Page 4: Previous + Submit button
+$("#page4Prev").click(function(){
+    $("#page4").removeClass('show')
+    $("#page3").addClass('show')
+    window.scrollTo(0, 0);
+})
+
 $("#submitIntakeform").click(function () {
     return true
 

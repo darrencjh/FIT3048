@@ -101,10 +101,10 @@ CREATE TABLE IF NOT EXISTS `clients`
     `adviser_email`      varchar(64)  DEFAULT '',
     `adviser_help`  tinyint(1)  DEFAULT 0,
 
-    `referral` varchar(64)  DEFAULT '',
-    `referral_name`      varchar(128)  DEFAULT '',
-    `referral_firm`      varchar(128)  DEFAULT '',
-    `referral_email`      varchar(64)  DEFAULT '',
+    `referrer_source` varchar(128)  DEFAULT '',
+    `referrer_name`      varchar(128)  DEFAULT '',
+    `referrer_firm`      varchar(128)  DEFAULT '',
+    `referrer_email`      varchar(64)  DEFAULT '',
 
 
     # 2.2
@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `clients`
   DEFAULT CHARSET = utf8mb4;
 
 
-
+# Page 2
 CREATE TABLE IF NOT EXISTS `children`
 (
     `id`             char(36)     NOT NULL,
@@ -211,4 +211,76 @@ CREATE TABLE IF NOT EXISTS `dependents`
   DEFAULT CHARSET = utf8mb4;
 
 
+# Page 3
+CREATE TABLE IF NOT EXISTS `estates`
+(
+    `id`             char(36)     NOT NULL,
+    `address`      varchar(255) NOT NULL,
+    `owner`   varchar(255) DEFAULT NULL,
+    `type`   varchar(255) DEFAULT NULL,
+    `location`   varchar(255) DEFAULT NULL,
+    `mortgage`   tinyint(1) DEFAULT 0,
+    `value` decimal(9,2) DEFAULT 0,
+    `client_id`      char(36)     DEFAULT NULL,
 
+    PRIMARY KEY (`id`),
+    FOREIGN KEY client_estates_key(`client_id`) REFERENCES clients(`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `bankaccounts`
+(
+    `id`             char(36)     NOT NULL,
+    `bank`      varchar(255) NOT NULL,
+    `holder`   varchar(255) DEFAULT NULL,
+    `type`   varchar(255) DEFAULT NULL,
+    `value` decimal(11,2) DEFAULT 0,
+    `client_id`      char(36)     DEFAULT NULL,
+
+    PRIMARY KEY (`id`),
+    FOREIGN KEY client_bank_key(`client_id`) REFERENCES clients(`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+
+CREATE TABLE IF NOT EXISTS `vehicles`
+(
+    `id`             char(36)     NOT NULL,
+    `make`      varchar(255) NOT NULL,
+    `model`   varchar(255) DEFAULT NULL,
+    `year`   varchar(255) DEFAULT NULL,
+    `client_id`      char(36)     DEFAULT NULL,
+
+    PRIMARY KEY (`id`),
+    FOREIGN KEY client_vehicles_key(`client_id`) REFERENCES clients(`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+
+CREATE TABLE IF NOT EXISTS `investments`
+(
+    `id`             char(36)     NOT NULL,
+    `type`      varchar(255) NOT NULL,
+    `held`   varchar(255) DEFAULT NULL,
+    `value`   decimal(11,2) DEFAULT 0,
+    `client_id`      char(36)     DEFAULT NULL,
+
+    PRIMARY KEY (`id`),
+    FOREIGN KEY client_investments_key(`client_id`) REFERENCES clients(`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+
+CREATE TABLE IF NOT EXISTS `superannuations`
+(
+    `id`             char(36)     NOT NULL,
+    `fund`       decimal(11,2) NOT NULL,
+    `value`   decimal(11,2) DEFAULT 0,
+    `nomination`   varchar(255) DEFAULT NULL,
+    `binding` varchar(10) DEFAULT NULL,
+    `client_id`      char(36)     DEFAULT NULL,
+
+    PRIMARY KEY (`id`),
+    FOREIGN KEY client_sperannuations_key(`client_id`) REFERENCES clients(`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
