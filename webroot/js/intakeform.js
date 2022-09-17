@@ -586,6 +586,8 @@ $(":radio[name=has_estate]").change(function(e){
     } else{
         $("#yourRealEstate").removeClass('show')
         estateContainer.find('.inputsRow').remove()
+        $(`#estateError`).removeClass('show')
+
     }
 })
 estateContainer.on('click','a.add',function (e){
@@ -609,6 +611,8 @@ $(":radio[name=has_bankaccount]").change(function(e){
     } else{
         $("#yourBankAccount").removeClass('show')
         bankContainer.find('.inputsRow').remove()
+        $(`#bankError`).removeClass('show')
+
     }
 })
 bankContainer.on('click','a.add',function (e){
@@ -631,6 +635,8 @@ $(":radio[name=has_vehicle]").change(function(e){
     } else{
         $("#yourVehicle").removeClass('show')
         vehicleContainer.find('.inputsRow').remove()
+        $(`#vehicleError`).removeClass('show')
+
     }
 })
 vehicleContainer.on('click','a.add',function (e){
@@ -653,6 +659,8 @@ $(":radio[name=has_investment]").change(function(e){
     } else{
         $("#yourInvestment").removeClass('show')
         investmentContainer.find('.inputsRow').remove()
+        $(`#investError`).removeClass('show')
+
     }
 })
 investmentContainer.on('click','a.add',function (e){
@@ -692,6 +700,7 @@ $(":radio[name=has_superannuation]").change(function(e){
     } else{
         $("#yourSuperannuation").removeClass('show')
         superannuationContainer.find('.inputsRow').remove()
+        $(`#superannuationError`).removeClass('show')
     }
 })
 superannuationContainer.on('click','a.add',function (e){
@@ -738,7 +747,7 @@ $("#page3Next").click(function(){
     }
     //Superannuations
     if($("#yourSuperannuation").hasClass('show') && !$("#superannuations-superannuation-key-fund").val()){
-        page3ShowError('superannuationError')
+        $(`#superannuationError`).addClass('show')
         return false
     }
 
