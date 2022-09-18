@@ -128,6 +128,8 @@ class ClientsController extends AppController
             'superannuations',
             'executors',
             'altexecutors',
+            'bequests'
+
 
             ]]);
         if ($this->request->is("post")) {

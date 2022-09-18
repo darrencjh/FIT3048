@@ -22,8 +22,10 @@ use Cake\Validation\Validator;
  *@property \App\Model\Table\InvestmentsTable&\Cake\ORM\Association\HasMany $Investments
  *@property \App\Model\Table\SuperannuationsTable&\Cake\ORM\Association\HasMany $Superannuations
  *
- * @property \App\Model\Table\ExecutorsTable&\Cake\ORM\Association\HasMany $Executors
+ *@property \App\Model\Table\ExecutorsTable&\Cake\ORM\Association\HasMany $Executors
  *@property \App\Model\Table\AltexecutorsTable&\Cake\ORM\Association\HasMany $Altexecutors
+ *
+ *@property \App\Model\Table\BequestsTable&\Cake\ORM\Association\HasMany $Bequests
  *
  * @method \App\Model\Entity\Client newEmptyEntity()
  * @method \App\Model\Entity\Client newEntity(array $data, array $options = [])
@@ -127,6 +129,13 @@ class ClientsTable extends Table
         ]);
 
         $this->hasMany('Altexecutors', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('Bequests', [
             'foreignKey' => 'client_id',
             'saveStrategy' => 'replace',
             'dependent' => true,

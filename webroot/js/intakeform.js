@@ -808,18 +808,31 @@ $(":radio[name=wish_appoint_child]").change(function(){
     radioShowDisappearInputs(this,'yourGuardian')
 })
 // --------------------------------5. Specific Bequests-------------------------------------------
-$(":radio[name=wish_property_special]").change(function(){
-    radioShowDisappearInputs(this,'yourSpecial')
+let bequestContainer = $('#special-container')
+let bequestTemplate = _.template($('#special-template').remove().text());
+let bequestNumbersRows = bequestContainer.find('.inputsRow').length;
+$(":radio[name=wish_property_special]").change(function(e){
+    e.preventDefault();
+    if($(this).val()==1){
+        $("#yourSpecial").addClass('show')
+        $(bequestTemplate({bequest_key: bequestNumbersRows++})).hide().appendTo(bequestContainer).fadeIn('fast')
+    } else{
+        $("#yourSpecial").removeClass('show')
+        bequestContainer.find('.inputsRow').remove()
+        $(`#superannuationError`).removeClass('show')
+    }
+})
+bequestContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    $(bequestTemplate({bequest_key: bequestNumbersRows++})).hide().appendTo(bequestContainer).fadeIn('fast')
+})
+bequestContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut('fast',function (){
+        $(this).remove()
+    })
 })
 
-
-
-
-
-
-$("#yourSpecial").click(function(e){
-    addDeleteAssetRow(e,"yourSpecial")
-})
 
 //6. Beneficiaries of the Residue
 $("#yourLeaveEstate").click(function(e){
@@ -853,6 +866,16 @@ $("#page4Prev").click(function(){
 })
 
 $("#submitIntakeform").click(function () {
+
+    //Special bequests
+    if($("#yourSpecial").hasClass('show') && !$("#bequests-bequest-key-name").val()){
+        $(`#specialError`).addClass('show')
+        document.getElementById('yourSpecial').scrollIntoView(true)
+        return false
+    }
+
+
+
     return true
 
 })

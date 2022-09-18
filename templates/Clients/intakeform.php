@@ -19,6 +19,9 @@ $investments_key=isset($investments_key) ? $investments_key : '<%= investment_ke
 $superannuations_key=isset($superannuations_key) ? $superannuations_key : '<%= superannuation_key %>';
 $executors_key=isset($executors_key) ? $executors_key : '<%= executor_key %>';
 $altexecutors_key=isset($altexecutors_key) ? $altexecutors_key : '<%= altexecutor_key %>';
+$bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
+
+
 
 ?>
 <script>
@@ -2016,13 +2019,48 @@ $altexecutors_key=isset($altexecutors_key) ? $altexecutors_key : '<%= altexecuto
                         <div class="label">
                             <label class="text-danger">*If yes</label>
                         </div>
-                        <?= $this->element('page4Inputs', [
-                            'field1Label' => 'Description of the Property',
-                            'field1Name' => 'special_prop_desc[]',
-                            'field2Label' => 'Name of Beneficiary',
-                            'field2Name' => 'beneficiary_name[]'
-                        ]); ?>
+                        <div id="special-container">
+
+                        </div>
+
+
+                        <script id="special-template" type="text/x-underscore-template">
+                            <div class="row g-0 inputsRow">
+                                <div class="col-12 col-lg-6 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("bequests.{$bequests_key}.name",['label'=>'Name of Beneficiary','class'=>'form-control']);?>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6 row g-0">
+                                    <div class="col-12 col-lg-10">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("bequests.{$bequests_key}.description",['label'=>'Description of the property','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2">
+                                        <div class="row g-0">
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn add">
+                                                    <span class="fas fa-plus-circle"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn delete">
+                                                    <span class="fas fa-minus-circle"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </script>
+
                     </div>
+
+
+                    <div class="text-danger collapse" id="specialError">please give at least one special bequest detail</div>
 
                 </div>
 
