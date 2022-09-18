@@ -26,6 +26,9 @@
                     <th><?= $this->Paginator->sort('has_decision_maker') ?></th>
                     <th><?= $this->Paginator->sort('has_superannu_deed') ?></th>
                     <th><?= $this->Paginator->sort('has_family_deed') ?></th>
+                    <th><?= $this->Paginator->sort('is_office_holder') ?></th>
+                    <th><?= $this->Paginator->sort('is_beneficiary') ?></th>
+                    <th><?= $this->Paginator->sort('in_partnership') ?></th>
                     <th><?= $this->Paginator->sort('is_health') ?></th>
                     <th><?= $this->Paginator->sort('health_desc') ?></th>
                     <th><?= $this->Paginator->sort('relationship_status') ?></th>
@@ -50,7 +53,7 @@
                     <th><?= $this->Paginator->sort('adviser_firm') ?></th>
                     <th><?= $this->Paginator->sort('adviser_email') ?></th>
                     <th><?= $this->Paginator->sort('adviser_help') ?></th>
-                    <th><?= $this->Paginator->sort('has_referrer') ?></th>
+                    <th><?= $this->Paginator->sort('referrer_source') ?></th>
                     <th><?= $this->Paginator->sort('referrer_name') ?></th>
                     <th><?= $this->Paginator->sort('referrer_firm') ?></th>
                     <th><?= $this->Paginator->sort('referrer_email') ?></th>
@@ -65,9 +68,6 @@
                     <th><?= $this->Paginator->sort('insure_health_company') ?></th>
                     <th><?= $this->Paginator->sort('insure_life') ?></th>
                     <th><?= $this->Paginator->sort('insure_life_company') ?></th>
-                    <th><?= $this->Paginator->sort('is_office_holder') ?></th>
-                    <th><?= $this->Paginator->sort('is_beneficiary') ?></th>
-                    <th><?= $this->Paginator->sort('in_partnership') ?></th>
                     <th><?= $this->Paginator->sort('wish_appoint_child') ?></th>
                     <th><?= $this->Paginator->sort('surviving_parent_fullname') ?></th>
                     <th><?= $this->Paginator->sort('guardian_fullname') ?></th>
@@ -95,6 +95,9 @@
                     <td><?= h($client->has_decision_maker) ?></td>
                     <td><?= h($client->has_superannu_deed) ?></td>
                     <td><?= h($client->has_family_deed) ?></td>
+                    <td><?= h($client->is_office_holder) ?></td>
+                    <td><?= h($client->is_beneficiary) ?></td>
+                    <td><?= h($client->in_partnership) ?></td>
                     <td><?= h($client->is_health) ?></td>
                     <td><?= h($client->health_desc) ?></td>
                     <td><?= h($client->relationship_status) ?></td>
@@ -119,7 +122,7 @@
                     <td><?= h($client->adviser_firm) ?></td>
                     <td><?= h($client->adviser_email) ?></td>
                     <td><?= h($client->adviser_help) ?></td>
-                    <td><?= h($client->has_referrer) ?></td>
+                    <td><?= h($client->referrer_source) ?></td>
                     <td><?= h($client->referrer_name) ?></td>
                     <td><?= h($client->referrer_firm) ?></td>
                     <td><?= h($client->referrer_email) ?></td>
@@ -134,9 +137,6 @@
                     <td><?= h($client->insure_health_company) ?></td>
                     <td><?= h($client->insure_life) ?></td>
                     <td><?= h($client->insure_life_company) ?></td>
-                    <td><?= h($client->is_office_holder) ?></td>
-                    <td><?= h($client->is_beneficiary) ?></td>
-                    <td><?= h($client->in_partnership) ?></td>
                     <td><?= h($client->wish_appoint_child) ?></td>
                     <td><?= h($client->surviving_parent_fullname) ?></td>
                     <td><?= h($client->guardian_fullname) ?></td>

@@ -23,6 +23,22 @@ class ClientsControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Clients',
+        'app.Householders',
+        'app.Dependents',
+        'app.Children',
+        'app.Grandchildren',
+        'app.Estates',
+        'app.Bankaccounts',
+        'app.Vehicles',
+        'app.Investments',
+        'app.Superannuations',
+        'app.Executors',
+        'app.Altexecutors',
+        'app.Bequests',
+        'app.Beneficiaries',
+        'app.Attorneys',
+        'app.Altattorneys',
+        'app.Decisionmakers',
     ];
 
     /**

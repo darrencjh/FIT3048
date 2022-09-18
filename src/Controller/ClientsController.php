@@ -2,9 +2,7 @@
 declare(strict_types=1);
 
 namespace App\Controller;
-
 use Cake\Mailer\Mailer;
-
 /**
  * Clients Controller
  *
@@ -28,6 +26,8 @@ class ClientsController extends AppController
      */
     public function index()
     {
+        $this->viewBuilder()->setLayout('adminManageLayout');
+
         $clients = $this->paginate($this->Clients);
 
         $this->set(compact('clients'));
@@ -42,8 +42,10 @@ class ClientsController extends AppController
      */
     public function view($id = null)
     {
+        $this->viewBuilder()->setLayout('adminManageLayout');
+
         $client = $this->Clients->get($id, [
-            'contain' => [],
+            'contain' => ['Householders', 'Dependents', 'Children', 'Grandchildren', 'Estates', 'Bankaccounts', 'Vehicles', 'Investments', 'Superannuations', 'Executors', 'Altexecutors', 'Bequests', 'Beneficiaries', 'Attorneys', 'Altattorneys', 'Decisionmakers'],
         ]);
 
         $this->set(compact('client'));
@@ -56,6 +58,8 @@ class ClientsController extends AppController
      */
     public function add()
     {
+        $this->viewBuilder()->setLayout('adminManageLayout');
+
         $client = $this->Clients->newEmptyEntity();
         if ($this->request->is('post')) {
             $client = $this->Clients->patchEntity($client, $this->request->getData());
@@ -78,6 +82,8 @@ class ClientsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->viewBuilder()->setLayout('adminManageLayout');
+
         $client = $this->Clients->get($id, [
             'contain' => [],
         ]);
@@ -112,7 +118,6 @@ class ClientsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
 
     public function intakeform()
     {
@@ -279,8 +284,7 @@ class ClientsController extends AppController
 
     }
 
-    private
-    function __checkRecaptchaResponse($response)
+    private function __checkRecaptchaResponse($response)
     {
         // verifying the response is done through a request to this URL
         $url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -311,5 +315,6 @@ class ClientsController extends AppController
         $this->set(compact('pageTitle'));
 
     }
+
 
 }

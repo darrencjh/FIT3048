@@ -36,6 +36,9 @@
                     echo $this->Form->control('has_decision_maker');
                     echo $this->Form->control('has_superannu_deed');
                     echo $this->Form->control('has_family_deed');
+                    echo $this->Form->control('is_office_holder');
+                    echo $this->Form->control('is_beneficiary');
+                    echo $this->Form->control('in_partnership');
                     echo $this->Form->control('is_health');
                     echo $this->Form->control('health_desc');
                     echo $this->Form->control('relationship_status');
@@ -60,7 +63,7 @@
                     echo $this->Form->control('adviser_firm');
                     echo $this->Form->control('adviser_email');
                     echo $this->Form->control('adviser_help');
-                    echo $this->Form->control('has_referrer');
+                    echo $this->Form->control('referrer_source');
                     echo $this->Form->control('referrer_name');
                     echo $this->Form->control('referrer_firm');
                     echo $this->Form->control('referrer_email');
@@ -77,9 +80,6 @@
                     echo $this->Form->control('insure_health_company');
                     echo $this->Form->control('insure_life');
                     echo $this->Form->control('insure_life_company');
-                    echo $this->Form->control('is_office_holder');
-                    echo $this->Form->control('is_beneficiary');
-                    echo $this->Form->control('in_partnership');
                     echo $this->Form->control('wish_appoint_child');
                     echo $this->Form->control('surviving_parent_fullname');
                     echo $this->Form->control('guardian_fullname');
