@@ -7,8 +7,6 @@
 <div class="row">
     <div class="column-responsive column-80 ml-5">
         <div class="admins form content">
-            <h3>In real life,a person without login cannot access this page</h3>
-            <h3>but for you can create a new account and test login,I expose this page for you</h3>
             <?= $this->Form->create($admin) ?>
             <fieldset>
                 <legend><?= __('Add an Admin account') ?></legend>

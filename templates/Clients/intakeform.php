@@ -2010,7 +2010,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
 
                 <!-- 5. Specific Bequests  -->
                 <div class="ff-el-group">
-                    <h2>5. Specific Bequests</h2>
+                    <h2>5. Specific Requests</h2>
                 </div>
                 <div class="mb-4">
                     <div class="label">
@@ -2070,7 +2070,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                     </div>
 
 
-                    <div class="text-danger collapse" id="specialError">please give at least one special bequest
+                    <div class="text-danger collapse" id="specialError">please give at least one special request
                         detail
                     </div>
 
