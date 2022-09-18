@@ -5,23 +5,23 @@
  */
 $this->assign('title', 'Intake Form');
 $this->Html->css('intakeform', ['block' => true]);
-$this->Html->script(['bootstrap-autocomplete.min','underscore-min','intakeform'],['block'=>true]);
+$this->Html->script(['bootstrap-autocomplete.min', 'underscore-min', 'intakeform'], ['block' => true]);
 
 
 $householder_key = isset($householder_key) ? $householder_key : '<%= householder_key %>';
-$dependent_key=isset($dependent_key) ? $dependent_key : '<%= dependent_key %>';
-$children_key=isset($children_key) ? $children_key : '<%= child_key %>';
-$grandchildren_key=isset($grandchildren_key) ? $grandchildren_key : '<%= grandchild_key %>';
-$estates_key=isset($estates_key) ? $estates_key : '<%= estate_key %>';
-$banks_key=isset($banks_key) ? $banks_key : '<%= bank_key %>';
-$vehicles_key=isset($vehicles_key) ? $vehicles_key : '<%= vehicle_key %>';
-$investments_key=isset($investments_key) ? $investments_key : '<%= investment_key %>';
-$superannuations_key=isset($superannuations_key) ? $superannuations_key : '<%= superannuation_key %>';
-$executors_key=isset($executors_key) ? $executors_key : '<%= executor_key %>';
-$altexecutors_key=isset($altexecutors_key) ? $altexecutors_key : '<%= altexecutor_key %>';
-$bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
+$dependent_key = isset($dependent_key) ? $dependent_key : '<%= dependent_key %>';
+$children_key = isset($children_key) ? $children_key : '<%= child_key %>';
+$grandchildren_key = isset($grandchildren_key) ? $grandchildren_key : '<%= grandchild_key %>';
+$estates_key = isset($estates_key) ? $estates_key : '<%= estate_key %>';
+$banks_key = isset($banks_key) ? $banks_key : '<%= bank_key %>';
+$vehicles_key = isset($vehicles_key) ? $vehicles_key : '<%= vehicle_key %>';
+$investments_key = isset($investments_key) ? $investments_key : '<%= investment_key %>';
+$superannuations_key = isset($superannuations_key) ? $superannuations_key : '<%= superannuation_key %>';
+$executors_key = isset($executors_key) ? $executors_key : '<%= executor_key %>';
+$altexecutors_key = isset($altexecutors_key) ? $altexecutors_key : '<%= altexecutor_key %>';
+$bequests_key = isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
 
-
+$beneficiaries_key = isset($beneficiaries_key) ? $beneficiaries_key : '<%= beneficiary_key %>';
 
 ?>
 <script>
@@ -35,19 +35,18 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
         });
 
 
-
-        $('#inputSuburb').keyup(function(){
+        $('#inputSuburb').keyup(function () {
             $(".bootstrap-autocomplete").addClass("show")
         })
 
 
         $('#inputSuburb').autoComplete({
             resolverSettings: {
-                url: '<?php echo $this->Url->build(['controller'=>'suburbs','action'=>'getPostcodeAndState'])?>',
+                url: '<?php echo $this->Url->build(['controller' => 'suburbs', 'action' => 'getPostcodeAndState'])?>',
                 queryKey: 'input'
             },
             minLength: 2,
-        }).on('autocomplete.select',function (e){
+        }).on('autocomplete.select', function (e) {
             let responseData = e.target.value
             console.log(responseData)
 
@@ -58,9 +57,9 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
             document.getElementById('inputSuburb').value = suburb
             document.getElementById('inputPostCode').value = postcode
             // $('#inputState').selectpicker('val',state)
-            document.getElementById('inputState').value=state
+            document.getElementById('inputState').value = state
 
-            $('.bootstrap-autocomplete').mouseleave(function(){
+            $('.bootstrap-autocomplete').mouseleave(function () {
                 $(".bootstrap-autocomplete").removeClass("show")
             })
         });
@@ -166,7 +165,8 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                         <div class="label required">
                             <label>Suburb/Town</label>
                         </div>
-                        <input id="inputSuburb" type="text" name="suburb" class="form-control" auto-complete='off' required/>
+                        <input id="inputSuburb" type="text" name="suburb" class="form-control" auto-complete='off'
+                               required/>
                         <div class="invalid-feedback" id="suburbError">Please provide your Suburb/Town</div>
                     </div>
                 </div>
@@ -199,7 +199,7 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <label>Postcode</label>
                         </div>
                         <input type="zip" name="postCode" id="inputPostCode" class="form-control" maxlength="4"
-                                onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                               onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                required/>
                         <div class="invalid-feedback" id="postcodeError">Please provide your post code</div>
                     </div>
@@ -241,7 +241,7 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                     <a class="btn btn-shelbourne mt-3 rounded-pill px-4 py-2" id="page1Next">Next</a>
                 </div>
             </div>
-<!--            <a href="#" class="btn btn-danger" id="jumpTo4">jump to page4</a>-->
+            <!--            <a href="#" class="btn btn-danger" id="jumpTo4">jump to page4</a>-->
 
             <!-- Page 2           -->
             <div id="page2" class="collapse text-grey">
@@ -269,7 +269,8 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                                 <label>Proof of Identification (always required)</label>
                             </div>
                             <ul>
-                                <li>Proof of your identities, such as a passport, or a driver's licence, or a bank card with your full name
+                                <li>Proof of your identities, such as a passport, or a driver's licence, or a bank card
+                                    with your full name
                                 </li>
                                 <li class="mt-2">Proof of your address, such as a utility bill with your house as the
                                     supply address, or a bank or super statement addressed to your name at your address
@@ -720,27 +721,27 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                                 <div class="row g-0 inputsRow">
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("children.{$children_key}.full_name",['label'=>'Name','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("children.{$children_key}.full_name", ['label' => 'Name', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("children.{$children_key}.age",['label'=>'Age','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("children.{$children_key}.age", ['label' => 'Age', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("children.{$children_key}.address",['label'=>'Address','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("children.{$children_key}.address", ['label' => 'Address', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("children.{$children_key}.mother",['label'=>'Mother','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("children.{$children_key}.mother", ['label' => 'Mother', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("children.{$children_key}.father",['label'=>'Father','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("children.{$children_key}.father", ['label' => 'Father', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
 
@@ -778,27 +779,27 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                                 <div class="row g-0 inputsRow">
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.full_name",['label'=>'Name','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.full_name", ['label' => 'Name', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.age",['label'=>'Age','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.age", ['label' => 'Age', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.address",['label'=>'Address','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.address", ['label' => 'Address', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.mother",['label'=>'Mother','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.mother", ['label' => 'Mother', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.father",['label'=>'Father','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.father", ['label' => 'Father', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
 
@@ -862,12 +863,12 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <div class="row g-0 inputsRow">
                                 <div class="col-12 col-lg-5 pe-md-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("householders.{$householder_key}.full_name",['label'=>'Full Name','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("householders.{$householder_key}.full_name", ['label' => 'Full Name', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-5 pe-md-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("householders.{$householder_key}.relationship",['label'=>'Relationship to you','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("householders.{$householder_key}.relationship", ['label' => 'Relationship to you', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
@@ -926,17 +927,17 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <div class="row g-0 inputsRow">
                                 <div class="col-12 col-lg-3 pe-md-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("dependents.{$dependent_key}.full_name",['label'=>'Full Name','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("dependents.{$dependent_key}.full_name", ['label' => 'Full Name', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-3 pe-md-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("dependents.{$dependent_key}.relationship",['label'=>'Relationship to you','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("dependents.{$dependent_key}.relationship", ['label' => 'Relationship to you', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-3 pe-md-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("dependents.{$dependent_key}.nature",['label'=>'Nature of dependency','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("dependents.{$dependent_key}.nature", ['label' => 'Nature of dependency', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
@@ -1179,44 +1180,44 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <div class="row g-0 inputsRow">
                                 <div class="col-12 col-lg-4 col-xl-2 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("estates.{$estates_key}.address",['label'=>'Address','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("estates.{$estates_key}.address", ['label' => 'Address', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4 col-xl-2 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("estates.{$estates_key}.owner",['label'=>'Owner(s)','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("estates.{$estates_key}.owner", ['label' => 'Owner(s)', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4 col-xl-2 pe-xl-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("estates.{$estates_key}.type",[
+                                        <?php echo $this->Form->control("estates.{$estates_key}.type", [
                                             'options' => [
-                                                'Sole','Joint','Tenants in Common','Unsure'
+                                                'Sole', 'Joint', 'Tenants in Common', 'Unsure'
                                             ],
                                             'empty' => 'Select...',
                                             'class' => 'form-select text-grey',
-                                            'label'=>'Type of ownership'
+                                            'label' => 'Type of ownership'
                                         ]); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4  col-xl-2 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("estates.{$estates_key}.location",['label'=>'Location of title','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("estates.{$estates_key}.location", ['label' => 'Location of title', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4  col-xl-2 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("estates.{$estates_key}.mortgage",[
+                                        <?php echo $this->Form->control("estates.{$estates_key}.mortgage", [
                                             'options' => [
-                                                'Yes','No'
+                                                'Yes', 'No'
                                             ],
                                             'empty' => 'Select...',
                                             'class' => 'form-select text-grey',
-                                            'label'=>'Mortgage'
+                                            'label' => 'Mortgage'
                                         ]); ?>
                                     </div>
                                 </div>
@@ -1224,7 +1225,7 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                                 <div class="col-12 col-lg-4 col-xl-2 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("estates.{$estates_key}.value",['label'=>'Property Value','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("estates.{$estates_key}.value", ['label' => 'Property Value', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2">
@@ -1249,7 +1250,8 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                     </div>
 
 
-                    <div class="text-danger collapse" id="estateError">If has,please give at least one estate detail</div>
+                    <div class="text-danger collapse" id="estateError">If has,please give at least one estate detail
+                    </div>
 
                 </div>
 
@@ -1280,20 +1282,20 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <div class="row g-0 inputsRow">
                                 <div class="col-12 col-lg-3 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("bankaccounts.{$banks_key}.bank",['label'=>'Bank Institution','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("bankaccounts.{$banks_key}.bank", ['label' => 'Bank Institution', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-3 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("bankaccounts.{$banks_key}.holder",['label'=>'Account holder(s)','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("bankaccounts.{$banks_key}.holder", ['label' => 'Account holder(s)', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
 
                                 <div class="col-12 col-lg-3 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("bankaccounts.{$banks_key}.type",['label'=>'Account type','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("bankaccounts.{$banks_key}.type", ['label' => 'Account type', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
@@ -1301,7 +1303,7 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                                 <div class="col-12 col-lg-3 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("bankaccounts.{$banks_key}.value",['label'=>'Approximate value','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("bankaccounts.{$banks_key}.value", ['label' => 'Approximate value', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2">
@@ -1326,8 +1328,9 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                     </div>
 
 
-                    <div class="text-danger collapse" id="bankError">If has,please give at least one bank account detail</div>
-
+                    <div class="text-danger collapse" id="bankError">If has,please give at least one bank account
+                        detail
+                    </div>
 
 
                 </div>
@@ -1359,20 +1362,20 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <div class="row g-0 inputsRow">
                                 <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("vehicles.{$vehicles_key}.make",['label'=>'Make','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("vehicles.{$vehicles_key}.make", ['label' => 'Make', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("vehicles.{$vehicles_key}.model",['label'=>'Model','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("vehicles.{$vehicles_key}.model", ['label' => 'Model', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("vehicles.{$vehicles_key}.year",['label'=>'Year','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("vehicles.{$vehicles_key}.year", ['label' => 'Year', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2">
@@ -1397,7 +1400,8 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                     </div>
 
 
-                    <div class="text-danger collapse" id="vehicleError">If has,please give at least one vehicle detail</div>
+                    <div class="text-danger collapse" id="vehicleError">If has,please give at least one vehicle detail
+                    </div>
                 </div>
 
                 <!--        Investments        -->
@@ -1426,20 +1430,20 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <div class="row g-0 inputsRow">
                                 <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("investments.{$investments_key}.type",['label'=>'Type','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("investments.{$investments_key}.type", ['label' => 'Type', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("investments.{$investments_key}.held",['label'=>'Held with','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("investments.{$investments_key}.held", ['label' => 'Held with', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("investments.{$investments_key}.value",['label'=>'Approximate value','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("investments.{$investments_key}.value", ['label' => 'Approximate value', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2">
@@ -1464,8 +1468,9 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                     </div>
 
 
-                    <div class="text-danger collapse" id="investError">If has,please give at least one investment detail</div>
-
+                    <div class="text-danger collapse" id="investError">If has,please give at least one investment
+                        detail
+                    </div>
 
 
                 </div>
@@ -1638,7 +1643,7 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                 </div>
 
 
-<!--                Superannuation-->
+                <!--                Superannuation-->
                 <div class="mb-4">
                     <div>
                         <div class="label">
@@ -1664,32 +1669,32 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <div class="row g-0 inputsRow">
                                 <div class="col-12 col-lg-3 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("superannuations.{$superannuations_key}.fund",['label'=>'Fund','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("superannuations.{$superannuations_key}.fund", ['label' => 'Fund', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-3 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("superannuations.{$superannuations_key}.value",['label'=>'Value','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("superannuations.{$superannuations_key}.value", ['label' => 'Value', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-3 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("superannuations.{$superannuations_key}.nomination",['label'=>'Current Nomination','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("superannuations.{$superannuations_key}.nomination", ['label' => 'Current Nomination', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-3 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("superannuations.{$superannuations_key}.binding",[
+                                            <?php echo $this->Form->control("superannuations.{$superannuations_key}.binding", [
                                                 'options' => [
-                                                    'Yes','No','unsure'
+                                                    'Yes', 'No', 'unsure'
                                                 ],
                                                 'empty' => 'Select...',
                                                 'class' => 'form-select text-grey',
-                                                'label'=>'Binding'
+                                                'label' => 'Binding'
                                             ]); ?>
                                         </div>
                                     </div>
@@ -1715,8 +1720,9 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                     </div>
 
 
-                    <div class="text-danger collapse" id="superannuationError">If has,please give at least one superannuation detail</div>
-
+                    <div class="text-danger collapse" id="superannuationError">If has,please give at least one
+                        superannuation detail
+                    </div>
 
 
                 </div>
@@ -1771,13 +1777,13 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <div class="row g-0 inputsRow">
                                 <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("executors.0.name",['label'=>'Full Name','class'=>'form-control','required'=>false]);?>
+                                        <?php echo $this->Form->control("executors.0.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("executors.0.address",['label'=>'Address','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("executors.0.address", ['label' => 'Address', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
@@ -1785,7 +1791,7 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                                 <div class="col-12 col-lg-4 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("executors.0.relation",['label'=>'Relationship to You','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("executors.0.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2">
@@ -1813,13 +1819,13 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <div class="row g-0 inputsRow">
                                 <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("executors.{$executors_key}.name",['label'=>'Full Name','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("executors.{$executors_key}.name", ['label' => 'Full Name', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("executors.{$executors_key}.address",['label'=>'Address','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("executors.{$executors_key}.address", ['label' => 'Address', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
@@ -1827,7 +1833,7 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                                 <div class="col-12 col-lg-4 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("executors.{$executors_key}.relation",['label'=>'Relationship to You','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("executors.{$executors_key}.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2">
@@ -1870,13 +1876,13 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <div class="row g-0 inputsRow">
                                 <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("altexecutors.0.name",['label'=>'Full Name','class'=>'form-control','required'=>false]);?>
+                                        <?php echo $this->Form->control("altexecutors.0.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("altexecutors.0.address",['label'=>'Address','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("altexecutors.0.address", ['label' => 'Address', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
@@ -1884,7 +1890,7 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                                 <div class="col-12 col-lg-4 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("altexecutors.0.relation",['label'=>'Relationship to You','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("altexecutors.0.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2">
@@ -1912,13 +1918,13 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <div class="row g-0 inputsRow">
                                 <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("altexecutors.{$altexecutors_key}.name",['label'=>'Full Name','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("altexecutors.{$altexecutors_key}.name", ['label' => 'Full Name', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("altexecutors.{$altexecutors_key}.address",['label'=>'Address','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("altexecutors.{$altexecutors_key}.address", ['label' => 'Address', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
@@ -1926,7 +1932,7 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                                 <div class="col-12 col-lg-4 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("altexecutors.{$altexecutors_key}.relation",['label'=>'Relationship to You','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("altexecutors.{$altexecutors_key}.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2">
@@ -1974,7 +1980,8 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                                 <div class="label">
                                     <label>Full Name of Surviving Parent</label>
                                 </div>
-                                <input type="text" id="surviving_parent_fullname" name="surviving_parent_fullname" class="form-control">
+                                <input type="text" id="surviving_parent_fullname" name="surviving_parent_fullname"
+                                       class="form-control">
                                 <div class="invalid-feedback">Please check the name format</div>
                             </div>
 
@@ -2028,14 +2035,14 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                             <div class="row g-0 inputsRow">
                                 <div class="col-12 col-lg-6 pe-lg-2">
                                     <div class="form-group">
-                                        <?php echo $this->Form->control("bequests.{$bequests_key}.name",['label'=>'Name of Beneficiary','class'=>'form-control']);?>
+                                        <?php echo $this->Form->control("bequests.{$bequests_key}.name", ['label' => 'Name of Beneficiary', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-6 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("bequests.{$bequests_key}.description",['label'=>'Description of the property','class'=>'form-control']);?>
+                                            <?php echo $this->Form->control("bequests.{$bequests_key}.description", ['label' => 'Description of the property', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2">
@@ -2060,7 +2067,9 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                     </div>
 
 
-                    <div class="text-danger collapse" id="specialError">please give at least one special bequest detail</div>
+                    <div class="text-danger collapse" id="specialError">please give at least one special bequest
+                        detail
+                    </div>
 
                 </div>
 
@@ -2069,60 +2078,309 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                 <div class="ff-el-group">
                     <h2>6. Beneficiaries of the Residue</h2>
                 </div>
-                <div class="mb-4">
-                    <div class="label">
-                        <label class="fw-bold">Who do you wish to leave the balance of your estate to?</label>
+
+                <div id="yourBeneficiaries">
+                    <!--                6.1-->
+                    <div class="mb-4">
+                        <div class="label">
+                            <label class="fw-bold">Who do you wish to leave the balance of your estate to?</label>
+                        </div>
+                        <div id="yourLeaveEstate">
+                            <div id="leaveEstate-container">
+                                <div class="row g-0 inputsRow">
+                                    <div class="col-12 col-lg-6 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("beneficiaries.0.name", ['label' => 'Full Name', 'class' => 'form-control','required'=>false]); ?>
+                                        </div>
+                                    </div>
+                                    <?php echo $this->Form->control("beneficiaries.0.situation", ['type' => 'hidden', 'value' => 'Who do you wish to leave the balance of your estate to?']); ?>
+                                    <div class="col-12 col-lg-6 row g-0">
+                                        <div class="col-12 col-lg-10">
+                                            <div class="form-group">
+                                                <?php echo $this->Form->control("beneficiaries.0.relation", ['label' => 'Relationship To you', 'class' => 'form-control']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-2">
+                                            <div class="row g-0">
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn add">
+                                                        <span class="fas fa-plus-circle"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn delete">
+                                                        <span class="fas fa-minus-circle"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <script id="leaveEstate-template" type="text/x-underscore-template">
+                                <div class="row g-0 inputsRow">
+                                    <div class="col-12 col-lg-6 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("beneficiaries.{$beneficiaries_key}.name", ['label' => 'Full Name', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <?php echo $this->Form->control("beneficiaries.{$beneficiaries_key}.situation", ['type' => 'hidden', 'value' => 'Who do you wish to leave the balance of your estate to?']); ?>
+                                    <div class="col-12 col-lg-6 row g-0">
+                                        <div class="col-12 col-lg-10">
+                                            <div class="form-group">
+                                                <?php echo $this->Form->control("beneficiaries.{$beneficiaries_key}.relation", ['label' => 'Relationship To you', 'class' => 'form-control']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-2">
+                                            <div class="row g-0">
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn add">
+                                                        <span class="fas fa-plus-circle"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn delete">
+                                                        <span class="fas fa-minus-circle"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </script>
+                        </div>
                     </div>
-                    <div id="yourLeaveEstate">
-                        <div></div>
-                        <?= $this->element('page4Inputs', [
-                            'field1Name' => 'leaveEstate_name[]',
-                            'field2Name' => 'leaveEstate_relation[]'
-                        ]); ?>
+                    <!--                6.2  -->
+                    <div class="mb-4">
+                        <div class="label">
+                            <label class="fw-bold">If something happens to the above beneficiary(ies), who do you wish to
+                                leave the balance of your estate to?</label>
+                        </div>
+                        <div id="yourLeaveEstateSecond">
+                            <div id="leaveEstateSecond-container">
+                                <div class="row g-0 inputsRow">
+                                    <div class="col-12 col-lg-6 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("beneficiaries.1.name", ['label' => 'Full Name', 'class' => 'form-control','required'=>false]); ?>
+                                        </div>
+                                    </div>
+                                    <?php echo $this->Form->control("beneficiaries.1.situation", ['type' => 'hidden', 'value' => 'If something happens to the above beneficiary(ies), who do you wish to leave the balance of your estate to?']); ?>
+                                    <div class="col-12 col-lg-6 row g-0">
+                                        <div class="col-12 col-lg-10">
+                                            <div class="form-group">
+                                                <?php echo $this->Form->control("beneficiaries.1.relation", ['label' => 'Relationship To you', 'class' => 'form-control']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-2">
+                                            <div class="row g-0">
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn add">
+                                                        <span class="fas fa-plus-circle"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn delete">
+                                                        <span class="fas fa-minus-circle"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <script id="leaveEstateSecond-template" type="text/x-underscore-template">
+                                <div class="row g-0 inputsRow">
+                                    <div class="col-12 col-lg-6 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("beneficiaries.{$beneficiaries_key}.name", ['label' => 'Full Name', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <?php echo $this->Form->control("beneficiaries.{$beneficiaries_key}.situation", ['type' => 'hidden', 'value' => 'If something happens to the above beneficiary(ies), who do you wish to leave the balance of your estate to?']); ?>
+                                    <div class="col-12 col-lg-6 row g-0">
+                                        <div class="col-12 col-lg-10">
+                                            <div class="form-group">
+                                                <?php echo $this->Form->control("beneficiaries.{$beneficiaries_key}.relation", ['label' => 'Relationship To you', 'class' => 'form-control']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-2">
+                                            <div class="row g-0">
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn add">
+                                                        <span class="fas fa-plus-circle"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn delete">
+                                                        <span class="fas fa-minus-circle"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </script>
+                        </div>
+                    </div>
+                    <!--                6.3  -->
+                    <div class="mb-4">
+                        <div class="label">
+                            <label class="fw-bold">Is there anyone who you feel a responsibility to provide for not
+                                mentioned in your Will? If Yes – Please list</label>
+                        </div>
+                        <div id="yourFeelResp">
+                            <div id="feelResp-container">
+                                <div class="row g-0 inputsRow">
+                                    <div class="col-12 col-lg-6 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("beneficiaries.2.name", ['label' => 'Full Name', 'class' => 'form-control','required'=>false]); ?>
+                                        </div>
+                                    </div>
+                                    <?php echo $this->Form->control("beneficiaries.2.situation", ['type' => 'hidden', 'value' => 'Is there anyone who you feel a responsibility to provide for not mentioned in your Will? If Yes – Please list']); ?>
+                                    <div class="col-12 col-lg-6 row g-0">
+                                        <div class="col-12 col-lg-10">
+                                            <div class="form-group">
+                                                <?php echo $this->Form->control("beneficiaries.2.relation", ['label' => 'Relationship To you', 'class' => 'form-control']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-2">
+                                            <div class="row g-0">
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn add">
+                                                        <span class="fas fa-plus-circle"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn delete">
+                                                        <span class="fas fa-minus-circle"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <script id="feelResp-template" type="text/x-underscore-template">
+                                <div class="row g-0 inputsRow">
+                                    <div class="col-12 col-lg-6 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("beneficiaries.{$beneficiaries_key}.name", ['label' => 'Full Name', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <?php echo $this->Form->control("beneficiaries.{$beneficiaries_key}.situation", ['type' => 'hidden', 'value' => 'Is there anyone who you feel a responsibility to provide for not mentioned in your Will? If Yes – Please list']); ?>
+                                    <div class="col-12 col-lg-6 row g-0">
+                                        <div class="col-12 col-lg-10">
+                                            <div class="form-group">
+                                                <?php echo $this->Form->control("beneficiaries.{$beneficiaries_key}.relation", ['label' => 'Relationship To you', 'class' => 'form-control']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-2">
+                                            <div class="row g-0">
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn add">
+                                                        <span class="fas fa-plus-circle"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn delete">
+                                                        <span class="fas fa-minus-circle"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </script>
+                        </div>
+                    </div>
+                    <!--                6.4  -->
+                    <div class="mb-4">
+                        <div class="label">
+                            <label class="fw-bold">Are there any special provisions or instructions you wish to cover in
+                                your Will? If Yes – Please list</label>
+                        </div>
+                        <div id="yourProvision">
+                            <div id="provision-container">
+                                <div class="row g-0 inputsRow">
+                                    <div class="col-12 col-lg-6 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("beneficiaries.3.name", ['label' => 'Full Name', 'class' => 'form-control','required'=>false]); ?>
+                                        </div>
+                                    </div>
+                                    <?php echo $this->Form->control("beneficiaries.3.situation", ['type' => 'hidden', 'value' => 'Are there any special provisions or instructions you wish to cover in your Will? If Yes – Please list']); ?>
+                                    <div class="col-12 col-lg-6 row g-0">
+                                        <div class="col-12 col-lg-10">
+                                            <div class="form-group">
+                                                <?php echo $this->Form->control("beneficiaries.3.relation", ['label' => 'Relationship To you', 'class' => 'form-control']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-2">
+                                            <div class="row g-0">
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn add">
+                                                        <span class="fas fa-plus-circle"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn delete">
+                                                        <span class="fas fa-minus-circle"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <script id="provision-template" type="text/x-underscore-template">
+                                <div class="row g-0 inputsRow">
+                                    <div class="col-12 col-lg-6 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("beneficiaries.{$beneficiaries_key}.name", ['label' => 'Full Name', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <?php echo $this->Form->control("beneficiaries.{$beneficiaries_key}.situation", ['type' => 'hidden', 'value' => 'Are there any special provisions or instructions you wish to cover in your Will? If Yes – Please list']); ?>
+                                    <div class="col-12 col-lg-6 row g-0">
+                                        <div class="col-12 col-lg-10">
+                                            <div class="form-group">
+                                                <?php echo $this->Form->control("beneficiaries.{$beneficiaries_key}.relation", ['label' => 'Relationship To you', 'class' => 'form-control']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-2">
+                                            <div class="row g-0">
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn add">
+                                                        <span class="fas fa-plus-circle"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn delete">
+                                                        <span class="fas fa-minus-circle"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </script>
+                        </div>
                     </div>
                 </div>
 
-                <div class="mb-4">
-                    <div class="label">
-                        <label class="fw-bold">If something happens to the above beneficiary(ies), who do you wish to
-                            leave the balance of your estate to?</label>
-                    </div>
-                    <div id="yourLeaveEstateSecond">
-                        <div></div>
-                        <?= $this->element('page4Inputs', [
-                            'field1Name' => 'leaveEstateSecond_name[]',
-                            'field2Name' => 'leaveEstateSecond_relation[]'
-                        ]); ?>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <div class="label">
-                        <label class="fw-bold">Is there anyone who you feel a responsibility to provide for not
-                            mentioned in your Will? If Yes – Please list</label>
-                    </div>
-                    <div id="yourFeelResp">
-                        <div></div>
-                        <?= $this->element('page4Inputs', [
-                            'field1Name' => 'feelRes_name[]',
-                            'field2Name' => 'feelRes_name[]'
-                        ]); ?>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <div class="label">
-                        <label class="fw-bold">Are there any special provisions or instructions you wish to cover in
-                            your Will? If Yes – Please list</label>
-                    </div>
-                    <div id="yourProvision">
-                        <div></div>
-                        <?= $this->element('page4Inputs', [
-                            'field1Name' => 'provision_name[]',
-                            'field2Name' => 'provision_relation[]'
-                        ]); ?>
-                    </div>
-                </div>
 
 
                 <!-- 7. Enduring Powers of Attorney and Medical Decision Makers  -->
@@ -2203,42 +2461,47 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
 
                     <div id="yourBankAccount">
                         <div class="label">
-                            <label>A person to make medical decisions if you cannot give consent. Your medical decision maker is the first person on the list who is reasonably available, and willing and able to make the decision</label>
+                            <label>A person to make medical decisions if you cannot give consent. Your medical decision
+                                maker is the first person on the list who is reasonably available, and willing and able
+                                to make the decision</label>
                         </div>
                         <div class="row g-0">
                             <div class="col-12 col-lg-6 col-xl-3 pe-lg-2">
                                 <div class="label">
                                     <label>First Decision Maker</label>
                                 </div>
-                                <input type="text" name="firstDecisionMaker" class="form-control" placeholder="Full name,DOB,Phone">
+                                <input type="text" name="firstDecisionMaker" class="form-control"
+                                       placeholder="Full name,DOB,Phone">
                             </div>
 
                             <div class="col-12 col-lg-6 col-xl-3 pe-xl-2">
                                 <div class="label">
-                                    <label>	Second Decision Maker</label>
+                                    <label> Second Decision Maker</label>
                                 </div>
-                                <input type="text" name="secondDecisionMaker" class="form-control" placeholder="Full name,DOB,Phone">
+                                <input type="text" name="secondDecisionMaker" class="form-control"
+                                       placeholder="Full name,DOB,Phone">
                             </div>
 
                             <div class="col-12 col-lg-6 col-xl-3 pe-lg-2">
                                 <div class="label">
                                     <label>Third Decision Maker</label>
                                 </div>
-                                <input type="text" name="thirdDecisionMaker" class="form-control" placeholder="Full name,DOB,Phone">
+                                <input type="text" name="thirdDecisionMaker" class="form-control"
+                                       placeholder="Full name,DOB,Phone">
                             </div>
 
                             <div class="col-12 col-lg-6 col-xl-3">
                                 <div class="label">
                                     <label>Forth Decision Maker</label>
                                 </div>
-                                <input type="text" name="forthDecisionMaker" class="form-control" placeholder="Full name,DOB,Phone">
+                                <input type="text" name="forthDecisionMaker" class="form-control"
+                                       placeholder="Full name,DOB,Phone">
                             </div>
 
                         </div>
 
                     </div>
                 </div>
-
 
 
                 <!-- 7. Enduring Powers of Attorney and Medical Decision Makers  -->
@@ -2249,8 +2512,6 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                         <textarea name="addition_notes" id="addition_notes" class="form-control"
                                   style="height: 100px;width: 100%; "></textarea>
                 </div>
-
-
 
 
                 <!--      Privacy Policy          -->
@@ -2276,7 +2537,6 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                 </div>
 
 
-
                 <!--    Recapture verification    -->
                 <div id="form_recaptcha" class="g-recaptcha"
                      data-sitekey="<?= RECAPTCHAV2_SITEKEY ?>">
@@ -2289,13 +2549,12 @@ $bequests_key=isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
                     <a class="btn btn-outline-secondary mt-3 float-start" id="page4Prev">Previous</a>
 
                     <div class="float-none text-center mt-3 float-md-end mt-md-0">
-                        <?= $this->Form->button(__('Submit'),['id'=>'submitIntakeform','class'=>'btn btn-shelbourne rounded-pill fw-bold w-100 px-4 py-2']) ?>
+                        <?= $this->Form->button(__('Submit'), ['id' => 'submitIntakeform', 'class' => 'btn btn-shelbourne rounded-pill fw-bold w-100 px-4 py-2']) ?>
                     </div>
                 </div>
             </div>
 
             <?= $this->Form->end() ?>
-
 
 
         </div>
