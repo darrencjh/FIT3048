@@ -116,7 +116,7 @@ class ClientsController extends AppController
 
     public function intakeform()
     {
-        $client = $this->Clients->newEntity(['associated'=>[
+        $client = $this->Clients->newEntity(['associated' => [
             'Householders',
             'dependents',
             'children',
@@ -128,22 +128,34 @@ class ClientsController extends AppController
             'superannuations',
             'executors',
             'altexecutors',
-            'bequests'
+            'bequests',
+            'beneficiaries'
 
 
-            ]]);
+        ]]);
         if ($this->request->is("post")) {
             // Form submit handler
             $postData = $this->request->getData();
 
             if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
 
-                if (count($postData['executors']) == 1 && empty($postData['executors'][0]['name'])) {
-                    $postData['executors'] = [];
+                //page 4
+                foreach ($postData['executors'] as $key => $executor) {
+                    if (empty($executor['name'])) {
+                        unset($postData['executors'][$key]);
+                    }
                 }
-                if (count($postData['altexecutors']) == 1 && empty($postData['altexecutors'][0]['name'])) {
-                    $postData['altexecutors'] = [];
+                foreach ($postData['altexecutors'] as $key => $altexecutor) {
+                    if (empty($altexecutor['name'])) {
+                        unset($postData['altexecutors'][$key]);
+                    }
                 }
+                foreach ($postData['beneficiaries'] as $key => $beneficiary) {
+                    if (empty($beneficiary['name'])) {
+                        unset($postData['beneficiaries'][$key]);
+                    }
+                }
+
 
 
                 $client = $this->Clients->patchEntity($client, $postData);
@@ -151,7 +163,6 @@ class ClientsController extends AppController
                 //combine the client name+address and save into database
                 $client->full_name = $postData['givenName'] . ' ' . $postData['lastName'];
                 $client->home_address = $postData['unit'] . ' ' . $postData['street'] . ',' . $postData['suburb'] . ',' . $postData['state'] . ',' . $postData['postCode'];
-
 
 
                 if ($this->Clients->save($client)) {
@@ -174,11 +185,9 @@ class ClientsController extends AppController
                     ]);
                     //Send email
                     $email_result = $mailer1->deliver();
-                    if (!$email_result)  {
+                    if (!$email_result) {
                         $this->Flash->error(__('Email failed to send. Please check the query in the system later. '));
                     }
-
-
 
 
                     //2.sending to leonie
@@ -203,15 +212,14 @@ class ClientsController extends AppController
                     ]);
                     //Send email
                     $email_result = $mailer2->deliver();
-                    if (!$email_result)  {
+                    if (!$email_result) {
                         $this->Flash->error(__('Email failed to send. Please check the query in the system later. '));
                     }
 
 
-
                     //3.sending to referral
 
-                    if(isset($postData['has_referrer']) && $postData['has_referrer']==1){
+                    if (isset($postData['has_referrer']) && $postData['has_referrer'] == 1) {
                         //if client has a referrer,then send email. Otherwise,not
                         //same email sending codes as above
                         //change to $mailer3
@@ -221,7 +229,7 @@ class ClientsController extends AppController
                             ->setEmailFormat('html')
                             ->setTo($client->referrer_email) //put referral email
                             ->setFrom("leonie@u22s1043.monash-ie.me")
-                            ->setSubject("Shelbourne Legal: ". " <" . h($client->full_name) . " was referred by you" . ">")
+                            ->setSubject("Shelbourne Legal: " . " <" . h($client->full_name) . " was referred by you" . ">")
                             ->viewBuilder()
                             ->disableAutoLayout()
                             ->setTemplate('referrerConfirmation'); //Change template
@@ -232,7 +240,7 @@ class ClientsController extends AppController
                         ]);
                         //Send email
                         $email_result = $mailer3->deliver();
-                        if (!$email_result)  {
+                        if (!$email_result) {
                             $this->Flash->error(__('Email failed to send. Please check the query in the system later. '));
                         }
 

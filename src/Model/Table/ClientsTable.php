@@ -26,6 +26,10 @@ use Cake\Validation\Validator;
  *@property \App\Model\Table\AltexecutorsTable&\Cake\ORM\Association\HasMany $Altexecutors
  *
  *@property \App\Model\Table\BequestsTable&\Cake\ORM\Association\HasMany $Bequests
+ *@property \App\Model\Table\BeneficiariesTable&\Cake\ORM\Association\HasMany $Beneficiaries
+ *
+ *
+ *
  *
  * @method \App\Model\Entity\Client newEmptyEntity()
  * @method \App\Model\Entity\Client newEntity(array $data, array $options = [])
@@ -136,6 +140,13 @@ class ClientsTable extends Table
         ]);
 
         $this->hasMany('Bequests', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('Beneficiaries', [
             'foreignKey' => 'client_id',
             'saveStrategy' => 'replace',
             'dependent' => true,

@@ -835,19 +835,69 @@ bequestContainer.on('click','a.delete',function (e){
 
 
 //6. Beneficiaries of the Residue
-$("#yourLeaveEstate").click(function(e){
-    addDeleteAssetRow(e,"yourLeaveEstate")
+//1
+let bene1Container = $('#leaveEstate-container')
+let bene1Template = _.template($('#leaveEstate-template').remove().text());
+let bene2Container = $('#leaveEstateSecond-container')
+let bene2Template = _.template($('#leaveEstateSecond-template').remove().text());
+let bene3Container = $('#feelResp-container')
+let bene3Template = _.template($('#feelResp-template').remove().text());
+let bene4Container = $('#provision-container')
+let bene4Template = _.template($('#provision-template').remove().text());
+
+
+let beneNumbersRows = $("#yourBeneficiaries").find('.inputsRow').length;
+// console.log(beneNumbersRows)
+bene1Container.on('click','a.add',function (e){
+    e.preventDefault();
+    $(bene1Template({beneficiary_key: beneNumbersRows++})).hide().appendTo(bene1Container).fadeIn('fast')
 })
-$("#yourLeaveEstateSecond").click(function(e){
-    addDeleteAssetRow(e,"yourLeaveEstateSecond")
-})
-$("#yourFeelResp").click(function(e){
-    addDeleteAssetRow(e,"yourFeelResp")
-})
-$("#yourProvision").click(function(e){
-    addDeleteAssetRow(e,"yourProvision")
+bene1Container.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut('fast',function (){
+        $(this).remove()
+    })
 })
 
+bene2Container.on('click','a.add',function (e){
+    e.preventDefault();
+    $(bene2Template({beneficiary_key: beneNumbersRows++})).hide().appendTo(bene2Container).fadeIn('fast')
+})
+bene2Container.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut('fast',function (){
+        $(this).remove()
+    })
+})
+
+bene3Container.on('click','a.add',function (e){
+    e.preventDefault();
+    $(bene3Template({beneficiary_key: beneNumbersRows++})).hide().appendTo(bene3Container).fadeIn('fast')
+})
+bene3Container.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut('fast',function (){
+        $(this).remove()
+    })
+})
+
+bene4Container.on('click','a.add',function (e){
+    e.preventDefault();
+    $(bene4Template({beneficiary_key: beneNumbersRows++})).hide().appendTo(bene4Container).fadeIn('fast')
+})
+bene4Container.on('click','a.delete',function (e){
+    e.preventDefault();
+    $(this).closest('.inputsRow').fadeOut('fast',function (){
+        $(this).remove()
+    })
+})
+
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------
 //7. Enduring Powers of Attorney and Medical Decision Makers
 $("#yourAttorney").click(function(e){
     addDeleteAssetRow(e,"yourAttorney")

@@ -90,7 +90,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Altexecutor[] $altexecutors
  *
  * @property \App\Model\Entity\Bequest[] $bequests
- *
+ *@property \App\Model\Entity\Beneficiary[] beneficiaries
  *
  */
 class Client extends Entity
@@ -192,6 +192,8 @@ class Client extends Entity
 
         'wish_property_special' => true,
         'bequests'=> true,
+
+        'beneficiaries'=> true,
 
         'way_attorney_decision' => true,
         'addition_notes' => true,
