@@ -86,6 +86,8 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Investment[] $investments
  * @property \App\Model\Entity\Superannuation[] $superannuations
  *
+ * @property \App\Model\Entity\Executor[] $executors
+ * @property \App\Model\Entity\Altexecutor[] $altexecutors
  *
  */
 class Client extends Entity
@@ -114,6 +116,10 @@ class Client extends Entity
         'has_decision_maker' => true,
         'has_superannu_deed' => true,
         'has_family_deed' => true,
+        'is_office_holder' => true,
+        'is_beneficiary' => true,
+        'in_partnership' => true,
+
         'is_health' => true,
         'health_desc' => true,
         'relationship_status' => true,
@@ -171,13 +177,16 @@ class Client extends Entity
         'insure_health_company' => true,
         'insure_life' => true,
         'insure_life_company' => true,
-        'is_office_holder' => true,
-        'is_beneficiary' => true,
-        'in_partnership' => true,
+
+        'executors'=> true,
+        'altexecutors'=> true,
+
+
         'wish_appoint_child' => true,
         'surviving_parent_fullname' => true,
         'guardian_fullname' => true,
         'guardian_relation' => true,
+
         'wish_property_special' => true,
         'way_attorney_decision' => true,
         'addition_notes' => true,

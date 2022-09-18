@@ -284,3 +284,33 @@ CREATE TABLE IF NOT EXISTS `superannuations`
     FOREIGN KEY client_sperannuations_key(`client_id`) REFERENCES clients(`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
+
+
+CREATE TABLE IF NOT EXISTS `executors`
+(
+    `id`             char(36)     NOT NULL,
+    `name`       varchar(255) NOT NULL,
+    `address`   varchar(255) DEFAULT NULL,
+    `relation` varchar(255) DEFAULT NULL,
+    `client_id`      char(36)     DEFAULT NULL,
+
+    PRIMARY KEY (`id`),
+    FOREIGN KEY client_executor_key(`client_id`) REFERENCES clients(`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+
+CREATE TABLE IF NOT EXISTS `altexecutors`
+(
+    `id`             char(36)     NOT NULL,
+    `name`       varchar(255) NOT NULL,
+    `address`   varchar(255) DEFAULT NULL,
+    `relation` varchar(255) DEFAULT NULL,
+    `client_id`      char(36)     DEFAULT NULL,
+
+    PRIMARY KEY (`id`),
+    FOREIGN KEY client_altexecutor_key(`client_id`) REFERENCES clients(`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+

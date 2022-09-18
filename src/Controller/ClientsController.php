@@ -126,6 +126,8 @@ class ClientsController extends AppController
             'vehicles',
             'investments',
             'superannuations',
+            'executors',
+            'altexecutors',
 
             ]]);
         if ($this->request->is("post")) {
@@ -133,11 +135,22 @@ class ClientsController extends AppController
             $postData = $this->request->getData();
 
             if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
+
+                if (count($postData['executors']) == 1 && empty($postData['executors'][0]['name'])) {
+                    $postData['executors'] = [];
+                }
+                if (count($postData['altexecutors']) == 1 && empty($postData['altexecutors'][0]['name'])) {
+                    $postData['altexecutors'] = [];
+                }
+
+
                 $client = $this->Clients->patchEntity($client, $postData);
 
                 //combine the client name+address and save into database
                 $client->full_name = $postData['givenName'] . ' ' . $postData['lastName'];
                 $client->home_address = $postData['unit'] . ' ' . $postData['street'] . ',' . $postData['suburb'] . ',' . $postData['state'] . ',' . $postData['postCode'];
+
+
 
                 if ($this->Clients->save($client)) {
                     //After saving into database,sending emails

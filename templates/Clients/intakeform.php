@@ -17,6 +17,8 @@ $banks_key=isset($banks_key) ? $banks_key : '<%= bank_key %>';
 $vehicles_key=isset($vehicles_key) ? $vehicles_key : '<%= vehicle_key %>';
 $investments_key=isset($investments_key) ? $investments_key : '<%= investment_key %>';
 $superannuations_key=isset($superannuations_key) ? $superannuations_key : '<%= superannuation_key %>';
+$executors_key=isset($executors_key) ? $executors_key : '<%= executor_key %>';
+$altexecutors_key=isset($altexecutors_key) ? $altexecutors_key : '<%= altexecutor_key %>';
 
 ?>
 <script>
@@ -1760,50 +1762,93 @@ $superannuations_key=isset($superannuations_key) ? $superannuations_key : '<%= s
                         </div>
                     </div>
 
+
                     <div id="yourExecutors">
-                        <div></div>
-                        <div class="row g-0 inputsRow">
-                            <div class="col-12 col-lg-4 pe-lg-2">
-                                <div class="label">
-                                    <label>Full Name</label>
-                                </div>
-                                <input type="text" name="executor_name[]" class="form-control">
-                            </div>
-
-                            <div class="col-12 col-lg-4 pe-lg-2">
-                                <div class="label">
-                                    <label>Address</label>
-                                </div>
-                                <input type="text" name="executor_address[]" class="form-control">
-                            </div>
-
-
-                            <div class="col-12 col-lg-4 row g-0">
-                                <div class="col-12 col-lg-10">
-                                    <div class="label">
-                                        <label>Relationship to You</label>
+                        <div id="executor-container">
+                            <div class="row g-0 inputsRow">
+                                <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("executors.0.name",['label'=>'Full Name','class'=>'form-control','required'=>false]);?>
                                     </div>
-                                    <input type="text" name="executor_relation[]" class="form-control">
                                 </div>
-                                <div class="col-12 col-lg-2">
-                                    <div class="row g-0">
-                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">
-                                            <a class="btn add">
-                                                <span class="fas fa-plus-circle"></span>
-                                            </a>
+
+                                <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("executors.0.address",['label'=>'Address','class'=>'form-control']);?>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12 col-lg-4 row g-0">
+                                    <div class="col-12 col-lg-10">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("executors.0.relation",['label'=>'Relationship to You','class'=>'form-control']);?>
                                         </div>
-                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
-                                            <a class="btn delete">
-                                                <span class="fas fa-minus-circle"></span>
-                                            </a>
+                                    </div>
+                                    <div class="col-12 col-lg-2">
+                                        <div class="row g-0">
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn add">
+                                                    <span class="fas fa-plus-circle"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn delete">
+                                                    <span class="fas fa-minus-circle"></span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
 
                         </div>
 
+
+                        <script id="executor-template" type="text/x-underscore-template">
+                            <div class="row g-0 inputsRow">
+                                <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("executors.{$executors_key}.name",['label'=>'Full Name','class'=>'form-control']);?>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("executors.{$executors_key}.address",['label'=>'Address','class'=>'form-control']);?>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12 col-lg-4 row g-0">
+                                    <div class="col-12 col-lg-10">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("executors.{$executors_key}.relation",['label'=>'Relationship to You','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2">
+                                        <div class="row g-0">
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn add">
+                                                    <span class="fas fa-plus-circle"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn delete">
+                                                    <span class="fas fa-minus-circle"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </script>
+
                     </div>
+
+
                 </div>
 
                 <!--      Alternative Executors          -->
@@ -1818,47 +1863,87 @@ $superannuations_key=isset($superannuations_key) ? $superannuations_key : '<%= s
                     </div>
 
                     <div id="yourAltExecutors">
-                        <div></div>
-                        <div class="row g-0 inputsRow">
-                            <div class="col-12 col-lg-4 pe-lg-2">
-                                <div class="label">
-                                    <label>Full Name</label>
-                                </div>
-                                <input type="text" name="altexecutor_name[]" class="form-control">
-                            </div>
-
-                            <div class="col-12 col-lg-4 pe-lg-2">
-                                <div class="label">
-                                    <label>Address</label>
-                                </div>
-                                <input type="text" name="altexecutor_address[]" class="form-control">
-                            </div>
-
-
-                            <div class="col-12 col-lg-4 row g-0">
-                                <div class="col-12 col-lg-10">
-                                    <div class="label">
-                                        <label>Relationship to You</label>
+                        <div id="altexecutor-container">
+                            <div class="row g-0 inputsRow">
+                                <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("altexecutors.0.name",['label'=>'Full Name','class'=>'form-control','required'=>false]);?>
                                     </div>
-                                    <input type="text" name="altexecutor_relation[]" class="form-control">
                                 </div>
-                                <div class="col-12 col-lg-2">
-                                    <div class="row g-0">
-                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0">
-                                            <a class="btn add">
-                                                <span class="fas fa-plus-circle"></span>
-                                            </a>
+
+                                <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("altexecutors.0.address",['label'=>'Address','class'=>'form-control']);?>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12 col-lg-4 row g-0">
+                                    <div class="col-12 col-lg-10">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("altexecutors.0.relation",['label'=>'Relationship to You','class'=>'form-control']);?>
                                         </div>
-                                        <div class="col-1 col-lg-12 mt-2 mt-lg-0 collapse">
-                                            <a class="btn delete">
-                                                <span class="fas fa-minus-circle"></span>
-                                            </a>
+                                    </div>
+                                    <div class="col-12 col-lg-2">
+                                        <div class="row g-0">
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn add">
+                                                    <span class="fas fa-plus-circle"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn delete">
+                                                    <span class="fas fa-minus-circle"></span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
 
                         </div>
+
+
+                        <script id="altexecutor-template" type="text/x-underscore-template">
+                            <div class="row g-0 inputsRow">
+                                <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("altexecutors.{$altexecutors_key}.name",['label'=>'Full Name','class'=>'form-control']);?>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("altexecutors.{$altexecutors_key}.address",['label'=>'Address','class'=>'form-control']);?>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12 col-lg-4 row g-0">
+                                    <div class="col-12 col-lg-10">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("altexecutors.{$altexecutors_key}.relation",['label'=>'Relationship to You','class'=>'form-control']);?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2">
+                                        <div class="row g-0">
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn add">
+                                                    <span class="fas fa-plus-circle"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn delete">
+                                                    <span class="fas fa-minus-circle"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </script>
 
                     </div>
                 </div>

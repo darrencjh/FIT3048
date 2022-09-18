@@ -760,23 +760,63 @@ $("#page3Next").click(function(){
 
 
 
-//-----------------Page 4-------------------------------
+//-----------------Page 4---------------------------------------------------------------------------------
 //Executor
-$("#yourExecutors").click(function(e){
-    addDeleteAssetRow(e,"yourExecutors")
+let executorContainer = $('#executor-container')
+let executorTemplate = _.template($('#executor-template').remove().text());
+let executorNumbersRows = executorContainer.find('.inputsRow').length;
+executorContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    if(executorContainer.find('.inputsRow').length<4) {
+        $(executorTemplate({executor_key: executorNumbersRows++})).hide().appendTo(executorContainer).fadeIn('fast')
+    }
 })
-$("#yourAltExecutors").click(function(e){
-    addDeleteAssetRow(e,"yourAltExecutors")
+executorContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    console.log(executorContainer.find('.inputsRow').length)
+    if(executorContainer.find('.inputsRow').length>1) {
+        $(this).closest('.inputsRow').fadeOut('fast',function (){
+            $(this).remove()
+        })
+    }
 })
+//altExecutor
+let altExecutorContainer = $('#altexecutor-container')
+let altExecutorTemplate = _.template($('#altexecutor-template').remove().text());
+let altExecutorNumbersRows = altExecutorContainer.find('.inputsRow').length;
+altExecutorContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    if(altExecutorContainer.find('.inputsRow').length<4){
+        $(altExecutorTemplate({altexecutor_key: altExecutorNumbersRows++})).hide().appendTo(altExecutorContainer).fadeIn('fast')
+    }
+})
+altExecutorContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    if(altExecutorContainer.find('.inputsRow').length>1){
+        $(this).closest('.inputsRow').fadeOut('fast',function (){
+            $(this).remove()
+        })
+    }
+})
+
+
+
+
 
 // 4.Guardian
 $(":radio[name=wish_appoint_child]").change(function(){
     radioShowDisappearInputs(this,'yourGuardian')
 })
-// 5. Specific Bequests
+// --------------------------------5. Specific Bequests-------------------------------------------
 $(":radio[name=wish_property_special]").change(function(){
     radioShowDisappearInputs(this,'yourSpecial')
 })
+
+
+
+
+
+
 $("#yourSpecial").click(function(e){
     addDeleteAssetRow(e,"yourSpecial")
 })
