@@ -92,6 +92,10 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Bequest[] $bequests
  *@property \App\Model\Entity\Beneficiary[] beneficiaries
  *
+ * @property \App\Model\Entity\Attorney[] $attorneys
+ * @property \App\Model\Entity\Altattorney[] $altattorneys
+ *
+ *@property \App\Model\Entity\Decisionmaker[] $decisionmakers
  */
 class Client extends Entity
 {
@@ -194,6 +198,11 @@ class Client extends Entity
         'bequests'=> true,
 
         'beneficiaries'=> true,
+
+        'attorneys'=> true,
+        'altattorneys'=> true,
+
+        'decisionmakers'=> true,
 
         'way_attorney_decision' => true,
         'addition_notes' => true,

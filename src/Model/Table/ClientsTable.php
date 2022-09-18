@@ -29,6 +29,9 @@ use Cake\Validation\Validator;
  *@property \App\Model\Table\BeneficiariesTable&\Cake\ORM\Association\HasMany $Beneficiaries
  *
  *
+ *@property \App\Model\Table\AttorneysTable&\Cake\ORM\Association\HasMany $Attorneys
+ *@property \App\Model\Table\AltattorneysTable&\Cake\ORM\Association\HasMany $Altattorneys
+ *@property \App\Model\Table\DecisionmakersTable&\Cake\ORM\Association\HasMany $Decisionmakers
  *
  *
  * @method \App\Model\Entity\Client newEmptyEntity()
@@ -147,6 +150,27 @@ class ClientsTable extends Table
         ]);
 
         $this->hasMany('Beneficiaries', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('Attorneys', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('Altattorneys', [
+            'foreignKey' => 'client_id',
+            'saveStrategy' => 'replace',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('Decisionmakers', [
             'foreignKey' => 'client_id',
             'saveStrategy' => 'replace',
             'dependent' => true,

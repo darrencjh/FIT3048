@@ -22,6 +22,9 @@ $altexecutors_key = isset($altexecutors_key) ? $altexecutors_key : '<%= altexecu
 $bequests_key = isset($bequests_key) ? $bequests_key : '<%= bequest_key %>';
 
 $beneficiaries_key = isset($beneficiaries_key) ? $beneficiaries_key : '<%= beneficiary_key %>';
+$attorneys_key= isset($attorneys_key) ? $attorneys_key : '<%= attorney_key %>';
+$altattorneys_key= isset($altattorneys_key) ? $altattorneys_key : '<%= altattorney_key %>';
+$decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= decisionMaker_key %>';
 
 ?>
 <script>
@@ -2090,7 +2093,7 @@ $beneficiaries_key = isset($beneficiaries_key) ? $beneficiaries_key : '<%= benef
                                 <div class="row g-0 inputsRow">
                                     <div class="col-12 col-lg-6 pe-lg-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("beneficiaries.0.name", ['label' => 'Full Name', 'class' => 'form-control','required'=>false]); ?>
+                                            <?php echo $this->Form->control("beneficiaries.0.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
                                         </div>
                                     </div>
                                     <?php echo $this->Form->control("beneficiaries.0.situation", ['type' => 'hidden', 'value' => 'Who do you wish to leave the balance of your estate to?']); ?>
@@ -2157,7 +2160,8 @@ $beneficiaries_key = isset($beneficiaries_key) ? $beneficiaries_key : '<%= benef
                     <!--                6.2  -->
                     <div class="mb-4">
                         <div class="label">
-                            <label class="fw-bold">If something happens to the above beneficiary(ies), who do you wish to
+                            <label class="fw-bold">If something happens to the above beneficiary(ies), who do you wish
+                                to
                                 leave the balance of your estate to?</label>
                         </div>
                         <div id="yourLeaveEstateSecond">
@@ -2165,7 +2169,7 @@ $beneficiaries_key = isset($beneficiaries_key) ? $beneficiaries_key : '<%= benef
                                 <div class="row g-0 inputsRow">
                                     <div class="col-12 col-lg-6 pe-lg-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("beneficiaries.1.name", ['label' => 'Full Name', 'class' => 'form-control','required'=>false]); ?>
+                                            <?php echo $this->Form->control("beneficiaries.1.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
                                         </div>
                                     </div>
                                     <?php echo $this->Form->control("beneficiaries.1.situation", ['type' => 'hidden', 'value' => 'If something happens to the above beneficiary(ies), who do you wish to leave the balance of your estate to?']); ?>
@@ -2240,7 +2244,7 @@ $beneficiaries_key = isset($beneficiaries_key) ? $beneficiaries_key : '<%= benef
                                 <div class="row g-0 inputsRow">
                                     <div class="col-12 col-lg-6 pe-lg-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("beneficiaries.2.name", ['label' => 'Full Name', 'class' => 'form-control','required'=>false]); ?>
+                                            <?php echo $this->Form->control("beneficiaries.2.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
                                         </div>
                                     </div>
                                     <?php echo $this->Form->control("beneficiaries.2.situation", ['type' => 'hidden', 'value' => 'Is there anyone who you feel a responsibility to provide for not mentioned in your Will? If Yes – Please list']); ?>
@@ -2315,7 +2319,7 @@ $beneficiaries_key = isset($beneficiaries_key) ? $beneficiaries_key : '<%= benef
                                 <div class="row g-0 inputsRow">
                                     <div class="col-12 col-lg-6 pe-lg-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("beneficiaries.3.name", ['label' => 'Full Name', 'class' => 'form-control','required'=>false]); ?>
+                                            <?php echo $this->Form->control("beneficiaries.3.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
                                         </div>
                                     </div>
                                     <?php echo $this->Form->control("beneficiaries.3.situation", ['type' => 'hidden', 'value' => 'Are there any special provisions or instructions you wish to cover in your Will? If Yes – Please list']); ?>
@@ -2382,7 +2386,6 @@ $beneficiaries_key = isset($beneficiaries_key) ? $beneficiaries_key : '<%= benef
                 </div>
 
 
-
                 <!-- 7. Enduring Powers of Attorney and Medical Decision Makers  -->
                 <div class="ff-el-group">
                     <h2>7. Enduring Powers of Attorney and Medical Decision Makers</h2>
@@ -2392,37 +2395,163 @@ $beneficiaries_key = isset($beneficiaries_key) ? $beneficiaries_key : '<%= benef
                         decisions about personal or financial matters. This person is called an attorney. The power
                         endures - or continues - if and when you are unable to make decisions.</label>
                 </div>
+
+                <!--                7.1:Attorneys-->
                 <div class="mb-4">
                     <div class="label">
                         <label class="fw-bold">Who do you want your attorney(s) to be?</label>
                     </div>
                     <div id="yourAttorney">
-                        <div></div>
-                        <?= $this->element('page4Inputs', [
-                            'field1Label' => 'Attorney Full name',
-                            'field2Label' => 'Attorney Address',
-                            'field1Name' => 'attorney_name[]',
-                            'field2Name' => 'attorney_address[]'
-                        ]); ?>
+                        <div id="attorney-container">
+                            <div class="row g-0 inputsRow">
+                                <div class="col-12 col-lg-6 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("attorneys.0.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12 col-lg-6 row g-0">
+                                    <div class="col-12 col-lg-10">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("executors.0.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2">
+                                        <div class="row g-0">
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn add">
+                                                    <span class="fas fa-plus-circle"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn delete">
+                                                    <span class="fas fa-minus-circle"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <script id="attorney-template" type="text/x-underscore-template">
+                            <div class="row g-0 inputsRow">
+                                <div class="col-12 col-lg-6 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("attorneys.{$attorneys_key}.name", ['label' => 'Full Name', 'class' => 'form-control']); ?>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6 row g-0">
+                                    <div class="col-12 col-lg-10">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("executors.{$attorneys_key}.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2">
+                                        <div class="row g-0">
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn add">
+                                                    <span class="fas fa-plus-circle"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn delete">
+                                                    <span class="fas fa-minus-circle"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </script>
                     </div>
                 </div>
 
+                <!--                7.2:Altattorneys-->
                 <div class="mb-4">
                     <div class="label">
                         <label class="fw-bold">Who do you want your alternative attorney(s) to be?</label>
                     </div>
                     <div id="yourAltAttorney">
-                        <div></div>
-                        <?= $this->element('page4Inputs', [
-                            'field1Label' => 'Alternative Attorney Full name',
-                            'field2Label' => 'Alternative Attorney Address',
-                            'field1Name' => 'altAttorney_name[]',
-                            'field2Name' => 'altAttorney_address[]'
-                        ]); ?>
+                        <div id="altattorney-container">
+                            <div class="row g-0 inputsRow">
+                                <div class="col-12 col-lg-6 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("altattorneys.0.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12 col-lg-6 row g-0">
+                                    <div class="col-12 col-lg-10">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("altattorneys.0.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2">
+                                        <div class="row g-0">
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn add">
+                                                    <span class="fas fa-plus-circle"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn delete">
+                                                    <span class="fas fa-minus-circle"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <script id="altattorney-template" type="text/x-underscore-template">
+                            <div class="row g-0 inputsRow">
+                                <div class="col-12 col-lg-6 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("altattorneys.{$altattorneys_key}.name", ['label' => 'Full Name', 'class' => 'form-control']); ?>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6 row g-0">
+                                    <div class="col-12 col-lg-10">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("altattorneys.{$altattorneys_key}.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2">
+                                        <div class="row g-0">
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn add">
+                                                    <span class="fas fa-plus-circle"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                <a class="btn delete">
+                                                    <span class="fas fa-minus-circle"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </script>
                     </div>
                 </div>
 
 
+                <!--                7.3 select-->
                 <div class="mb-4">
                     <div class="label">
                         <label class="fw-bold">If naming more than one attorney, how would you like them to make
@@ -2454,7 +2583,7 @@ $beneficiaries_key = isset($beneficiaries_key) ? $beneficiaries_key : '<%= benef
 
 
                 <!-- MEDICAL DECISION MAKER -->
-                <div class="mb-4">
+                <div class="my-4">
                     <div class="label">
                         <label class="fs-5 fw-bold">MEDICAL DECISION MAKER</label>
                     </div>
@@ -2465,40 +2594,94 @@ $beneficiaries_key = isset($beneficiaries_key) ? $beneficiaries_key : '<%= benef
                                 maker is the first person on the list who is reasonably available, and willing and able
                                 to make the decision</label>
                         </div>
-                        <div class="row g-0">
-                            <div class="col-12 col-lg-6 col-xl-3 pe-lg-2">
-                                <div class="label">
-                                    <label>First Decision Maker</label>
+
+
+                        <div id="yourDecisionMaker">
+                            <div id="decisionMaker-container">
+                                <div class="row g-0 inputsRow">
+                                    <div class="col-12 col-lg-4 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("decisionmakers.0.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-4 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("decisionmakers.0.dob", ['label' => 'Date of Birth', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12 col-lg-4 row g-0">
+                                        <div class="col-12 col-lg-10">
+                                            <div class="form-group">
+                                                <?php echo $this->Form->control("decisionmakers.0.phone", ['label' => 'Phone', 'class' => 'form-control']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-2">
+                                            <div class="row g-0">
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn add">
+                                                        <span class="fas fa-plus-circle"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn delete">
+                                                        <span class="fas fa-minus-circle"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <input type="text" name="firstDecisionMaker" class="form-control"
-                                       placeholder="Full name,DOB,Phone">
+
                             </div>
 
-                            <div class="col-12 col-lg-6 col-xl-3 pe-xl-2">
-                                <div class="label">
-                                    <label> Second Decision Maker</label>
-                                </div>
-                                <input type="text" name="secondDecisionMaker" class="form-control"
-                                       placeholder="Full name,DOB,Phone">
-                            </div>
 
-                            <div class="col-12 col-lg-6 col-xl-3 pe-lg-2">
-                                <div class="label">
-                                    <label>Third Decision Maker</label>
-                                </div>
-                                <input type="text" name="thirdDecisionMaker" class="form-control"
-                                       placeholder="Full name,DOB,Phone">
-                            </div>
+                            <script id="decisionMaker-template" type="text/x-underscore-template">
+                                <div class="row g-0 inputsRow">
+                                    <div class="col-12 col-lg-4 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("decisionmakers.{$decisionMakers_key}.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
+                                        </div>
+                                    </div>
 
-                            <div class="col-12 col-lg-6 col-xl-3">
-                                <div class="label">
-                                    <label>Forth Decision Maker</label>
-                                </div>
-                                <input type="text" name="forthDecisionMaker" class="form-control"
-                                       placeholder="Full name,DOB,Phone">
-                            </div>
+                                    <div class="col-12 col-lg-4 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("decisionmakers.{$decisionMakers_key}}.dob", ['label' => 'Date of Birth', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
 
+
+                                    <div class="col-12 col-lg-4 row g-0">
+                                        <div class="col-12 col-lg-10">
+                                            <div class="form-group">
+                                                <?php echo $this->Form->control("decisionmakers.{$decisionMakers_key}}.phone", ['label' => 'Phone', 'class' => 'form-control']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-2">
+                                            <div class="row g-0">
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn add">
+                                                        <span class="fas fa-plus-circle"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-1 col-lg-12 mt-2 mt-lg-0">
+                                                    <a class="btn delete">
+                                                        <span class="fas fa-minus-circle"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </script>
                         </div>
+
+
+
 
                     </div>
                 </div>

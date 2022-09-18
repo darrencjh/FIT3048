@@ -773,7 +773,6 @@ executorContainer.on('click','a.add',function (e){
 })
 executorContainer.on('click','a.delete',function (e){
     e.preventDefault();
-    console.log(executorContainer.find('.inputsRow').length)
     if(executorContainer.find('.inputsRow').length>1) {
         $(this).closest('.inputsRow').fadeOut('fast',function (){
             $(this).remove()
@@ -899,12 +898,64 @@ bene4Container.on('click','a.delete',function (e){
 
 //------------------------------------------------------------------------------------------------------------------
 //7. Enduring Powers of Attorney and Medical Decision Makers
-$("#yourAttorney").click(function(e){
-    addDeleteAssetRow(e,"yourAttorney")
+//Attorney
+let attorneyContainer = $('#attorney-container')
+let attorneyTemplate = _.template($('#attorney-template').remove().text());
+let attorneyNumbersRows = attorneyContainer.find('.inputsRow').length;
+attorneyContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    if(attorneyContainer.find('.inputsRow').length<4) {
+        $(attorneyTemplate({attorney_key: attorneyNumbersRows++})).hide().appendTo(attorneyContainer).fadeIn('fast')
+    }
 })
-$("#yourAltAttorney").click(function(e){
-    addDeleteAssetRow(e,"yourAltAttorney")
+attorneyContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    if(attorneyContainer.find('.inputsRow').length>1) {
+        $(this).closest('.inputsRow').fadeOut('fast',function (){
+            $(this).remove()
+        })
+    }
 })
+//altAttorney
+let altAttorneyContainer = $('#altattorney-container')
+let altAttorneyTemplate = _.template($('#altattorney-template').remove().text());
+let altAttorneyNumbersRows = altAttorneyContainer.find('.inputsRow').length;
+altAttorneyContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    if(altAttorneyContainer.find('.inputsRow').length<4){
+        $(altAttorneyTemplate({altattorney_key: altAttorneyNumbersRows++})).hide().appendTo(altAttorneyContainer).fadeIn('fast')
+    }
+})
+altAttorneyContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    if(altAttorneyContainer.find('.inputsRow').length>1){
+        $(this).closest('.inputsRow').fadeOut('fast',function (){
+            $(this).remove()
+        })
+    }
+})
+
+//-------------------------Decision Maker-----------------------------
+let decisionMakerContainer = $('#decisionMaker-container')
+let decisionMakerTemplate = _.template($('#decisionMaker-template').remove().text());
+let decisionMakerNumbersRows = decisionMakerContainer.find('.inputsRow').length;
+$(".error-message").text('')
+decisionMakerContainer.on('click','a.add',function (e){
+    e.preventDefault();
+    if(decisionMakerContainer.find('.inputsRow').length<4) {
+        $(decisionMakerTemplate({decisionMaker_key: decisionMakerNumbersRows++})).hide().appendTo(decisionMakerContainer).fadeIn('fast')
+        $(".error-message").text('')
+    }
+})
+decisionMakerContainer.on('click','a.delete',function (e){
+    e.preventDefault();
+    if(decisionMakerContainer.find('.inputsRow').length>1) {
+        $(this).closest('.inputsRow').fadeOut('fast',function (){
+            $(this).remove()
+        })
+    }
+})
+
 
 
 

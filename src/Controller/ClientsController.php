@@ -129,7 +129,10 @@ class ClientsController extends AppController
             'executors',
             'altexecutors',
             'bequests',
-            'beneficiaries'
+            'beneficiaries',
+            'attorneys',
+            'altattorneys',
+            'decisionmakers',
 
 
         ]]);
@@ -153,6 +156,21 @@ class ClientsController extends AppController
                 foreach ($postData['beneficiaries'] as $key => $beneficiary) {
                     if (empty($beneficiary['name'])) {
                         unset($postData['beneficiaries'][$key]);
+                    }
+                }
+                foreach ($postData['attorneys'] as $key => $attorney) {
+                    if (empty($attorney['name'])) {
+                        unset($postData['attorneys'][$key]);
+                    }
+                }
+                foreach ($postData['altattorneys'] as $key => $altattorney) {
+                    if (empty($altattorney['name'])) {
+                        unset($postData['altattorneys'][$key]);
+                    }
+                }
+                foreach ($postData['decisionmakers'] as $key => $decisionmaker) {
+                    if (empty($decisionmaker['name'])) {
+                        unset($postData['decisionmakers'][$key]);
                     }
                 }
 
