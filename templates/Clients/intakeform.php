@@ -307,7 +307,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                     'inputName' => 'has_will',
                                 ]);
                                 ?>
-
+                                <div class="collapse text-shelbourne">Please bring existing will to initial meeting or email to Leonie</div>
                             </div>
                         </div>
                     </div>
@@ -334,6 +334,8 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                     'inputName' => 'has_power',
                                 ]);
                                 ?>
+                                <div class="collapse text-shelbourne">Please bring existing Powers of Attorney to initial meeting or email to Leonie</div>
+
                             </div>
                         </div>
                     </div>
@@ -360,6 +362,8 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                     'inputName' => 'has_binding',
                                 ]);
                                 ?>
+                                <div class="collapse text-shelbourne">Please bring Binding Death Benefit Nominations to initial meeting or email to Leonie</div>
+
                             </div>
                         </div>
 
@@ -387,6 +391,8 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                     'inputName' => 'has_decision_maker',
                                 ]);
                                 ?>
+                                <div class="collapse text-shelbourne">Please bring Existing Medical Treatment Decision Maker to initial meeting or email to Leonie</div>
+
                             </div>
                         </div>
 
@@ -414,6 +420,8 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                     'inputName' => 'has_superannu_deed',
                                 ]);
                                 ?>
+                                <div class="collapse text-shelbourne">Please bring Copy of Self Managed Superannuation Trust Deed to initial meeting or email to Leonie</div>
+
                             </div>
                         </div>
 
@@ -440,6 +448,8 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                 'inputName' => 'has_family_deed',
                             ]);
                             ?>
+                            <div class="collapse text-shelbourne">Please bring Copy of Family Trust Deed to initial meeting or email to Leonie</div>
+
                         </div>
                     </div>
 
@@ -456,6 +466,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                 'inputName' => 'is_office_holder',
                             ]);
                             ?>
+                            <div class="collapse text-shelbourne">Please bring Copy of shareholders agreement and company constitution to initial meeting or email to Leonie</div>
                         </div>
                     </div>
                     <div class="mb-4">
@@ -469,6 +480,8 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                 'inputName' => 'is_beneficiary',
                             ]);
                             ?>
+                            <div class="collapse text-shelbourne">Please bring Copy of existing trustees to initial meeting or email to Leonie</div>
+
                         </div>
                     </div>
                     <div class="mb-4">
@@ -482,6 +495,8 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                 'inputName' => 'in_partnership',
                             ]);
                             ?>
+                            <div class="collapse text-shelbourne">Please bring Copy of partnership agreement to initial meeting or email to Leonie</div>
+
                         </div>
                     </div>
 
@@ -489,37 +504,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                 </div>
 
 
-                <!--                Documents Overview-->
-                <div class="card  mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title text-shelbourne fw-bold">Documents to bring</h5>
-                        <h6 class="card-subtitle mt-2">Please bring/email your existing docs before your first
-                            appointment.</h6>
-                        <p class="card-text text-grey">
-                        <ol id="documentsToBring" class="list-group-numbered">
-                            <li>Identification (always required)</li>
-                            <li class="collapse">Your existing will</li>
-                            <li class="collapse">Your existing power of attorney</li>
-                            <li class="collapse">Your binding Death Benefit Nominations</li>
-                            <li class="collapse">Your existing medical treatment decision maker appointment</li>
-                            <li class="collapse">Copy of Self Managed Superannuation Trust Deed</li>
-                            <li class="collapse">Copy of Family Trust Deed</li>
-                            <li class="collapse">Copy of shareholders agreement and company constitution</li>
-                            <li class="collapse">Copy of existing trustees</li>
-                            <li class="collapse">Copy of partnership agreement</li>
-                        </ol>
-                        </p>
-                        <div>
-                            <span>Email:</span>
-                            <a href="mailTo:Leonie@shelbournelegal.com.au" class="card-link text-shelbourne">Leonie@shelbournelegal.com.au</a>
-                        </div>
-                        <div>
-                            <span>Office:</span>
-                            <a href="https://shelbournelegal.com.au/contact/" target="_blank" class="text-shelbourne">See
-                                the contact page</a>
-                        </div>
-                    </div>
-                </div>
+
 
 
                 <!--             1.3 Health    -->
@@ -1763,7 +1748,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                         <div class="label">
                             <label class="fs-5  fw-bold">Executors</label>
                             <a class="d-inline-block" data-bs-toggle="tooltip"
-                               data-bs-original-title="Your executor is the person appointed to administer your estate and carry out your wishes after your death. This means they may have to collect assets, pay any debts, arrange your funeral, distribute your estate according to your will and, if necessary, take  or defend legal action on behalf of your estate. You may wish to appoint one primary Executor and an alternate executor, or you may appoint up to 4 primary executors and/or alternate executors to act jointly if you prefer. They should be people who can work together."
+                               data-bs-original-title="The executor is the person appointed to administer your estate and carry out your wishes after your death. This means they may have to collect assets, pay any debts, arrange your funeral, distribute your estate according to your will and, if necessary, take  or defend legal action on behalf of your estate. You may wish to appoint one primary Executor and an alternate executor, or you may appoint up to 4 primary executors and/or alternate executors to act jointly if you prefer. They should be people who can work together."
                                data-bs-placement="right">
                                 <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                                      height="15px" width="15px">
@@ -1871,6 +1856,15 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                     <div>
                         <div class="label">
                             <label class="fs-5 fw-bold">Alternative Executors</label>
+                            <a class="d-inline-block" data-bs-toggle="tooltip"
+                               data-bs-original-title="The Alternative Executor  is a person who would take on the duties of an executor if, for any reason, the person you've named cannot fulfill the role."
+                               data-bs-placement="right">
+                                <svg class="label" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                     height="15px" width="15px">
+                                    <path
+                                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/>
+                                </svg>
+                            </a>
                         </div>
                     </div>
 
@@ -2716,6 +2710,39 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                             information safe by taking all reasonable precautions to protect personal information from
                             misuse, loss, unauthorised access, modification or disclosure.
                         </label>
+                    </div>
+                </div>
+
+
+                <!--                Documents Overview-->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title text-shelbourne fw-bold">Documents to bring</h5>
+                        <h6 class="card-subtitle mt-2">Please bring/email your existing docs before your first
+                            appointment.</h6>
+                        <p class="card-text text-grey">
+                        <ol id="documentsToBring" class="list-group-numbered">
+                            <li>Identification (always required)</li>
+                            <li class="collapse">Your existing will</li>
+                            <li class="collapse">Your existing power of attorney</li>
+                            <li class="collapse">Your binding Death Benefit Nominations</li>
+                            <li class="collapse">Your existing medical treatment decision maker appointment</li>
+                            <li class="collapse">Copy of Self Managed Superannuation Trust Deed</li>
+                            <li class="collapse">Copy of Family Trust Deed</li>
+                            <li class="collapse">Copy of shareholders agreement and company constitution</li>
+                            <li class="collapse">Copy of existing trustees</li>
+                            <li class="collapse">Copy of partnership agreement</li>
+                        </ol>
+                        </p>
+                        <div>
+                            <span>Email:</span>
+                            <a href="mailTo:Leonie@shelbournelegal.com.au" class="card-link text-shelbourne">Leonie@shelbournelegal.com.au</a>
+                        </div>
+                        <div>
+                            <span>Office:</span>
+                            <a href="https://shelbournelegal.com.au/contact/" target="_blank" class="text-shelbourne">See
+                                the contact page</a>
+                        </div>
                     </div>
                 </div>
 

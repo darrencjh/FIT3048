@@ -141,7 +141,8 @@ endforeach;
             font-weight: 400;
             line-height: 1.4;
             margin: 0;
-            margin-bottom: 30px;
+            margin-top: 25px;
+            margin-bottom: 15px;
         }
 
         h1 {
@@ -449,9 +450,9 @@ endforeach;
                                         <div class="text-center">
                                             <img src="https://d3v0px0pttie1i.cloudfront.net/uploads/user/logo/6737024/445e6b00.jpg" alt="Shelbourne legal">
                                         </div>
-                                        <p>Hi,<?= h($client['referrer_name']) ?></p>
-                                        <p>You have successfully referred <?= h($client['full_name']) ?></p>
-                                        <p><b>Thank you for your support to Shelbourne Legal</p>
+                                        <p>Dear Mr./Ms.  <?= h($client['referrer_name']) ?></p>
+                                        <p>You have successfully referred <b><?= h($client['full_name']) ?></b> to Shelbourne Legal.</p>
+                                        <p>Thank you for your support to Shelbourne Legal</p>
 
 
                                         <div class="emailformat">
