@@ -263,48 +263,48 @@ $("#inputPhone").change(function () {
 //In page 1,when you click "Next". Verify the basic information form first,then display next page
 $("#page1Next").click(function(){
 
-    // let firstName = inputGivenName.value
-    // let lastName = inputLastName.value
-    // let previousName = inputPrevName.value
-    // let dob = inputDOB.value
-    // let occupation = inputOccupation.value
-    // let unit=inputUnit.value
-    // let street = inputStreet.value
-    // let suburb = inputSuburb.value
-    // let state = inputState.value
-    // let postcode = inputPostCode.value
-    // // let postalAddress=inputPostAddress.value
-    // let email = inputEmail.value
-    // let phone = inputPhone.value
-    //
-    //
-    // let firstNameResult = verifyFirstName(firstName)
-    // let lastNameResult = verifyLastName(lastName)
-    // let prevNameResult = verifyPreviousName(previousName)
-    // let dobResult = verifyDOB(dob)
-    // let occupationResult = verifyOccupation(occupation)
-    // let unitResult=verifyUnit(unit)
-    // let streetResult = verifyAddress(street)
-    // let suburbResult = verifySuburb(suburb)
-    // let stateResult = verifyState(state)
-    // let postcodeResult = verifyPostcode(postcode)
-    // // let postalAddressResult=verifyPostalAddress(postalAddress)
-    // let emailResult = verifyEmail(email)
-    // let phoneResult = verifyPhone(phone)
-    //
-    // if (firstNameResult && lastNameResult && prevNameResult && dobResult && occupationResult && unitResult && streetResult && suburbResult
-    // && stateResult && postcodeResult && emailResult && phoneResult){
-    //     //if pass verify,return true
-    //     $("#page1").removeClass('show')
-    //     $("#page2").addClass('show')
-    //     window.scrollTo(0, 0);
-    //     return true
-    // }
-    // else {
-    //     //if not pass,return false and scroll to top
-    //     document.getElementById('page1').scrollIntoView(true)
-    //     return false
-    // }
+    let firstName = inputGivenName.value
+    let lastName = inputLastName.value
+    let previousName = inputPrevName.value
+    let dob = inputDOB.value
+    let occupation = inputOccupation.value
+    let unit=inputUnit.value
+    let street = inputStreet.value
+    let suburb = inputSuburb.value
+    let state = inputState.value
+    let postcode = inputPostCode.value
+    // let postalAddress=inputPostAddress.value
+    let email = inputEmail.value
+    let phone = inputPhone.value
+
+
+    let firstNameResult = verifyFirstName(firstName)
+    let lastNameResult = verifyLastName(lastName)
+    let prevNameResult = verifyPreviousName(previousName)
+    let dobResult = verifyDOB(dob)
+    let occupationResult = verifyOccupation(occupation)
+    let unitResult=verifyUnit(unit)
+    let streetResult = verifyAddress(street)
+    let suburbResult = verifySuburb(suburb)
+    let stateResult = verifyState(state)
+    let postcodeResult = verifyPostcode(postcode)
+    // let postalAddressResult=verifyPostalAddress(postalAddress)
+    let emailResult = verifyEmail(email)
+    let phoneResult = verifyPhone(phone)
+
+    if (firstNameResult && lastNameResult && prevNameResult && dobResult && occupationResult && unitResult && streetResult && suburbResult
+    && stateResult && postcodeResult && emailResult && phoneResult){
+        //if pass verify,return true
+        $("#page1").removeClass('show')
+        $("#page2").addClass('show')
+        window.scrollTo(0, 0);
+        return true
+    }
+    else {
+        //if not pass,return false and scroll to top
+        document.getElementById('page1').scrollIntoView(true)
+        return false
+    }
 
 
     $("#page1").removeClass('show')
