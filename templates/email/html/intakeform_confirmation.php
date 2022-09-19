@@ -980,15 +980,15 @@
                                                 appointment. </b></p>
                                         <ol id="documentsToBring" class="list-group-numbered">
                                             <li>Identification</li>
-                                            <?= h($client->has_will == 1 ? "<li>Your existing will</li>" : "") ?>
-                                            <?= h($client->has_power == 1 ? "<li>Your existing power of attorney</li>" : "") ?>
-                                            <?= h($client->has_binding == 1 ? "<li>Your binding Death Benefit Nominations</li>" : "") ?>
-                                            <?= h($client->has_decision_maker == 1 ? "<li>Your existing medical treatment decision maker appointment</li>" : "") ?>
-                                            <?= h($client->has_superannu_deed == 1 ? "<li>Copy of Self Managed Superannuation Trust Deed</li>" : "") ?>
-                                            <?= h($client->has_family_deed == 1 ? "<li>Copy of Family Trust Deed</li>" : "") ?>
-                                            <?= h($client->is_office_holder == 1 ? "<li>Copy of shareholders agreement and company constitution</li>" : "") ?>
-                                            <?= h($client->is_beneficiary == 1 ? "<li>Copy of existing trustees</li>" : "") ?>
-                                            <?= h($client->in_partnership == 1 ? "<li>Copy of partnership agreement</li>" : "") ?>
+                                            <?= $client->has_will == 1 ? "<li>Your existing will</li>" : "" ?>
+                                            <?= $client->has_power == 1 ? "<li>Your existing power of attorney</li>" : "" ?>
+                                            <?= $client->has_binding == 1 ? "<li>Your binding Death Benefit Nominations</li>" : "" ?>
+                                            <?= $client->has_decision_maker == 1 ? "<li>Your existing medical treatment decision maker appointment</li>" : "" ?>
+                                            <?= $client->has_superannu_deed == 1 ? "<li>Copy of Self Managed Superannuation Trust Deed</li>" : "" ?>
+                                            <?= $client->has_family_deed == 1 ? "<li>Copy of Family Trust Deed</li>" : "" ?>
+                                            <?= $client->is_office_holder == 1 ? "<li>Copy of shareholders agreement and company constitution</li>" : "" ?>
+                                            <?= $client->is_beneficiary == 1 ? "<li>Copy of existing trustees</li>" : "" ?>
+                                            <?= $client->in_partnership == 1 ? "<li>Copy of partnership agreement</li>" : "" ?>
                                         </ol>
 
 

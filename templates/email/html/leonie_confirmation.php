@@ -13,13 +13,6 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  * @var \App\View\AppView $this
  */
-
-$content = explode("\n", $content);
-$body = '';
-
-foreach ($content as $line) :
-    $body .= '<p> ' . h($line) . "</p>\n";
-endforeach;
 ?>
 
 <!doctype html>
@@ -471,7 +464,9 @@ endforeach;
                                         <div class="text-center">
                                             <img src="https://d3v0px0pttie1i.cloudfront.net/uploads/user/logo/6737024/445e6b00.jpg" alt="Shelbourne legal">
                                         </div>
-                                        <p><?= h($client['full_name'] . "has successfully completed the intake form") ?></p>
+                                        <p>Hi,Leonie</p>
+                                        <p>You have a new Client - <b><?= h($client['full_name']) ?></b></p>
+                                        <p><?= h($client['full_name'] . " has successfully completed the intake form") ?></p>
                                         <p>His/Her details are as follows:</p>
                                         <h2>1 - Basic Information</h2>
                                         <h3>1.1 Your Details</h3>
@@ -964,15 +959,15 @@ endforeach;
                                         <p><b>The documents the clients need bring are listed below. </b></p>
                                         <ol id="documentsToBring" class="list-group-numbered">
                                             <li>Identification</li>
-                                            <?= h($client->has_will == 1 ? "<li>Your existing will</li>" : "") ?>
-                                            <?= h($client->has_power == 1 ? "<li>Your existing power of attorney</li>" : "") ?>
-                                            <?= h($client->has_binding == 1 ? "<li>Your binding Death Benefit Nominations</li>" : "") ?>
-                                            <?= h($client->has_decision_maker == 1 ? "<li>Your existing medical treatment decision maker appointment</li>" : "") ?>
-                                            <?= h($client->has_superannu_deed == 1 ? "<li>Copy of Self Managed Superannuation Trust Deed</li>" : "") ?>
-                                            <?= h($client->has_family_deed == 1 ? "<li>Copy of Family Trust Deed</li>" : "") ?>
-                                            <?= h($client->is_office_holder == 1 ? "<li>Copy of shareholders agreement and company constitution</li>" : "") ?>
-                                            <?= h($client->is_beneficiary == 1 ? "<li>Copy of existing trustees</li>" : "") ?>
-                                            <?= h($client->in_partnership == 1 ? "<li>Copy of partnership agreement</li>" : "") ?>
+                                            <?= $client->has_will == 1 ? "<li>Your existing will</li>" : "" ?>
+                                            <?= $client->has_power == 1 ? "<li>Your existing power of attorney</li>" : "" ?>
+                                            <?= $client->has_binding == 1 ? "<li>Your binding Death Benefit Nominations</li>" : "" ?>
+                                            <?= $client->has_decision_maker == 1 ? "<li>Your existing medical treatment decision maker appointment</li>" : "" ?>
+                                            <?= $client->has_superannu_deed == 1 ? "<li>Copy of Self Managed Superannuation Trust Deed</li>" : "" ?>
+                                            <?= $client->has_family_deed == 1 ? "<li>Copy of Family Trust Deed</li>" : "" ?>
+                                            <?= $client->is_office_holder == 1 ? "<li>Copy of shareholders agreement and company constitution</li>" : "" ?>
+                                            <?= $client->is_beneficiary == 1 ? "<li>Copy of existing trustees</li>" : "" ?>
+                                            <?= $client->in_partnership == 1 ? "<li>Copy of partnership agreement</li>" : "" ?>
                                         </ol>
 
 
