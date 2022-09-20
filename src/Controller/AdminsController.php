@@ -28,9 +28,17 @@ class AdminsController extends AppController
 
     public function dashboard(){
         $pageTitle="Dashboard";
-        $admin_name='test';
+
+        $client_query =  $this->fetchTable('Clients')->find();
+        $client_counts=$client_query->all()->count();
+
+        $booking_query =  $this->fetchTable('Bookings')->find()->where([
+            'date ='=> date("Y-m-d")
+        ]);;
+        $toadyBooking_counts=$booking_query->all()->count();
+
         $this->set(compact('pageTitle'));
-        $this->set(compact('admin_name'));
+        $this->set(compact('client_counts','toadyBooking_counts'));
 
     }
 

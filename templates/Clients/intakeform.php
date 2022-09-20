@@ -972,7 +972,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
 
                 <!-- Section1   Helper      -->
                 <div class="ff-el-group mt-4">
-                    <h4>Accountant/Adviser/Referral</h4>
+                    <h4>Accountant/Adviser/Referer</h4>
                 </div>
                 <!--     Accountant -->
                 <div class="mb-4">
@@ -1082,7 +1082,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                 </div>
 
 
-                <!--     referral -->
+                <!--     referer -->
                 <div class="mb-4">
                     <div>
                         <div class="label">
@@ -1094,8 +1094,8 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                             <option value="accountant">Accountant</option>
                             <option value="financial adviser">Financial Adviser</option>
                             <option value="facebook">Facebook</option>
-                            <option value="google">Google</option>
-                            <option value="my website">My Website</option>
+                            <option value="google">Google Ads</option>
+                            <option value="my website">Shelbourne Legal Website</option>
                             <option value="others">Others</option>
                         </select>
 
