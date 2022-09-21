@@ -29,16 +29,39 @@ class AdminsController extends AppController
     public function dashboard(){
         $pageTitle="Dashboard";
 
+
+
+        //2.get number for each referer
+        $referer_query = $this->fetchTable('Clients')->find();
+        $referer_query->select([
+            'value' => $referer_query->func()->count('referrer_source'),
+            'name' => 'referrer_source'
+        ])
+            ->group('referrer_source');
+            //->having(['count >' => 3]);
+        $referer_result=$referer_query->all();
+        $referer_source=[];
+        foreach ($referer_result as $oneReferrer){
+            $referer_source[]=[
+                'name'=>$oneReferrer->name,
+                'value'=>$oneReferrer->value
+            ];
+        }
+
+
+
+        //3.get the total number of clients
         $client_query =  $this->fetchTable('Clients')->find();
         $client_counts=$client_query->all()->count();
 
+        //4.get the number of today's bookings
         $booking_query =  $this->fetchTable('Bookings')->find()->where([
             'date ='=> date("Y-m-d")
         ]);;
         $toadyBooking_counts=$booking_query->all()->count();
 
         $this->set(compact('pageTitle'));
-        $this->set(compact('client_counts','toadyBooking_counts'));
+        $this->set(compact('client_counts','toadyBooking_counts','referer_source'));
 
     }
 

@@ -1090,7 +1090,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                         </div>
 
                         <select class="form-select text-grey w-25" id="inputReferral" name="referrer_source">
-                            <option selected value="">Choose...</option>
+                            <option selected value="unknown">Choose...</option>
                             <option value="accountant">Accountant</option>
                             <option value="financial adviser">Financial Adviser</option>
                             <option value="facebook">Facebook</option>

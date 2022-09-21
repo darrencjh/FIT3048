@@ -8,33 +8,32 @@ $this->Html->script('echarts.min', ['block' => true]);
 
 <div class="row g-0 my-4">
     <div class="col-12 col-lg-8">
-<!--        Bookings chart-->
+        <!--        Bookings chart-->
         <div class="bg-white p-3">
-            <div id="monthlyBookings" style="width: 100%;height:700px;"></div>
+            <div id="monthlyBookings" style="width: 100%;height:790px;"></div>
         </div>
     </div>
     <div class="col-12 col-lg-4">
         <div class="row g-0">
             <div class="col-12 mt-3 mt-lg-0">
-<!--                Pie chart-->
+                <!--                Pie chart-->
                 <div class="bg-white p-3">
-                    <div id="referrerSource" style="width: 100%;height:400px;"></div>
+                    <div id="referrerSource" style="width: 100%;height:500px;"></div>
                 </div>
             </div>
             <div class="col-12 my-4">
                 <div class="bg-white p-3">
-                    <h5>Total Client number</h5>
+                    <h5 class="text-dark font-weight-bold">Total Client number</h5>
                     <h1 class="text-shelbourne"><?= $client_counts ?></h1>
                 </div>
             </div>
 
             <div class="col-12 mt-1">
                 <div class="bg-white p-3">
-                    <h5>Today's bookings</h5>
+                    <h5 class="text-dark font-weight-bold">Today's bookings</h5>
                     <h1 class="text-shelbourne"><?= $toadyBooking_counts ?></h1>
                 </div>
             </div>
-
 
 
         </div>
@@ -45,7 +44,7 @@ $this->Html->script('echarts.min', ['block' => true]);
 
 
 <script>
-    $(()=>{
+    $(() => {
         //1.bar chart
         // Initialize the echarts instance based on the prepared dom
         var bookingsChart = echarts.init(document.getElementById('monthlyBookings'));
@@ -67,7 +66,7 @@ $this->Html->script('echarts.min', ['block' => true]);
             xAxis: [
                 {
                     type: 'category',
-                    data: ['Jan', 'Feb', 'Mar', 'April', 'May', 'Jun', 'Jul','Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+                    data: ['Jan', 'Feb', 'Mar', 'April', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
                     axisTick: {
                         alignWithLabel: true
                     }
@@ -83,10 +82,10 @@ $this->Html->script('echarts.min', ['block' => true]);
                     name: 'Direct',
                     type: 'bar',
                     barWidth: '60%',
-                    data: [10, 52, 70, 80, 66, 33, 21,67, 77, 89, 53, 59, 99] //fetch data from controller
+                    data: [10, 52, 70, 80, 66, 33, 21, 67, 77, 89, 53, 59, 99] //fetch data from controller
                 }
             ],
-            color:[
+            color: [
                 '#17BCB9'
             ],
             title: {
@@ -94,15 +93,23 @@ $this->Html->script('echarts.min', ['block' => true]);
                 left: 10
             },
         };
-
         // Display the chart using the configuration items and data just specified.
         bookingsChart.setOption(bookingsOption);
 
 
 
 
-
         //2.Pie chart
+        let refererData=[]
+        <?php
+        foreach ($referer_source as $oneResult):
+        ?>
+        refererData.push({
+            value:"<?= $oneResult['value']  ?>",
+            name:"<?= $oneResult['name']  ?>",
+        })
+        <?php endforeach; ?>
+
         var referrerChart = echarts.init(document.getElementById('referrerSource'));
         var referrerOption = {
             title: {
@@ -121,14 +128,8 @@ $this->Html->script('echarts.min', ['block' => true]);
                     name: 'Access From',
                     type: 'pie',
                     radius: '50%',
-                    data: [
-                        { value: 1048, name: 'Accountant' },                      //fetch data from controller
-                        { value: 735, name: 'Financial Adviser' },
-                        { value: 580, name: 'Facebook' },
-                        { value: 484, name: 'Google Ads' },
-                        { value: 484, name: 'Website' },
-                        { value: 300, name: 'Others' }
-                    ],
+
+                    data: refererData,
                     emphasis: {
                         itemStyle: {
                             shadowBlur: 10,
@@ -143,12 +144,7 @@ $this->Html->script('echarts.min', ['block' => true]);
         referrerChart.setOption(referrerOption);
 
 
-
-
-
-
-
-        window.onresize = function() {
+        window.onresize = function () {
             bookingsChart.resize();
             referrerChart.resize();
         };
