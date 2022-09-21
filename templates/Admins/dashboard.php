@@ -51,7 +51,7 @@ $this->Html->script('echarts.min', ['block' => true]);
         <?php
         foreach ($month_booking as $month):
         ?>
-        bookingsData["<?= $month['month'] ?>"-1]=<?= $month['bookings'] ?>
+        bookingsData[<?= $month['month'] ?>-1]=<?= $month['bookings'] ?>;
         <?php endforeach; ?>
 
 
