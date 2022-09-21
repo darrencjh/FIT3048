@@ -25,9 +25,27 @@ class AdminsController extends AppController
     }
 
 
+    public function dashboard()
+    {
+        $pageTitle = "Dashboard";
 
-    public function dashboard(){
-        $pageTitle="Dashboard";
+        //1.get number of bookings each month
+        $monthBooking_query = $this->fetchTable('Bookings')->find();
+        $month_booking=$monthBooking_query->select([
+            'month'=>$monthBooking_query->func()->extract('month','date'),
+            'bookings'=>$monthBooking_query->func()->count('date'),
+        ])
+            ->group($monthBooking_query->func()->extract('month','date'))
+            ->orderAsc($monthBooking_query->func()->extract('month','date'))
+            ->toArray();
+//        $month_booking = [];
+//        foreach ($monthBooking_result as $oneMonth) {
+//            $month_booking[] = [
+//                'month'=>$oneMonth->month,
+//                'bookings'=>$oneMonth->bookings
+//            ];
+//        }
+
 
 
 
@@ -38,34 +56,33 @@ class AdminsController extends AppController
             'name' => 'referrer_source'
         ])
             ->group('referrer_source');
-            //->having(['count >' => 3]);
-        $referer_result=$referer_query->all();
-        $referer_source=[];
-        foreach ($referer_result as $oneReferrer){
-            $referer_source[]=[
-                'name'=>$oneReferrer->name,
-                'value'=>$oneReferrer->value
-            ];
-        }
-
+        $referer_source = $referer_query->toArray();
+//        $referer_source = [];
+//        foreach ($referer_result as $oneReferrer) {
+//            $referer_source[] = [
+//                'name' => $oneReferrer->name,
+//                'value' => $oneReferrer->value
+//            ];
+//        }
 
 
         //3.get the total number of clients
-        $client_query =  $this->fetchTable('Clients')->find();
-        $client_counts=$client_query->all()->count();
+        $client_query = $this->fetchTable('Clients')->find();
+        $client_counts = $client_query->all()->count();
 
         //4.get the number of today's bookings
-        $booking_query =  $this->fetchTable('Bookings')->find()->where([
-            'date ='=> date("Y-m-d")
-        ]);;
-        $toadyBooking_counts=$booking_query->all()->count();
+        $todayBooking_query = $this->fetchTable('Bookings')->find()->where([
+            'date =' => date("Y-m-d")
+        ]);
+        $toadyBooking_counts = $todayBooking_query->all()->count();
 
         $this->set(compact('pageTitle'));
-        $this->set(compact('client_counts','toadyBooking_counts','referer_source'));
+        $this->set(compact('client_counts', 'toadyBooking_counts', 'referer_source', 'month_booking'));
 
     }
 
-    public function login(){
+    public function login()
+    {
         // Set the login layout.
         $this->viewBuilder()->setLayout('adminLoginLayout');
 
@@ -75,7 +92,7 @@ class AdminsController extends AppController
         if ($result && $result->isValid()) {
             // redirect to /admins/dashboard after login success
             $redirect = $this->request->getQuery('redirect', [
-                'controller'=>'Admins',
+                'controller' => 'Admins',
                 'action' => 'dashboard',
             ]);
 
@@ -84,7 +101,7 @@ class AdminsController extends AppController
         // display error messages if user submitted and authentication failed
         if ($this->request->is('post') && !$result->isValid()) {
             $this->Flash->error(__('Invalid username or password'));
-            $loginResult=$result->isValid();
+            $loginResult = $result->isValid();
             $this->set(compact('loginResult'));
         }
 
@@ -99,9 +116,6 @@ class AdminsController extends AppController
             return $this->redirect(['controller' => 'Admins', 'action' => 'login']);
         }
     }
-
-
-
 
 
     /**
@@ -195,8 +209,6 @@ class AdminsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-
 
 
 }

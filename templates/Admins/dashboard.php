@@ -2,15 +2,16 @@
 $this->assign('title', $pageTitle);
 
 $this->Html->script('echarts.min', ['block' => true]);
-
 ?>
+
+
 <h1><?= $pageTitle; ?></h1>
 
 <div class="row g-0 my-4">
     <div class="col-12 col-lg-8">
         <!--        Bookings chart-->
         <div class="bg-white p-3">
-            <div id="monthlyBookings" style="width: 100%;height:790px;"></div>
+            <div id="monthlyBookings" style="width: 100%;height:740px;"></div>
         </div>
     </div>
     <div class="col-12 col-lg-4">
@@ -18,7 +19,7 @@ $this->Html->script('echarts.min', ['block' => true]);
             <div class="col-12 mt-3 mt-lg-0">
                 <!--                Pie chart-->
                 <div class="bg-white p-3">
-                    <div id="referrerSource" style="width: 100%;height:500px;"></div>
+                    <div id="referrerSource" style="width: 100%;height:450px;"></div>
                 </div>
             </div>
             <div class="col-12 my-4">
@@ -46,6 +47,14 @@ $this->Html->script('echarts.min', ['block' => true]);
 <script>
     $(() => {
         //1.bar chart
+        let bookingsData=[0,0,0,0,0,0,0,0,0,0,0,0]
+        <?php
+        foreach ($month_booking as $month):
+        ?>
+        bookingsData["<?= $month['month'] ?>"-1]=<?= $month['bookings'] ?>
+        <?php endforeach; ?>
+
+
         // Initialize the echarts instance based on the prepared dom
         var bookingsChart = echarts.init(document.getElementById('monthlyBookings'));
 
@@ -82,7 +91,7 @@ $this->Html->script('echarts.min', ['block' => true]);
                     name: 'Direct',
                     type: 'bar',
                     barWidth: '60%',
-                    data: [10, 52, 70, 80, 66, 33, 21, 67, 77, 89, 53, 59, 99] //fetch data from controller
+                    data: bookingsData //fetch data from controller
                 }
             ],
             color: [
