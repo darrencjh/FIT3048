@@ -73,6 +73,21 @@ $action = $this->request->getParam('action');
 
 
         <!-- 1-Nav Item - Clients Collapse Menu -->
+        <li class="nav-item <?= ($controller == 'Clients' && $action != 'dashboard') ? 'active' : '' ?>">
+            <a class="nav-link <?= ($controller == 'Clients' && $action != 'dashboard') ? '' : 'collapsed' ?>" href="#"
+               data-toggle="collapse" data-target="#collapseClients" aria-expanded="true" aria-controls="collapseClients">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Clients</span>
+            </a>
+            <div id="collapseClients" class="collapse<?= ($controller == 'Clients' && $action != 'dashboard') ? ' show' : '' ?>"
+                 aria-labelledby="headingClients" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Clients</h6>
+                    <?= $this->Html->link(__('List Clients'), ['controller' => 'Clients', 'action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Edit Clients'), ['controller' => 'Clients', 'action' => 'edit'], ['class' => 'collapse-item']) ?>
+                </div>
+            </div>
+        </li>
 
         <!-- 2-Nav Item - Bookings Collapse Menu -->
         <li class="nav-item <?= ($controller == 'Bookings' && $action != 'dashboard') ? 'active' : '' ?>">

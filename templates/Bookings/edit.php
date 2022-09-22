@@ -3,20 +3,11 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Booking $booking
  */
+
+echo $this->Html->script('adminBooking',['block'=>true]);
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $booking->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $booking->id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Bookings'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
+    <div class="column-responsive column-80 ml-5">
         <div class="bookings form content">
             <?= $this->Form->create($booking) ?>
             <fieldset>
@@ -26,62 +17,104 @@
                     <div class="label required">
                         <label>Date</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingDate" name="date" value="<?= $booking->date?>" required>
-<!--                    <div class="invalid-feedback" id="emailError">Please provide your booking date</div>-->
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="text" id="bookingDate" name="date" onfocus="(this.type='date')" onblur="(this.type='text', this.value='<?= $booking->date?>')" value="<?= $booking->date?>" required>
+                    <div class="invalid-feedback" id="dateError">Please check your booking date</div>
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Booking Time</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingTime" name="booked_time" value="<?= $booking->booked_time?>" required>
+                    <select class="form-control bg-transparent fw-bold mt-2 mb-1" id="bookingTime" aria-label="Select a time" name="booked_time" required>
+                        <option selected class="text-muted" value="<?= $booking->booked_time?>"><?= $booking->booked_time?></option>
+                        <option value="12:00am">12:00am</option>
+                        <option value="1:00am">1:00am</option>
+                        <option value="2:00am">2:00am</option>
+                        <option value="3:00am">3:00am</option>
+                        <option value="4:00am">4:00am</option>
+                        <option value="5:00am">5:00am</option>
+                        <option value="6:00am">6:00am</option>
+                        <option value="7:00am">7:00am</option>
+                        <option value="8:00am">8:00am</option>
+                        <option value="9:00am">9:00am</option>
+                        <option value="10:00am">10:00am</option>
+                        <option value="11:00am">11:00am</option>
+                        <option value="12:00pm">12:00pm</option>
+                        <option value="1:00pm">1:00pm</option>
+                        <option value="2:00pm">2:00pm</option>
+                        <option value="3:00pm">3:00pm</option>
+                        <option value="4:00pm">4:00pm</option>
+                        <option value="5:00pm">5:00pm</option>
+                        <option value="6:00pm">6:00pm</option>
+                        <option value="7:00pm">7:00pm</option>
+                        <option value="8:00pm">8:00pm</option>
+                        <option value="9:00pm">9:00pm</option>
+                        <option value="10:00pm">10:00pm</option>
+                        <option value="11:00pm">11:00pm</option>
+                    </select>
+                    <div class="invalid-feedback" id="timeError">Please check your booking time</div>
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Service</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingService" name="service" value="<?= $booking->service?>" required>
+                    <select class="form-control mt-2 mb-1" aria-label="select a service" id="bookingService" name="service" required>
+                        <option selected class="text-muted" value="<?= $booking->service?>"><?= $booking->service?></option>
+                        <option value="Wills & Estate Planning Appointment">1-Wills & Estate Planning Appointment
+                        </option>
+                        <option value="Probate and Estate Administration Appointment">2-Probate and Estate
+                            Administration Appointment
+                        </option>
+                        <option value="Signing Appointment">3-Signing Appointment</option>
+                        <option value="Call back only">4-Call back only</option>
+                    </select>
+                    <div class="invalid-feedback" id="serviceError">Please check your chosen service</div>
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Name</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingName" name="name" value="<?= $booking->name?>" required>
-<!--                    <div class="invalid-feedback" id="emailError">Please provide your booking date</div>-->
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" id="bookingName" name="name" value="<?= $booking->name?>" required>
+                    <div class="invalid-feedback" id="nameError">Please provide your name</div>
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Email</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingEmail" name="email" value="<?= $booking->email?>" required>
-<!--                    <div class="invalid-feedback" id="emailError">Please provide your booking date</div>-->
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" id="bookingEmail" name="email" value="<?= $booking->email?>" required>
+                    <div class="invalid-feedback" id="emailError">Please provide your email</div>
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Location</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingLocation" name="location" value="<?= $booking->location?>" required>
-<!--                    <div class="invalid-feedback" id="emailError">Please provide your booking date</div>-->
+                    <select class="form-control bg-transparent fw-bold mt-2 mb-1" aria-label="select a service" id="bookingLocation" name="location" required>
+                        <option selected class="text-muted" value="<?= $booking->location?>"><?= $booking->location?></option>
+                        <option value="Microsoft Teams">Microsoft Teams</option>
+                        <option value="Suite 2, 1265 Nepean Highway, Cheltenham VIC 3192">Suite 2, 1265 Nepean Highway, Cheltenham VIC 3192</option>
+                        <option value="Suite 2, 681 Burke Road, Camberwell VIC 3124">Suite 2, 681 Burke Road, Camberwell VIC 3124</option>
+                    </select>
+                    <div class="invalid-feedback" id="locationError">Please choose a location</div>
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Phone</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingPhone" name="phone" value="<?= $booking->phone?>" required>
-<!--                    <div class="invalid-feedback" id="emailError">Please provide your booking date</div>-->
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" id="bookingPhone" name="phone" value="<?= $booking->phone?>" required>
+                    <div class="invalid-feedback" id="phoneError">Please provide your phone number</div>
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Referred By</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-3" id="bookingReferredBy" name="referred_by" value="<?= $booking->referred_by?>" required>
-<!--                    <div class="invalid-feedback" id="emailError">Please provide your booking date</div>-->
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" id="bookingReferredBy" name="referred_by" value="<?= $booking->referred_by?>" required>
+                    <div class="invalid-feedback" id="referrerError">Please check your referrer name</div>
                 </div>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

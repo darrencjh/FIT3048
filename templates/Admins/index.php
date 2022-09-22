@@ -24,18 +24,17 @@ echo $this->Html->script('//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.j
         <table id="adminTable">
             <thead>
                 <tr>
-                    <th>id</th>
-                    <th>email</th>
                     <th>username</th>
+                    <th>email</th>
                     <th class="actions">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($admins as $admin): ?>
                 <tr>
-                    <td><?= substr($admin->id,0,8) ?></td>
-                    <td><?= h($admin->email) ?></td>
+<!--                    substr($admin->id,0,8)-->
                     <td><?= h($admin->username) ?></td>
+                    <td><?= h($admin->email) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('<i class="fas fa-info"></i>'), ['action' => 'view', $admin->id],['class'=>"btn btn-success btn-circle btn-sm",'escape'=>false]) ?>
                         <?= $this->Html->link(__('<i class="fas fa-edit"></i>'), ['action' => 'edit', $admin->id],['class'=>"btn btn-info btn-circle btn-sm",'escape'=>false]) ?>

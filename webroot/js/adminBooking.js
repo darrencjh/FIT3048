@@ -29,7 +29,7 @@ let verifyBookingPhone=(bookingPhone)=>{
         $("#phoneError").text("Please enter your phone number")
         $("#bookingPhone").addClass("is-invalid")
         return false
-    }else if(!/^[A-Za-z ,.'-]{2,}$/.test(bookingPhone)){
+    }else if(!/04[0-9]{8}/.test(bookingPhone)){
         $("#phoneError").text("Phone number can only contain numbers eg. 0412345678")
         $("#bookingPhone").addClass("is-invalid")
         return false
@@ -51,7 +51,6 @@ let verifyBookingDate=(bookingDate)=>{
     today = new Date(date)
     bookingDate = new Date(bookingDate)
     if(bookingDate=="" || (bookingDate < today)){
-        console.log("here")
         $("#dateError").text("Please check your booking date")
         $("#bookingDate").addClass("is-invalid")
         return false
