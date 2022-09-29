@@ -52,7 +52,7 @@ return static function (RouteBuilder $routes) {
          * to use (in this case, templates/Pages/home.php)...
          */
         $builder->connect('/', ['controller' => 'Bookings', 'action' => 'choose']);
-        $builder->connect('/admins', ['controller' => 'Admins', 'action' => 'dashboard']);
+        //$builder->connect('/admins', ['controller' => 'Admins', 'action' => 'dashboard']);
 
         $builder->setExtensions(['json', 'xml']);
         /*

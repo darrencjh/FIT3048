@@ -19,12 +19,12 @@ class SuperannuationsFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => 'a82f3ae0-3ac1-4ee5-bc3d-b1ff96bb72a7',
-                'fund' => 1.5,
+                'id' => 'c62d3aa5-b332-4cb6-8bc3-79e43c44a782',
+                'fund' => 'Lorem ipsum dolor sit amet',
                 'value' => 1.5,
                 'nomination' => 'Lorem ipsum dolor sit amet',
                 'binding' => 'Lorem ip',
-                'client_id' => '3d0ce09e-c65e-47fd-87de-169f8a5743e3',
+                'client_id' => '20c53fc1-dd84-4b70-bd37-f2eacfc5d137',
             ],
         ];
         parent::init();

@@ -273,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `investments`
 CREATE TABLE IF NOT EXISTS `superannuations`
 (
     `id`         char(36)       NOT NULL,
-    `fund`       decimal(11, 2) NOT NULL,
+    `fund`       varchar(255) NOT NULL,
     `value`      decimal(11, 2) DEFAULT 0,
     `nomination` varchar(255)   DEFAULT NULL,
     `binding`    varchar(10)    DEFAULT NULL,
