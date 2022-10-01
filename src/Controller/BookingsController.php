@@ -181,7 +181,9 @@ class BookingsController extends AppController
 //        $this->viewBuilder()->setLayout('booking');
 
         //get time availabilities
-
+        $allAvailabilities = $this->fetchTable('Availabilities')->find('all', [
+            'order' => 'Availabilities.booked_time ASC'
+        ])->all();
 
 
         $booking = $this->Bookings->newEmptyEntity();
@@ -254,7 +256,7 @@ class BookingsController extends AppController
             }
             $this->Flash->error(__('The booking could not be saved. Please, try again.'));
         }
-        $this->set(compact('booking'));
+        $this->set(compact('booking','allAvailabilities'));
 
 
     }

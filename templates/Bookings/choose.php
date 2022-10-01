@@ -7,6 +7,25 @@ $this->Html->css(['evo-calendar', 'booking'], ['block' => true]);
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Booking $booking
  */
+//$allAvailabilities
+$mondayAvailabilities=[];
+$tuesdayAvailabilities=[];
+$wednesdayAvailabilities=[];
+$thursAvailabilities=[];
+$fridayAvailabilities=[];
+foreach ($allAvailabilities as $elem){
+    if($elem->weekday=='Monday'){
+        $mondayAvailabilities[]=$elem->booked_time;
+    }else if($elem->weekday=='Tuesday'){
+        $tuesdayAvailabilities[]=$elem->booked_time;;
+    }else if($elem->weekday=='Wednesday'){
+        $wednesdayAvailabilities[]=$elem->booked_time;;
+    }else if($elem->weekday=='Thursday'){
+        $thursAvailabilities[]=$elem->booked_time;;
+    }else if($elem->weekday=='Friday'){
+        $fridayAvailabilities[]=$elem->booked_time;;
+    }
+}
 ?>
 <main class="main">
 
@@ -51,7 +70,7 @@ $this->Html->css(['evo-calendar', 'booking'], ['block' => true]);
 
                 <?= $this->Form->create($booking, ['class' => 'needs-validation']) ?>
                 <?php
-                echo $this->Form->control('date', ['label' => false, 'class' => 'd-none']);
+                echo $this->Form->control('date', ['type'=>'text','label' => false, 'class' => 'd-none']);
                 echo $this->Form->control('booked_time', ['label' => false, 'class' => 'd-none']);
 
                 ?>
@@ -330,6 +349,7 @@ $this->Html->css(['evo-calendar', 'booking'], ['block' => true]);
                         let selectedDateWithDbFormat = selectedDate.getFullYear() + '-' + newDateArray[0] + '-' + selectedDate.getDate()//2022-08-15
                         let weekday = selectedDate.getDay()
                         let eventsList = []
+                        /*
                         if (weekday == 1 || weekday == 3) {
                             eventsList = [
                                 {
@@ -462,6 +482,73 @@ $this->Html->css(['evo-calendar', 'booking'], ['block' => true]);
                                 color: "#63d867"
                             })
                         }
+                        */
+
+
+                        if(weekday==1){
+                            <?php
+                            foreach ($mondayAvailabilities as $aTime):
+                            ?>
+                            eventsList.push({
+                                id: Math.random(),
+                                name: "<?=$aTime?>",
+                                date: selectedDateWithFormat,
+                                type: 'event',
+                                color: "#63d867"
+                            })
+                            <?php endforeach; ?>
+                        }else if(weekday==2){
+                            <?php
+                            foreach ($tuesdayAvailabilities as $aTime):
+                            ?>
+                            eventsList.push({
+                                id: Math.random(),
+                                name: "<?=$aTime?>",
+                                date: selectedDateWithFormat,
+                                type: 'event',
+                                color: "#63d867"
+                            })
+                            <?php endforeach; ?>
+                        }else if(weekday==3){
+                            <?php
+                            foreach ($wednesdayAvailabilities as $aTime):
+                            ?>
+                            eventsList.push({
+                                id: Math.random(),
+                                name: "<?=$aTime?>",
+                                date: selectedDateWithFormat,
+                                type: 'event',
+                                color: "#63d867"
+                            })
+                            <?php endforeach; ?>
+                        }else if(weekday==4){
+                            <?php
+                            foreach ($thursAvailabilities as $aTime):
+                            ?>
+                            eventsList.push({
+                                id: Math.random(),
+                                name: "<?=$aTime?>",
+                                date: selectedDateWithFormat,
+                                type: 'event',
+                                color: "#63d867"
+                            })
+                            <?php endforeach; ?>
+                        }else if(weekday==5){
+                            <?php
+                            foreach ($fridayAvailabilities as $aTime):
+                            ?>
+                            eventsList.push({
+                                id: Math.random(),
+                                name: "<?=$aTime?>",
+                                date: selectedDateWithFormat,
+                                type: 'event',
+                                color: "#63d867"
+                            })
+                            <?php endforeach; ?>
+                        }
+
+
+
 
                         //delete the time already booked
                         //access the database
@@ -561,12 +648,13 @@ $this->Html->css(['evo-calendar', 'booking'], ['block' => true]);
                     let selectedDate = new Date(newDateArray[2], newDateArray[0] - 1, newDateArray[1])
 
                     let selectedTime = activeEvent.name + ' - ' + endTime + ', ' + allMonths[selectedDate.getMonth()] + ', ' + allWeekdays[selectedDate.getDay() - 1] + ' ' + selectedDate.getDate() + ', ' + selectedDate.getFullYear()
-
                     $('.selectedTime').text(selectedTime)
 
                     let selectedDateWithDbFormat = selectedDate.getFullYear() + '-' + newDateArray[0] + '-' + selectedDate.getDate()//2022-08-15
-                    $('[name="date"]').val(selectedDateWithDbFormat)
-                    $('[name="booked_time"]').val(activeEvent.name)
+                    console.log(selectedDateWithDbFormat)
+
+                    $('[name=date]').val(selectedDateWithDbFormat)
+                    $('[name=booked_time]').val(activeEvent.name)
 
                     // navigate to form section
                     document.getElementById('naviToForm').scrollIntoView(true)
