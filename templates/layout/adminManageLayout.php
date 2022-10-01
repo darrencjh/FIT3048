@@ -84,7 +84,7 @@ $action = $this->request->getParam('action');
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Clients</h6>
                     <?= $this->Html->link(__('List Clients'), ['controller' => 'Clients', 'action' => 'index'], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Edit Clients'), ['controller' => 'Clients', 'action' => 'edit'], ['class' => 'collapse-item']) ?>
+
                 </div>
             </div>
         </li>

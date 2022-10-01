@@ -18,6 +18,10 @@
                     <td><?= h($client->previous_name) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Previous Name') ?></th>
+                    <td><?= h($client->date_of_birth) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Occupation') ?></th>
                     <td><?= h($client->occupation) ?></td>
                 </tr>
@@ -281,7 +285,7 @@
                 <h4><?= __('Related Householders') ?></h4>
                 <?php if (!empty($client->householders)) : ?>
                 <div class="table-responsive">
-                    <table>
+                    <table class="table table-bordered table-striped table-hover">
                         <tr>
                             <th><?= __('Full Name') ?></th>
                             <th><?= __('Relationship') ?></th>
@@ -300,7 +304,7 @@
             <div class="related mb-4">
                 <h4><?= __('Related Dependents') ?></h4>
                 <?php if (!empty($client->dependents)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Full Name') ?></th>
@@ -323,7 +327,7 @@
                 <h4><?= __('Related Children') ?></h4>
                 <?php if (!empty($client->children)) : ?>
                 <div class="table-responsive">
-                    <table>
+                    <table class="table table-bordered table-striped table-hover">
                         <tr>
                             <th><?= __('Full Name') ?></th>
                             <th><?= __('Age') ?></th>
@@ -349,7 +353,7 @@
                 <h4><?= __('Related Grandchildren') ?></h4>
                 <?php if (!empty($client->grandchildren)) : ?>
                 <div class="table-responsive">
-                    <table>
+                    <table class="table table-bordered table-striped table-hover">
                         <tr>
                             <th><?= __('Full Name') ?></th>
                             <th><?= __('Age') ?></th>
@@ -374,7 +378,7 @@
             <div class="related mb-4">
                 <h4><?= __('Related Estates') ?></h4>
                 <?php if (!empty($client->estates)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Address') ?></th>
@@ -402,11 +406,11 @@
             <div class="related mb-4">
                 <h4><?= __('Related Bankaccounts') ?></h4>
                 <?php if (!empty($client->bankaccounts)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Bank') ?></th>
-                            <th><?= __('Holder') ?></th>
+                            <th><?= __('Account Holder') ?></th>
                             <th><?= __('Type') ?></th>
                             <th><?= __('Value') ?></th>
                         </tr>
@@ -426,7 +430,7 @@
             <div class="related mb-4">
                 <h4><?= __('Related Vehicles') ?></h4>
                 <?php if (!empty($client->vehicles)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Make') ?></th>
@@ -448,7 +452,7 @@
             <div class="related mb-4">
                 <h4><?= __('Related Investments') ?></h4>
                 <?php if (!empty($client->investments)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Type') ?></th>
@@ -470,7 +474,7 @@
             <div class="related mb-4">
                 <h4><?= __('Related Superannuations') ?></h4>
                 <?php if (!empty($client->superannuations)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Fund') ?></th>
@@ -494,7 +498,7 @@
             <div class="related mb-4">
                 <h4><?= __('Related Executors') ?></h4>
                 <?php if (!empty($client->executors)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Name') ?></th>
@@ -516,7 +520,7 @@
             <div class="related mb-4">
                 <h4><?= __('Related Altexecutors') ?></h4>
                 <?php if (!empty($client->altexecutors)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Name') ?></th>
@@ -538,7 +542,7 @@
             <div class="related mb-4">
                 <h4><?= __('Related Bequests') ?></h4>
                 <?php if (!empty($client->bequests)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Name') ?></th>
@@ -558,7 +562,7 @@
             <div class="related mb-4">
                 <h4><?= __('Related Beneficiaries') ?></h4>
                 <?php if (!empty($client->beneficiaries)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Name') ?></th>
@@ -580,7 +584,7 @@
             <div class="related mb-4">
                 <h4><?= __('Related Attorneys') ?></h4>
                 <?php if (!empty($client->attorneys)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Name') ?></th>
@@ -600,7 +604,7 @@
             <div class="related mb-4">
                 <h4><?= __('Related Altattorneys') ?></h4>
                 <?php if (!empty($client->altattorneys)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Name') ?></th>
@@ -620,7 +624,7 @@
             <div class="related mb-4">
                 <h4><?= __('Related Decisionmakers') ?></h4>
                 <?php if (!empty($client->decisionmakers)) : ?>
-                <div class="table-responsive">
+                <div class="table table-bordered table-striped table-hover">
                     <table>
                         <tr>
                             <th><?= __('Name') ?></th>
