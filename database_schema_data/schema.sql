@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `children`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
-CREATE TABLE IF NOT EXISTS `grandChildren`
+CREATE TABLE IF NOT EXISTS `grandchildren`
 (
     `id`        char(36)     NOT NULL,
     `full_name` varchar(255) NOT NULL,
