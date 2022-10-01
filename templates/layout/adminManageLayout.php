@@ -107,7 +107,24 @@ $action = $this->request->getParam('action');
             </div>
         </li>
 
-        <!-- 3-Nav Item - Admin account management Collapse Menu-->
+        <!-- 3-Nav Item - Availabilities Collapse Menu -->
+        <li class="nav-item <?= ($controller == 'Availabilities' && $action != 'dashboard') ? 'active' : '' ?>">
+            <a class="nav-link <?= ($controller == 'Availabilities' && $action != 'dashboard') ? '' : 'collapsed' ?>" href="#"
+               data-toggle="collapse" data-target="#collapseAvailabilities" aria-expanded="true" aria-controls="collapseAvailabilities">
+                <i class="fas fa-fw fa-calendar"></i>
+                <span>Availabilities</span>
+            </a>
+            <div id="collapseAvailabilities" class="collapse<?= ($controller == 'Availabilities' && $action != 'dashboard') ? ' show' : '' ?>"
+                 aria-labelledby="headingAvailabilities" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Availabilities</h6>
+                    <?= $this->Html->link(__('List Availabilities'), ['controller' => 'Availabilities', 'action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add a Availability'), ['controller' => 'Availabilities', 'action' => 'add'], ['class' => 'collapse-item']) ?>
+                </div>
+            </div>
+        </li>
+
+        <!-- 4-Nav Item - Admin account management Collapse Menu-->
         <li class="nav-item <?= ($controller == 'Admins' && $action != 'dashboard') ? 'active' : '' ?>">
             <a class="nav-link <?= ($controller == 'Admins' && $action != 'dashboard') ? '' : 'collapsed' ?>" href="#"
                data-toggle="collapse" data-target="#collapseAdmins" aria-expanded="true"

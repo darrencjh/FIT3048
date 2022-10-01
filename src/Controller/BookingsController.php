@@ -180,6 +180,10 @@ class BookingsController extends AppController
         // Set the booking layout.
 //        $this->viewBuilder()->setLayout('booking');
 
+        //get time availabilities
+
+
+
         $booking = $this->Bookings->newEmptyEntity();
         if ($this->request->is('post')) {
             $booking = $this->Bookings->patchEntity($booking, $this->request->getData());

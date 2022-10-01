@@ -28,15 +28,6 @@ echo $this->Html->script('adminBooking',['block'=>true]);
                     </div>
                     <select class="form-control bg-transparent fw-bold mt-2 mb-1" id="bookingTime" aria-label="Select a time" name="booked_time" required>
                         <option selected class="text-muted" value="0">Select a time for your booking</option>
-                        <option value="12:00am">12:00am</option>
-                        <option value="1:00am">1:00am</option>
-                        <option value="2:00am">2:00am</option>
-                        <option value="3:00am">3:00am</option>
-                        <option value="4:00am">4:00am</option>
-                        <option value="5:00am">5:00am</option>
-                        <option value="6:00am">6:00am</option>
-                        <option value="7:00am">7:00am</option>
-                        <option value="8:00am">8:00am</option>
                         <option value="9:00am">9:00am</option>
                         <option value="10:00am">10:00am</option>
                         <option value="11:00am">11:00am</option>
@@ -50,8 +41,6 @@ echo $this->Html->script('adminBooking',['block'=>true]);
                         <option value="7:00pm">7:00pm</option>
                         <option value="8:00pm">8:00pm</option>
                         <option value="9:00pm">9:00pm</option>
-                        <option value="10:00pm">10:00pm</option>
-                        <option value="11:00pm">11:00pm</option>
                     </select>
                     <div class="invalid-feedback" id="timeError">Please check your booking time</div>
                 </div>

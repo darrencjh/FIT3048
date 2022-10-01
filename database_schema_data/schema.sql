@@ -382,4 +382,13 @@ CREATE TABLE IF NOT EXISTS `decisionmakers`
   DEFAULT CHARSET = utf8mb4;
 
 
+CREATE TABLE IF NOT EXISTS `availabilities`
+(
+    `id`        char(36)     NOT NULL,
+    `weekday`      varchar(10)  NOT NULL,
+    `booked_time` varchar(10)  NOT NULL,
+
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
 
