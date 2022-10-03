@@ -403,7 +403,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                         <div>
                             <div class="ff-el-group">
                                 <div class="label">
-                                    <label>Copy of Self Managed Superannuation Trust Deed</label>
+                                    <label>Self Managed Superannuation Trust</label>
                                     <a class="d-inline-block" data-bs-toggle="tooltip"
                                        data-bs-original-title="A Self Managed Superannuation trust deed is a legal document that sets out the rules for establishing and operating your self managed super fund. Together with the super laws they form the funds 'governing rules' and detail the powers, duties and responsibilities of the fund's trustees, they also detail the rights of the members."
                                        data-bs-placement="right">
@@ -431,7 +431,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                     <div class="mb-4">
                         <div class="ff-el-group">
                             <div class="label">
-                                <label>Copy of Family Trust Deed</label>
+                                <label>Family Trust</label>
                                 <a class="d-inline-block" data-bs-toggle="tooltip"
                                    data-bs-original-title="A family trust Deed is an agreement where a person or a company agrees to hold assets for others' benefit, usually their family members. It is often set up by families to own assets."
                                    data-bs-placement="right">
@@ -466,7 +466,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                 'inputName' => 'is_office_holder',
                             ]);
                             ?>
-                            <div class="collapse text-shelbourne">Please bring Copy of shareholders agreement and company constitution to initial meeting or email to Leonie</div>
+                            <div class="collapse text-shelbourne">Please bring Shareholders agreement and company constitution to initial meeting or email to Leonie</div>
                         </div>
                     </div>
                     <div class="mb-4">
@@ -480,7 +480,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                 'inputName' => 'is_beneficiary',
                             ]);
                             ?>
-                            <div class="collapse text-shelbourne">Please bring Copy of existing trustees to initial meeting or email to Leonie</div>
+                            <div class="collapse text-shelbourne">Please bring existing trustees to initial meeting or email to Leonie</div>
 
                         </div>
                     </div>
@@ -495,7 +495,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                 'inputName' => 'in_partnership',
                             ]);
                             ?>
-                            <div class="collapse text-shelbourne">Please bring Copy of partnership agreement to initial meeting or email to Leonie</div>
+                            <div class="collapse text-shelbourne">Please bring partnership agreement to initial meeting or email to Leonie</div>
 
                         </div>
                     </div>
@@ -714,7 +714,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("children.{$children_key}.age", ['label' => 'Age', 'class' => 'form-control']); ?>
+                                            <?php echo $this->Form->control("children.{$children_key}.age", ['label' => 'DOB', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
@@ -772,7 +772,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.age", ['label' => 'Age', 'class' => 'form-control']); ?>
+                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.age", ['label' => 'DOB', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
@@ -2467,6 +2467,36 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                     </div>
                 </div>
 
+                <div class="mb-4">
+                    <div class="label">
+                        <label class="fw-bold">If naming more than one attorney, how would you like them to make
+                            decisions?</label>
+                    </div>
+                    <div id="yourAttorneyDecision">
+                        <div class="label">
+                            <label>Please select</label>
+                        </div>
+                        <div class="row g-0">
+                            <div class="col-12 col-lg-11">
+                                <select class="form-select text-grey" name="way_attorney_decision">
+                                    <option selected value="">Select...</option>
+                                    <option value="Jointly">Jointly - the attorneys must all agree</option>
+                                    <option value="Separately">Separately - each attorney must make
+                                        decisions separately
+                                    </option>
+                                    <option value="jointly and Separately">jointly and Separately - attorneys can make
+                                        decisions separately but if they make a joint decision, they must all agree
+                                    </option>
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
                 <!--                7.2:Altattorneys-->
                 <div class="mb-4">
                     <div class="label">
@@ -2730,7 +2760,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                             <li class="collapse">Copy of Self Managed Superannuation Trust Deed</li>
                             <li class="collapse">Copy of Family Trust Deed</li>
                             <li class="collapse">Copy of shareholders agreement and company constitution</li>
-                            <li class="collapse">Copy of existing trustees</li>
+                            <li class="collapse">Copy of existing trust deed</li>
                             <li class="collapse">Copy of partnership agreement</li>
                         </ol>
                         </p>
