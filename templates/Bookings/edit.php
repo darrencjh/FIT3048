@@ -26,31 +26,31 @@ echo $this->Html->script('adminBooking',['block'=>true]);
                         <label>Booking Time</label>
                     </div>
                     <select class="form-control bg-transparent fw-bold mt-2 mb-1" id="bookingTime" aria-label="Select a time" name="booked_time" required>
-                        <option selected class="text-muted" value="<?= $booking->booked_time?>"><?= $booking->booked_time?></option>
-                        <option value="12:00am">12:00am</option>
-                        <option value="1:00am">1:00am</option>
-                        <option value="2:00am">2:00am</option>
-                        <option value="3:00am">3:00am</option>
-                        <option value="4:00am">4:00am</option>
-                        <option value="5:00am">5:00am</option>
-                        <option value="6:00am">6:00am</option>
-                        <option value="7:00am">7:00am</option>
-                        <option value="8:00am">8:00am</option>
-                        <option value="9:00am">9:00am</option>
-                        <option value="10:00am">10:00am</option>
-                        <option value="11:00am">11:00am</option>
-                        <option value="12:00pm">12:00pm</option>
-                        <option value="1:00pm">1:00pm</option>
-                        <option value="2:00pm">2:00pm</option>
-                        <option value="3:00pm">3:00pm</option>
-                        <option value="4:00pm">4:00pm</option>
-                        <option value="5:00pm">5:00pm</option>
-                        <option value="6:00pm">6:00pm</option>
-                        <option value="7:00pm">7:00pm</option>
-                        <option value="8:00pm">8:00pm</option>
-                        <option value="9:00pm">9:00pm</option>
-                        <option value="10:00pm">10:00pm</option>
-                        <option value="11:00pm">11:00pm</option>
+                        <option selected class="text-muted">Select a time</option>
+                        <option value="12:00am" <?= $booking->booked_time=="12:00am" ? 'selected':'' ?>>12:00am</option>
+                        <option value="1:00am" <?= $booking->booked_time=="1:00am" ? 'selected':'' ?>>1:00am</option>
+                        <option value="2:00am" <?= $booking->booked_time=="2:00am" ? 'selected':'' ?>>2:00am</option>
+                        <option value="3:00am" <?= $booking->booked_time=="3:00am" ? 'selected':'' ?>>3:00am</option>
+                        <option value="4:00am" <?= $booking->booked_time=="4:00am" ? 'selected':'' ?>>4:00am</option>
+                        <option value="5:00am" <?= $booking->booked_time=="5:00am" ? 'selected':'' ?>>5:00am</option>
+                        <option value="6:00am" <?= $booking->booked_time=="6:00am" ? 'selected':'' ?>>6:00am</option>
+                        <option value="7:00am" <?= $booking->booked_time=="7:00am" ? 'selected':'' ?>>7:00am</option>
+                        <option value="8:00am" <?= $booking->booked_time=="8:00am" ? 'selected':'' ?>>8:00am</option>
+                        <option value="9:00am" <?= $booking->booked_time=="9:00am" ? 'selected':'' ?>>9:00am</option>
+                        <option value="10:00am" <?= $booking->booked_time=="10:00am" ? 'selected':'' ?>>10:00am</option>
+                        <option value="11:00am" <?= $booking->booked_time=="11:00am" ? 'selected':'' ?>>11:00am</option>
+                        <option value="12:00pm" <?= $booking->booked_time=="12:00pm" ? 'selected':'' ?>>12:00pm</option>
+                        <option value="1:00pm" <?= $booking->booked_time=="1:00pm" ? 'selected':'' ?>>1:00pm</option>
+                        <option value="2:00pm" <?= $booking->booked_time=="2:00pm" ? 'selected':'' ?>>2:00pm</option>
+                        <option value="3:00pm" <?= $booking->booked_time=="3:00pm" ? 'selected':'' ?>>3:00pm</option>
+                        <option value="4:00pm" <?= $booking->booked_time=="4:00pm" ? 'selected':'' ?>>4:00pm</option>
+                        <option value="5:00pm" <?= $booking->booked_time=="5:00pm" ? 'selected':'' ?>>5:00pm</option>
+                        <option value="6:00pm" <?= $booking->booked_time=="6:00pm" ? 'selected':'' ?>>6:00pm</option>
+                        <option value="7:00pm" <?= $booking->booked_time=="7:00pm" ? 'selected':'' ?>>7:00pm</option>
+                        <option value="8:00pm" <?= $booking->booked_time=="8:00pm" ? 'selected':'' ?>>8:00pm</option>
+                        <option value="9:00pm" <?= $booking->booked_time=="9:00pm" ? 'selected':'' ?>>9:00pm</option>
+                        <option value="10:00pm" <?= $booking->booked_time=="10:00pm" ? 'selected':'' ?>>10:00pm</option>
+                        <option value="11:00pm" <?= $booking->booked_time=="11:00pm" ? 'selected':'' ?>>11:00pm</option>
                     </select>
                     <div class="invalid-feedback" id="timeError">Please check your booking time</div>
                 </div>
@@ -60,14 +60,11 @@ echo $this->Html->script('adminBooking',['block'=>true]);
                         <label>Service</label>
                     </div>
                     <select class="form-control mt-2 mb-1" aria-label="select a service" id="bookingService" name="service" required>
-                        <option selected class="text-muted" value="<?= $booking->service?>"><?= $booking->service?></option>
-                        <option value="Wills & Estate Planning Appointment">1-Wills & Estate Planning Appointment
-                        </option>
-                        <option value="Probate and Estate Administration Appointment">2-Probate and Estate
-                            Administration Appointment
-                        </option>
-                        <option value="Signing Appointment">3-Signing Appointment</option>
-                        <option value="Call back only">4-Call back only</option>
+                        <option selected class="text-muted">Select a service</option>
+                        <option value="Wills & Estate Planning Appointment" <?= $booking->service=="Wills & Estate Planning Appointment" ? 'selected':'' ?>>1-Wills & Estate Planning Appointment</option>
+                        <option value="Probate and Estate Administration Appointment" <?= $booking->service=="Probate and Estate Administration Appointment" ? 'selected':'' ?>>2-Probate and Estate Administration Appointment</option>
+                        <option value="Signing Appointment" <?= $booking->service=="Signing Appointment" ? 'selected':'' ?>>3-Signing Appointment</option>
+                        <option value="Call back only" <?= $booking->service=="Call back only" ? 'selected':'' ?>>4-Call back only</option>
                     </select>
                     <div class="invalid-feedback" id="serviceError">Please check your chosen service</div>
                 </div>
@@ -92,11 +89,11 @@ echo $this->Html->script('adminBooking',['block'=>true]);
                     <div class="label required">
                         <label>Location</label>
                     </div>
-                    <select class="form-control bg-transparent fw-bold mt-2 mb-1" aria-label="select a service" id="bookingLocation" name="location" required>
-                        <option selected class="text-muted" value="<?= $booking->location?>"><?= $booking->location?></option>
-                        <option value="Microsoft Teams">Microsoft Teams</option>
-                        <option value="Suite 2, 1265 Nepean Highway, Cheltenham VIC 3192">Suite 2, 1265 Nepean Highway, Cheltenham VIC 3192</option>
-                        <option value="Suite 2, 681 Burke Road, Camberwell VIC 3124">Suite 2, 681 Burke Road, Camberwell VIC 3124</option>
+                    <select class="form-control bg-transparent fw-bold mt-2 mb-1" aria-label="select a location" id="bookingLocation" name="location" required>
+                        <option selected class="text-muted">Select a location</option>
+                        <option value="Microsoft Teams" <?= $booking->location=="Microsoft Teams" ? 'selected':'' ?>>Microsoft Teams</option>
+                        <option value="Suite 2, 1265 Nepean Highway, Cheltenham VIC 3192" <?= $booking->location=="Suite 2, 1265 Nepean Highway, Cheltenham VIC 3192" ? 'selected':'' ?>>Suite 2, 1265 Nepean Highway, Cheltenham VIC 3192</option>
+                        <option value="Suite 2, 681 Burke Road, Camberwell VIC 3124" <?= $booking->location=="Suite 2, 681 Burke Road, Camberwell VIC 3124" ? 'selected':'' ?>>Suite 2, 681 Burke Road, Camberwell VIC 3124</option>
                     </select>
                     <div class="invalid-feedback" id="locationError">Please choose a location</div>
                 </div>
