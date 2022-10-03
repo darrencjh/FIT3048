@@ -441,6 +441,10 @@ class ClientsTable extends Table
             ->allowEmptyString('insure_life_company');
 
         $validator
+            ->decimal('insure_life_value')
+            ->allowEmptyString('insure_life_value');
+
+        $validator
             ->boolean('is_office_holder')
             ->allowEmptyString('is_office_holder');
 

@@ -1609,10 +1609,21 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
 
                     <!--    hidden inputs       -->
                     <div id="yourInsuranceLife" class="col-12 col-lg-6 collapse">
-                        <div class="label">
-                            <label>Company</label>
+                        <div class="row no-gutters">
+                            <div class="col-lg-6 pe-lg-2">
+                                <div class="label">
+                                    <label>Company</label>
+                                </div>
+                                <input type="text" name="insure_life_company" class="form-control">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="label">
+                                    <label>Value</label>
+                                </div>
+                                <input type="number" name="insure_life_value" class="form-control">
+                            </div>
                         </div>
-                        <input type="text" name="insure_life_company" class="form-control">
+
                     </div>
                 </div>
 
@@ -2465,6 +2476,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                     </div>
                 </div>
 
+                <!--                7.3 select-->
                 <div class="mb-4">
                     <div class="label">
                         <label class="fw-bold">If naming more than one attorney, how would you like them to make
@@ -2583,38 +2595,6 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                         </script>
                     </div>
                 </div>
-
-
-                <!--                7.3 select-->
-                <div class="mb-4">
-                    <div class="label">
-                        <label class="fw-bold">If naming more than one attorney, how would you like them to make
-                            decisions?</label>
-                    </div>
-                    <div id="yourAttorneyDecision">
-                        <div class="label">
-                            <label>Please select</label>
-                        </div>
-                        <div class="row g-0">
-                            <div class="col-12 col-lg-11">
-                                <select class="form-select text-grey" name="way_attorney_decision">
-                                    <option selected value="">Select...</option>
-                                    <option value="Jointly">Jointly - the attorneys must all agree</option>
-                                    <option value="Separately">Separately - each alternative attorney must make
-                                        decisions separately
-                                    </option>
-                                    <option value="jointly and Separately">jointly and Separately - attorneys can make
-                                        decisions separately but if they make a joint decision, they must all agree
-                                    </option>
-                                </select>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>
-
 
                 <!-- MEDICAL DECISION MAKER -->
                 <div class="my-4">

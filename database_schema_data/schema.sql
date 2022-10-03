@@ -17,6 +17,16 @@ ALTER TABLE `admins`
     ADD UNIQUE KEY `username` (`username`);
 
 
+CREATE TABLE IF NOT EXISTS `availabilities`
+(
+    `id`          char(36)    NOT NULL,
+    `weekday`     varchar(10) NOT NULL,
+    `booked_time` varchar(10) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
 
 CREATE TABLE `bookings`
 (
@@ -125,6 +135,7 @@ CREATE TABLE IF NOT EXISTS `clients`
     `insure_health_company`      varchar(64),
     `insure_life`                tinyint(1)    DEFAULT 0,
     `insure_life_company`        varchar(64),
+    `insure_life_value` decimal(9, 2) DEFAULT 0,
 
 
     # 3
@@ -385,13 +396,5 @@ CREATE TABLE IF NOT EXISTS `decisionmakers`
   DEFAULT CHARSET = utf8mb4;
 
 
-CREATE TABLE IF NOT EXISTS `availabilities`
-(
-    `id`          char(36)    NOT NULL,
-    `weekday`     varchar(10) NOT NULL,
-    `booked_time` varchar(10) NOT NULL,
 
-    PRIMARY KEY (`id`)
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8mb4;
 

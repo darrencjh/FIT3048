@@ -311,8 +311,7 @@ class ClientsController extends AppController
 
 
                     //3.sending to referral
-
-                    if (!empty($postData['referrer_source']) && $postData['referrer_source'] == "accountant" || $postData['referrer_source'] == "financial adviser") {
+                    if (!empty($postData['referrer_source']) && !empty($postData['referrer_email'])) {
                         //if client has a referrer and it is a person,then send email. Otherwise,not
                         //same email sending codes as above
                         $mailer3 = new Mailer('default');

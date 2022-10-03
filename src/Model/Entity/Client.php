@@ -66,6 +66,7 @@ use Cake\ORM\Entity;
  * @property string|null $insure_health_company
  * @property bool|null $insure_life
  * @property string|null $insure_life_company
+ * @property string|null $insure_life_value
  * @property bool|null $is_office_holder
  * @property bool|null $is_beneficiary
  * @property bool|null $in_partnership
@@ -186,6 +187,7 @@ class Client extends Entity
         'insure_health_company' => true,
         'insure_life' => true,
         'insure_life_company' => true,
+        'insure_life_value'=>true,
 
         'executors'=> true,
         'altexecutors'=> true,
