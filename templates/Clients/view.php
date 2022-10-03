@@ -330,7 +330,7 @@
                     <table class="table table-bordered table-striped table-hover">
                         <tr>
                             <th><?= __('Full Name') ?></th>
-                            <th><?= __('Age') ?></th>
+                            <th><?= __('Date of Birth') ?></th>
                             <th><?= __('Address') ?></th>
                             <th><?= __('Mother') ?></th>
                             <th><?= __('Father') ?></th>
@@ -356,7 +356,7 @@
                     <table class="table table-bordered table-striped table-hover">
                         <tr>
                             <th><?= __('Full Name') ?></th>
-                            <th><?= __('Age') ?></th>
+                            <th><?= __('Date of Birth') ?></th>
                             <th><?= __('Address') ?></th>
                             <th><?= __('Mother') ?></th>
                             <th><?= __('Father') ?></th>
