@@ -33,7 +33,6 @@ echo $this->Html->script('//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.j
                     <td><?= h($availability->weekday) ?></td>
                     <td><?= h($availability->booked_time) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('<i class="fas fa-info"></i>'), ['action' => 'view', $availability->id],['class'=>"btn btn-success btn-circle btn-sm",'escape'=>false]) ?>
                         <?= $this->Html->link(__('<i class="fas fa-edit"></i>'), ['action' => 'edit', $availability->id],['class'=>"btn btn-info btn-circle btn-sm",'escape'=>false]) ?>
                         <?= $this->Form->postLink(__('<i class="fas fa-trash"></i>'), ['action' => 'delete', $availability->id], ['confirm' => __('Are you sure you want to disable the booking time: {0}?', $availability->weekday . ' ' . $availability->booked_time),'class'=>"btn btn-danger btn-circle btn-sm button-delete-client",'escape'=>false]) ?>
                     </td>

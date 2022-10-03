@@ -31,19 +31,19 @@
                     </div>
                     <select class="form-control bg-transparent fw-bold mt-2 mb-1" id="availableTime" aria-label="Select a time" name="booked_time" required>
                         <option selected class="text-muted" value="0">Select a time for your booking</option>
-                        <option value="9:00am">9:00am</option>
-                        <option value="10:00am">10:00am</option>
-                        <option value="11:00am">11:00am</option>
-                        <option value="12:00pm">12:00pm</option>
-                        <option value="1:00pm">1:00pm</option>
-                        <option value="2:00pm">2:00pm</option>
-                        <option value="3:00pm">3:00pm</option>
-                        <option value="4:00pm">4:00pm</option>
-                        <option value="5:00pm">5:00pm</option>
-                        <option value="6:00pm">6:00pm</option>
-                        <option value="7:00pm">7:00pm</option>
-                        <option value="8:00pm">8:00pm</option>
-                        <option value="9:00pm">9:00pm</option>
+                        <option value="9:00am" <?= $availability->booked_time=="9:00am" ? 'selected':'' ?>>9:00am</option>
+                        <option value="10:00am" <?= $availability->booked_time=="10:00am" ? 'selected':'' ?>>10:00am</option>
+                        <option value="11:00am" <?= $availability->booked_time=="11:00am" ? 'selected':'' ?>>11:00am</option>
+                        <option value="12:00pm" <?= $availability->booked_time=="12:00pm" ? 'selected':'' ?>>12:00pm</option>
+                        <option value="1:00pm" <?= $availability->booked_time=="1:00pm" ? 'selected':'' ?>>1:00pm</option>
+                        <option value="2:00pm" <?= $availability->booked_time=="2:00pm" ? 'selected':'' ?>>2:00pm</option>
+                        <option value="3:00pm" <?= $availability->booked_time=="3:00pm" ? 'selected':'' ?>>3:00pm</option>
+                        <option value="4:00pm" <?= $availability->booked_time=="4:00pm" ? 'selected':'' ?>>4:00pm</option>
+                        <option value="5:00pm" <?= $availability->booked_time=="5:00pm" ? 'selected':'' ?>>5:00pm</option>
+                        <option value="6:00pm" <?= $availability->booked_time=="6:00pm" ? 'selected':'' ?>>6:00pm</option>
+                        <option value="7:00pm" <?= $availability->booked_time=="7:00pm" ? 'selected':'' ?>>7:00pm</option>
+                        <option value="8:00pm" <?= $availability->booked_time=="8:00pm" ? 'selected':'' ?>>8:00pm</option>
+                        <option value="9:00pm" <?= $availability->booked_time=="9:00pm" ? 'selected':'' ?>>9:00pm</option>
                     </select>
                     <div class="invalid-feedback" id="availableTimeError">Please provide an available time client can book</div>
                 </div>
