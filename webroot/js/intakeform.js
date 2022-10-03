@@ -337,14 +337,12 @@ $("#documentsGroup").on("change",":radio",function(e){
         targetLi=$("#documentsToBring>li:nth-child(5)")
     }else if(this.name=="has_superannu_deed"){
         targetLi=$("#documentsToBring>li:nth-child(6)")
-    }else if(this.name=="has_family_deed"){
-        targetLi=$("#documentsToBring>li:nth-child(7)")
     }else if(this.name=="is_office_holder"){
-        targetLi=$("#documentsToBring>li:nth-child(8)")
+        targetLi=$("#documentsToBring>li:nth-child(7)")
     }else if(this.name=="is_beneficiary"){
-        targetLi=$("#documentsToBring>li:nth-child(9)")
+        targetLi=$("#documentsToBring>li:nth-child(8)")
     }else if(this.name=="in_partnership"){
-        targetLi=$("#documentsToBring>li:nth-child(10)")
+        targetLi=$("#documentsToBring>li:nth-child(9)")
     }
     if(this.value==1){
         targetLi.addClass("show")
@@ -357,8 +355,14 @@ $("#documentsGroup").on("change",":radio",function(e){
 })
 
 $(":radio[name=sepdiv_property_settlement]").change(function(){
-    if($(this).val()==1) $("#bring_settlement").addClass('show')
-    else $("#bring_settlement").removeClass('show')
+    if($(this).val()==1){
+        $("#has_property_settlement").slideDown()
+        $("#documentsToBring>li:nth-child(10)").addClass("show")
+    }
+    else{
+        $("#has_property_settlement").slideUp()
+        $("#documentsToBring>li:nth-child(10)").removeClass("show")
+    }
 })
 
 
@@ -557,6 +561,15 @@ $("#page2Prev").click(function(){
     window.scrollTo(0, 0);
 })
 $("#page2Next").click(function(){
+
+    //Superannuations
+    // if($("#yourSuperannuation").hasClass('show') && !$("#superannuations-superannuation-key-fund").val()){
+    //     $(`#superannuationError`).addClass('show')
+    //     return false
+    // }
+
+
+
     $("#page2").removeClass('show')
     $("#page3").addClass('show')
     window.scrollTo(0, 0);
@@ -736,6 +749,7 @@ let page3ShowError=function(id){
     document.getElementById('inputReferral').scrollIntoView(true)
 }
 $("#page3Next").click(function(){
+    /*
     //Estates
     if( $("#yourRealEstate").hasClass('show') && !$("#estates-estate-key-address").val()){
         page3ShowError('estateError')
@@ -761,6 +775,7 @@ $("#page3Next").click(function(){
         $(`#superannuationError`).addClass('show')
         return false
     }
+    */
 
 
     $("#page3").removeClass('show')

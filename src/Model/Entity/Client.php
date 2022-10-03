@@ -33,6 +33,8 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenDate|null $defacto_living
  * @property bool|null $defacto_mariage
  * @property bool|null $sepdiv_property_settlement
+ * @property \Cake\I18n\FrozenDate|null $settlement_finish
+ *
  * @property bool|null $has_child_current
  * @property bool|null $has_child_prev
  * @property bool|null $has_household_member
@@ -122,7 +124,6 @@ class Client extends Entity
         'has_binding' => true,
         'has_decision_maker' => true,
         'has_superannu_deed' => true,
-        'has_family_deed' => true,
         'is_office_holder' => true,
         'is_beneficiary' => true,
         'in_partnership' => true,
@@ -137,6 +138,7 @@ class Client extends Entity
         'defacto_living' => true,
         'defacto_mariage' => true,
         'sepdiv_property_settlement' => true,
+        'settlement_finish'=>true,
 
         'has_child_current' => true,
         'has_child_prev' => true,

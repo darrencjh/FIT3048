@@ -59,8 +59,8 @@ class HouseholdersTable extends Table
         $validator
             ->scalar('full_name')
             ->maxLength('full_name', 255)
-            ->requirePresence('full_name', 'create')
-            ->notEmptyString('full_name');
+            //->requirePresence('full_name', 'create')
+            ->allowEmptyString('full_name');
 
         $validator
             ->scalar('relationship')

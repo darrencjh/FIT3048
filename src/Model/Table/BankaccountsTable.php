@@ -59,8 +59,8 @@ class BankaccountsTable extends Table
         $validator
             ->scalar('bank')
             ->maxLength('bank', 255)
-            ->requirePresence('bank', 'create')
-            ->notEmptyString('bank');
+            //->requirePresence('bank', 'create')
+            ->allowEmptyString('bank');
 
         $validator
             ->scalar('holder')

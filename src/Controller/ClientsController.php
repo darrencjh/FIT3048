@@ -148,26 +148,74 @@ class ClientsController extends AppController
             if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
 
                 //page 2
-                foreach ($postData['children'] as $key => $child) {
-                    if (empty($child['full_name'])) {
-                        unset($postData['children'][$key]);
+                if(!empty($postData['children'])){
+                    foreach ($postData['children'] as $key => $child) {
+                        if (empty($child['full_name'])) {
+                            unset($postData['children'][$key]);
+                        }
                     }
                 }
-                foreach ($postData['grandchildren'] as $key => $grandchild) {
-                    if (empty($grandchild['full_name'])) {
-                        unset($postData['grandchildren'][$key]);
+                if(!empty($postData['grandchildren'])){
+                    foreach ($postData['grandchildren'] as $key => $grandchild) {
+                        if (empty($grandchild['full_name'])) {
+                            unset($postData['grandchildren'][$key]);
+                        }
                     }
                 }
-                foreach ($postData['householders'] as $key => $householder) {
-                    if (empty($householder['full_name'])) {
-                        unset($postData['householders'][$key]);
+                if(!empty($postData['householders'])){
+                    foreach ($postData['householders'] as $key => $householder) {
+                        if (empty($householder['full_name'])) {
+                            unset($postData['householders'][$key]);
+                        }
                     }
                 }
-                foreach ($postData['dependents'] as $key => $dependent) {
-                    if (empty($dependent['full_name'])) {
-                        unset($postData['dependents'][$key]);
+
+                if(!empty($postData['dependents'])){
+                    foreach ($postData['dependents'] as $key => $dependent) {
+                        if (empty($dependent['full_name'])) {
+                            unset($postData['dependents'][$key]);
+                        }
                     }
                 }
+
+                //page 3
+                if(!empty($postData['estates'])){
+                    foreach ($postData['estates'] as $key => $estate) {
+                        if (empty($estate['address'])) {
+                            unset($postData['estates'][$key]);
+                        }
+                    }
+                }
+                if(!empty($postData['bankaccounts'])){
+                    foreach ($postData['bankaccounts'] as $key => $bankaccount) {
+                        if (empty($bankaccount['bank'])) {
+                            unset($postData['bankaccounts'][$key]);
+                        }
+                    }
+                }
+                if(!empty($postData['vehicles'])){
+                    foreach ($postData['vehicles'] as $key => $vehicle) {
+                        if (empty($vehicle['make'])) {
+                            unset($postData['vehicles'][$key]);
+                        }
+                    }
+                }
+                if(!empty($postData['investments'])){
+                    foreach ($postData['investments'] as $key => $investment) {
+                        if (empty($investment['fund'])) {
+                            unset($postData['investments'][$key]);
+                        }
+                    }
+                }
+                if(!empty($postData['superannuations'])){
+                    foreach ($postData['superannuations'] as $key => $superannuation) {
+                        if (empty($investment['fund'])) {
+                            unset($postData['superannuations'][$key]);
+                        }
+                    }
+                }
+
+
 
                 //page 4
                 foreach ($postData['executors'] as $key => $executor) {

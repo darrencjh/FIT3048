@@ -56,7 +56,6 @@ CREATE TABLE IF NOT EXISTS `clients`
     `has_binding`                tinyint(1)    DEFAULT 0,
     `has_decision_maker`         tinyint(1)    DEFAULT 0,
     `has_superannu_deed`         tinyint(1)    DEFAULT 0,
-    `has_family_deed`            tinyint(1)    DEFAULT 0,
 
     `is_office_holder`           tinyint(1)    DEFAULT 0,
     `is_beneficiary`             tinyint(1)    DEFAULT 0,

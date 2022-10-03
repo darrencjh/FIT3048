@@ -59,8 +59,8 @@ class EstatesTable extends Table
         $validator
             ->scalar('address')
             ->maxLength('address', 255)
-            ->requirePresence('address', 'create')
-            ->notEmptyString('address');
+            //->requirePresence('address', 'create')
+            ->allowEmptyString('address');
 
         $validator
             ->scalar('owner')

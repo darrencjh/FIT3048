@@ -253,10 +253,6 @@ class ClientsTable extends Table
             ->allowEmptyString('has_superannu_deed');
 
         $validator
-            ->boolean('has_family_deed')
-            ->allowEmptyString('has_family_deed');
-
-        $validator
             ->boolean('is_health')
             ->allowEmptyString('is_health');
 
@@ -300,6 +296,10 @@ class ClientsTable extends Table
         $validator
             ->boolean('sepdiv_property_settlement')
             ->allowEmptyString('sepdiv_property_settlement');
+
+        $validator
+            ->date('settlement_finish')
+            ->allowEmptyDate('settlement_finish');
 
         $validator
             ->boolean('has_child_current')

@@ -59,8 +59,8 @@ class InvestmentsTable extends Table
         $validator
             ->scalar('type')
             ->maxLength('type', 255)
-            ->requirePresence('type', 'create')
-            ->notEmptyString('type');
+            //->requirePresence('type', 'create')
+            ->allowEmptyString('type');
 
         $validator
             ->scalar('held')

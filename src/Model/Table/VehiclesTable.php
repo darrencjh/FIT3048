@@ -59,8 +59,8 @@ class VehiclesTable extends Table
         $validator
             ->scalar('make')
             ->maxLength('make', 255)
-            ->requirePresence('make', 'create')
-            ->notEmptyString('make');
+            //->requirePresence('make', 'create')
+            ->allowEmptyString('make');
 
         $validator
             ->scalar('model')

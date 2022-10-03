@@ -59,8 +59,8 @@ class SuperannuationsTable extends Table
         $validator
             ->scalar('fund')
             ->maxLength('fund', 255)
-            ->requirePresence('fund', 'create')
-            ->notEmptyString('fund');
+            //->requirePresence('fund', 'create')
+            ->allowEmptyString('fund');
 
         $validator
             ->decimal('value')
