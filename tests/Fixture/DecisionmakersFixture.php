@@ -19,11 +19,12 @@ class DecisionmakersFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '1178264d-98bc-4bba-b912-f8b44acb2b38',
+                'id' => '6f388dcf-471f-4e82-a849-dca699b2a304',
                 'name' => 'Lorem ipsum dolor sit amet',
-                'dob' => '2022-09-18',
+                'dob' => '2022-10-03',
+                'address' => 'Lorem ipsum dolor sit amet',
                 'phone' => 'Lorem ip',
-                'client_id' => 'f11f5e20-1400-4ce6-a58c-fd5c1ef3c395',
+                'client_id' => '65cb6242-7a77-4b6e-8a56-20422d604667',
             ],
         ];
         parent::init();

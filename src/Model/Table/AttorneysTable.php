@@ -63,6 +63,11 @@ class AttorneysTable extends Table
             ->notEmptyString('name');
 
         $validator
+            ->scalar('address')
+            ->maxLength('address', 255)
+            ->allowEmptyString('address');
+
+        $validator
             ->scalar('relation')
             ->maxLength('relation', 255)
             ->allowEmptyString('relation');

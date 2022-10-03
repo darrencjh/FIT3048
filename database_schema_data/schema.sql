@@ -76,6 +76,7 @@ CREATE TABLE IF NOT EXISTS `clients`
     `defacto_living`             date,
     `defacto_mariage`            tinyint(1)    DEFAULT 0,
     `sepdiv_property_settlement` tinyint(1)    DEFAULT 0,
+    `settlement_finish`          date,
 
     # 1.5 child
     `has_child_current`          tinyint(1)    DEFAULT 0,
@@ -156,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `children`
 (
     `id`        char(36)     NOT NULL,
     `full_name` varchar(255) NOT NULL,
-    `age`       tinyint      DEFAULT 0,
+    `dob`       date DEFAULT NULL,
     `address`   varchar(255) DEFAULT NULL,
     `mother`    varchar(255) DEFAULT NULL,
     `father`    varchar(255) DEFAULT NULL,
@@ -171,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `grandchildren`
 (
     `id`        char(36)     NOT NULL,
     `full_name` varchar(255) NOT NULL,
-    `age`       tinyint      DEFAULT 0,
+    `dob`       date DEFAULT NULL,
     `address`   varchar(255) DEFAULT NULL,
     `mother`    varchar(255) DEFAULT NULL,
     `father`    varchar(255) DEFAULT NULL,
@@ -272,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `investments`
 
 CREATE TABLE IF NOT EXISTS `superannuations`
 (
-    `id`         char(36)       NOT NULL,
+    `id`         char(36)     NOT NULL,
     `fund`       varchar(255) NOT NULL,
     `value`      decimal(11, 2) DEFAULT 0,
     `nomination` varchar(255)   DEFAULT NULL,
@@ -346,6 +347,7 @@ CREATE TABLE IF NOT EXISTS `attorneys`
 (
     `id`        char(36)     NOT NULL,
     `name`      varchar(255) NOT NULL,
+    `address`   varchar(255) DEFAULT NULL,
     `relation`  varchar(255) DEFAULT NULL,
     `client_id` char(36)     DEFAULT NULL,
 
@@ -359,6 +361,7 @@ CREATE TABLE IF NOT EXISTS `altattorneys`
 (
     `id`        char(36)     NOT NULL,
     `name`      varchar(255) NOT NULL,
+    `address`   varchar(255) DEFAULT NULL,
     `relation`  varchar(255) DEFAULT NULL,
     `client_id` char(36)     DEFAULT NULL,
 
@@ -372,9 +375,10 @@ CREATE TABLE IF NOT EXISTS `decisionmakers`
 (
     `id`        char(36)     NOT NULL,
     `name`      varchar(255) NOT NULL,
-    `dob`       date         DEFAULT NULL,
-    `phone`       varchar(10)  DEFAULT NULL,
-    `client_id` char(36) DEFAULT NULL,
+    `dob`       date        DEFAULT NULL,
+    `address`   varchar(255) DEFAULT NULL,
+    `phone`     varchar(10) DEFAULT NULL,
+    `client_id` char(36)    DEFAULT NULL,
 
     PRIMARY KEY (`id`),
     FOREIGN KEY client_decisionMakers_key (`client_id`) REFERENCES clients (`id`)
@@ -384,9 +388,9 @@ CREATE TABLE IF NOT EXISTS `decisionmakers`
 
 CREATE TABLE IF NOT EXISTS `availabilities`
 (
-    `id`        char(36)     NOT NULL,
-    `weekday`      varchar(10)  NOT NULL,
-    `booked_time` varchar(10)  NOT NULL,
+    `id`          char(36)    NOT NULL,
+    `weekday`     varchar(10) NOT NULL,
+    `booked_time` varchar(10) NOT NULL,
 
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB

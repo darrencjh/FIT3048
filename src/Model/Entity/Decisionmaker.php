@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property string $id
  * @property string $name
  * @property \Cake\I18n\FrozenDate|null $dob
+ * @property string|null $address
  * @property string|null $phone
  * @property string|null $client_id
  *
@@ -30,6 +31,7 @@ class Decisionmaker extends Entity
     protected $_accessible = [
         'name' => true,
         'dob' => true,
+        'address' => true,
         'phone' => true,
         'client_id' => true,
         'client' => true,

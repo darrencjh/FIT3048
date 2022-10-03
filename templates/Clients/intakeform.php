@@ -653,6 +653,15 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                     'inputName' => 'sepdiv_property_settlement',
                                 ]);
                                 ?>
+                                <div class="label">
+                                    <label>When was your property settlement was finalised?</label>
+                                </div>
+                                <div class="form-group">
+                                    <?php echo $this->Form->control("settlement_finish", ['type'=>'date','label'=>false,'class' => 'form-control w-50']); ?>
+                                </div>
+                                <div class="collapse text-shelbourne mt-3" id="bring_settlement">Please bring copy of Order/Binding Financial Agreement to initial meeting or email to Leonie</div>
+
+
                             </div>
 
                             <!--    never      -->
@@ -714,7 +723,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("children.{$children_key}.age", ['label' => 'Age', 'class' => 'form-control']); ?>
+                                            <?php echo $this->Form->control("children.{$children_key}.dob", ['label' => 'DOB', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
@@ -772,7 +781,7 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.age", ['label' => 'Age', 'class' => 'form-control']); ?>
+                                            <?php echo $this->Form->control("grandchildren.{$grandchildren_key}.dob", ['label' => 'DOB', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2 pe-md-2">
@@ -2398,17 +2407,23 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                     <div id="yourAttorney">
                         <div id="attorney-container">
                             <div class="row g-0 inputsRow">
-                                <div class="col-12 col-lg-6 pe-lg-2">
+                                <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
                                         <?php echo $this->Form->control("attorneys.0.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
                                     </div>
                                 </div>
 
+                                <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("attorneys.0.address", ['label' => 'Address', 'class' => 'form-control']); ?>
+                                    </div>
+                                </div>
 
-                                <div class="col-12 col-lg-6 row g-0">
+
+                                <div class="col-12 col-lg-4 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("executors.0.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
+                                            <?php echo $this->Form->control("attorneys.0.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2">
@@ -2434,16 +2449,22 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
 
                         <script id="attorney-template" type="text/x-underscore-template">
                             <div class="row g-0 inputsRow">
-                                <div class="col-12 col-lg-6 pe-lg-2">
+                                <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
                                         <?php echo $this->Form->control("attorneys.{$attorneys_key}.name", ['label' => 'Full Name', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-lg-6 row g-0">
+                                <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("attorneys.{$attorneys_key}.address", ['label' => 'Address', 'class' => 'form-control']); ?>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-4 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("executors.{$attorneys_key}.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
+                                            <?php echo $this->Form->control("attorneys.{$attorneys_key}.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-2">
@@ -2475,14 +2496,20 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                     <div id="yourAltAttorney">
                         <div id="altattorney-container">
                             <div class="row g-0 inputsRow">
-                                <div class="col-12 col-lg-6 pe-lg-2">
+                                <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
                                         <?php echo $this->Form->control("altattorneys.0.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
                                     </div>
                                 </div>
 
+                                <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("altattorneys.0.address", ['label' => 'Address', 'class' => 'form-control']); ?>
+                                    </div>
+                                </div>
 
-                                <div class="col-12 col-lg-6 row g-0">
+
+                                <div class="col-12 col-lg-4 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
                                             <?php echo $this->Form->control("altattorneys.0.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
@@ -2511,13 +2538,19 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
 
                         <script id="altattorney-template" type="text/x-underscore-template">
                             <div class="row g-0 inputsRow">
-                                <div class="col-12 col-lg-6 pe-lg-2">
+                                <div class="col-12 col-lg-4 pe-lg-2">
                                     <div class="form-group">
                                         <?php echo $this->Form->control("altattorneys.{$altattorneys_key}.name", ['label' => 'Full Name', 'class' => 'form-control']); ?>
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-lg-6 row g-0">
+                                <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="form-group">
+                                        <?php echo $this->Form->control("altattorneys.{$altattorneys_key}.address", ['label' => 'Address', 'class' => 'form-control']); ?>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-4 row g-0">
                                     <div class="col-12 col-lg-10">
                                         <div class="form-group">
                                             <?php echo $this->Form->control("altattorneys.{$altattorneys_key}.relation", ['label' => 'Relationship to You', 'class' => 'form-control']); ?>
@@ -2593,20 +2626,26 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
                         <div id="yourDecisionMaker">
                             <div id="decisionMaker-container">
                                 <div class="row g-0 inputsRow">
-                                    <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="col-12 col-lg-3 pe-lg-2">
                                         <div class="form-group">
                                             <?php echo $this->Form->control("decisionmakers.0.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="col-12 col-lg-3 pe-lg-2">
                                         <div class="form-group">
                                             <?php echo $this->Form->control("decisionmakers.0.dob", ['label' => 'Date of Birth', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
 
+                                    <div class="col-12 col-lg-3 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("decisionmakers.0.address", ['label' => 'Address', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
 
-                                    <div class="col-12 col-lg-4 row g-0">
+
+                                    <div class="col-12 col-lg-3 row g-0">
                                         <div class="col-12 col-lg-10">
                                             <div class="form-group">
                                                 <?php echo $this->Form->control("decisionmakers.0.phone", ['label' => 'Phone', 'class' => 'form-control']); ?>
@@ -2635,23 +2674,29 @@ $decisionMakers_key=isset($decisionMakers_key) ? $decisionMakers_key : '<%= deci
 
                             <script id="decisionMaker-template" type="text/x-underscore-template">
                                 <div class="row g-0 inputsRow">
-                                    <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="col-12 col-lg-3 pe-lg-2">
                                         <div class="form-group">
                                             <?php echo $this->Form->control("decisionmakers.{$decisionMakers_key}.name", ['label' => 'Full Name', 'class' => 'form-control', 'required' => false]); ?>
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-lg-4 pe-lg-2">
+                                    <div class="col-12 col-lg-3 pe-lg-2">
                                         <div class="form-group">
-                                            <?php echo $this->Form->control("decisionmakers.{$decisionMakers_key}}.dob", ['label' => 'Date of Birth', 'class' => 'form-control']); ?>
+                                            <?php echo $this->Form->control("decisionmakers.{$decisionMakers_key}.dob", ['label' => 'Date of Birth', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-3 pe-lg-2">
+                                        <div class="form-group">
+                                            <?php echo $this->Form->control("decisionmakers.{$decisionMakers_key}.address", ['label' => 'Address', 'class' => 'form-control']); ?>
                                         </div>
                                     </div>
 
 
-                                    <div class="col-12 col-lg-4 row g-0">
+                                    <div class="col-12 col-lg-3 row g-0">
                                         <div class="col-12 col-lg-10">
                                             <div class="form-group">
-                                                <?php echo $this->Form->control("decisionmakers.{$decisionMakers_key}}.phone", ['label' => 'Phone', 'class' => 'form-control']); ?>
+                                                <?php echo $this->Form->control("decisionmakers.{$decisionMakers_key}.phone", ['label' => 'Phone', 'class' => 'form-control']); ?>
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-2">

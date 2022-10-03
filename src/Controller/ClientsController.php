@@ -147,6 +147,28 @@ class ClientsController extends AppController
 
             if ($this->__checkRecaptchaResponse($postData['g-recaptcha-response'])) {
 
+                //page 2
+                foreach ($postData['children'] as $key => $child) {
+                    if (empty($child['full_name'])) {
+                        unset($postData['children'][$key]);
+                    }
+                }
+                foreach ($postData['grandchildren'] as $key => $grandchild) {
+                    if (empty($grandchild['full_name'])) {
+                        unset($postData['grandchildren'][$key]);
+                    }
+                }
+                foreach ($postData['householders'] as $key => $householder) {
+                    if (empty($householder['full_name'])) {
+                        unset($postData['householders'][$key]);
+                    }
+                }
+                foreach ($postData['dependents'] as $key => $dependent) {
+                    if (empty($dependent['full_name'])) {
+                        unset($postData['dependents'][$key]);
+                    }
+                }
+
                 //page 4
                 foreach ($postData['executors'] as $key => $executor) {
                     if (empty($executor['name'])) {

@@ -356,6 +356,11 @@ $("#documentsGroup").on("change",":radio",function(e){
     }
 })
 
+$(":radio[name=sepdiv_property_settlement]").change(function(){
+    if($(this).val()==1) $("#bring_settlement").addClass('show')
+    else $("#bring_settlement").removeClass('show')
+})
+
 
 //Functions
 //display when 'Yes',disappear when 'no'

@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property string $id
  * @property string $full_name
- * @property int|null $age
+ * @property \Cake\I18n\FrozenDate|null $dob
  * @property string|null $address
  * @property string|null $mother
  * @property string|null $father
@@ -31,7 +31,7 @@ class Child extends Entity
      */
     protected $_accessible = [
         'full_name' => true,
-        'age' => true,
+        'dob' => true,
         'address' => true,
         'mother' => true,
         'father' => true,

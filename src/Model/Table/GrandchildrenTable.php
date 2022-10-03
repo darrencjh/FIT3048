@@ -63,7 +63,8 @@ class GrandchildrenTable extends Table
             ->notEmptyString('full_name');
 
         $validator
-            ->allowEmptyString('age');
+            ->date('dob')
+            ->allowEmptyDate('dob');
 
         $validator
             ->scalar('address')

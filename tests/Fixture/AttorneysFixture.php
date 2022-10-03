@@ -19,10 +19,11 @@ class AttorneysFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => 'e3560c76-42df-4239-a9c2-81ae058e7d11',
+                'id' => 'c40abb4c-c89c-4dff-953f-43179204c146',
                 'name' => 'Lorem ipsum dolor sit amet',
+                'address' => 'Lorem ipsum dolor sit amet',
                 'relation' => 'Lorem ipsum dolor sit amet',
-                'client_id' => 'ccb52416-69b8-43eb-9bde-ecb306c86308',
+                'client_id' => 'f1858c05-6e98-432a-bf7c-cf7163310815',
             ],
         ];
         parent::init();

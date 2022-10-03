@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property string $id
  * @property string $name
+ * @property string|null $address
  * @property string|null $relation
  * @property string|null $client_id
  *
@@ -28,6 +29,7 @@ class Attorney extends Entity
      */
     protected $_accessible = [
         'name' => true,
+        'address' => true,
         'relation' => true,
         'client_id' => true,
         'client' => true,

@@ -25,13 +25,13 @@ class ChildrenFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '2dcfb6f7-4c02-41ce-9e93-fed440f72ce9',
+                'id' => 'cb19772f-8756-407c-bd86-dcffbae02a8e',
                 'full_name' => 'Lorem ipsum dolor sit amet',
-                'age' => 1,
+                'dob' => '2022-10-03',
                 'address' => 'Lorem ipsum dolor sit amet',
                 'mother' => 'Lorem ipsum dolor sit amet',
                 'father' => 'Lorem ipsum dolor sit amet',
-                'client_id' => 'c78a4888-8e3d-4e08-a9ba-9d64390d20e2',
+                'client_id' => '96a99c12-384f-414d-89a0-ecd402479875',
             ],
         ];
         parent::init();

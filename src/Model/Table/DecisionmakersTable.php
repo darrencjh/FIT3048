@@ -67,6 +67,11 @@ class DecisionmakersTable extends Table
             ->allowEmptyDate('dob');
 
         $validator
+            ->scalar('address')
+            ->maxLength('address', 255)
+            ->allowEmptyString('address');
+
+        $validator
             ->scalar('phone')
             ->maxLength('phone', 10)
             ->allowEmptyString('phone');
