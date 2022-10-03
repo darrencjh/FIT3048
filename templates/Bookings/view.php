@@ -10,10 +10,6 @@
             <h3><?= h($booking->name) ?></h3>
             <table class="table table-bordered table-striped table-hover" width="100%" cellspacing="0">
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= h($booking->id) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Booked Time') ?></th>
                     <td><?= h($booking->booked_time) ?></td>
                 </tr>
