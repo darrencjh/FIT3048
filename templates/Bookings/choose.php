@@ -17,15 +17,41 @@ foreach ($allAvailabilities as $elem){
     if($elem->weekday=='Monday'){
         $mondayAvailabilities[]=$elem->booked_time;
     }else if($elem->weekday=='Tuesday'){
-        $tuesdayAvailabilities[]=$elem->booked_time;;
+        $tuesdayAvailabilities[]=$elem->booked_time;
     }else if($elem->weekday=='Wednesday'){
-        $wednesdayAvailabilities[]=$elem->booked_time;;
+        $wednesdayAvailabilities[]=$elem->booked_time;
     }else if($elem->weekday=='Thursday'){
-        $thursAvailabilities[]=$elem->booked_time;;
+        $thursAvailabilities[]=$elem->booked_time;
     }else if($elem->weekday=='Friday'){
-        $fridayAvailabilities[]=$elem->booked_time;;
+        $fridayAvailabilities[]=$elem->booked_time;
     }
 }
+function sortDayBookingTime($dayArray){
+    $tempArray=[];
+    foreach ($dayArray as $index=>$time){
+        if($time=='12:00pm'|| $time=='11:00am' || $time=='10:00am'){
+            unset($dayArray[$index]);
+            $tempArray[]=$time;
+        }
+    }
+    sort($tempArray);
+    $dayArray=array_merge($tempArray,$dayArray);
+    foreach ($dayArray as $index=>$time){
+        if($time=='9:00am'){
+            unset($dayArray[$index]);
+            array_unshift($dayArray,$time);
+            break;
+        }
+    }
+    return $dayArray;
+}
+$mondayAvailabilities=sortDayBookingTime($mondayAvailabilities);
+$tuesdayAvailabilities=sortDayBookingTime($tuesdayAvailabilities);
+$wednesdayAvailabilities=sortDayBookingTime($wednesdayAvailabilities);
+$thursAvailabilities=sortDayBookingTime($thursAvailabilities);
+$fridayAvailabilities=sortDayBookingTime($fridayAvailabilities);
+
+
 ?>
 <main class="main">
 
@@ -349,142 +375,9 @@ foreach ($allAvailabilities as $elem){
                         let selectedDateWithDbFormat = selectedDate.getFullYear() + '-' + newDateArray[0] + '-' + selectedDate.getDate()//2022-08-15
                         let weekday = selectedDate.getDay()
                         let eventsList = []
-                        /*
-                        if (weekday == 1 || weekday == 3) {
-                            eventsList = [
-                                {
-                                    id: Math.random(),
-                                    name: '9:00am',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                },
-                                {
-                                    id: Math.random(),
-                                    name: '10:00am',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                },
-                                {
-                                    id: Math.random(),
-                                    name: '11:00am',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                },
-                                {
-                                    id: Math.random(),
-                                    name: '8:00pm',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                }
-                            ]
-                        } else if (weekday == 5) {
-                            eventsList = [
-                                {
-                                    id: Math.random(),
-                                    name: '9:00am',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                },
-                                {
-                                    id: Math.random(),
-                                    name: '10:00am',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-                                },
-                                {
-                                    id: Math.random(),
-                                    name: '11:00am',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                }
-                            ]
-
-                        } else if (weekday == 2 || weekday == 4) {
-                            eventsList = [
-                                {
-                                    id: Math.random(),
-                                    name: '9:00am',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                },
-                                {
-                                    id: Math.random(),
-                                    name: '10:00am',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                },
-                                {
-                                    id: Math.random(),
-                                    name: '11:00am',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                },
-                                {
-                                    id: Math.random(),
-                                    name: '12:00pm',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                },
-                                {
-                                    id: Math.random(),
-                                    name: '1:00pm',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                },
-                                {
-                                    id: Math.random(),
-                                    name: '2:00pm',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                },
-                                {
-                                    id: Math.random(),
-                                    name: '3:00pm',
-                                    date: selectedDateWithFormat,
-                                    type: 'event',
-                                    color: "#63d867"
-
-                                }
-                            ]
-                        }
-
-                        if (weekday == 4) {
-                            eventsList.push({
-                                id: Math.random(),
-                                name: '4:00pm',
-                                date: selectedDateWithFormat,
-                                type: 'event',
-                                color: "#63d867"
-                            })
-                        }
-                        */
 
 
+                        //Render all times into the date
                         if(weekday==1){
                             <?php
                             foreach ($mondayAvailabilities as $aTime):
@@ -552,6 +445,7 @@ foreach ($allAvailabilities as $elem){
 
                         //delete the time already booked
                         //access the database
+                        //eventList[]->findBooked[]
                         $.ajax({
                             url: "<?= $this->Url->build(['controller' => 'Bookings', 'action' => 'getBookedTime']) ?>",
                             type: "get",
