@@ -685,8 +685,12 @@ foreach ($allAvailabilities as $elem){
                     $("#nameError").text("Name must be longer than 1 letter")
                     $("#InputName").addClass("is-invalid")
                     return false
-                } else if (!/^[a-zA-Z ]{2,}$/.test(name)) {
-                    $("#nameError").text("Name can only contain letters")
+                } else if (!/^[A-Za-z ,.'-]{2,}$/.test(name)) {
+                    $("#nameError").text("Name can only contain letters,.'-")
+                    $("#InputName").addClass("is-invalid")
+                    return false
+                }else if (name.length >64) {
+                    $("#nameError").text("Name is too long")
                     $("#InputName").addClass("is-invalid")
                     return false
                 }
