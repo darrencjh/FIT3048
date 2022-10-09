@@ -25,7 +25,9 @@ class AvailabilitiesController extends AppController
      */
     public function index()
     {
-        $availabilities = $this->paginate($this->Availabilities);
+        //$availabilities = $this->paginate($this->Availabilities);
+        $availabilities = $this->Availabilities->find()->all();
+
 
         $this->set(compact('availabilities'));
     }

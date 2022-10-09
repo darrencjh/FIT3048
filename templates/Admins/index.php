@@ -38,7 +38,7 @@ echo $this->Html->script('//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.j
                     <td class="actions">
                         <?= $this->Html->link(__('<i class="fas fa-info"></i>'), ['action' => 'view', $admin->id],['class'=>"btn btn-success btn-circle btn-sm",'escape'=>false]) ?>
                         <?= $this->Html->link(__('<i class="fas fa-edit"></i>'), ['action' => 'edit', $admin->id],['class'=>"btn btn-info btn-circle btn-sm",'escape'=>false]) ?>
-                        <?php if(count($admins)==1 || $admin->username!='leonie'){ echo $this->Form->postLink(__('<i class="fas fa-trash"></i>'), ['action' => 'delete', $admin->id],  ['class'=>"btn btn-danger btn-circle btn-sm button-delete-client",'escape'=>false,'confirm' => __('Are you sure you want to delete Admin {0}?', $admin->username)]); }?>
+                        <?php if(count($admins)>1 && $admin->username!='leonie'){ echo $this->Form->postLink(__('<i class="fas fa-trash"></i>'), ['action' => 'delete', $admin->id],  ['class'=>"btn btn-danger btn-circle btn-sm button-delete-client",'escape'=>false,'confirm' => __('Are you sure you want to delete Admin {0}?', $admin->username)]); }?>
 
                     </td>
                 </tr>
