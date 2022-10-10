@@ -17,7 +17,9 @@ echo $this->Html->script('adminBooking',['block'=>true]);
                     <div class="label required">
                         <label>Date</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="text" id="bookingDate" name="date" onfocus="(this.type='date')" onblur="(this.type='text', this.value='<?= $booking->date?>')" value="<?= $booking->date?>" required>
+                        <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="text" id="bookingDate" name="date" onfocus="(this.type='date')" onblur="(this.type='text', this.value='<?= $booking->date?>')" value="<?= $booking->date?>" required>
+                    <script>console.log(<?= $booking->date?>)</script>
+
                     <div class="invalid-feedback" id="dateError">Please check your booking date</div>
                 </div>
 
@@ -110,7 +112,7 @@ echo $this->Html->script('adminBooking',['block'=>true]);
                     <div class="label required">
                         <label>Referred By</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" id="bookingReferredBy" name="referred_by" value="<?= $booking->referred_by?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" id="bookingReferredBy" name="referred_by" value="<?= $booking->referred_by?>">
                     <div class="invalid-feedback" id="referrerError">Please check your referrer name</div>
                 </div>
             </fieldset>

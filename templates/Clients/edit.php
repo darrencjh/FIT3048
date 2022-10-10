@@ -23,7 +23,7 @@
                     <div class="label required">
                         <label>Previous Name</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="text" id="clientPrevName" name="clientPrevName" value="<?= $client->previous_name?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="text" id="clientPrevName" name="clientPrevName" value="<?= $client->previous_name?>">
                     <div class="invalid-feedback" id="nameError">Please check your name</div>
                 </div>
 
@@ -55,7 +55,7 @@
                     <div class="label required">
                         <label>Postal Address</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="text" id="postal_address" name="postal_address" value="<?= $client->postal_address?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="text" id="postal_address" name="postal_address" value="<?= $client->postal_address?>">
                     <div class="invalid-feedback" id="postalAddressError">Please check your postal address</div>
                 </div>
 
@@ -79,70 +79,70 @@
                     <div class="label required">
                         <label>Has Will?</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientHasWill" name="clientHasWill" value="<?= $client->has_will?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientHasWill" name="clientHasWill" value="<?= $client->has_will?>">
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Has Powers of Attorney?</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientHasPowers" name="clientHasPowers" value="<?= $client->has_power?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientHasPowers" name="clientHasPowers" value="<?= $client->has_power?>">
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Has Binding Death Benefit Nominations?</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientHasBinding" name="clientHasBinding" value="<?= $client->has_binding?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientHasBinding" name="clientHasBinding" value="<?= $client->has_binding?>">
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Has Existing Medical Treatment Decision Maker?</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientHasDecisionMaker" name="clientHasDecisionMaker" value="<?= $client->has_decision_maker?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientHasDecisionMaker" name="clientHasDecisionMaker" value="<?= $client->has_decision_maker?>">
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Has Copy of Self Managed Superannuation Trust Deed?</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientHasSuperAnnuDeed" name="clientHasSuperAnnuDeed" value="<?= $client->has_superannu_deed?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientHasSuperAnnuDeed" name="clientHasSuperAnnuDeed" value="<?= $client->has_superannu_deed?>">
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Has Copy of Family Trust Deed?</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientHasFamilyTrustDeed" name="clientHasFamilyTrustDeed" value="<?= $client->has_family_deed?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientHasFamilyTrustDeed" name="clientHasFamilyTrustDeed" value="<?= $client->has_family_deed?>" >
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Office Holder of any Private Companies?</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientIsOfficeHolder" name="clientIsOfficeHolder" value="<?= $client->is_office_holder?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientIsOfficeHolder" name="clientIsOfficeHolder" value="<?= $client->is_office_holder?>">
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Beneficiary/Trustee of any trusts?</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientIsBeneficiary" name="clientIsBeneficiary" value="<?= $client->is_beneficiary?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientIsBeneficiary" name="clientIsBeneficiary" value="<?= $client->is_beneficiary?>">
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>In a business partnership?</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientInPartnership" name="clientInPartnership" value="<?= $client->in_partnership?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientInPartnership" name="clientInPartnership" value="<?= $client->in_partnership?>">
                 </div>
 
                 <div class="mb-3">
                     <div class="label required">
                         <label>Have brain-related disorders, memory loss or confusion; or medication that impacts cognitive function?</label>
                     </div>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientInPartnership" name="clientInPartnership" value="<?= $client->in_partnership?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="checkbox" id="clientInPartnership" name="clientInPartnership" value="<?= $client->in_partnership?>">
                 </div>
 
 

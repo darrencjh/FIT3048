@@ -144,6 +144,8 @@ class BookingsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $booking = $this->Bookings->patchEntity($booking, $this->request->getData());
+//            \DateTime::createFromFormat('U', $booking->date);
+//            $booking->date=date('Y-m-d',$booking->date->getTimestamp());
             if ($this->Bookings->save($booking)) {
                 $this->Flash->success(__('The booking has been saved.'));
 
