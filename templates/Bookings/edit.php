@@ -17,8 +17,10 @@ echo $this->Html->script('adminBooking',['block'=>true]);
                     <div class="label required">
                         <label>Date</label>
                     </div>
-                        <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="text" id="bookingDate" name="date" onfocus="(this.type='date')" onblur="(this.type='text', this.value='<?= $booking->date?>')" value="<?= $booking->date?>" required>
-                    <script>console.log(<?= $booking->date?>)</script>
+
+                    <p class="mb-0"><label>Previous Date: </label><?= $booking->date; ?></p>
+                    <label>Please choose your new date: </label>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="date" id="bookingDate" name="date" value="<?=$booking->date?>" required>
 
                     <div class="invalid-feedback" id="dateError">Please check your booking date</div>
                 </div>
