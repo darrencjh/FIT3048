@@ -214,7 +214,7 @@
 <!--                    echo $this->Form->control('addition_notes');-->
 
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Submit'),['class'=>'btn btn-lg btn-primary']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

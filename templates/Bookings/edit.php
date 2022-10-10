@@ -116,7 +116,7 @@ echo $this->Html->script('adminBooking',['block'=>true]);
                     <div class="invalid-feedback" id="referrerError">Please check your referrer name</div>
                 </div>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Submit'),['class'=>'btn btn-lg btn-primary']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
