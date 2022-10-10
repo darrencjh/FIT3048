@@ -33,7 +33,7 @@
                     </div>
                     <p class="mb-0"><label>Client's saved DOB: </label><?= $client->date_of_birth ?></p>
                     <label>Client's new DOB: </label>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="date" id="date_of_birth" name="date_of_birth" value="<?=$client->date_of_birth?>" required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="date" id="date_of_birth" name="date_of_birth"  value="<?=date('Y-d-m',strtotime($client->date_of_birth)) ?>"  required>
                     <div class="invalid-feedback" id="dateError">Please check your booking date</div>
                 </div>
 

@@ -20,7 +20,7 @@ echo $this->Html->script('adminBooking',['block'=>true]);
 
                     <p class="mb-0"><label>Previous Date: </label><?= $booking->date; ?></p>
                     <label>Please choose your new date or choose same date as before: </label>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="date" id="bookingDate" name="date"  required>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="date" id="bookingDate" name="date" value="<?=date('Y-d-m',strtotime($booking->date)) ?>"  required>
                     <div class="invalid-feedback" id="dateError">Please check your booking date</div>
                 </div>
 
