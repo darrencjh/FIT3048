@@ -19,9 +19,8 @@ echo $this->Html->script('adminBooking',['block'=>true]);
                     </div>
 
                     <p class="mb-0"><label>Previous Date: </label><?= $booking->date; ?></p>
-                    <label>Please choose your new date: </label>
-                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="date" id="bookingDate" name="date" value="<?=$booking->date?>" required>
-
+                    <label>Please choose your new date or choose same date as before: </label>
+                    <input class="form-control bg-transparent fw-bold mt-2 mb-1" type="date" id="bookingDate" name="date"  required>
                     <div class="invalid-feedback" id="dateError">Please check your booking date</div>
                 </div>
 
