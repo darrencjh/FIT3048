@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Mailer\Mailer;
+
 /**
  * Admins Controller
  *
@@ -18,7 +20,7 @@ class AdminsController extends AppController
         parent::beforeFilter($event);
         // Configure the login action to not require authentication, preventing
         // the infinite redirect loop issue
-        $this->Authentication->addUnauthenticatedActions(['login']);
+        $this->Authentication->addUnauthenticatedActions(['login', 'resetPasswordEmail']);
 
 
         $this->viewBuilder()->setLayout('adminManageLayout');
@@ -115,6 +117,109 @@ class AdminsController extends AppController
             $this->Authentication->logout();
             return $this->redirect(['controller' => 'Admins', 'action' => 'login']);
         }
+    }
+
+    public function resetPasswordEmail()
+    {
+        $this->viewBuilder()->setLayout('adminLoginLayout');
+        if ($this->request->is('post')) {
+            $code=$this->request->getData('code');
+            $validCode=$this->request->getData('validCode');
+            $adminId=$this->request->getData('adminId');
+            if($code==$validCode){
+                return $this->redirect(['controller' => 'Admins', 'action' => 'reset','?'=>['legalPage'=>true,'id'=>$adminId]]);
+            }
+
+        }
+    }
+
+    /**
+     * Reset method
+     *
+     * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function reset()
+    {
+        $legalPage = $this->request->getQuery('legalPage','');
+        $adminId = $this->request->getQuery('id','');
+        if($legalPage){
+            $this->viewBuilder()->setLayout('adminLoginLayout');
+            if ($this->request->is('post')) {
+                $password=$this->request->getData('password');
+
+                $admin = $this->Admins->get($adminId);
+                $admin = $this->Admins->patchEntity($admin, $this->request->getData());
+                $admin->password = hash('sha256', $password);
+                if ($this->Admins->save($admin)) {
+
+                    return $this->redirect(['action' => 'login','?'=>['action'=>'resetPwdSuccess']]);
+                }
+            }
+
+        }else{
+            return $this->redirect(['controller' => 'Admins', 'action' => 'resetPasswordEmail']);
+
+        }
+
+
+    }
+
+    public function sendCode()
+    {
+        if( $this->request->is('ajax') ) {
+            $email=$this->request->getData('email');
+
+            if (!empty($email)) {
+                $query = $this->Admins->find()->where([
+                    'email' => $email,
+                ]);
+                $result = $query->first();
+                if (isset($result)) {
+                    $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+                    $code=substr(str_shuffle($permitted_chars), 0, 6);
+
+                    //send email
+                    $mailer = new Mailer('default');
+                    // Setup email parameters
+                    $mailer
+                        ->setEmailFormat('html')
+                        ->setTo($email)
+                        ->setFrom("wliu0025@u22s1043.monash-ie.me")
+                        ->setSubject('Verification Code for reset password')
+                        ->viewBuilder()
+                        ->disableAutoLayout()
+                        ->setTemplate('reset_password');
+
+
+                    // Send data to the email template
+                    $mailer->setViewVars([
+                        'username' => $result->username,
+                        'code'=>$code,
+
+                    ]);
+                    //Send email
+                    $email_result = $mailer->deliver();
+
+                    //send json data
+                    return $this->response->withType('application/json')
+                        ->withStringBody(json_encode(['emailValid' => true,'code'=>$code,'adminId'=>$result->id]));
+
+
+                } else {
+                    return $this->response->withType('application/json')
+                        ->withStringBody(json_encode(['emailValid' => false]));
+                }
+            }
+
+
+
+
+
+        }
+
+
+
     }
 
 
