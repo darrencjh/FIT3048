@@ -22,34 +22,46 @@ echo $this->Html->script('login',['block'=>true]);
                             </div>
                             <?= $this->Flash->render() ?>
 
-
-                            <div class="mb-3 inputArea">
-                                <div class="label required">
-                                    <label for="loginUsername">Please enter your email</label>
-                                </div>
-                                <input type="text" class="form-control loginInput bg-transparent fw-bold mt-2"
-                                       id="adminEmail" name="email" placeholder="Email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
-                                <img src="<?= $this->Url->build('/img/login/username.png') ?>" alt="user icon"
-                                     class="loginIcon">
-                                <?= $this->Form->button(__('Send Code'),['class' => 'btn btn-lg btn-shelbourne w-100 w-lg-25 mt-2','id'=>'sendCode']) ?>
-                                <div class="invalid-feedback" id="msg-uname">Please provide your email</div>
-                            </div>
-
                             <fieldset>
-
                                 <div class="mb-3 inputArea">
                                     <div class="label required">
-                                        <label for="loginUsername">Verification code from email</label>
+                                        <label for="loginUsername">Please enter your email</label>
                                     </div>
-                                    <input type="text" class="form-control loginInput bg-transparent fw-bold mt-2"
-                                           id="verificationcode" name="code" placeholder="Verification Code" required>
-                                    <input type="text" class="form-control loginInput bg-transparent fw-bold mt-2"
-                                           id="adminId" name="adminId" placeholder="Verification Code" hidden>
-                                    <input type="text" class="form-control loginInput bg-transparent fw-bold mt-2"
-                                           id="validCode" name="validCode" placeholder="Verification Code" hidden>
-                                    <div class="invalid-feedback" id="msg-uname">Please provide your verification code from your email</div>
+<!--                                    <input type="text" class="form-control loginInput bg-transparent fw-bold mt-2"-->
+<!--                                           id="adminEmail" name="email" placeholder="Email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>-->
+<!--                                    <img src="--><?//= $this->Url->build('/img/login/username.png') ?><!--" alt="user icon"-->
+<!--                                         class="loginIcon">-->
+<!--                                    $this->Form->button(__('Send Code'),['class' => 'btn btn-lg btn-shelbourne w-100 w-lg-25 mt-2','id'=>'sendCode'])-->
+<!--                                    <div class="invalid-feedback" id="msg-uname">Please provide your email</div>-->
+
+                                    <?php
+                                    echo $this->Form->control('email',['label' => false,'class'=>"form-control loginInput bg-transparent fw-bold mt-2",'id'=>"adminEmail" ,'pattern'=>'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$','placeholder'=>"Email",'required'=>true]);
+                                    ?>
+                                    <?= $this->Form->button(__('Send Code'),['class' => 'btn btn-lg btn-shelbourne w-100 w-lg-25 mt-2','id'=>'sendCode']) ?>
                                 </div>
 
+
+
+<!--                                <div class="mb-3 inputArea">-->
+<!--                                    <div class="label required">-->
+<!--                                        <label for="loginUsername">Verification code from email</label>-->
+<!--                                    </div>-->
+<!--                                    <input type="text" class="form-control loginInput bg-transparent fw-bold mt-2"-->
+<!--                                           id="verificationcode" name="code" placeholder="Verification Code" required>-->
+<!--                                    <input type="text" class="form-control loginInput bg-transparent fw-bold mt-2"-->
+<!--                                           id="adminId" name="adminId" placeholder="Verification Code" hidden>-->
+<!--                                    <input type="text" class="form-control loginInput bg-transparent fw-bold mt-2"-->
+<!--                                           id="validCode" name="validCode" placeholder="Verification Code" hidden>-->
+<!--                                    <div class="invalid-feedback" id="msg-uname">Please provide your verification code from your email</div>-->
+<!--                                </div>-->
+
+                                <?= $this->Form->create(null,['type'=>'post','class'=>'user']); ?>
+                                <div class="mt-5 font-weight-bold">Verification code from email</div>
+                                <?php
+                                echo $this->Form->control('code',['label' => false,'class'=>"form-control loginInput bg-transparent fw-bold mt-2",'id'=>"verificationcode", 'name'=>"code", 'aria-describedby'=>"emailHelp",'placeholder'=>"Verification Code"]);
+                                echo $this->Form->control('adminId',['type' => 'hidden','id'=>'adminId']);
+                                echo $this->Form->control('validCode',['type' => 'hidden','id'=>'validCode']);
+                                ?>
                                 <?= $this->Form->button(__('Reset Password'),['class'=>"btn btn-lg btn-shelbourne w-100 w-lg-25 mt-2",'id'=>"resetPassword"]) ?>
                                 <?= $this->Form->end() ?>
                             </fieldset>
