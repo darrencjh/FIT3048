@@ -14,12 +14,7 @@
  * @var \App\View\AppView $this
  */
 
-$content = explode("\n", $content);
-$body = '';
-
-foreach ($content as $line) :
-    $body .= '<p> ' . h($line) . "</p>\n";
-endforeach;
+$total_payment=0;
 ?>
 
 <!doctype html>
