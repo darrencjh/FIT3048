@@ -20,7 +20,7 @@ class AdminsController extends AppController
         parent::beforeFilter($event);
         // Configure the login action to not require authentication, preventing
         // the infinite redirect loop issue
-        $this->Authentication->addUnauthenticatedActions(['login', 'resetPasswordEmail']);
+        $this->Authentication->addUnauthenticatedActions(['login', 'resetPasswordEmail','sendCode', 'reset']);
 
 
         $this->viewBuilder()->setLayout('adminManageLayout');
@@ -150,7 +150,7 @@ class AdminsController extends AppController
 
                 $admin = $this->Admins->get($adminId);
                 $admin = $this->Admins->patchEntity($admin, $this->request->getData());
-                $admin->password = hash('sha256', $password);
+
                 if ($this->Admins->save($admin)) {
 
                     return $this->redirect(['action' => 'login','?'=>['action'=>'resetPwdSuccess']]);
@@ -189,7 +189,7 @@ class AdminsController extends AppController
                         ->setSubject('Verification Code for reset password')
                         ->viewBuilder()
                         ->disableAutoLayout()
-                        ->setTemplate('reset_password');
+                        ->setTemplate('resetPassword');
 
 
                     // Send data to the email template

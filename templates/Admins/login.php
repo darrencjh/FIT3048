@@ -50,7 +50,7 @@ echo $this->Html->script('login', ['block' => true]);
                             </fieldset>
                             <div class="mt-3 clearfix">
                                 <?= $this->Form->button(__('Login'), ['class' => 'btn btn-lg btn-shelbourne w-100 w-lg-25', 'id' => 'loginSubmit']) ?>
-<!--                                $this->Html->link('Forget Password', ['controller' => 'Admins', 'action' => 'resetPasswordEmail'], ['class' => "btn btn-lg btn-shelbourne w-100 w-lg-25", 'id' => "forgetPassword", 'target' => "_blank"])-->
+                                <?= $this->Html->link('Forget Password', ['controller' => 'Admins', 'action' => 'resetPasswordEmail'], ['class' => "btn btn-lg btn-shelbourne w-100 w-lg-25", 'id' => "forgetPassword", 'target' => "_blank"]) ?>
                             </div>
                             <?= $this->Form->end() ?>
 

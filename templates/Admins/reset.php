@@ -27,11 +27,11 @@ echo $this->Html->script('login',['block'=>true]);
                             <fieldset>
                                 <div class="mt-5 font-weight-bold">Please enter your new password</div>
                                 <?php
-                                echo $this->Form->control('password',['label' => false,'class'=>"form-control bg-transparent font-weight-bold form-control-input mt-5",'id'=>"newPassword", 'name'=>"password", 'aria-describedby'=>"emailHelp",'placeholder'=>"New Password"]);
+                                echo $this->Form->control('password',['label' => false,'class'=>"form-control loginInput bg-transparent fw-bold mt-2",'id'=>"newPassword", 'name'=>"password", 'aria-describedby'=>"emailHelp",'placeholder'=>"New Password"]);
                                 ?>
                             </fieldset>
                             <div class="mt-3 clearfix">
-                                <?= $this->Form->button(__('Reset Password'),['class' => 'btn btn-light btn-block mt-5 form-button text-dark font-weight-bold text-uppercase','id'=>'id="sendCode"']) ?>
+                                <?= $this->Form->button(__('Reset Password'),['class' => 'btn btn-lg btn-shelbourne w-100 w-lg-25 mt-2','id'=>'id="sendCode"']) ?>
                             </div>
                             <?= $this->Form->end() ?>
 

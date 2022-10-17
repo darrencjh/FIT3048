@@ -27,12 +27,6 @@ echo $this->Html->script('login',['block'=>true]);
                                     <div class="label required">
                                         <label for="loginUsername">Please enter your email</label>
                                     </div>
-<!--                                    <input type="text" class="form-control loginInput bg-transparent fw-bold mt-2"-->
-<!--                                           id="adminEmail" name="email" placeholder="Email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>-->
-<!--                                    <img src="--><?//= $this->Url->build('/img/login/username.png') ?><!--" alt="user icon"-->
-<!--                                         class="loginIcon">-->
-<!--                                    $this->Form->button(__('Send Code'),['class' => 'btn btn-lg btn-shelbourne w-100 w-lg-25 mt-2','id'=>'sendCode'])-->
-<!--                                    <div class="invalid-feedback" id="msg-uname">Please provide your email</div>-->
 
                                     <?php
                                     echo $this->Form->control('email',['label' => false,'class'=>"form-control loginInput bg-transparent fw-bold mt-2",'id'=>"adminEmail" ,'pattern'=>'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$','placeholder'=>"Email",'required'=>true]);
@@ -75,18 +69,18 @@ echo $this->Html->script('login',['block'=>true]);
 
 </div>
 <!--            Pop up window-->
-<!--<div class="mask hide">-->
-<!--    <div class="prompt_box">-->
-<!--        <div class="prompt_title">-->
-            <!--<h3 class="pt-3 font-weight-bold">Hint</h3>-->
-<!--            <span class="prompt_cancel"></span>-->
-<!--        </div>-->
-<!--        <div class="prompt_cont">-->
-<!--            <div class="prompt_text"></div>-->
-<!--            <a class="prompt_sure">Ok</a>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+<div class="mask collapse">
+    <div class="prompt_box">
+        <div class="prompt_title">
+            <h3 class="pt-3 font-weight-bold">Hint</h3>
+            <span class="prompt_cancel"></span>
+        </div>
+        <div class="prompt_cont">
+            <div class="prompt_text"></div>
+            <a class="prompt_sure">Ok</a>
+        </div>
+    </div>
+</div>
 
 
 
@@ -104,9 +98,9 @@ echo $this->Html->script('login',['block'=>true]);
                 },
                 success: function (data) {
                     console.log(data);
-                    $('.mask').removeClass('hide');
+                    $('.mask').removeClass('collapse');
                     $('.prompt_sure,.prompt_cancel').click(function () {
-                        $('.mask').addClass('hide');
+                        $('.mask').addClass('collapse');
                     })
                     if(data.emailValid){
                         $('.prompt_text').text('Valid email! A verification code has been sent ');
