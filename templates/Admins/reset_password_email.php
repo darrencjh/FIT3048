@@ -1,26 +1,28 @@
 <?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Admin[]|\Cake\Collection\CollectionInterface $admins
- */
+///**
+// * @var \App\View\AppView $this
+// * @var \App\Model\Entity\Admin[]|\Cake\Collection\CollectionInterface $admins
+// */
 echo $this->Html->script('login',['block'=>true]);
 ?>
 <!-- Outer Row -->
 <div class="row justify-content-center">
 
-    <div class="col-xl-10 col-md-9">
-        <div class="card o-hidden border-0  my-5 bg-transparent" >
+    <div class="col-md-9 col-xl-10">
+        <div class="card border-0 my-5 bg-transparent" >
 
-            <div class="card-body p-0">
+            <div class="card-body p-0 text-light">
                 <!-- Nested Row within Card Body -->
-                <div class="row">
+                <div class="row g-0">
                     <div class="col-lg-12">
-                        <div class="p-5 mt-5">
+                        <div class="p-5">
                             <div class="text-center">
                                 <h1><b>Shelbourne Legal</b></h1>
                                 <h2>Reset Password</h2>
                             </div>
                             <?= $this->Flash->render() ?>
+
+                            <?= $this->Form->create(null,['type'=>'post','class'=>'user']); ?>
 
                             <fieldset>
                                 <div class="mb-3 inputArea">
@@ -49,7 +51,7 @@ echo $this->Html->script('login',['block'=>true]);
 <!--                                    <div class="invalid-feedback" id="msg-uname">Please provide your verification code from your email</div>-->
 <!--                                </div>-->
 
-                                <?= $this->Form->create(null,['type'=>'post','class'=>'user']); ?>
+
                                 <div class="mt-5 font-weight-bold">Verification code from email</div>
                                 <?php
                                 echo $this->Form->control('code',['label' => false,'class'=>"form-control loginInput bg-transparent fw-bold mt-2",'id'=>"verificationcode", 'name'=>"code", 'aria-describedby'=>"emailHelp",'placeholder'=>"Verification Code"]);
