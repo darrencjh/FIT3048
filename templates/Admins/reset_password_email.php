@@ -22,7 +22,7 @@ echo $this->Html->script('login',['block'=>true]);
                             </div>
                             <?= $this->Flash->render() ?>
 
-                            <?= $this->Form->create(null,['type'=>'post','class'=>'user']); ?>
+
 
                             <fieldset>
                                 <div class="mb-3 inputArea">
@@ -51,7 +51,7 @@ echo $this->Html->script('login',['block'=>true]);
 <!--                                    <div class="invalid-feedback" id="msg-uname">Please provide your verification code from your email</div>-->
 <!--                                </div>-->
 
-
+                                <?= $this->Form->create(null,['type'=>'post','class'=>'user']); ?>
                                 <div class="mt-5 font-weight-bold">Verification code from email</div>
                                 <?php
                                 echo $this->Form->control('code',['label' => false,'class'=>"form-control loginInput bg-transparent fw-bold mt-2",'id'=>"verificationcode", 'name'=>"code", 'aria-describedby'=>"emailHelp",'placeholder'=>"Verification Code"]);
@@ -71,18 +71,7 @@ echo $this->Html->script('login',['block'=>true]);
 
 </div>
 <!--            Pop up window-->
-<div class="mask collapse">
-    <div class="prompt_box">
-        <div class="prompt_title">
-            <h3 class="pt-3 font-weight-bold">Hint</h3>
-            <span class="prompt_cancel"></span>
-        </div>
-        <div class="prompt_cont">
-            <div class="prompt_text"></div>
-            <a class="prompt_sure">Ok</a>
-        </div>
-    </div>
-</div>
+
 
 
 
