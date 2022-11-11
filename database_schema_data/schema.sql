@@ -16,6 +16,9 @@ ALTER TABLE `admins`
     ADD UNIQUE KEY `email` (`email`),
     ADD UNIQUE KEY `username` (`username`);
 
+INSERT INTO admins (id, email, username, password) VALUES
+('980145d1-eb0c-485c-a61b-67bf84c2402c', 'leonie@shelbournelegal.com.au', 'leonie', '$2y$10$8qD0OHP/ekIMzY2zVuedH.mHBMlCZOC2Lwj8EoY4Oyd4r0DNGG3DO');
+
 
 CREATE TABLE IF NOT EXISTS `availabilities`
 (
