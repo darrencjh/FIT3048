@@ -185,7 +185,7 @@ class AdminsController extends AppController
                     $mailer
                         ->setEmailFormat('html')
                         ->setTo($email)
-                        ->setFrom("wliu0025@u22s1043.monash-ie.me")
+                        ->setFrom("donotreply@shelbournelegal.com")
                         ->setSubject('Verification Code for reset password')
                         ->viewBuilder()
                         ->disableAutoLayout()

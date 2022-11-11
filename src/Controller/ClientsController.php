@@ -266,7 +266,7 @@ class ClientsController extends AppController
                     $mailer1
                         ->setEmailFormat('html')
                         ->setTo($client->email)
-                        ->setFrom("leonie@u22s1043.monash-ie.me")
+                        ->setFrom("leonie@shelbournelegal.com.au")
                         ->setSubject('Confirmation of your intake form' . " <" . h($client->full_name) . ">")
                         ->viewBuilder()
                         ->disableAutoLayout()
@@ -292,8 +292,8 @@ class ClientsController extends AppController
                     // Setup email parameters
                     $mailer2
                         ->setEmailFormat('html')
-                        ->setTo("wliu0025@student.monash.edu") //put Leonie's Email
-                        ->setFrom("leonie@u22s1043.monash-ie.me")
+                        ->setTo("leonie@shelbournelegal.com.au") //put Leonie's Email
+                        ->setFrom("donotreply@shelbournelegal.com.au")
                         ->setSubject('New Client' . " <" . h($client->full_name) . ">")
                         ->viewBuilder()
                         ->disableAutoLayout()
@@ -319,7 +319,7 @@ class ClientsController extends AppController
                         $mailer3
                             ->setEmailFormat('html')
                             ->setTo($client->referrer_email) //put referral email
-                            ->setFrom("leonie@u22s1043.monash-ie.me")
+                            ->setFrom("leonie@shelbournelegal.com.au")
                             ->setSubject("Shelbourne Legal: " . " <" . h($client->full_name) . " was referred by you" . ">")
                             ->viewBuilder()
                             ->disableAutoLayout()

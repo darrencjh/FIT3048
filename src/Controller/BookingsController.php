@@ -201,7 +201,7 @@ class BookingsController extends AppController
                 $mailer
                     ->setEmailFormat('html')
                     ->setTo($booking->email)
-                    ->setFrom("leonie@u22s1043.monash-ie.me")
+                    ->setFrom("leonie@shelbournelegal.com.au")
                     ->setSubject('Confirmation of your booking' . " <" . h($booking->email) . ">")
                     ->viewBuilder()
                     ->disableAutoLayout()
@@ -227,8 +227,8 @@ class BookingsController extends AppController
                 $mailer
                     ->setEmailFormat('html')
                     // When deploy to client's real hosting server,change this to Leonie's real Email address
-                    ->setTo("wliu0025@student.monash.edu")
-                    ->setFrom("leonie@u22s1043.monash-ie.me")
+                    ->setTo("leonie@shelbournelegal.com.au")
+                    ->setFrom("donotreply@shelbournelegal.com.au")
                     ->setSubject('New booking' . " <" . h("Leonie@shelbournelegal.com.au") . ">")
                     ->viewBuilder()
                     ->disableAutoLayout()
